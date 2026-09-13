@@ -2,228 +2,1516 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=142e81bf-10a7-40d4-8fcf-268e34aa27b8
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+
 <meta name="hosting-provider" content="Netlify">
 <meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=142e81bf-10a7-40d4-8fcf-268e34aa27b8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Civil Line Ganesh Puja Samiti — a family united by faith, devotion and togetherness in Deoghar.">
 <title>Civil Line Ganesh Puja Samiti</title>
+
 <style>
-:root{--maroon:#8e1424;--red:#c51f32;--gold:#d6a83f;--cream:#fff8e9;--ink:#241714;--white:#fff;--green:#355d32}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
-a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
-header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(255,248,233,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(142,20,36,.15)}
-.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--maroon)}
-.logo-img{width:50px;height:50px;object-fit:contain;border-radius:50%;mix-blend-mode:multiply}.brand small{display:block;color:#72504b;font-size:10px;letter-spacing:1px}nav{display:flex;gap:20px;font-size:14px;font-weight:700}nav a:hover{color:var(--red)}.menu{display:none;border:0;background:none;font-size:28px;color:var(--maroon)}
-.hero{min-height:100vh;padding:125px 0 65px;display:grid;place-items:center;background:radial-gradient(circle at 80% 25%,rgba(214,168,63,.20),transparent 28%),radial-gradient(circle at 15% 80%,rgba(197,31,50,.10),transparent 30%),linear-gradient(135deg,#fffaf0,#fff1d0);overflow:hidden;position:relative}
-.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(214,168,63,.35);border-radius:50%}.hero:before{width:520px;height:520px;right:-180px;top:90px}.hero:after{width:300px;height:300px;left:-130px;bottom:-100px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;z-index:1}.kicker{color:var(--red);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px}h1{font-size:clamp(40px,6vw,72px);line-height:1.02;margin:15px 0;color:var(--maroon)}.hero p{font-size:18px;max-width:620px;color:#684c46}
-.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;font-weight:800;border:2px solid var(--maroon)}.btn.primary{background:var(--maroon);color:#fff}.btn.secondary{color:var(--maroon);background:#fff}
-.hero-photo{width:min(470px,90vw);margin:auto;border-radius:30px;padding:10px;background:#fff;box-shadow:0 25px 60px rgba(79,25,15,.18);border:2px solid rgba(214,168,63,.55)}.hero-photo img{display:block;width:100%;border-radius:22px}
-section{padding:82px 0}.section-head{text-align:center;margin-bottom:38px}.section-head .kicker{margin-bottom:8px}h2{font-size:clamp(30px,4vw,46px);color:var(--maroon);line-height:1.1}
-.photo-highlight{background:#fff8e9}.banner-card{max-width:1100px;margin:auto;padding:10px;background:#fff;border:1px solid rgba(214,168,63,.4);border-radius:24px;box-shadow:0 14px 35px rgba(80,30,10,.08);overflow:hidden}.banner-card img{display:block;width:100%;height:auto;border-radius:17px}
-.slideshow{position:relative;width:100%;border-radius:17px;overflow:hidden;aspect-ratio:1536/1024;background:#f5ecda}
-.slides-wrapper{position:relative;width:100%;height:100%}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s ease-in-out,visibility .8s;display:flex;align-items:center;justify-content:center}
-.slide.active{opacity:1;visibility:visible}
-.slide img{width:100%;height:100%;object-fit:cover;border-radius:17px;display:block}
-.slideshow-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px;z-index:5;pointer-events:none}
-.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.6);border:1px solid rgba(142,20,36,.4);box-shadow:0 2px 4px rgba(0,0,0,.25);transition:all .3s ease}
-.dot.active{width:22px;border-radius:999px;background:var(--maroon);border-color:#fff}
-.events-section{background:#fff}.event-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.event-card{background:var(--cream);border:1px solid rgba(142,20,36,.12);border-radius:22px;overflow:hidden;box-shadow:0 12px 35px rgba(80,30,10,.06);display:flex;flex-direction:column}.event-card .event-top{padding:22px 20px 10px}.event-date{color:var(--maroon);font-weight:800;font-size:15px}.event-time{font-weight:700;color:#72504b;font-size:14px;margin-top:4px}.event-card h3{color:var(--maroon);font-size:21px;margin:8px 0}.event-card p{font-size:14px;color:#624b46}.event-link{margin:0 20px 20px;margin-top:auto;display:inline-block;text-align:center;padding:10px;border-radius:999px;background:var(--maroon);color:#fff;font-weight:800;font-size:13px}
-.about{background:#fff8e9}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.about-copy{font-size:17px;color:#604943}.about-box{min-height:330px;border-radius:28px;background:linear-gradient(145deg,var(--maroon),#55101a);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:center}.about-box h3{font-size:32px;margin-bottom:12px}
-.committee{background:#fff}.committee-toggle{max-width:760px;margin:auto;border:1px solid rgba(142,20,36,.14);border-radius:22px;background:var(--cream);box-shadow:0 10px 28px rgba(80,30,10,.06);overflow:hidden}.committee-toggle summary{list-style:none;cursor:pointer;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--maroon);font-size:20px;font-weight:800}.committee-toggle summary::-webkit-details-marker{display:none}.committee-toggle summary:after{content:'+';font-size:30px;line-height:1;color:var(--gold)}.committee-toggle[open] summary:after{content:'−'}.committee-toggle summary:hover{background:#fff5df}.member-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 22px 24px}.member{background:#fff;border:1px solid rgba(142,20,36,.10);border-radius:14px;padding:16px;text-align:center}.member-avatar{width:58px;height:58px;border-radius:50%;margin:0 auto 9px;background:linear-gradient(145deg,#f4ddb0,#fff);border:2px solid var(--gold);display:grid;place-items:center;color:var(--maroon);font-size:21px;font-weight:900}.member h3{color:var(--maroon);font-size:16px}.member p{font-size:12px;color:#72504b;margin-top:2px}
-.gallery{background:#fff8e9}.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gallery-item{aspect-ratio:1;border-radius:18px;background:linear-gradient(145deg,#f2dca9,#fff);display:grid;place-items:center;color:#9a6f21;font-weight:700;border:1px solid rgba(214,168,63,.35);text-align:center;padding:10px}
-.donation{background:linear-gradient(135deg,#8e1424,#54101a);color:#fff}.donation h2,.donation .kicker{color:#fff}.donation .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;max-width:800px;margin:auto}.donation .card{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.18);border-radius:22px;padding:28px}.donation .card h3{color:#ffd978;margin:10px 0}.icon{font-size:34px;color:var(--gold)}.qr-wrap{text-align:center}.qr{width:min(280px,100%);margin:12px auto 0;background:#fff;padding:10px;border-radius:14px}.qr img{display:block;width:100%;border-radius:8px}.qr-caption{font-size:13px;opacity:.85;margin-top:10px}
-.contact{background:#fff}.location-card{max-width:650px;margin:auto;text-align:center}.location-card .icon{margin-bottom:8px}.location-card h3{color:var(--maroon);font-size:22px}.location-card p{margin-top:8px;color:#624b46}
-footer{background:#2c1715;color:#fff;padding:35px 0;text-align:center}footer p{opacity:.75;font-size:13px;margin-top:5px}
-@media(max-width:900px){nav{gap:12px}.event-grid{grid-template-columns:repeat(2,1fr)}.member-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(255,248,233,.98);border:1px solid rgba(142,20,36,.15);border-top:0;box-shadow:0 12px 24px rgba(79,25,15,.12)}nav.open{display:flex}nav a{padding:14px 20px;border-top:1px solid rgba(142,20,36,.10)}.menu{display:grid;place-items:center;min-width:44px;min-height:44px;cursor:pointer}.hero-grid,.about-grid,.donation .grid{grid-template-columns:1fr}.hero{text-align:center;padding-top:110px}.hero p{margin:auto}.buttons{justify-content:center}.event-grid,.member-grid{grid-template-columns:1fr 1fr}section{padding:68px 0}.brand div:last-child{font-size:13px}.brand small{font-size:8px}.logo-img{width:44px;height:44px}}
-@media(max-width:470px){.event-grid,.member-grid{grid-template-columns:1fr}.hero-photo{width:min(360px,92vw)}}
+:root{
+  --maroon:#8e1424;
+  --red:#c51f32;
+  --gold:#d6a83f;
+  --cream:#fff8e9;
+  --ink:#241714;
+  --white:#fff;
+  --green:#355d32
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:84px
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6
+}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:20;
+  background:rgba(255,248,233,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(142,20,36,.15)
+}
+
+.nav{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  position:relative
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  color:var(--maroon)
+}
+
+.logo-img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+  border-radius:50%;
+  mix-blend-mode:multiply
+}
+
+.brand small{
+  display:block;
+  color:#72504b;
+  font-size:10px;
+  letter-spacing:1px
+}
+
+nav{
+  display:flex;
+  gap:20px;
+  font-size:14px;
+  font-weight:700
+}
+
+nav a:hover{
+  color:var(--red)
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:none;
+  font-size:28px;
+  color:var(--maroon)
+}
+
+.hero{
+  min-height:100vh;
+  padding:125px 0 65px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 80% 25%,rgba(214,168,63,.20),transparent 28%),
+    radial-gradient(circle at 15% 80%,rgba(197,31,50,.10),transparent 30%),
+    linear-gradient(135deg,#fffaf0,#fff1d0);
+  overflow:hidden;
+  position:relative
+}
+
+.hero:before,
+.hero:after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(214,168,63,.35);
+  border-radius:50%
+}
+
+.hero:before{
+  width:520px;
+  height:520px;
+  right:-180px;
+  top:90px
+}
+
+.hero:after{
+  width:300px;
+  height:300px;
+  left:-130px;
+  bottom:-100px
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  position:relative;
+  z-index:1
+}
+
+.kicker{
+  color:var(--red);
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:13px
+}
+
+h1{
+  font-size:clamp(40px,6vw,72px);
+  line-height:1.02;
+  margin:15px 0;
+  color:var(--maroon)
+}
+
+.hero p{
+  font-size:18px;
+  max-width:620px;
+  color:#684c46
+}
+
+.buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 21px;
+  border-radius:999px;
+  font-weight:800;
+  border:2px solid var(--maroon)
+}
+
+.btn.primary{
+  background:var(--maroon);
+  color:#fff
+}
+
+.btn.secondary{
+  color:var(--maroon);
+  background:#fff
+}
+
+.hero-photo{
+  width:min(470px,90vw);
+  margin:auto;
+  border-radius:30px;
+  padding:10px;
+  background:#fff;
+  box-shadow:0 25px 60px rgba(79,25,15,.18);
+  border:2px solid rgba(214,168,63,.55)
+}
+
+.hero-photo img{
+  display:block;
+  width:100%;
+  border-radius:22px
+}
+
+section{
+  padding:82px 0
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:38px
+}
+
+.section-head .kicker{
+  margin-bottom:8px
+}
+
+h2{
+  font-size:clamp(30px,4vw,46px);
+  color:var(--maroon);
+  line-height:1.1
+}
+
+/* ============================= */
+/* COMMITTEE NAME HIGHLIGHT */
+/* ============================= */
+
+.photo-highlight{
+  background:#fff8e9
+}
+
+.banner-card{
+  max-width:1100px;
+  margin:auto;
+  padding:10px;
+  background:#fff;
+  border:1px solid rgba(214,168,63,.4);
+  border-radius:24px;
+  box-shadow:0 14px 35px rgba(80,30,10,.08);
+  overflow:hidden
+}
+
+.committee-highlight{
+  position:relative;
+  width:100%;
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:17px;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(214,168,63,.22),transparent 35%),
+    linear-gradient(145deg,#fffaf0,#fff1d0)
+}
+
+.committee-highlight-inner{
+  width:100%;
+  text-align:center;
+  padding:35px 20px
+}
+
+.committee-highlight-label{
+  color:var(--red);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:15px
+}
+
+.committee-name{
+  color:var(--maroon);
+  font-size:clamp(28px,5vw,48px);
+  font-weight:900;
+  line-height:1.1;
+  min-height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:scale(.75) translateY(20px)
+}
+
+.committee-name.show{
+  animation:committeePop 2.8s ease-in-out forwards
+}
+
+@keyframes committeePop{
+  0%{
+    opacity:0;
+    transform:scale(.75) translateY(20px)
+  }
+
+  15%{
+    opacity:1;
+    transform:scale(1.08) translateY(0)
+  }
+
+  25%{
+    opacity:1;
+    transform:scale(1) translateY(0)
+  }
+
+  75%{
+    opacity:1;
+    transform:scale(1) translateY(0)
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(.92) translateY(-15px)
+  }
+}
+
+.committee-highlight-line{
+  width:70px;
+  height:3px;
+  margin:18px auto 0;
+  background:var(--gold);
+  border-radius:999px
+}
+
+/* ============================= */
+/* EVENTS */
+/* ============================= */
+
+.events-section{
+  background:#fff
+}
+
+.event-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px
+}
+
+.event-card{
+  background:var(--cream);
+  border:1px solid rgba(142,20,36,.12);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(80,30,10,.06);
+  display:flex;
+  flex-direction:column
+}
+
+.event-card .event-top{
+  padding:22px 20px 10px
+}
+
+.event-date{
+  color:var(--maroon);
+  font-weight:800;
+  font-size:15px
+}
+
+.event-time{
+  font-weight:700;
+  color:#72504b;
+  font-size:14px;
+  margin-top:4px
+}
+
+.event-card h3{
+  color:var(--maroon);
+  font-size:21px;
+  margin:8px 0
+}
+
+.event-card p{
+  font-size:14px;
+  color:#624b46
+}
+
+.event-link{
+  margin:0 20px 20px;
+  margin-top:auto;
+  display:inline-block;
+  text-align:center;
+  padding:10px;
+  border-radius:999px;
+  background:var(--maroon);
+  color:#fff;
+  font-weight:800;
+  font-size:13px
+}
+
+/* ============================= */
+/* ABOUT */
+/* ============================= */
+
+.about{
+  background:#fff8e9
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center
+}
+
+.about-copy{
+  font-size:17px;
+  color:#604943
+}
+
+.about-box{
+  min-height:330px;
+  border-radius:28px;
+  background:linear-gradient(145deg,var(--maroon),#55101a);
+  color:#fff;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center
+}
+
+.about-box h3{
+  font-size:32px;
+  margin-bottom:12px
+}
+
+/* ============================= */
+/* COMMITTEE */
+/* ============================= */
+
+.committee{
+  background:#fff
+}
+
+.committee-toggle{
+  max-width:760px;
+  margin:auto;
+  border:1px solid rgba(142,20,36,.14);
+  border-radius:22px;
+  background:var(--cream);
+  box-shadow:0 10px 28px rgba(80,30,10,.06);
+  overflow:hidden
+}
+
+.committee-toggle summary{
+  list-style:none;
+  cursor:pointer;
+  padding:24px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  color:var(--maroon);
+  font-size:20px;
+  font-weight:800
+}
+
+.committee-toggle summary::-webkit-details-marker{
+  display:none
+}
+
+.committee-toggle summary:after{
+  content:'+';
+  font-size:30px;
+  line-height:1;
+  color:var(--gold)
+}
+
+.committee-toggle[open] summary:after{
+  content:'−'
+}
+
+.committee-toggle summary:hover{
+  background:#fff5df
+}
+
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  padding:0 22px 24px
+}
+
+.member{
+  background:#fff;
+  border:1px solid rgba(142,20,36,.10);
+  border-radius:14px;
+  padding:16px;
+  text-align:center
+}
+
+.member-avatar{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  margin:0 auto 9px;
+  background:linear-gradient(145deg,#f4ddb0,#fff);
+  border:2px solid var(--gold);
+  display:grid;
+  place-items:center;
+  color:var(--maroon);
+  font-size:21px;
+  font-weight:900
+}
+
+.member h3{
+  color:var(--maroon);
+  font-size:16px
+}
+
+.member p{
+  font-size:12px;
+  color:#72504b;
+  margin-top:2px
+}
+
+/* ============================= */
+/* GALLERY */
+/* ============================= */
+
+.gallery{
+  background:#fff8e9
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px
+}
+
+.gallery-item{
+  aspect-ratio:1;
+  border-radius:18px;
+  background:linear-gradient(145deg,#f2dca9,#fff);
+  display:grid;
+  place-items:center;
+  color:#9a6f21;
+  font-weight:700;
+  border:1px solid rgba(214,168,63,.35);
+  text-align:center;
+  padding:10px
+}
+
+/* ============================= */
+/* DONATION */
+/* ============================= */
+
+.donation{
+  background:linear-gradient(135deg,#8e1424,#54101a);
+  color:#fff
+}
+
+.donation h2,
+.donation .kicker{
+  color:#fff
+}
+
+.donation .grid{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:22px;
+  max-width:800px;
+  margin:auto
+}
+
+.donation .card{
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  border-radius:22px;
+  padding:28px
+}
+
+.donation .card h3{
+  color:#ffd978;
+  margin:10px 0
+}
+
+.icon{
+  font-size:34px;
+  color:var(--gold)
+}
+
+.qr-wrap{
+  text-align:center
+}
+
+.qr{
+  width:min(280px,100%);
+  margin:12px auto 0;
+  background:#fff;
+  padding:10px;
+  border-radius:14px
+}
+
+.qr img{
+  display:block;
+  width:100%;
+  border-radius:8px
+}
+
+.qr-caption{
+  font-size:13px;
+  opacity:.85;
+  margin-top:10px
+}
+
+/* ============================= */
+/* LOCATION + FOOTER */
+/* ============================= */
+
+.contact{
+  background:#fff
+}
+
+.location-card{
+  max-width:650px;
+  margin:auto;
+  text-align:center
+}
+
+.location-card .icon{
+  margin-bottom:8px
+}
+
+.location-card h3{
+  color:var(--maroon);
+  font-size:22px
+}
+
+.location-card p{
+  margin-top:8px;
+  color:#624b46
+}
+
+footer{
+  background:#2c1715;
+  color:#fff;
+  padding:35px 0;
+  text-align:center
+}
+
+footer p{
+  opacity:.75;
+  font-size:13px;
+  margin-top:5px
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:900px){
+
+  nav{
+    gap:12px
+  }
+
+  .event-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .member-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+}
+
+@media(max-width:700px){
+
+  nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(255,248,233,.98);
+    border:1px solid rgba(142,20,36,.15);
+    border-top:0;
+    box-shadow:0 12px 24px rgba(79,25,15,.12)
+  }
+
+  nav.open{
+    display:flex
+  }
+
+  nav a{
+    padding:14px 20px;
+    border-top:1px solid rgba(142,20,36,.10)
+  }
+
+  .menu{
+    display:grid;
+    place-items:center;
+    min-width:44px;
+    min-height:44px;
+    cursor:pointer
+  }
+
+  .hero-grid,
+  .about-grid,
+  .donation .grid{
+    grid-template-columns:1fr
+  }
+
+  .hero{
+    text-align:center;
+    padding-top:110px
+  }
+
+  .hero p{
+    margin:auto
+  }
+
+  .buttons{
+    justify-content:center
+  }
+
+  .event-grid,
+  .member-grid{
+    grid-template-columns:1fr 1fr
+  }
+
+  section{
+    padding:68px 0
+  }
+
+  .brand div:last-child{
+    font-size:13px
+  }
+
+  .brand small{
+    font-size:8px
+  }
+
+  .logo-img{
+    width:44px;
+    height:44px
+  }
+}
+
+@media(max-width:470px){
+
+  .event-grid,
+  .member-grid{
+    grid-template-columns:1fr
+  }
+
+  .hero-photo{
+    width:min(360px,92vw)
+  }
+
+  .committee-highlight{
+    min-height:230px
+  }
+
+  .committee-name{
+    font-size:30px
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="container nav">
+
     <a class="brand" href="#home">
-      <img class="logo-img" src="assets/civil-line-logo.png" alt="Civil Line Ganesh Puja Samiti logo">
-      <div><div>CIVIL LINE</div><small>GANESH PUJA SAMITI</small></div>
+      <img class="logo-img" src="assets/civil-line-logo.jpg" alt="Civil Line Ganesh Puja Samiti logo">
+
+      <div>
+        <div>CIVIL LINE</div>
+        <small>GANESH PUJA SAMITI</small>
+      </div>
     </a>
+
     <nav id="primary-navigation">
-      <a href="#events">Events</a><a href="#highlights">Photos</a><a href="#about">About</a><a href="#committee">Committee</a><a href="#gallery">Gallery</a><a href="#donate">Donate</a><a href="#contact">Location</a>
+      <a href="#events">Events</a>
+      <a href="#highlights">Photos</a>
+      <a href="#about">About</a>
+      <a href="#committee">Committee</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Location</a>
     </nav>
-    <button class="menu" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+
+    <button
+      class="menu"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="primary-navigation"
+      aria-expanded="false">
+      ☰
+    </button>
+
   </div>
 </header>
 
 <main>
+
+<!-- ============================= -->
+<!-- HERO -->
+<!-- ============================= -->
+
 <section class="hero" id="home">
+
   <div class="container hero-grid">
+
     <div>
-      <div class="kicker">Ganpati Bappa Morya</div>
-      <h1>Civil Line<br>Ganesh Puja Samiti</h1>
-      <p>We are not just a committee; we are a family, united by faith, devotion and the spirit of togetherness.</p>
-      <div class="buttons"><a class="btn primary" href="#events">View Puja Events</a><a class="btn secondary" href="#donate">Support the Puja</a></div>
+
+      <div class="kicker">
+        Ganpati Bappa Morya
+      </div>
+
+      <h1>
+        Civil Line<br>
+        Ganesh Puja Samiti
+      </h1>
+
+      <p>
+        We are not just a committee; we are a family, united by faith, devotion and the spirit of togetherness.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="#events">
+          View Puja Events
+        </a>
+
+        <a class="btn secondary" href="#donate">
+          Support the Puja
+        </a>
+      </div>
+
     </div>
-    <div class="hero-photo"><img src="assets/ganesh-hero.jpg" alt="Ganesh Puja Samiti Ganesh Ji emblem"></div>
+
+    <div class="hero-photo">
+      <img
+        src="assets/ganesh-hero.jpg"
+        alt="Ganesh Puja Samiti Ganesh Ji emblem">
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- COMMITTEE HIGHLIGHT -->
+<!-- ============================= -->
 
 <section class="photo-highlight" id="highlights">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Photo Highlight</div><h2>Ganesh Puja 2026</h2></div>
-    <div class="banner-card">
-      <div class="slideshow" aria-label="Ganesh Puja photo slideshow" role="region">
-        <div class="slides-wrapper">
-          <div class="slide active">
-            <img src="assets/puja-banner.jpg" alt="Civil Line Ganesh Puja Samiti Ganesh Puja 2026 banner">
-          </div>
-          <div class="slide">
-            <img src="assets/IMG-20260830-WA0037.jpg" alt="Civil Line Ganesh Puja Samiti highlight photo 1">
-          </div>
-          <div class="slide">
-            <img src="assets/IMG-20260906-WA0041.jpg" alt="Civil Line Ganesh Puja Samiti highlight photo 2">
-          </div>
-          <div class="slide">
-            <img src="assets/IMG-20260906-WA0042.jpg" alt="Civil Line Ganesh Puja Samiti highlight photo 3">
-          </div>
-          <div class="slide">
-            <img src="assets/IMG-20260907-WA0045.jpg" alt="Civil Line Ganesh Puja Samiti highlight photo 4">
-          </div>
-          <div class="slide">
-            <img src="assets/IMG-20260907-WA0046.jpg" alt="Civil Line Ganesh Puja Samiti highlight photo 5">
-          </div>
-        </div>
-        <div class="slideshow-dots" aria-hidden="true">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Committee Highlight
       </div>
+
+      <h2>
+        Our Family
+      </h2>
+
     </div>
+
+    <div class="banner-card">
+
+      <div
+        class="committee-highlight"
+        aria-label="Committee members highlight">
+
+        <div class="committee-highlight-inner">
+
+          <div class="committee-highlight-label">
+            Committee Member
+          </div>
+
+          <div
+            id="committee-name-highlight"
+            class="committee-name">
+            Devjeet Kumar
+          </div>
+
+          <div class="committee-highlight-line"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- EVENTS -->
+<!-- ============================= -->
 
 <section class="events-section" id="events">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Puja Highlights</div><h2>Events & Programs</h2></div>
-    <div class="event-grid">
-      <article class="event-card"><div class="event-top"><div class="event-date">14 September 2026 · Monday</div><h3>Ganesh Puja</h3><p>Bhagwan Ganesh ki vidhivat puja evam aarti.</p></div><a class="event-link" href="#gallery">View Gallery</a></article>
-      <article class="event-card"><div class="event-top"><div class="event-date">14 September 2026 · Monday</div><div class="event-time">6:00 PM – 10:00 PM</div><h3>Bhajan</h3><p>Bhakti sangeet ke saath Ganesh ji ke bhakt.</p></div><a class="event-link" href="#gallery">View Gallery</a></article>
-      <article class="event-card"><div class="event-top"><div class="event-date">15 September 2026 · Tuesday</div><div class="event-time">From 6:00 PM</div><h3>Drawing Competition</h3><p>Aaiye, apni rachnatmakta se Ganesh Ji ka roop sajayein.</p></div><a class="event-link" href="#gallery">View Gallery</a></article>
-      <article class="event-card"><div class="event-top"><div class="event-date">16 September 2026 · Wednesday</div><h3>Visarjan</h3><p>Bappa ko shraddha aur bhakti ke saath vida karein.</p></div><a class="event-link" href="#gallery">View Gallery</a></article>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Puja Highlights
+      </div>
+
+      <h2>
+        Events & Programs
+      </h2>
+
     </div>
+
+    <div class="event-grid">
+
+      <article class="event-card">
+
+        <div class="event-top">
+
+          <div class="event-date">
+            14 September 2026 · Monday
+          </div>
+
+          <h3>
+            Ganesh Puja
+          </h3>
+
+          <p>
+            Bhagwan Ganesh ki vidhivat puja evam aarti.
+          </p>
+
+        </div>
+
+        <a class="event-link" href="#gallery">
+          View Gallery
+        </a>
+
+      </article>
+
+      <article class="event-card">
+
+        <div class="event-top">
+
+          <div class="event-date">
+            14 September 2026 · Monday
+          </div>
+
+          <div class="event-time">
+            6:00 PM – 10:00 PM
+          </div>
+
+          <h3>
+            Bhajan
+          </h3>
+
+          <p>
+            Bhakti sangeet ke saath Ganesh ji ke bhakt.
+          </p>
+
+        </div>
+
+        <a class="event-link" href="#gallery">
+          View Gallery
+        </a>
+
+      </article>
+
+      <article class="event-card">
+
+        <div class="event-top">
+
+          <div class="event-date">
+            15 September 2026 · Tuesday
+          </div>
+
+          <div class="event-time">
+            From 6:00 PM
+          </div>
+
+          <h3>
+            Drawing Competition
+          </h3>
+
+          <p>
+            Aaiye, apni rachnatmakta se Ganesh Ji ka roop sajayein.
+          </p>
+
+        </div>
+
+        <a class="event-link" href="#gallery">
+          View Gallery
+        </a>
+
+      </article>
+
+      <article class="event-card">
+
+        <div class="event-top">
+
+          <div class="event-date">
+            16 September 2026 · Wednesday
+          </div>
+
+          <h3>
+            Visarjan
+          </h3>
+
+          <p>
+            Bappa ko shraddha aur bhakti ke saath vida karein.
+          </p>
+
+        </div>
+
+        <a class="event-link" href="#gallery">
+          View Gallery
+        </a>
+
+      </article>
+
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- ABOUT -->
+<!-- ============================= -->
 
 <section class="about" id="about">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Our Samiti</div><h2>Faith • Unity • Celebration</h2></div>
-    <div class="about-grid">
-      <div class="about-copy"><p>We are not just a committee; we are a family, united by faith, devotion, and the spirit of togetherness.</p><br><p>Civil Line Ganesh Puja Samiti brings our community together to celebrate Ganesh Puja with devotion, joy and harmony.</p></div>
-      <div class="about-box"><h3>Ganpati Bappa Morya</h3><p>May Lord Ganesha bless our family and community with wisdom, prosperity, happiness and unity.</p></div>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Our Samiti
+      </div>
+
+      <h2>
+        Faith • Unity • Celebration
+      </h2>
+
     </div>
+
+    <div class="about-grid">
+
+      <div class="about-copy">
+
+        <p>
+          We are not just a committee; we are a family, united by faith, devotion, and the spirit of togetherness.
+        </p>
+
+        <br>
+
+        <p>
+          Civil Line Ganesh Puja Samiti brings our community together to celebrate Ganesh Puja with devotion, joy and harmony.
+        </p>
+
+      </div>
+
+      <div class="about-box">
+
+        <h3>
+          Ganpati Bappa Morya
+        </h3>
+
+        <p>
+          May Lord Ganesha bless our family and community with wisdom, prosperity, happiness and unity.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- COMMITTEE -->
+<!-- ============================= -->
 
 <section class="committee" id="committee">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Our Family</div><h2>Committee Members</h2></div>
-    <details class="committee-toggle">
-      <summary>View Committee Members</summary>
-      <div class="member-grid">
-        <div class="member"><div class="member-avatar">D</div><h3>Devjeet Kumar</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">P</div><h3>Premjeet Kumar</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">A</div><h3>Ayush Khaware</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">A</div><h3>Ankit Kumar</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">S</div><h3>Shivam Barnwal</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">S</div><h3>Shankar Kumar</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">S</div><h3>Sachin Dubey</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">S</div><h3>Shubham Dubey</h3><p>Committee Member</p></div>
-        <div class="member"><div class="member-avatar">S</div><h3>Shashank Kumar</h3><p>Committee Member</p></div>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Our Family
       </div>
+
+      <h2>
+        Committee Members
+      </h2>
+
+    </div>
+
+    <details class="committee-toggle">
+
+      <summary>
+        View Committee Members
+      </summary>
+
+      <div class="member-grid">
+
+        <div class="member">
+          <div class="member-avatar">D</div>
+          <h3>Devjeet Kumar</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">P</div>
+          <h3>Premjeet Kumar</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">A</div>
+          <h3>Ayush Khaware</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">A</div>
+          <h3>Ankit Kumar</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">S</div>
+          <h3>Shivam Barnwal</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">S</div>
+          <h3>Shankar Kumar</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">S</div>
+          <h3>Sachin Dubey</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">S</div>
+          <h3>Shubham Dubey</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">S</div>
+          <h3>Shashank Kumar</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">D</div>
+          <h3>Devesh Gautam</h3>
+          <p>Committee Member</p>
+        </div>
+
+        <div class="member">
+          <div class="member-avatar">M</div>
+          <h3>Madhav</h3>
+          <p>Committee Member</p>
+        </div>
+
+      </div>
+
     </details>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- GALLERY -->
+<!-- ============================= -->
 
 <section class="gallery" id="gallery">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Memories</div><h2>Our Gallery</h2></div>
-    <div class="gallery-grid">
-      <div class="gallery-item">Puja Photos<br><small>Coming soon</small></div><div class="gallery-item">Ganesh Ji<br><small>Coming soon</small></div><div class="gallery-item">Cultural Events<br><small>Coming soon</small></div><div class="gallery-item">Visarjan<br><small>Coming soon</small></div>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Memories
+      </div>
+
+      <h2>
+        Our Gallery
+      </h2>
+
     </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        Puja Photos<br>
+        <small>Coming soon</small>
+      </div>
+
+      <div class="gallery-item">
+        Ganesh Ji<br>
+        <small>Coming soon</small>
+      </div>
+
+      <div class="gallery-item">
+        Cultural Events<br>
+        <small>Coming soon</small>
+      </div>
+
+      <div class="gallery-item">
+        Visarjan<br>
+        <small>Coming soon</small>
+      </div>
+
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- DONATION -->
+<!-- ============================= -->
 
 <section class="donation" id="donate">
+
   <div class="container">
-    <div class="section-head"><div class="kicker">Support the Celebration</div><h2>Make a Contribution</h2></div>
-    <div class="donation grid">
-      <div class="card"><div class="icon">₹</div><h3>Support the Puja</h3><p>Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.</p></div>
-      <div class="card qr-wrap"><div class="icon">▣</div><h3>Scan & Pay with PhonePe</h3><div class="qr"><img src="assets/phonepe-qr.jpg" alt="PhonePe donation QR code for Premjeet Kumar"></div><div class="qr-caption">QR payment account: Premjeet Kumar</div></div>
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Support the Celebration
+      </div>
+
+      <h2>
+        Make a Contribution
+      </h2>
+
     </div>
+
+    <div class="donation grid">
+
+      <div class="card">
+
+        <div class="icon">
+          ₹
+        </div>
+
+        <h3>
+          Support the Puja
+        </h3>
+
+        <p>
+          Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.
+        </p>
+
+      </div>
+
+      <div class="card qr-wrap">
+
+        <div class="icon">
+          ▣
+        </div>
+
+        <h3>
+          Scan & Pay with PhonePe
+        </h3>
+
+        <div class="qr">
+
+          <img
+            src="assets/phonepe-qr.jpg"
+            alt="PhonePe donation QR code for Premjeet Kumar">
+
+        </div>
+
+        <div class="qr-caption">
+          QR payment account: Premjeet Kumar
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
+
+<!-- ============================= -->
+<!-- LOCATION -->
+<!-- ============================= -->
 
 <section class="contact" id="contact">
-  <div class="container"><div class="section-head"><div class="kicker">Find Us</div><h2>Our Location</h2></div><div class="card location-card"><div class="icon">⌖</div><h3>Civil Line, Nandan Pahad Road</h3><p>Deoghar</p></div></div>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div class="kicker">
+        Find Us
+      </div>
+
+      <h2>
+        Our Location
+      </h2>
+
+    </div>
+
+    <div class="card location-card">
+
+      <div class="icon">
+        ⌖
+      </div>
+
+      <h3>
+        Civil Line, Nandan Pahad Road
+      </h3>
+
+      <p>
+        Deoghar
+      </p>
+
+    </div>
+
+  </div>
+
 </section>
+
 </main>
-<footer><div class="container"><strong>CIVIL LINE GANESH PUJA SAMITI</strong><p>© 2026 Civil Line Ganesh Puja Samiti. All rights reserved.</p></div></footer>
+
+<!-- ============================= -->
+<!-- FOOTER -->
+<!-- ============================= -->
+
+<footer>
+
+  <div class="container">
+
+    <strong>
+      CIVIL LINE GANESH PUJA SAMITI
+    </strong>
+
+    <p>
+      © 2026 Civil Line Ganesh Puja Samiti. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
 <script>
-const menuButton=document.querySelector('.menu');
-const primaryNavigation=document.querySelector('#primary-navigation');
+
+/* ============================= */
+/* MOBILE MENU */
+/* ============================= */
+
+const menuButton = document.querySelector('.menu');
+const primaryNavigation = document.querySelector('#primary-navigation');
 
 function closeMenu(){
+
   primaryNavigation.classList.remove('open');
-  menuButton.setAttribute('aria-expanded','false');
-  menuButton.setAttribute('aria-label','Open navigation menu');
+
+  menuButton.setAttribute(
+    'aria-expanded',
+    'false'
+  );
+
+  menuButton.setAttribute(
+    'aria-label',
+    'Open navigation menu'
+  );
+
 }
 
 menuButton.addEventListener('click',()=>{
-  const isOpen=primaryNavigation.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded',String(isOpen));
-  menuButton.setAttribute('aria-label',isOpen?'Close navigation menu':'Open navigation menu');
+
+  const isOpen =
+    primaryNavigation.classList.toggle('open');
+
+  menuButton.setAttribute(
+    'aria-expanded',
+    String(isOpen)
+  );
+
+  menuButton.setAttribute(
+    'aria-label',
+    isOpen
+      ? 'Close navigation menu'
+      : 'Open navigation menu'
+  );
+
 });
 
 primaryNavigation.addEventListener('click',event=>{
-  if(event.target.closest('a')) closeMenu();
+
+  if(event.target.closest('a')){
+    closeMenu();
+  }
+
 });
 
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape') closeMenu();
+
+  if(event.key === 'Escape'){
+    closeMenu();
+  }
+
 });
 
 window.addEventListener('resize',()=>{
-  if(window.innerWidth>700) closeMenu();
-});
 
-(function initBannerSlideshow(){
-  const slides = document.querySelectorAll('.slideshow .slide');
-  const dots = document.querySelectorAll('.slideshow .dot');
-  if (!slides.length) return;
-  let currentSlide = 0;
-  const totalSlides = slides.length;
-
-  function showSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
-    currentSlide = (index + totalSlides) % totalSlides;
-    slides[currentSlide].classList.add('active');
-    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+  if(window.innerWidth > 700){
+    closeMenu();
   }
 
-  setInterval(() => {
-    showSlide(currentSlide + 1);
-  }, 4000);
+});
+
+
+/* ============================= */
+/* COMMITTEE NAME LOOP */
+/* ============================= */
+
+(function initCommitteeHighlight(){
+
+  const nameElement =
+    document.getElementById(
+      'committee-name-highlight'
+    );
+
+  if(!nameElement) return;
+
+  const committeeMembers = [
+
+    'Devjeet Kumar',
+    'Premjeet Kumar',
+    'Ayush Khaware',
+    'Ankit Kumar',
+    'Shivam Barnwal',
+    'Shankar Kumar',
+    'Sachin Dubey',
+    'Shubham Dubey',
+    'Shashank Kumar',
+    'Devesh Gautam',
+    'Madhav'
+
+  ];
+
+  let currentMember = 0;
+
+  function showNextMember(){
+
+    nameElement.classList.remove('show');
+
+    setTimeout(()=>{
+
+      nameElement.textContent =
+        committeeMembers[currentMember];
+
+      nameElement.classList.add('show');
+
+      currentMember++;
+
+      if(currentMember >= committeeMembers.length){
+
+        currentMember = 0;
+
+      }
+
+    },100);
+
+  }
+
+  showNextMember();
+
+  setInterval(
+    showNextMember,
+    3000
+  );
+
 })();
+
 </script>
+
 </body>
 </html>
