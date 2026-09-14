@@ -255,11 +255,9 @@ h2{
   box-shadow:0 14px 35px rgba(80,30,10,.08);
   overflow:hidden
 }
-
-.highlight-slideshow{
+ .highlight-slideshow{
   position:relative;
   width:100%;
-  height:360px;
   overflow:hidden;
   border-radius:17px;
   background:#fffaf0;
@@ -267,11 +265,9 @@ h2{
 
 .highlight-slideshow img{
   width:100%;
-  height:100%;
+  height:auto;
   display:block;
-  object-fit:cover;
-  opacity:1;
-  transition:opacity .7s ease;
+  object-fit:contain;
 }
 
 .highlight-slideshow img.fade{
