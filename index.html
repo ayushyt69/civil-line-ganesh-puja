@@ -504,17 +504,22 @@ h2{
 }
 
 .member-avatar{
-  width:58px;
-  height:58px;
+  width:78px;
+  height:78px;
   border-radius:50%;
-  margin:0 auto 9px;
+  margin:0 auto 12px;
   background:linear-gradient(145deg,#f4ddb0,#fff);
   border:2px solid var(--gold);
+  overflow:hidden;
   display:grid;
   place-items:center;
-  color:var(--maroon);
-  font-size:21px;
-  font-weight:900
+}
+
+.member-avatar img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
 }
 
 .member h3{
