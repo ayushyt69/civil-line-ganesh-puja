@@ -256,7 +256,33 @@ h2{
   overflow:hidden
 }
 
-.committee-highlight{
+.highlight-slideshow{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+  border-radius:17px;
+  background:#fffaf0;
+}
+
+.highlight-slideshow img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  opacity:1;
+  transition:opacity .7s ease;
+}
+
+.highlight-slideshow img.fade{
+  opacity:0;
+}
+
+@media (max-width:700px){
+  .highlight-slideshow{
+    height:240px;
+  }
+}
   position:relative;
   width:100%;
   min-height:260px;
@@ -873,6 +899,23 @@ footer p{
 <!-- ============================= -->
 
 <section class="photo-highlight" id="highlights">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Committee Highlight</div>
+      <h2>Our Family</h2>
+    </div>
+
+    <div class="banner-card">
+      <div class="highlight-slideshow">
+        <img
+          id="highlight-slide"
+          src="assets/IMG-20260914-WA0197.jpg"
+          alt="Civil Line Ganesh Puja Samiti"
+        >
+      </div>
+    </div>
+  </div>
+</section>
 
   <div class="container">
 
@@ -1467,62 +1510,41 @@ window.addEventListener('resize',()=>{
 /* COMMITTEE NAME LOOP */
 /* ============================= */
 
-(function initCommitteeHighlight(){
+(function initHighlightSlideshow(){
 
-  const nameElement =
-    document.getElementById(
-      'committee-name-highlight'
-    );
+  const slide =
+    document.getElementById('highlight-slide');
 
-  if(!nameElement) return;
+  if(!slide) return;
 
-  const committeeMembers = [
-
-    'Devjeet Kumar',
-    'Premjeet Kumar',
-    'Ayush Khaware',
-    'Ankit Kumar',
-    'Shivam Barnwal',
-    'Shankar Kumar',
-    'Sachin Dubey',
-    'Shubham Dubey',
-    'Shashank Kumar',
-    'Devesh Gautam',
-    'Madhav'
-
+  const highlightImages = [
+    'assets/IMG-20260914-WA0197.jpg'
   ];
 
-  let currentMember = 0;
+  let currentSlide = 0;
 
-  function showNextMember(){
+  function showNextSlide(){
 
-    nameElement.classList.remove('show');
+    slide.classList.add('fade');
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-      nameElement.textContent =
-        committeeMembers[currentMember];
+      currentSlide++;
 
-      nameElement.classList.add('show');
-
-      currentMember++;
-
-      if(currentMember >= committeeMembers.length){
-
-        currentMember = 0;
-
+      if(currentSlide >= highlightImages.length){
+        currentSlide = 0;
       }
 
-    },100);
+      slide.src = highlightImages[currentSlide];
 
+      slide.onload = () => {
+        slide.classList.remove('fade');
+      };
+
+    }, 700);
   }
 
-  showNextMember();
-
-  setInterval(
-    showNextMember,
-    3000
-  );
+  setInterval(showNextSlide, 4000);
 
 })();
 
