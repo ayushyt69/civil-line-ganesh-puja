@@ -1491,43 +1491,6 @@ window.addEventListener('resize',()=>{
 /* COMMITTEE NAME LOOP */
 /* ============================= */
 
-(function initHighlightSlideshow(){
-
-  const slide =
-    document.getElementById('highlight-slide');
-
-  if(!slide) return;
-
-  const highlightImages = [
-    'assets/IMG-20260914-WA0197.jpg'
-  ];
-
-  let currentSlide = 0;
-
-  function showNextSlide(){
-
-    slide.classList.add('fade');
-
-    setTimeout(() => {
-
-      currentSlide++;
-
-      if(currentSlide >= highlightImages.length){
-        currentSlide = 0;
-      }
-
-      slide.src = highlightImages[currentSlide];
-
-      slide.onload = () => {
-        slide.classList.remove('fade');
-      };
-
-    }, 700);
-  }
-
-  setInterval(showNextSlide, 4000);
-
-})();
 
 </script>
 
