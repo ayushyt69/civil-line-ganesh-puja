@@ -1421,18 +1421,46 @@ footer p{
       </div>
     </div>
 
-<div style="text-align:center; margin-bottom:15px;">
-  <a href="developer.html" style="color:#b8860b; text-decoration:none; font-weight:bold;">
+    <style>
+@keyframes developerGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(240,180,41,0);
+  }
+
+  50% {
+    box-shadow: 0 0 14px rgba(240,180,41,0.25);
+  }
+}
+</style>
+    
+<div style="text-align:center; margin:30px 0 10px;">
+  <a
+    href="developer.html"
+    style="
+      display:inline-block;
+      color:#f0b429;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:20px;
+      padding:12px 24px;
+      border:1px solid #f0b429;
+      border-radius:10px;
+      transition:all 0.3s ease;
+      animation:developerGlow 2.5s ease-in-out infinite;
+    "
+    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 18px rgba(240,180,41,0.35)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+  >
     About the Developer
   </a>
 </div>
 
 <p style="margin-top:40px;">
-  Created with ❤️ by Ayush Khaware
+  
 </p>
     
     <p style="margin-top:40px;">
-      Created with ❤️ by Ayush Khaware
+      
     </p>
 
     <p>
