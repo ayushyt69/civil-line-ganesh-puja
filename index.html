@@ -1507,7 +1507,37 @@ window.addEventListener('resize',()=>{
 
 </script>
 
+<script>
+  const highlightImages = [
+    "assets/FULLMEMBERSIMAGEFRONT.JPG",
+    "assets/IMG-20260914-WA0197.jpg",
+    "assets/1789394530869.jpg",
+    "assets/gallery/1789393853394.jpg"
+  ];
 
+  let highlightIndex = 0;
+
+  const highlightSlide =
+    document.getElementById("highlight-slide");
+
+  setInterval(() => {
+
+    highlightSlide.classList.add("fade");
+
+    setTimeout(() => {
+
+      highlightIndex =
+        (highlightIndex + 1) % highlightImages.length;
+
+      highlightSlide.src =
+        highlightImages[highlightIndex];
+
+      highlightSlide.classList.remove("fade");
+
+    }, 600);
+
+  }, 4000);
+</script>
   
 </body>
 </html>
