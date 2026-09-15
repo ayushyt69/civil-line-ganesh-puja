@@ -1220,33 +1220,18 @@ footer p{
       </div>
 
       <h2>
-        Our Gallery
+        2026 Ganesh Puja — Event Gallery
       </h2>
+
+      <p style="margin-top:10px; color:#666;">
+        Moments from our Ganesh Puja celebrations
+      </p>
 
     </div>
 
-    <div class="gallery-grid">
-
-      <div class="gallery-item">
-        Puja Photos<br>
-        <small>Coming soon</small>
-      </div>
-
-      <div class="gallery-item">
-        Ganesh Ji<br>
-        <small>Coming soon</small>
-      </div>
-
-      <div class="gallery-item">
-        Cultural Events<br>
-        <small>Coming soon</small>
-      </div>
-
-      <div class="gallery-item">
-        Visarjan<br>
-        <small>Coming soon</small>
-      </div>
-
+    <div
+      id="event-gallery"
+      class="gallery-grid">
     </div>
 
   </div>
@@ -1517,5 +1502,20 @@ window.addEventListener('resize',()=>{
 
 </script>
 
+<script>
+  const gallery = document.getElementById("event-gallery");
+
+  const img = document.createElement("img");
+
+  img.src = "assets/gallery/1789393853394.jpg";
+  img.alt = "2026 Ganesh Puja event photo";
+
+  img.style.width = "100%";
+  img.style.borderRadius = "14px";
+  img.style.display = "block";
+
+  gallery.appendChild(img);
+</script>
+  
 </body>
 </html>
