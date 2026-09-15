@@ -50,6 +50,18 @@
       transform: scale(1.02);
     }
 
+    .loading {
+      text-align: center;
+      color: #666;
+      margin: 40px 0;
+    }
+
+    .error {
+      text-align: center;
+      color: #c62828;
+      margin: 40px 0;
+    }
+
     .back-button {
       display: block;
       width: fit-content;
@@ -74,7 +86,9 @@
       Memories from our Ganesh Puja celebrations
     </p>
 
-    <div id="event-gallery" class="gallery-grid"></div>
+    <div id="event-gallery" class="gallery-grid">
+      <p class="loading">Loading photos...</p>
+    </div>
 
     <a href="index.html" class="back-button">
       Back to Home
@@ -85,18 +99,63 @@
   <script>
     const gallery = document.getElementById("event-gallery");
 
-    const photos = [
-      "1789393853394.jpg"
-    ];
+    // Automatically detect your GitHub username
+    // from the GitHub Pages website address.
+    const githubUsername = window.location.hostname.split(".")[0];
 
-    photos.forEach(photo => {
-      const img = document.createElement("img");
+    const repoName = "civil-line-ganesh-puja";
 
-      img.src = "assets/gallery/" + photo;
-      img.alt = "2026 Ganesh Puja event photo";
+    const apiUrl =
+      `https://api.github.com/repos/${githubUsername}/${repoName}/contents/assets/gallery`;
 
-      gallery.appendChild(img);
-    });
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Could not load gallery photos.");
+        }
+
+        return response.json();
+      })
+
+      .then(files => {
+
+        gallery.innerHTML = "";
+
+        const imageFiles = files.filter(file =>
+          file.type === "file" &&
+          /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
+        );
+
+        if (imageFiles.length === 0) {
+          gallery.innerHTML =
+            '<p class="loading">No photos uploaded yet.</p>';
+          return;
+        }
+
+        imageFiles.forEach(file => {
+
+          const img = document.createElement("img");
+
+          img.src = file.download_url;
+
+          img.alt = "2026 Ganesh Puja event photo";
+
+          img.loading = "lazy";
+
+          img.decoding = "async";
+
+          gallery.appendChild(img);
+        });
+      })
+
+      .catch(error => {
+
+        console.error(error);
+
+        gallery.innerHTML =
+          '<p class="error">Unable to load photos. Please try again later.</p>';
+
+      });
   </script>
 
 </body>
