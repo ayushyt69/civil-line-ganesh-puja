@@ -816,6 +816,15 @@ footer p{
     font-size:30px
   }
 }
+/* Reduce desktop-site spacing on touch-screen phones */
+@media (hover: none) and (pointer: coarse) and (min-width: 701px) {
+  .hero {
+    min-height: auto !important;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+  }
+}
+
 </style>
 </head>
 
