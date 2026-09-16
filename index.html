@@ -879,12 +879,35 @@ footer p{
       </div>
 
     </div>
+<div class="hero-photo" style="position:relative;">
 
-    <div class="hero-photo">
-      <img
-        src="assets/ganesh-hero.jpg"
-        alt="Ganesh Puja Samiti Ganesh Ji emblem">
-    </div>
+  <img
+    src="assets/ganesh-hero.jpg"
+    alt="Ganesh Puja Samiti Ganesh Ji emblem">
+
+  <button
+    type="button"
+    onclick="shareWebsite()"
+    style="
+      position:absolute;
+      top:15px;
+      right:15px;
+      padding:9px 14px;
+      border:none;
+      border-radius:20px;
+      background:rgba(255,255,255,0.92);
+      color:#b8860b;
+      font-weight:bold;
+      font-size:14px;
+      cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      backdrop-filter:blur(4px);
+    "
+  >
+    ↗ Share
+  </button>
+
+</div>
 
   </div>
 
@@ -1606,6 +1629,23 @@ window.addEventListener('resize',()=>{
     }, 600);
 
   }, 4000);
+</script>
+
+<script>
+function shareWebsite() {
+  const shareData = {
+    title: "Civil Line Ganesh Puja Samiti",
+    text: "Visit the Civil Line Ganesh Puja Samiti website.",
+    url: "https://ayushyt69.github.io/civil-line-ganesh-puja/"
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData);
+  } else {
+    navigator.clipboard.writeText(shareData.url);
+    alert("Website link copied!");
+  }
+}
 </script>
   
 </body>
