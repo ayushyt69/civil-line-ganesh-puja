@@ -852,31 +852,46 @@ footer p{
     transform:translateY(-6px);
   }
 }
-  /* Latest Updates Ribbon */
+/* Latest Updates Ribbon */
 .latest-update-ribbon{
-  display:block !important;
   width:100%;
   box-sizing:border-box;
+  overflow:hidden;
   background:#fff3cd;
   border-bottom:1px solid #f0d98c;
   color:#5f4b00;
-  padding:10px 20px;
+  padding:8px 0;
   text-align:center;
-  font-size:14px;
+  font-size:13px;
   line-height:1.5;
-    position:relative;
+  position:relative;
   z-index:999;
 }
 
-.latest-update-ribbon strong{
+.latest-update-track{
+  display:inline-block;
+  white-space:nowrap;
+  animation:latestUpdateMove 12s ease-in-out infinite alternate;
+}
+
+.latest-update-track strong{
   font-weight:700;
   margin-right:6px;
 }
 
+@keyframes latestUpdateMove{
+  0%{
+    transform:translateX(-100%);
+  }
+  100%{
+    transform:translateX(100%);
+  }
+}
+
 @media (max-width:700px){
   .latest-update-ribbon{
-    padding:9px 12px;
-    font-size:12px;
+    padding:7px 0;
+    font-size:11px;
   }
 }
 </style>
@@ -924,10 +939,12 @@ footer p{
 <!-- ============================= -->
 
 <div class="latest-update-ribbon">
-  <strong>🔔 LATEST UPDATE</strong>
-  2026 Ganesh Puja concluded successfully. Thank you to everyone for your support and participation.
+  <div class="latest-update-track">
+    <strong>🔔 LATEST UPDATE</strong>
+    2026 Ganesh Puja concluded successfully. Thank you to everyone for your support and participation.
+  </div>
 </div>
-  
+
 <section class="hero" id="home">
 
   <div class="container hero-grid">
