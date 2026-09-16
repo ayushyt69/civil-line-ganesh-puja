@@ -1722,6 +1722,169 @@ window.addEventListener('resize',()=>{
 
   }, 4000);
 </script>
+
+
+
+
+
+  
+
+<!-- HOME PAGE NOTIFICATION POPUP -->
+<style>
+  .site-notification-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(3px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:9999;
+  }
+
+  .site-notification{
+    position:relative;
+    width:100%;
+    max-width:430px;
+    background:#fffaf0;
+    border:2px solid #d62828;
+    border-radius:20px;
+    padding:30px 25px 25px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    animation:notificationPop .35s ease-out;
+  }
+
+  .site-notification h2{
+    margin:0 0 12px;
+    color:#8e1424;
+    font-size:25px;
+  }
+
+  .site-notification p{
+    margin:8px 0;
+    color:#444;
+    line-height:1.6;
+    font-size:16px;
+  }
+
+  .notification-close{
+    position:absolute;
+    top:10px;
+    right:12px;
+    width:36px;
+    height:36px;
+    border:0;
+    border-radius:50%;
+    background:transparent;
+    color:#555;
+    font-size:25px;
+    cursor:pointer;
+  }
+
+  .notification-close:hover{
+    background:#f3e5d0;
+  }
+
+  .notification-button{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 24px;
+    background:#d62828;
+    color:white;
+    text-decoration:none;
+    border-radius:9px;
+    font-weight:700;
+    cursor:pointer;
+    border:0;
+    font-size:15px;
+  }
+
+  @keyframes notificationPop{
+    from{
+      opacity:0;
+      transform:scale(.9);
+    }
+    to{
+      opacity:1;
+      transform:scale(1);
+    }
+  }
+
+  @media(max-width:500px){
+    .site-notification{
+      padding:28px 20px 22px;
+    }
+
+    .site-notification h2{
+      font-size:22px;
+    }
+
+    .site-notification p{
+      font-size:15px;
+    }
+  }
+</style>
+
+<div class="site-notification-overlay" id="site-notification-overlay">
+  <div class="site-notification">
+
+    <button
+      class="notification-close"
+      id="notification-close"
+      aria-label="Close notification">
+      ×
+    </button>
+
+    <h2>🔔 Latest Update</h2>
+
+    <p>
+      <strong>Ganesh Puja 2026</strong>
+    </p>
+
+    <p>
+      Visarjan will take place on
+      <strong>16 September 2026</strong>.
+    </p>
+
+    <p>
+      Civil Line, Nandan Pahad Road, Deoghar
+    </p>
+
+    <button
+      class="notification-button"
+      id="notification-ok">
+      Got it
+    </button>
+
+  </div>
+</div>
+
+<script>
+  const notificationOverlay =
+    document.getElementById("site-notification-overlay");
+
+  const notificationClose =
+    document.getElementById("notification-close");
+
+  const notificationOk =
+    document.getElementById("notification-ok");
+
+  function closeNotification() {
+    notificationOverlay.style.display = "none";
+  }
+
+  notificationClose.addEventListener("click", closeNotification);
+  notificationOk.addEventListener("click", closeNotification);
+
+  notificationOverlay.addEventListener("click", function(event) {
+    if (event.target === notificationOverlay) {
+      closeNotification();
+    }
+  });
+</script>
+
   
 </body>
 </html>
