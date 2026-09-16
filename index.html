@@ -270,6 +270,15 @@ h2{
   object-fit:contain;
 }
 
+.highlight-slideshow img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  opacity:1;
+  transition:opacity 0.6s ease-in-out;
+}
+
 .highlight-slideshow img.fade{
   opacity:0;
 }
@@ -1694,17 +1703,50 @@ window.addEventListener('resize',()=>{
 </script>
 
 <script>
-  const highlightImages = [
-    "assets/FULLMEMBERSIMAGEFRONT.JPG",
-    "assets/img-20260906-wa0042.jpg",
-  ];
+  const highlightImages = [];
+  fetch("https://api.github.com/repos/ayushyt69/civil-line-ganesh-puja/contents/assets/gallery")
+  .then(response => response.json())
+  .then(files => {
+    const galleryImages = files
+      .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file.name))
+      .map(file => file.download_url);
 
+    highlightImages.push(...galleryImages.sort(() => Math.random() - 0.5));
+  });
+
+ <script>
+  const highlightImages = [];
+
+  const highlightSlide = document.getElementById("highlight-slide");
   let highlightIndex = 0;
 
-  const highlightSlide =
-    document.getElementById("highlight-slide");
+  fetch("https://api.github.com/repos/ayushyt69/civil-line-ganesh-puja/contents/assets/gallery")
+    .then(response => response.json())
+    .then(files => {
+      const galleryImages = files
+        .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file.name))
+        .map(file => file.download_url);
 
-  setInterval(() => {
+      highlightImages.push(
+        ...galleryImages.sort(() => Math.random() - 0.5)
+      );
+
+      if (highlightImages.length > 1) {
+        setInterval(() => {
+          highlightSlide.classList.add("fade");
+
+          setTimeout(() => {
+            highlightIndex =
+              (highlightIndex + 1) % highlightImages.length;
+
+            highlightSlide.src = highlightImages[highlightIndex];
+            highlightSlide.classList.remove("fade");
+          }, 600);
+
+        }, 2000);
+      }
+    });
+</script>
 
     highlightSlide.classList.add("fade");
 
@@ -1720,7 +1762,7 @@ window.addEventListener('resize',()=>{
 
     }, 600);
 
-  }, 4000);
+  }, 2000);
 </script>
 
 
