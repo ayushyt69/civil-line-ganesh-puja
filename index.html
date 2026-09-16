@@ -824,7 +824,34 @@ footer p{
     padding-bottom: 70px !important;
   }
 }
+.donation-ganesh-wrap{
+  display:none;
+}
 
+@media (min-width:701px){
+  .donation-ganesh-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:20px;
+  }
+
+  .donation-ganesh{
+    width:160px;
+    height:160px;
+    object-fit:contain;
+    animation:donationGaneshFloat 3.5s ease-in-out infinite;
+  }
+}
+
+@keyframes donationGaneshFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-6px);
+  }
+}
 </style>
   
 <body>
