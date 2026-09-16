@@ -90,6 +90,94 @@
       <p class="loading">Loading photos...</p>
     </div>
 
+<div
+  id="lightbox"
+  style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  "
+>
+  <button
+    id="lightbox-close"
+    style="
+      position:absolute;
+      top:18px;
+      right:22px;
+      background:none;
+      border:none;
+      color:white;
+      font-size:36px;
+      cursor:pointer;
+      z-index:10001;
+    "
+    aria-label="Close"
+  >
+    ×
+  </button>
+
+  <button
+    id="lightbox-prev"
+    style="
+      position:absolute;
+      left:15px;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:white;
+      font-size:34px;
+      width:50px;
+      height:60px;
+      border-radius:10px;
+      cursor:pointer;
+      z-index:10001;
+    "
+    aria-label="Previous photo"
+  >
+    ‹
+  </button>
+
+  <img
+    id="lightbox-image"
+    src=""
+    alt="Expanded Ganesh Puja event photo"
+    style="
+      max-width:90%;
+      max-height:90%;
+      object-fit:contain;
+      border-radius:12px;
+    "
+  >
+
+  <button
+    id="lightbox-next"
+    style="
+      position:absolute;
+      right:15px;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:white;
+      font-size:34px;
+      width:50px;
+      height:60px;
+      border-radius:10px;
+      cursor:pointer;
+      z-index:10001;
+    "
+    aria-label="Next photo"
+  >
+    ›
+  </button>
+</div>
+    
     <a href="index.html" class="back-button">
       Back to Home
     </a>
@@ -99,6 +187,81 @@
   <script>
     const gallery = document.getElementById("event-gallery");
 
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxClose = document.getElementById("lightbox-close");
+const lightboxPrev = document.getElementById("lightbox-prev");
+const lightboxNext = document.getElementById("lightbox-next");
+
+let currentPhotoIndex = 0;
+let galleryImages = [];
+
+function openLightbox(index) {
+  galleryImages = Array.from(
+    document.querySelectorAll("#event-gallery img")
+  );
+
+  if (!galleryImages.length) return;
+
+  currentPhotoIndex = index;
+  lightboxImage.src = galleryImages[currentPhotoIndex].src;
+  lightbox.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function showPreviousPhoto() {
+  if (!galleryImages.length) return;
+
+  currentPhotoIndex =
+    (currentPhotoIndex - 1 + galleryImages.length) %
+    galleryImages.length;
+
+  lightboxImage.src = galleryImages[currentPhotoIndex].src;
+}
+
+function showNextPhoto() {
+  if (!galleryImages.length) return;
+
+  currentPhotoIndex =
+    (currentPhotoIndex + 1) %
+    galleryImages.length;
+
+  lightboxImage.src = galleryImages[currentPhotoIndex].src;
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxPrev.addEventListener("click", showPreviousPhoto);
+
+lightboxNext.addEventListener("click", showNextPhoto);
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (lightbox.style.display !== "flex") return;
+
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+
+  if (event.key === "ArrowLeft") {
+    showPreviousPhoto();
+  }
+
+  if (event.key === "ArrowRight") {
+    showNextPhoto();
+  }
+});
+    
     // Automatically detect your GitHub username
     // from the GitHub Pages website address.
     const githubUsername = window.location.hostname.split(".")[0];
@@ -132,20 +295,20 @@
           return;
         }
 
-        imageFiles.forEach(file => {
+       imageFiles.forEach((file, index) => {
+  const img = document.createElement("img");
 
-          const img = document.createElement("img");
+  img.src = file.download_url;
+  img.alt = "2026 Ganesh Puja event photo";
+  img.loading = "lazy";
+  img.decoding = "async";
 
-          img.src = file.download_url;
+  img.addEventListener("click", () => {
+    openLightbox(index);
+  });
 
-          img.alt = "2026 Ganesh Puja event photo";
-
-          img.loading = "lazy";
-
-          img.decoding = "async";
-
-          gallery.appendChild(img);
-        });
+  gallery.appendChild(img);
+});
       })
 
       .catch(error => {
