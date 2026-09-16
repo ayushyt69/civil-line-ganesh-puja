@@ -1715,56 +1715,40 @@ window.addEventListener('resize',()=>{
   });
 
  <script>
-  const highlightImages = [];
-
   const highlightSlide = document.getElementById("highlight-slide");
-  let highlightIndex = 0;
 
   fetch("https://api.github.com/repos/ayushyt69/civil-line-ganesh-puja/contents/assets/gallery")
     .then(response => response.json())
     .then(files => {
-      const galleryImages = files
+      const highlightImages = files
         .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file.name))
         .map(file => file.download_url);
 
-      highlightImages.push(
-        ...galleryImages.sort(() => Math.random() - 0.5)
-      );
+      if (highlightImages.length === 0) return;
 
-      if (highlightImages.length > 1) {
-        setInterval(() => {
-          highlightSlide.classList.add("fade");
+      highlightImages.sort(() => Math.random() - 0.5);
 
-          setTimeout(() => {
-            highlightIndex =
-              (highlightIndex + 1) % highlightImages.length;
+      let highlightIndex = 0;
 
-            highlightSlide.src = highlightImages[highlightIndex];
-            highlightSlide.classList.remove("fade");
-          }, 600);
+      highlightSlide.src = highlightImages[highlightIndex];
 
-        }, 2000);
-      }
+      setInterval(() => {
+        highlightSlide.classList.add("fade");
+
+        setTimeout(() => {
+          highlightIndex =
+            (highlightIndex + 1) % highlightImages.length;
+
+          highlightSlide.src = highlightImages[highlightIndex];
+          highlightSlide.classList.remove("fade");
+        }, 600);
+
+      }, 2000);
+    })
+    .catch(error => {
+      console.error("Could not load gallery highlights:", error);
     });
 </script>
-
-    highlightSlide.classList.add("fade");
-
-    setTimeout(() => {
-
-      highlightIndex =
-        (highlightIndex + 1) % highlightImages.length;
-
-      highlightSlide.src =
-        highlightImages[highlightIndex];
-
-      highlightSlide.classList.remove("fade");
-
-    }, 600);
-
-  }, 2000);
-</script>
-
 
 
 
