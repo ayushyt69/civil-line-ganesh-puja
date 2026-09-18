@@ -19,72 +19,354 @@
       justify-content:center;
       padding:20px;
       font-family:Arial,sans-serif;
-      background:#fffaf0;
-      color:#222;
+      color:#fff;
+      overflow:hidden;
+      position:relative;
+
+      background:
+        radial-gradient(circle at 20% 20%,rgba(214,168,63,.22),transparent 25%),
+        radial-gradient(circle at 80% 75%,rgba(197,31,50,.30),transparent 30%),
+        linear-gradient(135deg,#240812,#4b0d1c 50%,#18050d);
     }
+
+    /* ANIMATED BACKGROUND GLOW */
+
+    .glow{
+      position:fixed;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      filter:blur(60px);
+      opacity:.45;
+      pointer-events:none;
+      animation:glowMove 8s ease-in-out infinite alternate;
+    }
+
+    .glow.one{
+      background:#d6a83f;
+      top:-100px;
+      left:-80px;
+    }
+
+    .glow.two{
+      background:#d62828;
+      right:-100px;
+      bottom:-100px;
+      animation-delay:2s;
+    }
+
+    @keyframes glowMove{
+      0%{
+        transform:translate(0,0) scale(1);
+      }
+
+      50%{
+        transform:translate(40px,25px) scale(1.15);
+      }
+
+      100%{
+        transform:translate(-20px,50px) scale(.9);
+      }
+    }
+
+    /* FLOATING PARTICLES */
+
+    .particle{
+      position:fixed;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#f5d77a;
+      opacity:.7;
+      pointer-events:none;
+      animation:particleFloat linear infinite;
+    }
+
+    .p1{
+      left:12%;
+      bottom:-20px;
+      animation-duration:7s;
+    }
+
+    .p2{
+      left:30%;
+      bottom:-30px;
+      animation-duration:9s;
+      animation-delay:2s;
+    }
+
+    .p3{
+      left:68%;
+      bottom:-20px;
+      animation-duration:8s;
+      animation-delay:1s;
+    }
+
+    .p4{
+      left:86%;
+      bottom:-30px;
+      animation-duration:10s;
+      animation-delay:3s;
+    }
+
+    .p5{
+      left:50%;
+      bottom:-20px;
+      animation-duration:11s;
+      animation-delay:4s;
+    }
+
+    @keyframes particleFloat{
+      0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+      }
+
+      15%{
+        opacity:.8;
+      }
+
+      75%{
+        opacity:.6;
+      }
+
+      100%{
+        transform:translateY(-110vh) scale(1.2);
+        opacity:0;
+      }
+    }
+
+    /* MAIN CARD */
 
     .maintenance-card{
       width:100%;
       max-width:600px;
-      padding:45px 30px;
+      padding:48px 30px 30px;
       text-align:center;
-      background:#ffffff;
-      border-radius:22px;
-      border:2px solid #d62828;
-      box-shadow:0 15px 50px rgba(0,0,0,.12);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.13),
+          rgba(255,255,255,.05)
+        );
+
+      border:1px solid rgba(246,213,117,.55);
+      border-radius:28px;
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.15);
+
+      backdrop-filter:blur(18px);
+
+      position:relative;
+      z-index:2;
+
+      animation:cardEnter 1s cubic-bezier(.17,.89,.32,1.28);
+    }
+
+    @keyframes cardEnter{
+      0%{
+        opacity:0;
+        transform:translateY(60px) scale(.78) rotateX(12deg);
+      }
+
+      70%{
+        transform:translateY(-8px) scale(1.02);
+      }
+
+      100%{
+        opacity:1;
+        transform:translateY(0) scale(1) rotateX(0);
+      }
+    }
+
+    /* LOGO AREA */
+
+    .logo-wrap{
+      width:150px;
+      height:150px;
+      margin:0 auto 22px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .logo-ring{
+      position:absolute;
+      inset:4px;
+      border-radius:50%;
+      border:1px solid rgba(246,213,117,.5);
+      animation:ringRotate 8s linear infinite;
+    }
+
+    .logo-ring::before{
+      content:"";
+      position:absolute;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#f6d575;
+      top:-6px;
+      left:50%;
+      transform:translateX(-50%);
+      box-shadow:0 0 18px #f6d575;
+    }
+
+    .logo-ring.two{
+      inset:15px;
+      border-style:dashed;
+      opacity:.45;
+      animation-direction:reverse;
+      animation-duration:12s;
+    }
+
+    @keyframes ringRotate{
+      from{
+        transform:rotate(0deg);
+      }
+
+      to{
+        transform:rotate(360deg);
+      }
     }
 
     .logo{
-      width:110px;
-      height:110px;
+      width:105px;
+      height:105px;
       object-fit:contain;
-      margin-bottom:20px;
+      position:relative;
+      z-index:2;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));
+      animation:logoFloat 3.5s ease-in-out infinite;
     }
 
+    @keyframes logoFloat{
+      0%,100%{
+        transform:translateY(0) scale(1);
+      }
+
+      50%{
+        transform:translateY(-9px) scale(1.035);
+      }
+    }
+
+    /* TEXT */
+
     .tag{
-      color:#b8860b;
+      color:#f6d575;
       font-weight:bold;
-      font-size:14px;
-      letter-spacing:1px;
+      font-size:13px;
+      letter-spacing:3px;
       text-transform:uppercase;
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     h1{
-      margin:0 0 15px;
-      color:#8e1424;
-      font-size:34px;
+      margin:0 0 12px;
+      color:#fff;
+      font-size:36px;
+      line-height:1.15;
+      text-shadow:
+        0 0 18px rgba(246,213,117,.18);
+      animation:textReveal .9s ease-out .35s both;
     }
 
     h2{
       margin:0 0 20px;
+      color:#f6d575;
       font-size:22px;
-      color:#333;
+      animation:textReveal .9s ease-out .5s both;
     }
 
     p{
       margin:10px auto;
       max-width:480px;
       line-height:1.7;
-      color:#666;
+      color:rgba(255,255,255,.78);
       font-size:16px;
+      animation:textReveal .9s ease-out .65s both;
     }
+
+    @keyframes textReveal{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* STATUS */
+
+    .status{
+      margin:26px auto 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      color:rgba(255,255,255,.65);
+      font-size:13px;
+      animation:textReveal .9s ease-out .8s both;
+    }
+
+    .status-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#f6d575;
+      box-shadow:0 0 0 0 rgba(246,213,117,.6);
+      animation:pulse 1.8s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        box-shadow:0 0 0 0 rgba(246,213,117,.6);
+      }
+
+      70%{
+        box-shadow:0 0 0 10px rgba(246,213,117,0);
+      }
+
+      100%{
+        box-shadow:0 0 0 0 rgba(246,213,117,0);
+      }
+    }
+
+    /* DEVELOPER */
 
     .developer{
       margin-top:30px;
       padding-top:20px;
-      border-top:1px solid #eee;
-      color:#555;
-      font-size:14px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:rgba(255,255,255,.55);
+      font-size:13px;
+      animation:textReveal .9s ease-out .9s both;
     }
 
     .developer strong{
-      color:#8e1424;
+      color:#f6d575;
     }
 
     @media(max-width:500px){
+
+      body{
+        padding:15px;
+      }
+
       .maintenance-card{
-        padding:35px 20px;
+        padding:38px 20px 25px;
+        border-radius:24px;
+      }
+
+      .logo-wrap{
+        width:130px;
+        height:130px;
       }
 
       .logo{
@@ -93,11 +375,20 @@
       }
 
       h1{
-        font-size:28px;
+        font-size:29px;
       }
 
       h2{
         font-size:20px;
+      }
+
+      p{
+        font-size:15px;
+      }
+
+      .tag{
+        font-size:11px;
+        letter-spacing:2px;
       }
     }
   </style>
@@ -105,26 +396,51 @@
 
 <body>
 
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+
   <div class="maintenance-card">
 
-    <img
-      src="assets/IMG_20260916_020908.png"
-      alt="Civil Line Ganesh Puja Samiti logo"
-      class="logo"
-    >
+    <div class="logo-wrap">
+
+      <div class="logo-ring"></div>
+      <div class="logo-ring two"></div>
+
+      <img
+        src="assets/IMG_20260916_020908.png"
+        alt="Civil Line Ganesh Puja Samiti logo"
+        class="logo"
+      >
+
+    </div>
 
     <div class="tag">
       Civil Line Ganesh Puja Samiti
     </div>
 
-    <h1>Website Under Maintenance</h1>
+    <h1>
+      Website Under Maintenance
+    </h1>
 
-    <h2>We'll Be Back Soon</h2>
+    <h2>
+      We'll Be Back Soon
+    </h2>
 
     <p>
       Our website is currently being updated and improved.
       Please check back shortly.
     </p>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      <span>Something special is being prepared</span>
+    </div>
 
     <div class="developer">
       Maintained by <strong>Ayush Khaware</strong>
