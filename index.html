@@ -1693,7 +1693,6 @@ window.addEventListener('resize',()=>{
 
 </script>
 
-
 <!-- HOME PAGE NOTIFICATION POPUP -->
 <style>
   .site-notification-overlay{
@@ -1766,6 +1765,13 @@ window.addEventListener('resize',()=>{
     font-size:15px;
   }
 
+  .notification-button.secondary{
+    margin-top:10px;
+    background:#fff;
+    color:#8e1424;
+    border:1px solid #d62828;
+  }
+
   @keyframes notificationPop{
     from{
       opacity:0;
@@ -1804,24 +1810,34 @@ window.addEventListener('resize',()=>{
 
     <h2>🙏 Ganesh Puja 2026</h2>
 
-<p>
-  Ganesh Puja 2026 has successfully concluded.
-</p>
+    <p>
+      Ganesh Puja 2026 has successfully concluded.
+    </p>
 
-<p>
-  Thank you to everyone who joined us and made the celebration special.
-</p>
+    <p>
+      Thank you to everyone who joined us and made the celebration special.
+    </p>
 
-<p>
-  <strong>Relive the memories!</strong><br>
-  You can view photos and memorable moments from the celebrations in our Gallery.
-</p>
+    <p>
+      <strong>Relive the memories!</strong><br>
+      Watch the full 8-minute celebration captured by Devesh Vlogs.
+    </p>
 
-<button
-  class="notification-button"
-  id="notification-ok">
-  Got it
-</button>
+    <a
+      href="https://youtu.be/dyV1NW8xjq4"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="notification-button">
+      ▶ Watch Full Celebration
+    </a>
+
+    <br>
+
+    <button
+      class="notification-button secondary"
+      id="notification-ok">
+      View the Website
+    </button>
 
   </div>
 </div>
