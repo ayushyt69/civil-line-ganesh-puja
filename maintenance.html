@@ -7,8 +7,19 @@
   <title>Website Under Maintenance — Civil Line Ganesh Puja Samiti</title>
 
   <style>
+
+    /* ============================= */
+    /* BASIC RESET */
+    /* ============================= */
+
     *{
       box-sizing:border-box;
+    }
+
+    html,
+    body{
+      width:100%;
+      min-height:100%;
     }
 
     body{
@@ -18,67 +29,105 @@
       align-items:center;
       justify-content:center;
       padding:20px;
+
       font-family:Arial,sans-serif;
       color:#fff;
+
       overflow:hidden;
       position:relative;
 
       background:
-        radial-gradient(circle at 20% 20%,rgba(214,168,63,.22),transparent 25%),
-        radial-gradient(circle at 80% 75%,rgba(197,31,50,.30),transparent 30%),
-        linear-gradient(135deg,#240812,#4b0d1c 50%,#18050d);
+        radial-gradient(
+          circle at 18% 18%,
+          rgba(214,168,63,.30),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(197,31,50,.35),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #240812,
+          #4b0d1c 50%,
+          #18050d
+        );
     }
 
-    /* ANIMATED BACKGROUND GLOW */
+
+    /* ============================= */
+    /* BACKGROUND GLOW */
+    /* ============================= */
 
     .glow{
       position:fixed;
-      width:280px;
-      height:280px;
+
+      width:300px;
+      height:300px;
+
       border-radius:50%;
-      filter:blur(60px);
+
+      filter:blur(65px);
+
       opacity:.45;
+
       pointer-events:none;
-      animation:glowMove 8s ease-in-out infinite alternate;
+
+      animation:glowMove 9s ease-in-out infinite alternate;
     }
 
     .glow.one{
       background:#d6a83f;
-      top:-100px;
-      left:-80px;
+
+      top:-120px;
+      left:-100px;
     }
 
     .glow.two{
       background:#d62828;
-      right:-100px;
-      bottom:-100px;
+
+      right:-120px;
+      bottom:-120px;
+
       animation-delay:2s;
     }
 
     @keyframes glowMove{
+
       0%{
         transform:translate(0,0) scale(1);
       }
 
       50%{
-        transform:translate(40px,25px) scale(1.15);
+        transform:translate(45px,25px) scale(1.15);
       }
 
       100%{
         transform:translate(-20px,50px) scale(.9);
       }
+
     }
 
+
+    /* ============================= */
     /* FLOATING PARTICLES */
+    /* ============================= */
 
     .particle{
       position:fixed;
+
       width:5px;
       height:5px;
+
       border-radius:50%;
-      background:#f5d77a;
+
+      background:#f6d575;
+
       opacity:.7;
+
       pointer-events:none;
+
       animation:particleFloat linear infinite;
     }
 
@@ -117,6 +166,7 @@
     }
 
     @keyframes particleFloat{
+
       0%{
         transform:translateY(0) scale(.5);
         opacity:0;
@@ -134,24 +184,31 @@
         transform:translateY(-110vh) scale(1.2);
         opacity:0;
       }
+
     }
 
-    /* MAIN CARD */
+
+    /* ============================= */
+    /* MAIN MAINTENANCE CARD */
+    /* ============================= */
 
     .maintenance-card{
       width:100%;
       max-width:600px;
+
       padding:48px 30px 30px;
+
       text-align:center;
 
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.13),
+          rgba(255,255,255,.14),
           rgba(255,255,255,.05)
         );
 
-      border:1px solid rgba(246,213,117,.55);
+      border:1px solid rgba(246,213,117,.60);
+
       border-radius:28px;
 
       box-shadow:
@@ -161,69 +218,117 @@
       backdrop-filter:blur(18px);
 
       position:relative;
+
       z-index:2;
 
       animation:cardEnter 1s cubic-bezier(.17,.89,.32,1.28);
     }
 
     @keyframes cardEnter{
+
       0%{
         opacity:0;
-        transform:translateY(60px) scale(.78) rotateX(12deg);
+        transform:
+          translateY(60px)
+          scale(.78)
+          rotateX(12deg);
       }
 
       70%{
-        transform:translateY(-8px) scale(1.02);
+        transform:
+          translateY(-8px)
+          scale(1.02);
       }
 
       100%{
         opacity:1;
-        transform:translateY(0) scale(1) rotateX(0);
+        transform:
+          translateY(0)
+          scale(1)
+          rotateX(0);
       }
+
     }
 
-    /* LOGO AREA */
+
+    /* ============================= */
+    /* LOGO */
+    /* ============================= */
 
     .logo-wrap{
       width:150px;
       height:150px;
+
       margin:0 auto 22px;
+
       position:relative;
+
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
+
+    /* Main rotating circle */
+
     .logo-ring{
       position:absolute;
-      inset:4px;
+
+      width:132px;
+      height:132px;
+
       border-radius:50%;
-      border:1px solid rgba(246,213,117,.5);
-      animation:ringRotate 8s linear infinite;
+
+      border:1px solid rgba(246,213,117,.65);
+
+      animation:ringRotate 9s linear infinite;
+
+      box-shadow:
+        0 0 18px rgba(246,213,117,.10);
     }
+
+
+    /* Small moving point on ring */
 
     .logo-ring::before{
       content:"";
+
       position:absolute;
-      width:12px;
-      height:12px;
+
+      width:11px;
+      height:11px;
+
       border-radius:50%;
+
       background:#f6d575;
+
       top:-6px;
       left:50%;
+
       transform:translateX(-50%);
-      box-shadow:0 0 18px #f6d575;
+
+      box-shadow:
+        0 0 18px #f6d575;
     }
 
-    .logo-ring.two{
-      inset:15px;
-      border-style:dashed;
-      opacity:.45;
-      animation-direction:reverse;
-      animation-duration:12s;
+
+    /* Second subtle circle */
+
+    .logo-ring::after{
+      content:"";
+
+      position:absolute;
+
+      inset:9px;
+
+      border-radius:50%;
+
+      border:1px solid rgba(246,213,117,.18);
     }
+
 
     @keyframes ringRotate{
+
       from{
         transform:rotate(0deg);
       }
@@ -231,66 +336,108 @@
       to{
         transform:rotate(360deg);
       }
+
     }
 
+
+    /* Actual logo */
+
     .logo{
-      width:105px;
-      height:105px;
-      object-fit:contain;
+      width:108px;
+      height:108px;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
       position:relative;
+
       z-index:2;
-      filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));
+
+      background:#fff;
+
+      border:3px solid rgba(246,213,117,.85);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.40),
+        0 0 25px rgba(246,213,117,.15);
+
       animation:logoFloat 3.5s ease-in-out infinite;
     }
 
     @keyframes logoFloat{
-      0%,100%{
+
+      0%,
+      100%{
         transform:translateY(0) scale(1);
       }
 
       50%{
-        transform:translateY(-9px) scale(1.035);
+        transform:translateY(-8px) scale(1.035);
       }
+
     }
 
+
+    /* ============================= */
     /* TEXT */
+    /* ============================= */
 
     .tag{
       color:#f6d575;
+
       font-weight:bold;
+
       font-size:13px;
+
       letter-spacing:3px;
+
       text-transform:uppercase;
+
       margin-bottom:12px;
     }
 
     h1{
       margin:0 0 12px;
+
       color:#fff;
+
       font-size:36px;
+
       line-height:1.15;
+
       text-shadow:
         0 0 18px rgba(246,213,117,.18);
+
       animation:textReveal .9s ease-out .35s both;
     }
 
     h2{
       margin:0 0 20px;
+
       color:#f6d575;
+
       font-size:22px;
+
       animation:textReveal .9s ease-out .5s both;
     }
 
     p{
       margin:10px auto;
+
       max-width:480px;
+
       line-height:1.7;
+
       color:rgba(255,255,255,.78);
+
       font-size:16px;
+
       animation:textReveal .9s ease-out .65s both;
     }
 
     @keyframes textReveal{
+
       from{
         opacity:0;
         transform:translateY(15px);
@@ -300,58 +447,96 @@
         opacity:1;
         transform:translateY(0);
       }
+
     }
 
+
+    /* ============================= */
     /* STATUS */
+    /* ============================= */
 
     .status{
       margin:26px auto 0;
+
       display:flex;
+
       align-items:center;
+
       justify-content:center;
+
       gap:9px;
+
       color:rgba(255,255,255,.65);
+
       font-size:13px;
+
       animation:textReveal .9s ease-out .8s both;
     }
 
     .status-dot{
       width:8px;
       height:8px;
+
       border-radius:50%;
+
       background:#f6d575;
-      box-shadow:0 0 0 0 rgba(246,213,117,.6);
+
+      box-shadow:
+        0 0 0 0 rgba(246,213,117,.6);
+
       animation:pulse 1.8s infinite;
     }
 
     @keyframes pulse{
+
       0%{
-        box-shadow:0 0 0 0 rgba(246,213,117,.6);
+        box-shadow:
+          0 0 0 0
+          rgba(246,213,117,.6);
       }
 
       70%{
-        box-shadow:0 0 0 10px rgba(246,213,117,0);
+        box-shadow:
+          0 0 0 10px
+          rgba(246,213,117,0);
       }
 
       100%{
-        box-shadow:0 0 0 0 rgba(246,213,117,0);
+        box-shadow:
+          0 0 0 0
+          rgba(246,213,117,0);
       }
+
     }
 
+
+    /* ============================= */
     /* DEVELOPER */
+    /* ============================= */
 
     .developer{
       margin-top:30px;
+
       padding-top:20px;
-      border-top:1px solid rgba(255,255,255,.12);
+
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
       color:rgba(255,255,255,.55);
+
       font-size:13px;
+
       animation:textReveal .9s ease-out .9s both;
     }
 
     .developer strong{
       color:#f6d575;
     }
+
+
+    /* ============================= */
+    /* MOBILE */
+    /* ============================= */
 
     @media(max-width:500px){
 
@@ -361,17 +546,25 @@
 
       .maintenance-card{
         padding:38px 20px 25px;
+
         border-radius:24px;
       }
 
       .logo-wrap{
-        width:130px;
-        height:130px;
+        width:135px;
+        height:135px;
+
+        margin-bottom:20px;
+      }
+
+      .logo-ring{
+        width:120px;
+        height:120px;
       }
 
       .logo{
-        width:90px;
-        height:90px;
+        width:94px;
+        height:94px;
       }
 
       h1{
@@ -390,11 +583,19 @@
         font-size:11px;
         letter-spacing:2px;
       }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
+  <!-- ============================= -->
+  <!-- BACKGROUND EFFECTS -->
+  <!-- ============================= -->
 
   <div class="glow one"></div>
   <div class="glow two"></div>
@@ -405,12 +606,21 @@
   <div class="particle p4"></div>
   <div class="particle p5"></div>
 
+
+  <!-- ============================= -->
+  <!-- MAINTENANCE CARD -->
+  <!-- ============================= -->
+
   <div class="maintenance-card">
+
+
+    <!-- ============================= -->
+    <!-- LOGO -->
+    <!-- ============================= -->
 
     <div class="logo-wrap">
 
       <div class="logo-ring"></div>
-      <div class="logo-ring two"></div>
 
       <img
         src="assets/IMG_20260916_020908.png"
@@ -419,6 +629,11 @@
       >
 
     </div>
+
+
+    <!-- ============================= -->
+    <!-- WEBSITE INFORMATION -->
+    <!-- ============================= -->
 
     <div class="tag">
       Civil Line Ganesh Puja Samiti
@@ -437,14 +652,33 @@
       Please check back shortly.
     </p>
 
+
+    <!-- ============================= -->
+    <!-- STATUS -->
+    <!-- ============================= -->
+
     <div class="status">
+
       <span class="status-dot"></span>
-      <span>Something special is being prepared</span>
+
+      <span>
+        Something special is being prepared
+      </span>
+
     </div>
 
+
+    <!-- ============================= -->
+    <!-- DEVELOPER -->
+    <!-- ============================= -->
+
     <div class="developer">
-      Maintained by <strong>Ayush Khaware</strong>
+
+      Maintained by
+      <strong>Ayush Khaware</strong>
+
     </div>
+
 
   </div>
 
