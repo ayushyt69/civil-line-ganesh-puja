@@ -146,16 +146,12 @@ nav a:hover{
 }
 
 .hero-grid{
-  display:flex;
-  flex-direction:column;
-}
-
-.hero-photo{
-  order:1;
-}
-
-.hero-grid > div:first-child{
-  order:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  position:relative;
+  z-index:1
 }
 .kicker{
   color:var(--red);
@@ -712,7 +708,13 @@ footer p{
   .donation .grid{
     grid-template-columns:1fr
   }
+.hero-photo{
+  order:1;
+}
 
+.hero-grid > div:first-child{
+  order:2;
+}
   .hero{
     text-align:center;
     padding-top:110px
