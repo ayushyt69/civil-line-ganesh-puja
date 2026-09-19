@@ -342,64 +342,10 @@ h2{
   background:var(--gold);
   border-radius:999px
 }
-<!-- ============================= -->
-<!-- 2026 HIGHLIGHTS -->
-<!-- ============================= -->
 
-<section class="events-section" id="events">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        2026 Highlights
-      </div>
-
-      <h2>
-        Relive the Celebration
-      </h2>
-
-    </div>
-
-
-    <div class="event-grid">
-
-      <article class="event-card">
-
-        <div class="event-top">
-
-          <div class="event-date">
-            14–16 September 2026
-          </div>
-
-          <h3>
-            Ganesh Puja 2026
-          </h3>
-
-          <p>
-            Explore the events, videos and memories
-            from our 2026 Ganesh Puja celebration.
-          </p>
-
-        </div>
-
-
-        <a
-          class="event-link"
-          href="memory-vault.html">
-
-          View 2026 Highlights →
-
-        </a>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
+  
+  
+  
 /* ============================= */
 /* ABOUT */
 /* ============================= */
@@ -827,20 +773,133 @@ footer p{
   50%{
     transform:translateY(-6px);
   }
-}/* Latest Updates Ribbon */
-  
-.latest-update-ribbon{
-  flex:1;
-  min-width:0;
-  overflow:hidd
-.latest-update-ribbon{
-  flex:1;
-  min-width:0;
-  overflow:hidd
 }
 
 
-</style>
+/* ============================= */
+/* 2026 HIGHLIGHTS CARD */
+/* ============================= */
+
+.events-section#events .event-grid{
+  display:grid;
+  grid-template-columns:minmax(0,760px);
+  justify-content:center;
+}
+
+.events-section#events .event-card{
+  position:relative;
+  width:100%;
+  padding:40px;
+  text-align:center;
+  border-radius:24px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.96),
+    rgba(255,248,233,.96)
+  );
+  border:1px solid rgba(214,168,63,.35);
+  box-shadow:0 18px 45px rgba(80,30,10,.10);
+  overflow:hidden;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.events-section#events .event-card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(
+    90deg,
+    #8e1424,
+    #d6a83f,
+    #8e1424
+  );
+}
+
+.events-section#events .event-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 55px rgba(80,30,10,.16);
+}
+
+.events-section#events .event-top{
+  margin-bottom:28px;
+}
+
+.events-section#events .event-date{
+  color:#a77a1f;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.events-section#events .event-card h3{
+  color:var(--maroon);
+  font-size:clamp(28px,5vw,42px);
+  margin-bottom:14px;
+}
+
+.events-section#events .event-card p{
+  max-width:560px;
+  margin:0 auto;
+  color:#6f6255;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.events-section#events .event-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:linear-gradient(
+    135deg,
+    #8e1424,
+    #b51f35
+  );
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.04em;
+  box-shadow:0 10px 25px rgba(142,20,36,.22);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.events-section#events .event-link:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 32px rgba(142,20,36,.30);
+}
+
+@media(max-width:700px){
+
+  .events-section#events .event-card{
+    padding:30px 20px;
+  }
+
+  .events-section#events .event-card h3{
+    font-size:30px;
+  }
+
+  .events-section#events .event-link{
+    width:100%;
+  }
+
+}  
+  
+  /* Latest Updates Ribbon */
+
+.latest-update-ribbon{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+}
+
 
 </style>
   
