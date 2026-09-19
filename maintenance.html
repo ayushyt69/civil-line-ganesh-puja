@@ -252,7 +252,7 @@
 
 
     /* ============================= */
-    /* LOGO */
+    /* LOGO — STATIONARY */
     /* ============================= */
 
     .logo-wrap{
@@ -269,7 +269,7 @@
     }
 
 
-    /* Main rotating circle */
+    /* Rotating outer ring */
 
     .logo-ring{
       position:absolute;
@@ -288,7 +288,7 @@
     }
 
 
-    /* Small moving point on ring */
+    /* Moving gold point */
 
     .logo-ring::before{
       content:"";
@@ -312,7 +312,7 @@
     }
 
 
-    /* Second subtle circle */
+    /* Inner subtle ring */
 
     .logo-ring::after{
       content:"";
@@ -340,7 +340,9 @@
     }
 
 
-    /* Actual logo */
+    /* ============================= */
+    /* LOGO — COMPLETELY STATIC */
+    /* ============================= */
 
     .logo{
       width:108px;
@@ -362,20 +364,10 @@
         0 8px 25px rgba(0,0,0,.40),
         0 0 25px rgba(246,213,117,.15);
 
-      animation:logoFloat 3.5s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat{
-
-      0%,
-      100%{
-        transform:translateY(0) scale(1);
-      }
-
-      50%{
-        transform:translateY(-8px) scale(1.035);
-      }
-
+      /* IMPORTANT:
+         No animation here.
+         The logo stays fixed in the center.
+      */
     }
 
 
@@ -592,6 +584,7 @@
 
 
 <body>
+
 
   <!-- ============================= -->
   <!-- BACKGROUND EFFECTS -->
