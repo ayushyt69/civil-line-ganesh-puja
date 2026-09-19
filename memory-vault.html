@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Memory Vault — Civil Line Ganesh Puja Samiti</title>
+
+<style>
+
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#05030a;
+  color:#f7e9c7;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+
+/* ============================= */
+/* ATMOSPHERE */
+/* ============================= */
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:20;
+  opacity:.12;
+
+  background-image:
+    radial-gradient(#fff 1px,transparent 1px);
+
+  background-size:4px 4px;
+
+  mix-blend-mode:overlay;
+}
+
+.aurora{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.aurora i{
+  position:absolute;
+
+  border-radius:50%;
+
+  filter:blur(70px);
+
+  opacity:.35;
+
+  animation:
+    float 14s ease-in-out infinite alternate;
+}
+
+.aurora i:nth-child(1){
+  width:45vw;
+  height:45vw;
+
+  background:#8b1e35;
+
+  left:-12vw;
+  top:-15vw;
+}
+
+.aurora i:nth-child(2){
+  width:38vw;
+  height:38vw;
+
+  background:#c9952e;
+
+  right:-12vw;
+  top:18vh;
+
+  animation-delay:-4s;
+}
+
+.aurora i:nth-child(3){
+  width:32vw;
+  height:32vw;
+
+  background:#4d173d;
+
+  left:35vw;
+  bottom:-18vw;
+
+  animation-delay:-8s;
+}
+
+@keyframes float{
+
+  to{
+    transform:
+      translate(5vw,4vh)
+      scale(1.15);
+  }
+
+}
+
+
+/* ============================= */
+/* NAVIGATION */
+/* ============================= */
+
+.nav{
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:10;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 28px;
+
+  border-bottom:
+    1px solid rgba(245,205,117,.12);
+
+  background:
+    rgba(5,3,10,.58);
+
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  font-size:11px;
+
+  letter-spacing:.22em;
+
+  text-transform:uppercase;
+
+  color:#d6ae55;
+}
+
+.back{
+  color:#f7e9c7;
+
+  text-decoration:none;
+
+  font-size:12px;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  transition:.3s;
+}
+
+.back:hover{
+  color:#ffd875;
+}
+
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero{
+  min-height:100vh;
+
+  display:grid;
+  place-items:center;
+
+  text-align:center;
+
+  padding:
+    110px 24px 80px;
+
+  position:relative;
+}
+
+.hero-inner{
+  max-width:900px;
+
+  animation:
+    enter 1.2s ease both;
+}
+
+.eyebrow{
+  font-size:11px;
+
+  letter-spacing:.4em;
+
+  text-transform:uppercase;
+
+  color:#d6ae55;
+
+  margin-bottom:28px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+
+  font-weight:500;
+
+  font-size:
+    clamp(4rem,13vw,10rem);
+
+  line-height:.82;
+
+  letter-spacing:-.07em;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff4d1,
+      #d6ae55 58%,
+      #74491d
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  text-shadow:
+    0 0 55px rgba(214,174,85,.18);
+}
+
+.hero h2{
+  font-size:
+    clamp(14px,2vw,20px);
+
+  font-weight:400;
+
+  letter-spacing:.35em;
+
+  text-transform:uppercase;
+
+  margin-top:30px;
+
+  color:#e7d7b0;
+}
+
+.hero p{
+  max-width:560px;
+
+  margin:
+    28px auto 0;
+
+  color:#a99d8b;
+
+  line-height:1.8;
+
+  font-size:15px;
+}
+
+.enter{
+  display:inline-flex;
+
+  margin-top:45px;
+
+  padding:14px 28px;
+
+  border:
+    1px solid rgba(214,174,85,.55);
+
+  color:#f7e9c7;
+
+  text-decoration:none;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  font-size:11px;
+
+  background:
+    rgba(214,174,85,.05);
+
+  transition:.3s;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.enter:before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,220,130,.18),
+      transparent
+    );
+
+  transform:translateX(-100%);
+
+  transition:.7s;
+}
+
+.enter:hover:before{
+  transform:translateX(100%);
+}
+
+.enter:hover{
+  box-shadow:
+    0 0 35px rgba(214,174,85,.15);
+
+  transform:translateY(-3px);
+}
+
+@keyframes enter{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
+
+}
+
+
+/* ============================= */
+/* ARCHIVE */
+/* ============================= */
+
+.archive{
+  position:relative;
+
+  max-width:1100px;
+
+  margin:auto;
+
+  padding:
+    80px 24px 140px;
+}
+
+.archive-head{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:end;
+
+  border-bottom:
+    1px solid rgba(214,174,85,.22);
+
+  padding-bottom:18px;
+
+  margin-bottom:70px;
+}
+
+.archive-head small{
+  font-size:10px;
+
+  letter-spacing:.2em;
+
+  color:#8d806f;
+}
+
+.archive-head h3{
+  font-family:Georgia,serif;
+
+  font-size:
+    clamp(30px,5vw,55px);
+
+  font-weight:400;
+}
+
+
+/* ============================= */
+/* TIMELINE */
+/* ============================= */
+
+.timeline{
+  position:relative;
+}
+
+.timeline:before{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:0;
+  bottom:0;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      #d6ae55,
+      rgba(214,174,85,.08)
+    );
+
+  transform:translateX(-50%);
+}
+
+.memory{
+  width:50%;
+
+  padding:
+    0 50px 110px;
+
+  position:relative;
+}
+
+.memory:nth-child(odd){
+  text-align:right;
+}
+
+.memory:nth-child(even){
+  margin-left:50%;
+}
+
+.memory:after{
+  content:"";
+
+  position:absolute;
+
+  top:8px;
+
+  width:13px;
+  height:13px;
+
+  border-radius:50%;
+
+  background:#d6ae55;
+
+  box-shadow:
+    0 0 0 6px rgba(214,174,85,.08),
+    0 0 25px rgba(214,174,85,.65);
+}
+
+.memory:nth-child(odd):after{
+  right:-6px;
+}
+
+.memory:nth-child(even):after{
+  left:-6px;
+}
+
+.date{
+  font:
+    700 11px monospace;
+
+  letter-spacing:.2em;
+
+  color:#d6ae55;
+
+  margin-bottom:12px;
+}
+
+.memory h4{
+  font-family:Georgia,serif;
+
+  font-size:32px;
+
+  font-weight:400;
+
+  margin-bottom:12px;
+}
+
+.memory p{
+  color:#9f9585;
+
+  line-height:1.7;
+
+  font-size:14px;
+}
+
+.tag{
+  display:inline-block;
+
+  margin-top:18px;
+
+  padding:6px 10px;
+
+  border:
+    1px solid rgba(214,174,85,.25);
+
+  font-size:9px;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  color:#c9b88e;
+}
+
+
+/* ============================= */
+/* WATCH VIDEO BUTTON */
+/* ============================= */
+
+.watch-video{
+  display:inline-block;
+
+  margin-top:18px;
+
+  padding:9px 15px;
+
+  border:
+    1px solid rgba(214,174,85,.45);
+
+  border-radius:999px;
+
+  background:
+    rgba(214,174,85,.06);
+
+  color:#d6ae55;
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  transition:.3s ease;
+}
+
+.watch-video:hover{
+  color:#fff4d1;
+
+  background:
+    rgba(214,174,85,.15);
+
+  border-color:#d6ae55;
+
+  box-shadow:
+    0 0 25px rgba(214,174,85,.18);
+
+  transform:translateY(-2px);
+}
+
+
+/* ============================= */
+/* FINAL ARCHIVE SEAL */
+/* ============================= */
+
+.final{
+  min-height:70vh;
+
+  display:grid;
+
+  place-items:center;
+
+  text-align:center;
+
+  padding:80px 24px;
+
+  border-top:
+    1px solid rgba(214,174,85,.12);
+}
+
+.seal{
+  width:150px;
+  height:150px;
+
+  border:
+    1px solid rgba(214,174,85,.6);
+
+  border-radius:50%;
+
+  display:grid;
+
+  place-items:center;
+
+  margin:
+    0 auto 30px;
+
+  position:relative;
+
+  animation:
+    spin 22s linear infinite;
+}
+
+.seal:before,
+.seal:after{
+  content:"";
+
+  position:absolute;
+
+  border:
+    1px solid rgba(214,174,85,.22);
+
+  border-radius:50%;
+}
+
+.seal:before{
+  inset:10px;
+}
+
+.seal:after{
+  inset:-10px;
+}
+
+.seal span{
+  font-family:Georgia,serif;
+
+  font-size:38px;
+
+  animation:
+    counter 22s linear infinite;
+}
+
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+@keyframes counter{
+
+  to{
+    transform:rotate(-360deg);
+  }
+
+}
+
+.final h3{
+  font-family:Georgia,serif;
+
+  font-size:
+    clamp(35px,6vw,70px);
+
+  font-weight:400;
+}
+
+.final p{
+  color:#938979;
+
+  margin-top:15px;
+
+  line-height:1.7;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.footer{
+  padding:25px;
+
+  text-align:center;
+
+  color:#665e52;
+
+  font:10px monospace;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media(max-width:700px){
+
+  .nav{
+    padding:16px 18px;
+  }
+
+  .brand{
+    font-size:9px;
+  }
+
+  .back{
+    font-size:10px;
+  }
+
+  .timeline:before{
+    left:12px;
+  }
+
+  .memory,
+  .memory:nth-child(even){
+
+    width:100%;
+
+    margin-left:0;
+
+    padding:
+      0
+      0
+      75px
+      42px;
+
+    text-align:left;
+  }
+
+  .memory:after,
+  .memory:nth-child(odd):after{
+
+    left:6px;
+    right:auto;
+  }
+
+  .archive{
+    padding-top:55px;
+  }
+
+  .archive-head{
+    display:block;
+  }
+
+  .archive-head small{
+    display:block;
+
+    margin-top:10px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ============================= -->
+<!-- ATMOSPHERE -->
+<!-- ============================= -->
+
+<div class="aurora">
+  <i></i>
+  <i></i>
+  <i></i>
+</div>
+
+
+<!-- ============================= -->
+<!-- NAVIGATION -->
+<!-- ============================= -->
+
+<nav class="nav">
+
+  <div class="brand">
+    Civil Line / Memory Vault
+  </div>
+
+  <a
+    class="back"
+    href="index.html">
+
+    ← Back to Home
+
+  </a>
+
+</nav>
+
+
+<!-- ============================= -->
+<!-- HERO -->
+<!-- ============================= -->
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div class="eyebrow">
+      Digital Archive · Deoghar
+    </div>
+
+    <h1>
+      2026
+    </h1>
+
+    <h2>
+      Memory Vault
+    </h2>
+
+    <p>
+      A preserved record of the celebration,
+      the people, the moments and the memories
+      of Ganesh Puja 2026.
+    </p>
+
+    <a
+      class="enter"
+      href="#archive">
+
+      Enter the Archive ↓
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- ARCHIVE -->
+<!-- ============================= -->
+
+<section
+  class="archive"
+  id="archive">
+
+  <div class="archive-head">
+
+    <h3>
+      The Celebration
+    </h3>
+
+    <small>
+      ARCHIVE / 001 / 2026
+    </small>
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- 2026 EVENT ARCHIVE -->
+  <!-- ============================= -->
+
+  <div class="timeline">
+
+
+    <!-- GANESH PUJA -->
+
+    <article class="memory">
+
+      <div class="date">
+        14 SEPTEMBER 2026
+      </div>
+
+      <h4>
+        Ganesh Puja
+      </h4>
+
+      <p>
+        The celebration began with devotion,
+        prayers and the presence of the
+        Civil Line community.
+      </p>
+
+      <span class="tag">
+        Puja &amp; Aarti
+      </span>
+
+      <a
+        class="watch-video"
+        href="https://www.instagram.com/reel/DdTI4N8xR28/?stkn=bmxndzRsazhlczl6"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ▶ Watch Video
+
+      </a>
+
+    </article>
+
+
+    <!-- BHAJAN -->
+
+    <article class="memory">
+
+      <div class="date">
+        14 SEPTEMBER 2026
+      </div>
+
+      <h4>
+        Bhajan
+      </h4>
+
+      <p>
+        An evening of bhajan and devotional
+        moments shared together by the community.
+      </p>
+
+      <span class="tag">
+        Music / Devotion
+      </span>
+
+      <a
+        class="watch-video"
+        href="https://youtu.be/dyV1NW8xjq4"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ▶ Watch Video
+
+      </a>
+
+    </article>
+
+
+    <!-- DRAWING COMPETITION -->
+
+    <article class="memory">
+
+      <div class="date">
+        15 SEPTEMBER 2026
+      </div>
+
+      <h4>
+        Drawing Competition
+      </h4>
+
+      <p>
+        A creative evening where children
+        came together and participated
+        in the drawing competition.
+      </p>
+
+      <span class="tag">
+        Children's Activities
+      </span>
+
+      <a
+        class="watch-video"
+        href="https://www.instagram.com/reel/DdTu38TzB9N/?stkn=bGdjeWNrcGY3cGlr"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ▶ Watch Video
+
+      </a>
+
+    </article>
+
+
+    <!-- VISARJAN -->
+
+    <article class="memory">
+
+      <div class="date">
+        16 SEPTEMBER 2026
+      </div>
+
+      <h4>
+        Visarjan
+      </h4>
+
+      <p>
+        The final chapter of the 2026 celebration,
+        carried forward with devotion and memories.
+      </p>
+
+      <span class="tag">
+        Final Chapter
+      </span>
+
+      <a
+        class="watch-video"
+        href="https://www.instagram.com/reel/DdWncBETbgk/?stkn=MXBwcGJxYnJncTBuZg=="
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ▶ Watch Video
+
+      </a>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- FINAL ARCHIVE -->
+<!-- ============================= -->
+
+<section class="final">
+
+  <div>
+
+    <div class="seal">
+      <span>ॐ</span>
+    </div>
+
+    <h3>
+      Successfully Archived.
+    </h3>
+
+    <p>
+      Ganesh Puja 2026 · Civil Line Ganesh Puja Samiti
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- FOOTER -->
+<!-- ============================= -->
+
+<div class="footer">
+
+  A digital memory of the community · 2026
+
+</div>
+
+
+</body>
+</html>
