@@ -1,1036 +1,1787 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Vault 2026 — Civil Line Ganesh Puja Samiti</title>
 
-<title>Memory Vault — Civil Line Ganesh Puja Samiti</title>
+  <style>
 
-<style>
+    /* =========================================================
+       RESET
+    ========================================================= */
 
-/* ============================= */
-/* RESET */
-/* ============================= */
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
 
-body{
-  background:#05030a;
-  color:#f7e9c7;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
-}
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
+      color:#fff8e9;
 
-/* ============================= */
-/* ATMOSPHERE */
-/* ============================= */
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(214,168,63,.16),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(197,31,50,.20),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #16050b,
+          #3b0b18 48%,
+          #19050c
+        );
+    }
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:20;
-  opacity:.12;
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-  background-image:
-    radial-gradient(#fff 1px,transparent 1px);
 
-  background-size:4px 4px;
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
 
-  mix-blend-mode:overlay;
-}
+    :root{
+      --gold:#d6a83f;
+      --gold-light:#f6d575;
+      --gold-soft:#e7c875;
 
-.aurora{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
+      --cream:#fff8e9;
+      --cream-soft:rgba(255,248,233,.72);
 
-.aurora i{
-  position:absolute;
+      --maroon:#8e1424;
+      --red:#c51f32;
 
-  border-radius:50%;
+      --dark:#16050b;
+      --dark-card:rgba(58,10,24,.66);
 
-  filter:blur(70px);
+      --line:rgba(214,168,63,.35);
 
-  opacity:.35;
+      --shadow:
+        0 25px 70px rgba(0,0,0,.38);
+    }
 
-  animation:
-    float 14s ease-in-out infinite alternate;
-}
 
-.aurora i:nth-child(1){
-  width:45vw;
-  height:45vw;
+    /* =========================================================
+       AMBIENT BACKGROUND
+    ========================================================= */
 
-  background:#8b1e35;
+    .ambient{
+      position:fixed;
+      inset:0;
 
-  left:-12vw;
-  top:-15vw;
-}
+      overflow:hidden;
 
-.aurora i:nth-child(2){
-  width:38vw;
-  height:38vw;
+      pointer-events:none;
 
-  background:#c9952e;
+      z-index:0;
+    }
 
-  right:-12vw;
-  top:18vh;
+    .orb{
+      position:absolute;
 
-  animation-delay:-4s;
-}
+      width:380px;
+      height:380px;
 
-.aurora i:nth-child(3){
-  width:32vw;
-  height:32vw;
+      border-radius:50%;
 
-  background:#4d173d;
+      filter:blur(80px);
 
-  left:35vw;
-  bottom:-18vw;
+      opacity:.24;
 
-  animation-delay:-8s;
-}
+      animation:
+        orbMove 14s ease-in-out infinite alternate;
+    }
 
-@keyframes float{
+    .orb.one{
+      left:-170px;
+      top:15%;
 
-  to{
-    transform:
-      translate(5vw,4vh)
-      scale(1.15);
-  }
+      background:#d6a83f;
+    }
 
-}
+    .orb.two{
+      right:-180px;
+      top:48%;
 
+      background:#c51f32;
 
-/* ============================= */
-/* NAVIGATION */
-/* ============================= */
+      animation-delay:2s;
+    }
 
-.nav{
-  position:fixed;
+    .orb.three{
+      left:38%;
+      bottom:-260px;
 
-  top:0;
-  left:0;
-  right:0;
+      background:#d6a83f;
 
-  z-index:10;
+      animation-delay:5s;
+    }
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    @keyframes orbMove{
 
-  padding:20px 28px;
+      0%{
+        transform:translate3d(0,0,0) scale(1);
+      }
 
-  border-bottom:
-    1px solid rgba(245,205,117,.12);
+      50%{
+        transform:translate3d(80px,-50px,0) scale(1.18);
+      }
 
-  background:
-    rgba(5,3,10,.58);
+      100%{
+        transform:translate3d(-40px,70px,0) scale(.9);
+      }
 
-  backdrop-filter:blur(16px);
-}
+    }
 
-.brand{
-  font-size:11px;
 
-  letter-spacing:.22em;
+    /* =========================================================
+       PARTICLES
+    ========================================================= */
 
-  text-transform:uppercase;
+    .particle{
+      position:absolute;
 
-  color:#d6ae55;
-}
+      width:4px;
+      height:4px;
 
-.back{
-  color:#f7e9c7;
+      border-radius:50%;
 
-  text-decoration:none;
+      background:var(--gold-light);
 
-  font-size:12px;
+      box-shadow:
+        0 0 8px var(--gold-light),
+        0 0 18px rgba(246,213,117,.55);
 
-  letter-spacing:.12em;
+      opacity:0;
 
-  text-transform:uppercase;
+      animation:
+        particleRise linear infinite;
+    }
 
-  transition:.3s;
-}
+    .particle:nth-child(4){
+      left:8%;
+      bottom:-20px;
+      animation-duration:9s;
+    }
 
-.back:hover{
-  color:#ffd875;
-}
+    .particle:nth-child(5){
+      left:20%;
+      bottom:-20px;
+      animation-duration:12s;
+      animation-delay:2s;
+    }
 
+    .particle:nth-child(6){
+      left:34%;
+      bottom:-20px;
+      animation-duration:10s;
+      animation-delay:4s;
+    }
 
-/* ============================= */
-/* HERO */
-/* ============================= */
+    .particle:nth-child(7){
+      left:51%;
+      bottom:-20px;
+      animation-duration:13s;
+      animation-delay:1s;
+    }
 
-.hero{
-  min-height:100vh;
+    .particle:nth-child(8){
+      left:67%;
+      bottom:-20px;
+      animation-duration:11s;
+      animation-delay:5s;
+    }
 
-  display:grid;
-  place-items:center;
+    .particle:nth-child(9){
+      left:82%;
+      bottom:-20px;
+      animation-duration:9s;
+      animation-delay:3s;
+    }
 
-  text-align:center;
+    .particle:nth-child(10){
+      left:93%;
+      bottom:-20px;
+      animation-duration:14s;
+      animation-delay:6s;
+    }
 
-  padding:
-    110px 24px 80px;
+    @keyframes particleRise{
 
-  position:relative;
-}
+      0%{
+        transform:
+          translateY(0)
+          scale(.4);
 
-.hero-inner{
-  max-width:900px;
+        opacity:0;
+      }
 
-  animation:
-    enter 1.2s ease both;
-}
+      15%{
+        opacity:.8;
+      }
 
-.eyebrow{
-  font-size:11px;
+      80%{
+        opacity:.35;
+      }
 
-  letter-spacing:.4em;
+      100%{
+        transform:
+          translateY(-115vh)
+          scale(1.1);
 
-  text-transform:uppercase;
+        opacity:0;
+      }
 
-  color:#d6ae55;
+    }
 
-  margin-bottom:28px;
-}
 
-.hero h1{
-  font-family:Georgia,serif;
+    /* =========================================================
+       NAV
+    ========================================================= */
 
-  font-weight:500;
+    .vault-nav{
+      position:fixed;
 
-  font-size:
-    clamp(4rem,13vw,10rem);
+      top:0;
+      left:0;
+      right:0;
 
-  line-height:.82;
+      z-index:100;
 
-  letter-spacing:-.07em;
+      height:74px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #fff4d1,
-      #d6ae55 58%,
-      #74491d
-    );
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  -webkit-background-clip:text;
-  background-clip:text;
+      padding:0 5vw;
 
-  color:transparent;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(20,4,10,.92),
+          rgba(20,4,10,.72)
+        );
 
-  text-shadow:
-    0 0 55px rgba(214,174,85,.18);
-}
+      backdrop-filter:blur(18px);
 
-.hero h2{
-  font-size:
-    clamp(14px,2vw,20px);
+      border-bottom:
+        1px solid rgba(214,168,63,.18);
+    }
 
-  font-weight:400;
+    .vault-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-  letter-spacing:.35em;
+    .vault-logo{
+      width:42px;
+      height:42px;
 
-  text-transform:uppercase;
+      object-fit:contain;
 
-  margin-top:30px;
+      filter:
+        drop-shadow(
+          0 0 10px
+          rgba(214,168,63,.38)
+        );
+    }
 
-  color:#e7d7b0;
-}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
 
-.hero p{
-  max-width:560px;
+    .brand-small{
+      color:var(--gold);
 
-  margin:
-    28px auto 0;
+      font-size:9px;
+      font-weight:900;
 
-  color:#a99d8b;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
 
-  line-height:1.8;
+    .brand-main{
+      color:var(--cream);
 
-  font-size:15px;
-}
+      font-size:14px;
+      font-weight:900;
+    }
 
-.enter{
-  display:inline-flex;
+    .home-button{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
 
-  margin-top:45px;
+      padding:10px 17px;
 
-  padding:14px 28px;
+      border:
+        1px solid
+        rgba(214,168,63,.38);
 
-  border:
-    1px solid rgba(214,174,85,.55);
+      border-radius:999px;
 
-  color:#f7e9c7;
+      background:
+        rgba(255,248,233,.04);
 
-  text-decoration:none;
+      color:var(--cream);
 
-  letter-spacing:.18em;
+      font-size:12px;
+      font-weight:800;
 
-  text-transform:uppercase;
+      transition:.3s ease;
+    }
 
-  font-size:11px;
+    .home-button:hover{
+      background:var(--gold);
+      color:#260711;
 
-  background:
-    rgba(214,174,85,.05);
+      box-shadow:
+        0 0 25px
+        rgba(214,168,63,.35);
 
-  transition:.3s;
+      transform:translateY(-2px);
+    }
 
-  position:relative;
 
-  overflow:hidden;
-}
+    /* =========================================================
+       HERO
+    ========================================================= */
 
-.enter:before{
-  content:"";
+    .vault-hero{
+      position:relative;
 
-  position:absolute;
+      z-index:2;
 
-  inset:0;
+      min-height:100vh;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,220,130,.18),
-      transparent
-    );
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-  transform:translateX(-100%);
+      padding:
+        150px 20px
+        100px;
 
-  transition:.7s;
-}
+      text-align:center;
 
-.enter:hover:before{
-  transform:translateX(100%);
-}
+      overflow:hidden;
+    }
 
-.enter:hover{
-  box-shadow:
-    0 0 35px rgba(214,174,85,.15);
+    .hero-ring{
+      position:absolute;
 
-  transform:translateY(-3px);
-}
+      width:min(700px,90vw);
+      height:min(700px,90vw);
 
-@keyframes enter{
+      border-radius:50%;
 
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
+      border:
+        1px solid
+        rgba(214,168,63,.10);
 
-  to{
-    opacity:1;
-    transform:none;
-  }
+      box-shadow:
+        0 0 80px
+        rgba(214,168,63,.05);
 
-}
+      animation:
+        ringPulse 7s ease-in-out infinite;
+    }
 
+    .hero-ring::before{
+      content:"";
 
-/* ============================= */
-/* ARCHIVE */
-/* ============================= */
+      position:absolute;
 
-.archive{
-  position:relative;
+      inset:45px;
 
-  max-width:1100px;
+      border-radius:50%;
 
-  margin:auto;
+      border:
+        1px dashed
+        rgba(214,168,63,.12);
 
-  padding:
-    80px 24px 140px;
-}
+      animation:
+        ringRotate 35s linear infinite;
+    }
 
-.archive-head{
-  display:flex;
+    @keyframes ringPulse{
 
-  justify-content:space-between;
+      0%,100%{
+        transform:scale(.94);
+        opacity:.65;
+      }
 
-  align-items:end;
+      50%{
+        transform:scale(1.03);
+        opacity:1;
+      }
 
-  border-bottom:
-    1px solid rgba(214,174,85,.22);
+    }
 
-  padding-bottom:18px;
+    @keyframes ringRotate{
+      to{
+        transform:rotate(360deg);
+      }
+    }
 
-  margin-bottom:70px;
-}
+    .hero-content{
+      position:relative;
 
-.archive-head small{
-  font-size:10px;
+      z-index:3;
 
-  letter-spacing:.2em;
+      width:min(900px,100%);
+    }
 
-  color:#8d806f;
-}
+    .vault-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
 
-.archive-head h3{
-  font-family:Georgia,serif;
+      color:var(--gold-light);
 
-  font-size:
-    clamp(30px,5vw,55px);
+      font-size:11px;
+      font-weight:900;
 
-  font-weight:400;
-}
+      letter-spacing:4px;
+      text-transform:uppercase;
 
+      animation:
+        fadeUp .9s ease both;
+    }
 
-/* ============================= */
-/* TIMELINE */
-/* ============================= */
+    .vault-kicker::before,
+    .vault-kicker::after{
+      content:"";
 
-.timeline{
-  position:relative;
-}
+      width:32px;
+      height:1px;
 
-.timeline:before{
-  content:"";
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold)
+        );
+    }
 
-  position:absolute;
+    .vault-kicker::after{
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          transparent
+        );
+    }
 
-  left:50%;
+    .year{
+      margin-top:35px;
 
-  top:0;
-  bottom:0;
+      font-size:
+        clamp(
+          120px,
+          25vw,
+          260px
+        );
 
-  width:1px;
+      line-height:.7;
 
-  background:
-    linear-gradient(
-      #d6ae55,
-      rgba(214,174,85,.08)
-    );
+      font-weight:900;
 
-  transform:translateX(-50%);
-}
+      letter-spacing:-12px;
 
-.memory{
-  width:50%;
+      color:transparent;
 
-  padding:
-    0 50px 110px;
+      -webkit-text-stroke:
+        1px
+        rgba(246,213,117,.30);
 
-  position:relative;
-}
+      text-shadow:
+        0 0 35px
+        rgba(214,168,63,.12);
 
-.memory:nth-child(odd){
-  text-align:right;
-}
+      animation:
+        yearGlow 4s ease-in-out infinite alternate,
+        fadeUp 1s ease .1s both;
+    }
 
-.memory:nth-child(even){
-  margin-left:50%;
-}
+    @keyframes yearGlow{
 
-.memory:after{
-  content:"";
+      from{
+        text-shadow:
+          0 0 20px
+          rgba(214,168,63,.08);
+      }
 
-  position:absolute;
+      to{
+        text-shadow:
+          0 0 55px
+          rgba(214,168,63,.24);
+      }
 
-  top:8px;
+    }
 
-  width:13px;
-  height:13px;
+    .vault-title{
+      margin-top:45px;
 
-  border-radius:50%;
+      color:var(--cream);
 
-  background:#d6ae55;
+      font-size:
+        clamp(
+          48px,
+          8vw,
+          90px
+        );
 
-  box-shadow:
-    0 0 0 6px rgba(214,174,85,.08),
-    0 0 25px rgba(214,174,85,.65);
-}
+      line-height:.95;
 
-.memory:nth-child(odd):after{
-  right:-6px;
-}
+      font-weight:900;
 
-.memory:nth-child(even):after{
-  left:-6px;
-}
+      letter-spacing:-4px;
 
-.date{
-  font:
-    700 11px monospace;
+      text-shadow:
+        0 10px 35px
+        rgba(0,0,0,.3);
 
-  letter-spacing:.2em;
+      animation:
+        fadeUp 1s ease .2s both;
+    }
 
-  color:#d6ae55;
+    .vault-title span{
+      color:var(--gold-light);
+    }
 
-  margin-bottom:12px;
-}
+    .vault-description{
+      width:min(650px,100%);
 
-.memory h4{
-  font-family:Georgia,serif;
+      margin:28px auto 0;
 
-  font-size:32px;
+      color:var(--cream-soft);
 
-  font-weight:400;
+      font-size:
+        clamp(
+          15px,
+          2vw,
+          18px
+        );
 
-  margin-bottom:12px;
-}
+      line-height:1.8;
 
-.memory p{
-  color:#9f9585;
+      animation:
+        fadeUp 1s ease .35s both;
+    }
 
-  line-height:1.7;
+    .explore-button{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
 
-  font-size:14px;
-}
+      margin-top:38px;
 
-.tag{
-  display:inline-block;
+      padding:14px 24px;
 
-  margin-top:18px;
+      border:
+        1px solid
+        rgba(246,213,117,.55);
 
-  padding:6px 10px;
+      border-radius:999px;
 
-  border:
-    1px solid rgba(214,174,85,.25);
+      color:#2a0810;
 
-  font-size:9px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
 
-  letter-spacing:.15em;
+      font-size:13px;
+      font-weight:900;
 
-  text-transform:uppercase;
+      box-shadow:
+        0 0 30px
+        rgba(214,168,63,.18);
 
-  color:#c9b88e;
-}
+      transition:.3s ease;
 
+      animation:
+        fadeUp 1s ease .5s both;
+    }
 
-/* ============================= */
-/* WATCH VIDEO BUTTON */
-/* ============================= */
+    .explore-button:hover{
+      transform:
+        translateY(-4px)
+        scale(1.03);
 
-.watch-video{
-  display:inline-block;
+      box-shadow:
+        0 0 45px
+        rgba(214,168,63,.35);
+    }
 
-  margin-top:18px;
+    .scroll-line{
+      width:1px;
+      height:50px;
 
-  padding:9px 15px;
+      margin:35px auto 0;
 
-  border:
-    1px solid rgba(214,174,85,.45);
+      background:
+        linear-gradient(
+          var(--gold),
+          transparent
+        );
 
-  border-radius:999px;
+      animation:
+        scrollPulse 2s ease-in-out infinite;
+    }
 
-  background:
-    rgba(214,174,85,.06);
+    @keyframes scrollPulse{
 
-  color:#d6ae55;
+      0%,100%{
+        opacity:.3;
+        transform:scaleY(.7);
+      }
 
-  text-decoration:none;
+      50%{
+        opacity:1;
+        transform:scaleY(1);
+      }
 
-  font-size:10px;
+    }
 
-  font-weight:700;
 
-  letter-spacing:.12em;
+    /* =========================================================
+       ARCHIVE
+    ========================================================= */
 
-  text-transform:uppercase;
+    .archive{
+      position:relative;
 
-  transition:.3s ease;
-}
+      z-index:2;
 
-.watch-video:hover{
-  color:#fff4d1;
+      padding:
+        110px 20px
+        130px;
+    }
 
-  background:
-    rgba(214,174,85,.15);
+    .container{
+      width:min(1080px,100%);
+      margin:auto;
+    }
 
-  border-color:#d6ae55;
+    .section-heading{
+      text-align:center;
 
-  box-shadow:
-    0 0 25px rgba(214,174,85,.18);
+      margin-bottom:75px;
+    }
 
-  transform:translateY(-2px);
-}
+    .section-kicker{
+      color:var(--gold-light);
 
+      font-size:10px;
+      font-weight:900;
 
-/* ============================= */
-/* FINAL ARCHIVE SEAL */
-/* ============================= */
+      letter-spacing:3px;
+      text-transform:uppercase;
 
-.final{
-  min-height:70vh;
+      margin-bottom:15px;
+    }
 
-  display:grid;
+    .section-heading h2{
+      color:var(--cream);
 
-  place-items:center;
+      font-size:
+        clamp(
+          32px,
+          5vw,
+          52px
+        );
 
-  text-align:center;
+      line-height:1.05;
 
-  padding:80px 24px;
+      font-weight:900;
 
-  border-top:
-    1px solid rgba(214,174,85,.12);
-}
+      letter-spacing:-2px;
+    }
 
-.seal{
-  width:150px;
-  height:150px;
+    .section-heading p{
+      max-width:620px;
 
-  border:
-    1px solid rgba(214,174,85,.6);
+      margin:18px auto 0;
 
-  border-radius:50%;
+      color:rgba(255,248,233,.60);
 
-  display:grid;
+      font-size:14px;
 
-  place-items:center;
+      line-height:1.8;
+    }
 
-  margin:
-    0 auto 30px;
 
-  position:relative;
+    /* =========================================================
+       TIMELINE
+    ========================================================= */
 
-  animation:
-    spin 22s linear infinite;
-}
+    .timeline{
+      position:relative;
 
-.seal:before,
-.seal:after{
-  content:"";
+      max-width:900px;
 
-  position:absolute;
+      margin:auto;
+    }
 
-  border:
-    1px solid rgba(214,174,85,.22);
+    .timeline::before{
+      content:"";
 
-  border-radius:50%;
-}
+      position:absolute;
 
-.seal:before{
-  inset:10px;
-}
+      left:50%;
 
-.seal:after{
-  inset:-10px;
-}
+      top:0;
+      bottom:0;
 
-.seal span{
-  font-family:Georgia,serif;
+      width:1px;
 
-  font-size:38px;
+      transform:translateX(-50%);
 
-  animation:
-    counter 22s linear infinite;
-}
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(214,168,63,.5) 10%,
+          rgba(214,168,63,.5) 90%,
+          transparent
+        );
 
-@keyframes spin{
+      box-shadow:
+        0 0 15px
+        rgba(214,168,63,.18);
+    }
 
-  to{
-    transform:rotate(360deg);
-  }
+    .memory{
+      position:relative;
 
-}
+      width:50%;
 
-@keyframes counter{
+      padding:0 55px 75px;
 
-  to{
-    transform:rotate(-360deg);
-  }
+      opacity:0;
 
-}
+      transform:translateY(45px);
 
-.final h3{
-  font-family:Georgia,serif;
+      animation:
+        memoryReveal .9s ease forwards;
+    }
 
-  font-size:
-    clamp(35px,6vw,70px);
+    .memory:nth-child(1){
+      animation-delay:.1s;
+    }
 
-  font-weight:400;
-}
+    .memory:nth-child(2){
+      margin-left:50%;
+      animation-delay:.25s;
+    }
 
-.final p{
-  color:#938979;
+    .memory:nth-child(3){
+      animation-delay:.4s;
+    }
 
-  margin-top:15px;
+    .memory:nth-child(4){
+      margin-left:50%;
+      animation-delay:.55s;
+    }
 
-  line-height:1.7;
-}
+    @keyframes memoryReveal{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
 
+    .memory::before{
+      content:"";
 
-/* ============================= */
-/* FOOTER */
-/* ============================= */
+      position:absolute;
 
-.footer{
-  padding:25px;
+      top:18px;
 
-  text-align:center;
+      width:13px;
+      height:13px;
 
-  color:#665e52;
+      border-radius:50%;
 
-  font:10px monospace;
+      background:var(--gold-light);
 
-  letter-spacing:.15em;
+      border:
+        3px solid
+        #2b0811;
 
-  text-transform:uppercase;
-}
+      box-shadow:
+        0 0 0 5px
+        rgba(214,168,63,.10),
+        0 0 25px
+        rgba(214,168,63,.45);
 
+      z-index:4;
+    }
 
-/* ============================= */
-/* MOBILE */
-/* ============================= */
+    .memory:nth-child(odd)::before{
+      right:-7px;
+    }
 
-@media(max-width:700px){
+    .memory:nth-child(even)::before{
+      left:-7px;
+    }
 
-  .nav{
-    padding:16px 18px;
-  }
+    .memory-card{
+      position:relative;
 
-  .brand{
-    font-size:9px;
-  }
+      padding:30px;
 
-  .back{
-    font-size:10px;
-  }
+      border:
+        1px solid
+        rgba(214,168,63,.20);
 
-  .timeline:before{
-    left:12px;
-  }
+      border-radius:22px;
 
-  .memory,
-  .memory:nth-child(even){
+      background:
+        linear-gradient(
+          145deg,
+          rgba(92,15,35,.62),
+          rgba(36,6,16,.82)
+        );
 
-    width:100%;
+      backdrop-filter:blur(14px);
 
-    margin-left:0;
+      box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.25);
 
-    padding:
-      0
-      0
-      75px
-      42px;
+      overflow:hidden;
 
-    text-align:left;
-  }
+      transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+    }
 
-  .memory:after,
-  .memory:nth-child(odd):after{
+    .memory-card::after{
+      content:"";
 
-    left:6px;
-    right:auto;
-  }
+      position:absolute;
 
-  .archive{
-    padding-top:55px;
-  }
+      width:180px;
+      height:180px;
 
-  .archive-head{
-    display:block;
-  }
+      right:-100px;
+      top:-100px;
 
-  .archive-head small{
-    display:block;
+      border-radius:50%;
 
-    margin-top:10px;
-  }
+      background:
+        rgba(214,168,63,.12);
 
-}
+      filter:blur(20px);
 
-</style>
+      transition:.5s ease;
+    }
 
+    .memory-card:hover{
+      transform:
+        translateY(-8px)
+        scale(1.015);
+
+      border-color:
+        rgba(246,213,117,.48);
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.38),
+        0 0 35px
+        rgba(214,168,63,.08);
+    }
+
+    .memory-card:hover::after{
+      transform:scale(1.6);
+
+      background:
+        rgba(214,168,63,.20);
+    }
+
+    .memory-number{
+      color:rgba(246,213,117,.20);
+
+      font-size:42px;
+      font-weight:900;
+
+      line-height:1;
+
+      margin-bottom:20px;
+    }
+
+    .memory-date{
+      color:var(--gold-light);
+
+      font-size:10px;
+      font-weight:900;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+
+      margin-bottom:10px;
+    }
+
+    .memory-card h3{
+      color:var(--cream);
+
+      font-size:26px;
+      font-weight:900;
+
+      margin-bottom:13px;
+    }
+
+    .memory-tag{
+      display:inline-block;
+
+      padding:6px 11px;
+
+      margin-bottom:17px;
+
+      border:
+        1px solid
+        rgba(214,168,63,.22);
+
+      border-radius:999px;
+
+      color:rgba(255,248,233,.75);
+
+      background:
+        rgba(214,168,63,.07);
+
+      font-size:10px;
+      font-weight:800;
+
+      letter-spacing:.5px;
+    }
+
+    .memory-card p{
+      color:rgba(255,248,233,.62);
+
+      font-size:13px;
+
+      line-height:1.8;
+
+      margin-bottom:23px;
+    }
+
+    .memory-button{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:11px 17px;
+
+      border:
+        1px solid
+        rgba(246,213,117,.45);
+
+      border-radius:999px;
+
+      color:#2b0811;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      font-size:11px;
+      font-weight:900;
+
+      transition:.3s ease;
+    }
+
+    .memory-button:hover{
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 0 25px
+        rgba(214,168,63,.30);
+    }
+
+
+    /* =========================================================
+       FINAL SECTION
+    ========================================================= */
+
+    .final{
+      position:relative;
+
+      z-index:2;
+
+      padding:
+        110px 20px
+        120px;
+
+      text-align:center;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(214,168,63,.04)
+        );
+    }
+
+    .final-logo{
+      width:115px;
+      height:115px;
+
+      margin:0 auto 30px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(246,213,117,.12),
+          rgba(214,168,63,.03)
+        );
+
+      border:
+        1px solid
+        rgba(246,213,117,.55);
+
+      box-shadow:
+        0 0 0 10px rgba(214,168,63,.035),
+        0 0 45px rgba(214,168,63,.16);
+
+      animation:
+        omGlow 3s ease-in-out infinite;
+    }
+
+    .final-logo img{
+      width:78px;
+      height:78px;
+
+      object-fit:contain;
+
+      filter:
+        drop-shadow(
+          0 0 12px
+          rgba(246,213,117,.35)
+        );
+    }
+
+    @keyframes omGlow{
+
+      0%,100%{
+        box-shadow:
+          0 0 0 10px
+          rgba(214,168,63,.035),
+          0 0 35px
+          rgba(214,168,63,.08);
+      }
+
+      50%{
+        box-shadow:
+          0 0 0 15px
+          rgba(214,168,63,.045),
+          0 0 60px
+          rgba(214,168,63,.20);
+      }
+
+    }
+
+    .final h2{
+      color:var(--cream);
+
+      font-size:
+        clamp(
+          30px,
+          5vw,
+          48px
+        );
+
+      font-weight:900;
+
+      margin-bottom:15px;
+    }
+
+    .final p{
+      width:min(600px,100%);
+
+      margin:auto;
+
+      color:rgba(255,248,233,.58);
+
+      font-size:14px;
+
+      line-height:1.8;
+    }
+
+    .final-line{
+      width:70px;
+      height:2px;
+
+      margin:25px auto 0;
+
+      background:var(--gold);
+
+      box-shadow:
+        0 0 15px
+        rgba(214,168,63,.35);
+    }
+
+    .final-home-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-top:30px;
+
+      padding:12px 22px;
+
+      border:
+        1px solid
+        rgba(246,213,117,.45);
+
+      border-radius:999px;
+
+      color:#2b0811;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      font-size:12px;
+      font-weight:900;
+
+      transition:.3s ease;
+
+      box-shadow:
+        0 0 20px
+        rgba(214,168,63,.12);
+    }
+
+    .final-home-button:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 0 35px
+        rgba(214,168,63,.30);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer{
+      position:relative;
+
+      z-index:2;
+
+      padding:30px 20px;
+
+      text-align:center;
+
+      border-top:
+        1px solid
+        rgba(214,168,63,.12);
+
+      color:rgba(255,248,233,.45);
+
+      font-size:11px;
+
+      background:
+        rgba(10,2,6,.5);
+    }
+
+    footer strong{
+      color:var(--gold-light);
+    }
+
+
+    /* =========================================================
+       ANIMATION HELPERS
+    ========================================================= */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media(max-width:760px){
+
+      .vault-nav{
+        height:66px;
+
+        padding:
+          0 17px;
+      }
+
+      .vault-logo{
+        width:36px;
+        height:36px;
+      }
+
+      .brand-main{
+        font-size:12px;
+      }
+
+      .home-button{
+        padding:9px 13px;
+        font-size:10px;
+      }
+
+      .vault-hero{
+        min-height:90vh;
+
+        padding:
+          120px 18px
+          75px;
+      }
+
+      .hero-ring{
+        width:520px;
+        height:520px;
+      }
+
+      .year{
+        font-size:
+          clamp(
+            105px,
+            30vw,
+            155px
+          );
+
+        letter-spacing:-7px;
+      }
+
+      .vault-title{
+        margin-top:35px;
+
+        font-size:
+          clamp(
+            45px,
+            13vw,
+            65px
+          );
+      }
+
+      .archive{
+        padding:
+          80px 18px
+          90px;
+      }
+
+      .section-heading{
+        margin-bottom:55px;
+      }
+
+      .timeline::before{
+        left:10px;
+        transform:none;
+      }
+
+      .memory,
+      .memory:nth-child(even){
+        width:100%;
+
+        margin-left:0;
+
+        padding:
+          0 0 45px 38px;
+      }
+
+      .memory::before,
+      .memory:nth-child(odd)::before,
+      .memory:nth-child(even)::before{
+        left:4px;
+        right:auto;
+
+        width:13px;
+        height:13px;
+      }
+
+      .memory-card{
+        padding:25px;
+      }
+
+      .final{
+        padding:
+          85px 20px
+          100px;
+      }
+
+    }
+
+
+    @media(max-width:420px){
+
+      .brand-text{
+        display:none;
+      }
+
+      .memory-card h3{
+        font-size:23px;
+      }
+
+      .memory-number{
+        font-size:38px;
+      }
+
+      .final-logo{
+        width:100px;
+        height:100px;
+      }
+
+      .final-logo img{
+        width:68px;
+        height:68px;
+      }
+
+    }
+
+  </style>
 </head>
 
 
 <body>
 
 
-<!-- ============================= -->
-<!-- ATMOSPHERE -->
-<!-- ============================= -->
+  <!-- =========================================================
+       AMBIENT EFFECTS
+  ========================================================= -->
 
-<div class="aurora">
-  <i></i>
-  <i></i>
-  <i></i>
-</div>
+  <div class="ambient">
 
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
 
-<!-- ============================= -->
-<!-- NAVIGATION -->
-<!-- ============================= -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 
-<nav class="nav">
-
-  <div class="brand">
-    Civil Line / Memory Vault
   </div>
 
-  <a
-    class="back"
-    href="index.html">
 
-    ← Back to Home
+  <!-- =========================================================
+       NAV
+  ========================================================= -->
 
-  </a>
-
-</nav>
-
-
-<!-- ============================= -->
-<!-- HERO -->
-<!-- ============================= -->
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div class="eyebrow">
-      Digital Archive · Deoghar
-    </div>
-
-    <h1>
-      2026
-    </h1>
-
-    <h2>
-      Memory Vault
-    </h2>
-
-    <p>
-      A preserved record of the celebration,
-      the people, the moments and the memories
-      of Ganesh Puja 2026.
-    </p>
+  <nav class="vault-nav">
 
     <a
-      class="enter"
-      href="#archive">
+      href="index.html"
+      class="vault-brand">
 
-      Enter the Archive ↓
+      <img
+        src="assets/IMG_20260916_020908.png"
+        alt="Civil Line Ganesh Puja Samiti logo"
+        class="vault-logo"
+      >
+
+      <div class="brand-text">
+
+        <span class="brand-small">
+          Civil Line
+        </span>
+
+        <span class="brand-main">
+          Ganesh Puja Samiti
+        </span>
+
+      </div>
 
     </a>
 
-  </div>
 
-</section>
+    <a
+      href="index.html"
+      class="home-button">
 
+      ← Back to Home
 
-<!-- ============================= -->
-<!-- ARCHIVE -->
-<!-- ============================= -->
+    </a>
 
-<section
-  class="archive"
-  id="archive">
-
-  <div class="archive-head">
-
-    <h3>
-      The Celebration
-    </h3>
-
-    <small>
-      ARCHIVE / 001 / 2026
-    </small>
-
-  </div>
+  </nav>
 
 
-  <!-- ============================= -->
-  <!-- 2026 EVENT ARCHIVE -->
-  <!-- ============================= -->
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
 
-  <div class="timeline">
+  <header class="vault-hero">
+
+    <div class="hero-ring"></div>
 
 
-    <!-- GANESH PUJA -->
+    <div class="hero-content">
 
-    <article class="memory">
-
-      <div class="date">
-        14 SEPTEMBER 2026
+      <div class="vault-kicker">
+        Digital Archive · Deoghar
       </div>
 
-      <h4>
-        Ganesh Puja
-      </h4>
 
-      <p>
-        The celebration began with devotion,
-        prayers and the presence of the
-        Civil Line community.
+      <div class="year">
+        2026
+      </div>
+
+
+      <h1 class="vault-title">
+        Memory <span>Vault</span>
+      </h1>
+
+
+      <p class="vault-description">
+        Four moments.
+        One celebration.
+        A collection of memories from
+        Ganesh Puja 2026 that will stay with our Samiti.
       </p>
 
-      <span class="tag">
-        Puja &amp; Aarti
-      </span>
 
       <a
-        class="watch-video"
-        href="https://www.instagram.com/reel/DdTI4N8xR28/?stkn=bmxndzRsazhlczl6"
-        target="_blank"
-        rel="noopener noreferrer">
+        href="#archive"
+        class="explore-button">
 
-        ▶ Watch Video
+        Enter the Archive ↓
 
       </a>
 
-    </article>
 
+      <div class="scroll-line"></div>
 
-    <!-- BHAJAN -->
-
-    <article class="memory">
-
-      <div class="date">
-        14 SEPTEMBER 2026
-      </div>
-
-      <h4>
-        Bhajan
-      </h4>
-
-      <p>
-        An evening of bhajan and devotional
-        moments shared together by the community.
-      </p>
-
-      <span class="tag">
-        Music / Devotion
-      </span>
-
-      <a
-        class="watch-video"
-        href="https://youtu.be/dyV1NW8xjq4"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        ▶ Watch Video
-
-      </a>
-
-    </article>
-
-
-    <!-- DRAWING COMPETITION -->
-
-    <article class="memory">
-
-      <div class="date">
-        15 SEPTEMBER 2026
-      </div>
-
-      <h4>
-        Drawing Competition
-      </h4>
-
-      <p>
-        A creative evening where children
-        came together and participated
-        in the drawing competition.
-      </p>
-
-      <span class="tag">
-        Children's Activities
-      </span>
-
-      <a
-        class="watch-video"
-        href="https://www.instagram.com/reel/DdTu38TzB9N/?stkn=bGdjeWNrcGY3cGlr"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        ▶ Watch Video
-
-      </a>
-
-    </article>
-
-
-    <!-- VISARJAN -->
-
-    <article class="memory">
-
-      <div class="date">
-        16 SEPTEMBER 2026
-      </div>
-
-      <h4>
-        Visarjan
-      </h4>
-
-      <p>
-        The final chapter of the 2026 celebration,
-        carried forward with devotion and memories.
-      </p>
-
-      <span class="tag">
-        Final Chapter
-      </span>
-
-      <a
-        class="watch-video"
-        href="https://www.instagram.com/reel/DdWncBETbgk/?stkn=MXBwcGJxYnJncTBuZg=="
-        target="_blank"
-        rel="noopener noreferrer">
-
-        ▶ Watch Video
-
-      </a>
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-<!-- ============================= -->
-<!-- FINAL ARCHIVE -->
-<!-- ============================= -->
-
-<section class="final">
-
-  <div>
-
-    <div class="seal">
-      <span>ॐ</span>
     </div>
 
-    <h3>
-      Successfully Archived.
-    </h3>
-
-    <p>
-      Ganesh Puja 2026 · Civil Line Ganesh Puja Samiti
-    </p>
-
-  </div>
-
-</section>
+  </header>
 
 
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
+  <!-- =========================================================
+       ARCHIVE
+  ========================================================= -->
 
-<div class="footer">
+  <main>
 
-  A digital memory of the community · 2026
+    <section
+      class="archive"
+      id="archive">
 
-</div>
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="section-kicker">
+            2026 · Memory Archive
+          </div>
+
+          <h2>
+            Moments We Keep
+          </h2>
+
+          <p>
+            From the first prayer to the final farewell,
+            every moment became part of our story.
+          </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+          <!-- MEMORY 01 -->
+
+          <article class="memory">
+
+            <div class="memory-card">
+
+              <div class="memory-number">
+                01
+              </div>
+
+              <div class="memory-date">
+                14 September 2026
+              </div>
+
+              <h3>
+                Ganesh Puja
+              </h3>
+
+              <div class="memory-tag">
+                Puja & Aarti
+              </div>
+
+              <p>
+                The celebration began with prayers,
+                devotion and the blessings of Ganesh Ji,
+                bringing our community together.
+              </p>
+
+              <a
+                href="https://www.instagram.com/reel/DdTI4N8xR28/?stkn=bmxndzRsazhlczl6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="memory-button">
+
+                ▶ Watch Memory
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- MEMORY 02 -->
+
+          <article class="memory">
+
+            <div class="memory-card">
+
+              <div class="memory-number">
+                02
+              </div>
+
+              <div class="memory-date">
+                14 September 2026
+              </div>
+
+              <h3>
+                Bhajan
+              </h3>
+
+              <div class="memory-tag">
+                Music · Devotion
+              </div>
+
+              <p>
+                An evening of devotional music,
+                bhajans and shared moments of faith
+                with our community.
+              </p>
+
+              <a
+                href="https://youtu.be/dyV1NW8xjq4"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="memory-button">
+
+                ▶ Watch Memory
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- MEMORY 03 -->
+
+          <article class="memory">
+
+            <div class="memory-card">
+
+              <div class="memory-number">
+                03
+              </div>
+
+              <div class="memory-date">
+                15 September 2026
+              </div>
+
+              <h3>
+                Drawing Competition
+              </h3>
+
+              <div class="memory-tag">
+                Children's Activities
+              </div>
+
+              <p>
+                Young participants turned their imagination
+                into art and made the celebration even more
+                special.
+              </p>
+
+              <a
+                href="https://www.instagram.com/reel/DdTu38TzB9N/?stkn=bGdjeWNrcGY3cGlr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="memory-button">
+
+                ▶ Watch Memory
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- MEMORY 04 -->
+
+          <article class="memory">
+
+            <div class="memory-card">
+
+              <div class="memory-number">
+                04
+              </div>
+
+              <div class="memory-date">
+                16 September 2026
+              </div>
+
+              <h3>
+                Visarjan
+              </h3>
+
+              <div class="memory-tag">
+                Final Chapter
+              </div>
+
+              <p>
+                The final chapter arrived with devotion,
+                emotion and a heartfelt farewell to
+                Ganesh Ji.
+              </p>
+
+              <a
+                href="https://www.instagram.com/reel/DdWncBETbgk/?stkn=MXBwcGJxYnJncTBuZg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="memory-button">
+
+                ▶ Watch Memory
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FINAL ARCHIVE MESSAGE
+    ======================================================== -->
+
+    <section class="final">
+
+      <div class="final-logo">
+
+        <img
+          src="assets/IMG_20260916_020908.png"
+          alt="Civil Line Ganesh Puja Samiti logo"
+        >
+
+      </div>
+
+
+      <h2>
+        Successfully Archived
+      </h2>
+
+
+      <p>
+        Ganesh Puja 2026 has concluded,
+        but the moments we shared remain.
+        Until we celebrate together again.
+      </p>
+
+
+      <div class="final-line"></div>
+
+
+      <a
+        href="index.html"
+        class="final-home-button">
+
+        ← Back to Home
+
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    © 2026 Civil Line Ganesh Puja Samiti.
+    All rights reserved.
+
+    <br>
+
+    Made with devotion ·
+    <strong>Ayush Khaware</strong>
+
+  </footer>
 
 
 </body>
