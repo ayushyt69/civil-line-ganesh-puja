@@ -9,186 +9,74 @@
   <style>
 
     /* ============================= */
-    /* BASIC RESET */
+    /* BASE */
     /* ============================= */
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: #e8f7ff;
-      overflow-x: hidden;
-
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Arial,sans-serif;
+      color:#3b1710;
       background:
         radial-gradient(
-          circle at 15% 15%,
-          rgba(0, 229, 255, 0.12),
+          circle at 15% 20%,
+          rgba(214,168,63,.18),
           transparent 28%
         ),
         radial-gradient(
-          circle at 85% 85%,
-          rgba(126, 87, 194, 0.14),
+          circle at 85% 80%,
+          rgba(197,31,50,.12),
           transparent 30%
         ),
-        #05080d;
-
-      position: relative;
-    }
-
-
-    /* ============================= */
-    /* TECH GRID BACKGROUND */
-    /* ============================= */
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-
-      background-image:
         linear-gradient(
-          rgba(0, 229, 255, 0.035) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(0, 229, 255, 0.035) 1px,
-          transparent 1px
+          135deg,
+          #fffaf0,
+          #fff1d0
         );
 
-      background-size: 42px 42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      overflow:hidden;
+      position:relative;
     }
 
 
     /* ============================= */
-    /* TECH GLOW */
+    /* DECORATIVE BACKGROUND */
     /* ============================= */
 
-    .tech-glow {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.16;
+    body::before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(214,168,63,.28);
+      border-radius:50%;
+
+      top:-190px;
+      left:-170px;
+
+      animation:slowRotate 18s linear infinite;
     }
 
-    .tech-glow.one {
-      background: #00e5ff;
-      top: -140px;
-      left: -120px;
-      animation: glowMove 10s ease-in-out infinite alternate;
-    }
+    body::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border:1px solid rgba(197,31,50,.16);
+      border-radius:50%;
 
-    .tech-glow.two {
-      background: #7e57c2;
-      right: -140px;
-      bottom: -140px;
-      animation: glowMove 13s ease-in-out infinite alternate-reverse;
-    }
+      right:-260px;
+      bottom:-250px;
 
-    @keyframes glowMove {
-      from {
-        transform: translate(0, 0);
-      }
-
-      to {
-        transform: translate(50px, 40px);
-      }
-    }
-
-
-    /* ============================= */
-    /* SCAN LINE */
-    /* ============================= */
-
-    .scan-line {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: -10%;
-      height: 1px;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(0, 229, 255, 0.5),
-          transparent
-        );
-
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
-
-      pointer-events: none;
-      z-index: 5;
-
-      animation: scan 8s linear infinite;
-    }
-
-    @keyframes scan {
-      0% {
-        top: -10%;
-      }
-
-      100% {
-        top: 110%;
-      }
-    }
-
-
-    /* ============================= */
-    /* FLOATING CODE SYMBOLS */
-    /* ============================= */
-
-    .code-symbol {
-      position: fixed;
-      color: rgba(0, 229, 255, 0.10);
-      font-family: "Courier New", monospace;
-      font-size: 22px;
-      pointer-events: none;
-      z-index: 0;
-      animation: symbolFloat 8s ease-in-out infinite;
-    }
-
-    .symbol-one {
-      top: 18%;
-      left: 8%;
-    }
-
-    .symbol-two {
-      top: 70%;
-      right: 9%;
-      animation-delay: 2s;
-    }
-
-    .symbol-three {
-      top: 42%;
-      right: 5%;
-      animation-delay: 4s;
-    }
-
-    @keyframes symbolFloat {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: 0.08;
-      }
-
-      50% {
-        transform: translateY(-15px);
-        opacity: 0.18;
-      }
+      animation:slowRotateReverse 24s linear infinite;
     }
 
 
@@ -196,12 +84,12 @@
     /* MAIN CONTAINER */
     /* ============================= */
 
-    .container {
-      width: min(900px, 92%);
-      margin: auto;
-      padding: 60px 0;
-      position: relative;
-      z-index: 2;
+    .container{
+      width:100%;
+      max-width:900px;
+      padding:50px 20px;
+      position:relative;
+      z-index:2;
     }
 
 
@@ -209,179 +97,79 @@
     /* PROFILE CARD */
     /* ============================= */
 
-    .profile {
-      position: relative;
+    .profile{
+      position:relative;
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(12, 22, 30, 0.94),
-          rgba(5, 11, 17, 0.94)
-        );
+      background:rgba(255,255,255,.88);
 
-      border: 1px solid rgba(0, 229, 255, 0.22);
-      border-radius: 22px;
+      border-radius:28px;
+      padding:48px 40px;
 
-      padding: 45px 35px;
-      text-align: center;
+      text-align:center;
+
+      border:1px solid rgba(214,168,63,.45);
 
       box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 25px 60px rgba(80,30,10,.12),
+        0 0 0 1px rgba(255,255,255,.6) inset;
 
-      backdrop-filter: blur(15px);
+      overflow:hidden;
 
-      animation: cardEnter 0.9s ease-out;
+      animation:cardReveal 1s ease forwards;
     }
 
-    .profile::before {
-      content: "</>";
 
-      position: absolute;
-      top: 18px;
-      right: 22px;
+    /* Gold decorative line */
 
-      color: rgba(0, 229, 255, 0.18);
-      font-family: "Courier New", monospace;
-      font-size: 13px;
-    }
+    .profile::before{
+      content:"";
+      position:absolute;
 
-    .profile::after {
-      content: "{ }";
+      top:0;
+      left:50%;
 
-      position: absolute;
-      bottom: 18px;
-      left: 22px;
+      width:120px;
+      height:4px;
 
-      color: rgba(0, 229, 255, 0.12);
-      font-family: "Courier New", monospace;
-      font-size: 13px;
-    }
+      transform:translateX(-50%);
 
-    @keyframes cardEnter {
-      from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.97);
-      }
+      background:linear-gradient(
+        90deg,
+        #b8860b,
+        #f0c75e,
+        #b8860b
+      );
 
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      border-radius:0 0 10px 10px;
     }
 
 
     /* ============================= */
-    /* DEVELOPER IMAGE */
+    /* PROFILE PHOTO */
     /* ============================= */
 
-    .developer-photo {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 25px;
-    }
+    .profile img{
+      width:150px;
+      height:150px;
 
-    .developer-photo::before {
-      content: "";
-      position: absolute;
-      inset: -9px;
+      object-fit:cover;
 
-      border: 1px solid rgba(0, 229, 255, 0.55);
-      border-radius: 50%;
+      border-radius:50%;
 
-      animation: photoRing 7s linear infinite;
-    }
+      border:4px solid #f0b429;
 
-    .developer-photo::after {
-      content: "";
+      padding:4px;
 
-      position: absolute;
-      inset: -15px;
+      background:#fffaf0;
 
-      border: 1px dashed rgba(126, 87, 194, 0.35);
-      border-radius: 50%;
-
-      animation: photoRingReverse 11s linear infinite;
-    }
-
-    @keyframes photoRing {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes photoRingReverse {
-      from {
-        transform: rotate(360deg);
-      }
-
-      to {
-        transform: rotate(0deg);
-      }
-    }
-
-    .developer-photo img {
-      width: 150px;
-      height: 150px;
-
-      object-fit: cover;
-      border-radius: 50%;
-
-      display: block;
-
-      border: 3px solid #00e5ff;
+      margin-bottom:20px;
 
       box-shadow:
-        0 0 30px rgba(0, 229, 255, 0.16);
-    }
+        0 10px 30px rgba(80,30,10,.15);
 
-
-    /* ============================= */
-    /* DEVELOPER LABEL */
-    /* ============================= */
-
-    .developer-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      margin-bottom: 15px;
-
-      color: #00e5ff;
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .developer-label::before {
-      content: "";
-
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-      background: #00e5ff;
-
-      box-shadow: 0 0 10px #00e5ff;
-
-      animation: statusPulse 1.8s infinite;
-    }
-
-    @keyframes statusPulse {
-      0%, 100% {
-        opacity: 0.35;
-      }
-
-      50% {
-        opacity: 1;
-      }
+      animation:
+        photoReveal 1s ease .2s both,
+        gentleFloat 4s ease-in-out 1.2s infinite;
     }
 
 
@@ -389,15 +177,19 @@
     /* NAME */
     /* ============================= */
 
-    h1 {
-      margin: 0 0 10px;
+    h1{
+      margin:0 0 8px;
 
-      color: #f1fbff;
+      color:#7b1725;
 
-      font-size: clamp(32px, 6vw, 48px);
-      line-height: 1.1;
+      font-family:Georgia,serif;
 
-      letter-spacing: -1px;
+      font-size:clamp(32px,6vw,48px);
+
+      letter-spacing:-1px;
+
+      animation:
+        textReveal .8s ease .35s both;
     }
 
 
@@ -405,16 +197,21 @@
     /* ROLE */
     /* ============================= */
 
-    .role {
-      color: #00e5ff;
+    .role{
+      color:#b8860b;
 
-      font-family: "Courier New", monospace;
-      font-size: 14px;
-      font-weight: bold;
+      font-weight:bold;
 
-      margin-bottom: 30px;
+      letter-spacing:1.5px;
 
-      letter-spacing: 0.5px;
+      text-transform:uppercase;
+
+      font-size:13px;
+
+      margin-bottom:25px;
+
+      animation:
+        textReveal .8s ease .5s both;
     }
 
 
@@ -422,42 +219,19 @@
     /* BIO */
     /* ============================= */
 
-    .bio {
-      max-width: 650px;
-      margin: auto;
+    .bio{
+      max-width:650px;
 
-      color: #91a2ad;
+      margin:auto;
 
-      line-height: 1.8;
-      font-size: 16px;
-    }
+      line-height:1.8;
 
+      color:#5b4a43;
 
-    /* ============================= */
-    /* TERMINAL DECORATION */
-    /* ============================= */
+      font-size:16px;
 
-    .terminal-line {
-      max-width: 650px;
-      margin: 30px auto 0;
-
-      padding: 13px 16px;
-
-      text-align: left;
-
-      background: #030609;
-
-      border: 1px solid rgba(0, 229, 255, 0.12);
-      border-radius: 8px;
-
-      color: #526673;
-
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-    }
-
-    .terminal-line span {
-      color: #00e5ff;
+      animation:
+        textReveal .8s ease .65s both;
     }
 
 
@@ -465,53 +239,131 @@
     /* BACK BUTTON */
     /* ============================= */
 
-    .back-button {
-      display: inline-block;
+    .back-button{
+      display:inline-block;
 
-      margin-top: 30px;
-      padding: 12px 22px;
+      margin-top:30px;
 
-      color: #061016;
-      background: #00e5ff;
+      padding:13px 25px;
 
-      text-decoration: none;
-      border-radius: 7px;
+      background:#d62828;
 
-      font-family: "Courier New", monospace;
-      font-size: 13px;
-      font-weight: bold;
+      color:white;
+
+      text-decoration:none;
+
+      border-radius:10px;
+
+      font-weight:bold;
 
       box-shadow:
-        0 0 20px rgba(0, 229, 255, 0.12);
+        0 8px 20px rgba(214,40,40,.18);
 
       transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+      animation:
+        textReveal .8s ease .8s both;
     }
 
-    .back-button:hover {
-      transform: translateY(-3px);
+    .back-button:hover{
+      background:#b51f1f;
 
-      background: #62efff;
+      transform:translateY(-3px);
 
       box-shadow:
-        0 0 30px rgba(0, 229, 255, 0.25);
+        0 12px 25px rgba(214,40,40,.25);
     }
 
 
     /* ============================= */
-    /* FOOTER NOTE */
+    /* ANIMATIONS */
     /* ============================= */
 
-    .footer-note {
-      margin-top: 25px;
+    @keyframes cardReveal{
 
-      color: #344752;
+      from{
+        opacity:0;
+        transform:translateY(35px) scale(.97);
+      }
 
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+    }
+
+
+    @keyframes photoReveal{
+
+      from{
+        opacity:0;
+        transform:scale(.65);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+
+    }
+
+
+    @keyframes textReveal{
+
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+
+    @keyframes gentleFloat{
+
+      0%,
+      100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-6px);
+      }
+
+    }
+
+
+    @keyframes slowRotate{
+
+      from{
+        transform:rotate(0deg);
+      }
+
+      to{
+        transform:rotate(360deg);
+      }
+
+    }
+
+
+    @keyframes slowRotateReverse{
+
+      from{
+        transform:rotate(360deg);
+      }
+
+      to{
+        transform:rotate(0deg);
+      }
+
     }
 
 
@@ -519,70 +371,25 @@
     /* MOBILE */
     /* ============================= */
 
-    @media (max-width: 600px) {
+    @media(max-width:600px){
 
-      .container {
-        width: 94%;
-        padding: 30px 0;
+      .container{
+        padding:30px 15px;
       }
 
-      .profile {
-        padding: 40px 22px;
-        border-radius: 19px;
+      .profile{
+        padding:40px 22px;
+        border-radius:24px;
       }
 
-      .developer-photo,
-      .developer-photo img {
-        width: 125px;
-        height: 125px;
+      .profile img{
+        width:130px;
+        height:130px;
       }
 
-      .developer-photo::before {
-        inset: -8px;
-      }
-
-      .developer-photo::after {
-        inset: -13px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .role {
-        font-size: 12px;
-      }
-
-      .bio {
-        font-size: 15px;
-      }
-
-      .terminal-line {
-        font-size: 11px;
-      }
-
-      .code-symbol {
-        display: none;
-      }
-
-    }
-
-
-    /* ============================= */
-    /* REDUCED MOTION */
-    /* ============================= */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      html {
-        scroll-behavior: auto;
+      .bio{
+        font-size:15px;
+        line-height:1.7;
       }
 
     }
@@ -592,59 +399,14 @@
 
 <body>
 
-
-  <!-- ============================= -->
-  <!-- BACKGROUND EFFECTS -->
-  <!-- ============================= -->
-
-  <div class="tech-glow one"></div>
-  <div class="tech-glow two"></div>
-
-  <div class="scan-line"></div>
-
-  <div class="code-symbol symbol-one">
-    &lt;/&gt;
-  </div>
-
-  <div class="code-symbol symbol-two">
-    { }
-  </div>
-
-  <div class="code-symbol symbol-three">
-    &lt;code&gt;
-  </div>
-
-
-  <!-- ============================= -->
-  <!-- DEVELOPER PROFILE -->
-  <!-- ============================= -->
-
   <div class="container">
 
     <div class="profile">
 
-
-      <!-- ============================= -->
-      <!-- DEVELOPER PHOTO -->
-      <!-- ============================= -->
-
-      <div class="developer-photo">
-
-        <img
-          src="assets/committee-members/ayush-khaware.jpg"
-          alt="Ayush Khaware"
-        >
-
-      </div>
-
-
-      <!-- ============================= -->
-      <!-- DEVELOPER INFORMATION -->
-      <!-- ============================= -->
-
-      <div class="developer-label">
-        Developer Profile
-      </div>
+      <img
+        src="assets/committee-members/ayush-khaware.jpg"
+        alt="Ayush Khaware"
+      >
 
       <h1>
         Ayush Khaware
@@ -654,11 +416,6 @@
         Committee Member & Website Developer
       </div>
 
-
-      <!-- ============================= -->
-      <!-- BIO -->
-      <!-- ============================= -->
-
       <p class="bio">
         I am a member of the Civil Line Ganesh Puja Samiti and the developer
         of this website. I designed and developed this website to digitally
@@ -666,39 +423,13 @@
         community activities accessible online.
       </p>
 
-
-      <!-- ============================= -->
-      <!-- TERMINAL DECORATION -->
-      <!-- ============================= -->
-
-      <div class="terminal-line">
-        <span>$</span> website.status
-        &nbsp;→&nbsp;
-        online
-      </div>
-
-
-      <!-- ============================= -->
-      <!-- BACK BUTTON -->
-      <!-- ============================= -->
-
       <a href="index.html" class="back-button">
-        &lt; Back to Home
+        Back to Home
       </a>
-
-
-      <!-- ============================= -->
-      <!-- FOOTER NOTE -->
-      <!-- ============================= -->
-
-      <div class="footer-note">
-        built & maintained with care
-      </div>
 
     </div>
 
   </div>
-
 
 </body>
 </html>
