@@ -1393,14 +1393,29 @@ footer p{
 
         </div>
 
-        <div class="qr-caption">
-          QR payment account: Premjeet Kumar
-                <div id="receipt-form-status" style="margin-top:18px;"></div>
+      <div class="qr-caption">
+  QR payment account: Premjeet Kumar
+</div>
+
+<div id="receipt-form-status" style="margin-top:18px;"></div>
 
 <script>
-  const receiptFormStatus = document.getElementById("receipt-form-status");
+  const receiptFormStatus =
+    document.getElementById("receipt-form-status");
 
-  <script>
+  receiptFormStatus.innerHTML = `
+    <a
+      href="https://forms.gle/WmNCGMae4dqCSe358"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn primary"
+      style="width:100%;">
+      Already Paid? Get your receipt from here!
+    </a>
+  `;
+</script>
+
+        
   receiptFormStatus.innerHTML = `
     <a
       href="https://forms.gle/WmNCGMae4dqCSe358"
