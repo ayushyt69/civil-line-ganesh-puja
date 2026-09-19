@@ -146,14 +146,17 @@ nav a:hover{
 }
 
 .hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-  position:relative;
-  z-index:1
+  display:flex;
+  flex-direction:column;
 }
 
+.hero-photo{
+  order:1;
+}
+
+.hero-grid > div:first-child{
+  order:2;
+}
 .kicker{
   color:var(--red);
   font-weight:800;
