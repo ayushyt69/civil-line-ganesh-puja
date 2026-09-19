@@ -7,79 +7,657 @@
   <title>About the Developer — Civil Line Ganesh Puja Samiti</title>
 
   <style>
+
+    /* ============================= */
+    /* BASIC RESET */
+    /* ============================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: #fffaf0;
-      color: #222;
+      color: #e8f7ff;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(0, 229, 255, 0.12),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 85%,
+          rgba(126, 87, 194, 0.14),
+          transparent 30%
+        ),
+        #05080d;
+
+      position: relative;
     }
+
+
+    /* ============================= */
+    /* TECH GRID BACKGROUND */
+    /* ============================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(0, 229, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 229, 255, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 42px 42px;
+    }
+
+
+    /* ============================= */
+    /* TECH GLOW */
+    /* ============================= */
+
+    .tech-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.16;
+    }
+
+    .tech-glow.one {
+      background: #00e5ff;
+      top: -140px;
+      left: -120px;
+      animation: glowMove 10s ease-in-out infinite alternate;
+    }
+
+    .tech-glow.two {
+      background: #7e57c2;
+      right: -140px;
+      bottom: -140px;
+      animation: glowMove 13s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes glowMove {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(50px, 40px);
+      }
+    }
+
+
+    /* ============================= */
+    /* SCAN LINE */
+    /* ============================= */
+
+    .scan-line {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: -10%;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 229, 255, 0.5),
+          transparent
+        );
+
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
+
+      pointer-events: none;
+      z-index: 5;
+
+      animation: scan 8s linear infinite;
+    }
+
+    @keyframes scan {
+      0% {
+        top: -10%;
+      }
+
+      100% {
+        top: 110%;
+      }
+    }
+
+
+    /* ============================= */
+    /* FLOATING CODE SYMBOLS */
+    /* ============================= */
+
+    .code-symbol {
+      position: fixed;
+      color: rgba(0, 229, 255, 0.10);
+      font-family: "Courier New", monospace;
+      font-size: 22px;
+      pointer-events: none;
+      z-index: 0;
+      animation: symbolFloat 8s ease-in-out infinite;
+    }
+
+    .symbol-one {
+      top: 18%;
+      left: 8%;
+    }
+
+    .symbol-two {
+      top: 70%;
+      right: 9%;
+      animation-delay: 2s;
+    }
+
+    .symbol-three {
+      top: 42%;
+      right: 5%;
+      animation-delay: 4s;
+    }
+
+    @keyframes symbolFloat {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.08;
+      }
+
+      50% {
+        transform: translateY(-15px);
+        opacity: 0.18;
+      }
+    }
+
+
+    /* ============================= */
+    /* MAIN CONTAINER */
+    /* ============================= */
 
     .container {
-      max-width: 900px;
+      width: min(900px, 92%);
       margin: auto;
-      padding: 60px 20px;
+      padding: 60px 0;
+      position: relative;
+      z-index: 2;
     }
+
+
+    /* ============================= */
+    /* PROFILE CARD */
+    /* ============================= */
 
     .profile {
-      background: white;
-      border-radius: 18px;
-      padding: 40px;
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(12, 22, 30, 0.94),
+          rgba(5, 11, 17, 0.94)
+        );
+
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      border-radius: 22px;
+
+      padding: 45px 35px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+      backdrop-filter: blur(15px);
+
+      animation: cardEnter 0.9s ease-out;
     }
+
+    .profile::before {
+      content: "</>";
+
+      position: absolute;
+      top: 18px;
+      right: 22px;
+
+      color: rgba(0, 229, 255, 0.18);
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+    }
+
+    .profile::after {
+      content: "{ }";
+
+      position: absolute;
+      bottom: 18px;
+      left: 22px;
+
+      color: rgba(0, 229, 255, 0.12);
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+    }
+
+    @keyframes cardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+
+    /* ============================= */
+    /* DEVELOPER IMAGE */
+    /* ============================= */
+
+    .developer-photo {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 25px;
+    }
+
+    .developer-photo::before {
+      content: "";
+      position: absolute;
+      inset: -9px;
+
+      border: 1px solid rgba(0, 229, 255, 0.55);
+      border-radius: 50%;
+
+      animation: photoRing 7s linear infinite;
+    }
+
+    .developer-photo::after {
+      content: "";
+
+      position: absolute;
+      inset: -15px;
+
+      border: 1px dashed rgba(126, 87, 194, 0.35);
+      border-radius: 50%;
+
+      animation: photoRingReverse 11s linear infinite;
+    }
+
+    @keyframes photoRing {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes photoRingReverse {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    .developer-photo img {
+      width: 150px;
+      height: 150px;
+
+      object-fit: cover;
+      border-radius: 50%;
+
+      display: block;
+
+      border: 3px solid #00e5ff;
+
+      box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.16);
+    }
+
+
+    /* ============================= */
+    /* DEVELOPER LABEL */
+    /* ============================= */
+
+    .developer-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 15px;
+
+      color: #00e5ff;
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .developer-label::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: #00e5ff;
+
+      box-shadow: 0 0 10px #00e5ff;
+
+      animation: statusPulse 1.8s infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+
+    /* ============================= */
+    /* NAME */
+    /* ============================= */
 
     h1 {
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+
+      color: #f1fbff;
+
+      font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.1;
+
+      letter-spacing: -1px;
     }
 
+
+    /* ============================= */
+    /* ROLE */
+    /* ============================= */
+
     .role {
-      color: #b8860b;
+      color: #00e5ff;
+
+      font-family: "Courier New", monospace;
+      font-size: 14px;
       font-weight: bold;
-      margin-bottom: 25px;
+
+      margin-bottom: 30px;
+
+      letter-spacing: 0.5px;
     }
+
+
+    /* ============================= */
+    /* BIO */
+    /* ============================= */
 
     .bio {
       max-width: 650px;
       margin: auto;
-      line-height: 1.7;
-      color: #555;
+
+      color: #91a2ad;
+
+      line-height: 1.8;
+      font-size: 16px;
     }
+
+
+    /* ============================= */
+    /* TERMINAL DECORATION */
+    /* ============================= */
+
+    .terminal-line {
+      max-width: 650px;
+      margin: 30px auto 0;
+
+      padding: 13px 16px;
+
+      text-align: left;
+
+      background: #030609;
+
+      border: 1px solid rgba(0, 229, 255, 0.12);
+      border-radius: 8px;
+
+      color: #526673;
+
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    .terminal-line span {
+      color: #00e5ff;
+    }
+
+
+    /* ============================= */
+    /* BACK BUTTON */
+    /* ============================= */
 
     .back-button {
       display: inline-block;
+
       margin-top: 30px;
       padding: 12px 22px;
-      background: #d62828;
-      color: white;
+
+      color: #061016;
+      background: #00e5ff;
+
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 7px;
+
+      font-family: "Courier New", monospace;
+      font-size: 13px;
       font-weight: bold;
+
+      box-shadow:
+        0 0 20px rgba(0, 229, 255, 0.12);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
     }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+
+      background: #62efff;
+
+      box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.25);
+    }
+
+
+    /* ============================= */
+    /* FOOTER NOTE */
+    /* ============================= */
+
+    .footer-note {
+      margin-top: 25px;
+
+      color: #344752;
+
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+
+    /* ============================= */
+    /* MOBILE */
+    /* ============================= */
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 94%;
+        padding: 30px 0;
+      }
+
+      .profile {
+        padding: 40px 22px;
+        border-radius: 19px;
+      }
+
+      .developer-photo,
+      .developer-photo img {
+        width: 125px;
+        height: 125px;
+      }
+
+      .developer-photo::before {
+        inset: -8px;
+      }
+
+      .developer-photo::after {
+        inset: -13px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .role {
+        font-size: 12px;
+      }
+
+      .bio {
+        font-size: 15px;
+      }
+
+      .terminal-line {
+        font-size: 11px;
+      }
+
+      .code-symbol {
+        display: none;
+      }
+
+    }
+
+
+    /* ============================= */
+    /* REDUCED MOTION */
+    /* ============================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
+
+  <!-- ============================= -->
+  <!-- BACKGROUND EFFECTS -->
+  <!-- ============================= -->
+
+  <div class="tech-glow one"></div>
+  <div class="tech-glow two"></div>
+
+  <div class="scan-line"></div>
+
+  <div class="code-symbol symbol-one">
+    &lt;/&gt;
+  </div>
+
+  <div class="code-symbol symbol-two">
+    { }
+  </div>
+
+  <div class="code-symbol symbol-three">
+    &lt;code&gt;
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- DEVELOPER PROFILE -->
+  <!-- ============================= -->
+
   <div class="container">
 
     <div class="profile">
-<img
-  src="assets/committee-members/ayush-khaware.jpg"
-  alt="Ayush Khaware"
-  style="
-    width:150px;
-    height:150px;
-    object-fit:cover;
-    border-radius:50%;
-    border:3px solid #f0b429;
-    margin-bottom:20px;
-  "
->
-      <h1>Ayush Khaware</h1>
+
+
+      <!-- ============================= -->
+      <!-- DEVELOPER PHOTO -->
+      <!-- ============================= -->
+
+      <div class="developer-photo">
+
+        <img
+          src="assets/committee-members/ayush-khaware.jpg"
+          alt="Ayush Khaware"
+        >
+
+      </div>
+
+
+      <!-- ============================= -->
+      <!-- DEVELOPER INFORMATION -->
+      <!-- ============================= -->
+
+      <div class="developer-label">
+        Developer Profile
+      </div>
+
+      <h1>
+        Ayush Khaware
+      </h1>
 
       <div class="role">
         Committee Member & Website Developer
       </div>
+
+
+      <!-- ============================= -->
+      <!-- BIO -->
+      <!-- ============================= -->
 
       <p class="bio">
         I am a member of the Civil Line Ganesh Puja Samiti and the developer
@@ -88,13 +666,39 @@
         community activities accessible online.
       </p>
 
+
+      <!-- ============================= -->
+      <!-- TERMINAL DECORATION -->
+      <!-- ============================= -->
+
+      <div class="terminal-line">
+        <span>$</span> website.status
+        &nbsp;→&nbsp;
+        online
+      </div>
+
+
+      <!-- ============================= -->
+      <!-- BACK BUTTON -->
+      <!-- ============================= -->
+
       <a href="index.html" class="back-button">
-        Back to Home
+        &lt; Back to Home
       </a>
+
+
+      <!-- ============================= -->
+      <!-- FOOTER NOTE -->
+      <!-- ============================= -->
+
+      <div class="footer-note">
+        built & maintained with care
+      </div>
 
     </div>
 
   </div>
+
 
 </body>
 </html>
