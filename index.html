@@ -609,7 +609,6 @@ h2{
   padding:0;
 }
 
-
 .location-card .icon{
   margin-bottom:8px
 }
@@ -1390,40 +1389,18 @@ footer p{
 <div id="receipt-form-status" style="margin-top:18px;"></div>
 
 <script>
-  // Form remains available until the end of 21 September 2026.
-  const formCloseDate = new Date("2026-09-22T00:00:00+05:30");
+  const receiptFormStatus = document.getElementById("receipt-form-status");
 
-  if (new Date() < formCloseDate) {
-    receiptFormStatus.innerHTML = `
-      <a
-        href="https://forms.gle/WmNCGMae4dqCSe358"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn primary"
-        style="width:100%;">
-        Already Paid? Get your receipt from here!
-      </a>
-    `;
-  } else {
-    receiptFormStatus.innerHTML = `
-      <div style="
-        width:100%;
-        padding:14px 10px;
-        box-sizing:border-box;
-        border:1px solid #ddd;
-        border-radius:10px;
-        background:#f7f7f7;
-        color:#555;
-        text-align:center;
-      ">
-        <strong style="display:block; color:#333; margin-bottom:5px;">
-          Receipt Form Closed
-        </strong>
-        The 2026 receipt form is now closed.<br>
-        It will reopen next year for Ganesh Puja 2027.
-      </div>
-    `;
-  }
+  receiptFormStatus.innerHTML = `
+    <a
+      href="https://forms.gle/WmNCGMae4dqCSe358"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn primary"
+      style="width:100%;">
+      Already Paid? Get your receipt from here!
+    </a>
+  `;
 </script>
 
 <!-- ============================= -->
