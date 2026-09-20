@@ -153,6 +153,7 @@ nav a:hover{
   position:relative;
   z-index:1
 }
+
 .kicker{
   color:var(--red);
   font-weight:800;
@@ -201,7 +202,6 @@ h1{
   background:#fff
 }
 
-
 .hero-message{
   margin:20px 0 25px;
   padding:18px 20px;
@@ -219,15 +219,6 @@ h1{
   line-height:1.7;
 }
 
-.hero-photo{
-  width:min(470px,90vw);
-  margin:auto;
-  border-radius:30px;
-  padding:10px;
-  background:#fff;
-  box-shadow:0 25px 60px rgba(79,25,15,.18);
-  border:2px solid rgba(214,168,63,.55)
-}  
 .hero-photo{
   width:min(470px,90vw);
   margin:auto;
@@ -369,9 +360,6 @@ h2{
   border-radius:999px
 }
 
-  
-  
-  
 /* ============================= */
 /* ABOUT */
 /* ============================= */
@@ -602,11 +590,15 @@ h2{
   background:#fff
 }
 
+/* IMPORTANT: no "card" class here */
 .location-card{
   max-width:650px;
   margin:auto;
   text-align:center;
   padding:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
 
 .location-card .icon{
@@ -697,13 +689,15 @@ footer p{
   .donation .grid{
     grid-template-columns:1fr
   }
-.hero-photo{
-  order:1;
-}
 
-.hero-grid > div:first-child{
-  order:2;
-}
+  .hero-photo{
+    order:1;
+  }
+
+  .hero-grid > div:first-child{
+    order:2;
+  }
+
   .hero{
     text-align:center;
     padding-top:110px
@@ -759,6 +753,7 @@ footer p{
     font-size:30px
   }
 }
+
 /* Reduce desktop-site spacing on touch-screen phones */
 @media (hover: none) and (pointer: coarse) and (min-width: 701px) {
   .hero {
@@ -767,6 +762,7 @@ footer p{
     padding-bottom: 70px !important;
   }
 }
+
 .donation-ganesh-wrap{
   display:none;
 }
@@ -795,7 +791,6 @@ footer p{
     transform:translateY(-6px);
   }
 }
-
 
 /* ============================= */
 /* 2026 HIGHLIGHTS CARD */
@@ -911,16 +906,15 @@ footer p{
     width:100%;
   }
 
-}  
-  
-  /* Latest Updates Ribbon */
+}
+
+/* Latest Updates Ribbon */
 
 .latest-update-ribbon{
   flex:1;
   min-width:0;
   overflow:hidden;
 }
-
 
 </style>
   
@@ -961,6 +955,7 @@ footer p{
 </header>
 
 <main>
+
 <!-- ============================= -->
 <!-- HERO -->
 <!-- ============================= -->
@@ -1009,7 +1004,9 @@ footer p{
 <!-- ============================= -->
 <!-- COMMITTEE HIGHLIGHT -->
 <!-- ============================= -->
+
 <section class="murti-highlight">
+
   <div class="container">
 
     <div class="section-head">
@@ -1018,32 +1015,47 @@ footer p{
     </div>
 
     <div class="banner-card">
+
       <img
         src="assets/gallery/1789394104976.jpg"
         alt="2026 Ganpati Murti"
         style="width:100%; height:auto; display:block; border-radius:17px;"
       >
+
     </div>
 
   </div>
+
 </section>
+
 <section class="photo-highlight" id="highlights">
+
   <div class="container">
+
     <div class="section-head">
-      <div class="kicker">Highlights</div>
-      
+
+      <div class="kicker">
+        Highlights
+      </div>
+
     </div>
 
     <div class="banner-card">
+
       <div class="highlight-slideshow">
+
         <img
           id="highlight-slide"
           src="assets/FULLMEMBERSIMAGEFRONT.JPG"
           alt="Civil Line Ganesh Puja Samiti"
         >
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- ============================= -->
@@ -1066,7 +1078,6 @@ footer p{
 
     </div>
 
-
     <div class="event-grid">
 
       <article class="event-card">
@@ -1087,7 +1098,6 @@ footer p{
           </p>
 
         </div>
-
 
         <a
           class="event-link"
@@ -1163,7 +1173,7 @@ footer p{
 <!-- COMMITTEE -->
 <!-- ============================= -->
 
-  <section class="committee" id="committee">
+<section class="committee" id="committee">
 
   <div class="container">
 
@@ -1353,15 +1363,16 @@ footer p{
           Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.
         </p>
 
-<div class="donation-ganesh-wrap">
-  <img
-    src="assets/1000413549.png"
-    alt="Ganesh Ji"
-    class="donation-ganesh"
-  >
-</div>
+        <div class="donation-ganesh-wrap">
 
-        
+          <img
+            src="assets/1000413549.png"
+            alt="Ganesh Ji"
+            class="donation-ganesh"
+          >
+
+        </div>
+
       </div>
 
       <div class="card qr-wrap">
@@ -1382,30 +1393,35 @@ footer p{
 
         </div>
 
-      <div class="qr-caption">
-  QR payment account: Premjeet Kumar
-</div>
+        <div class="qr-caption">
+          QR payment account: Premjeet Kumar
+        </div>
 
-<div id="receipt-form-status" style="margin-top:18px;"></div>
+        <div id="receipt-form-status" style="margin-top:18px;"></div>
 
-<script>
-  const receiptFormStatus = document.getElementById("receipt-form-status");
+        <script>
+          const receiptFormStatus =
+            document.getElementById("receipt-form-status");
 
-  receiptFormStatus.innerHTML = `
-    <a
-      href="https://forms.gle/WmNCGMae4dqCSe358"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn primary"
-      style="width:100%;">
-      Already Paid? Get your receipt from here!
-    </a>
-  `;
-</script>
+          receiptFormStatus.innerHTML = `
+            <a
+              href="https://forms.gle/WmNCGMae4dqCSe358"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn primary"
+              style="width:100%;">
+              Already Paid? Get your receipt from here!
+            </a>
+          `;
+        </script>
 
-<!-- ============================= -->
-<!-- LOCATION -->
-<!-- ============================= -->
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- ============================= -->
 <!-- LOCATION -->
@@ -1427,17 +1443,17 @@ footer p{
 
     </div>
 
-  <div class="card location-card">
+    <div class="location-card">
 
-  <h3>
-    Civil Line, Nandan Pahad Road
-  </h3>
+      <h3>
+        Civil Line, Nandan Pahad Road
+      </h3>
 
-  <p>
-    Deoghar
-  </p>
+      <p>
+        Deoghar
+      </p>
 
-</div>
+    </div>
 
   </div>
 
@@ -1450,27 +1466,50 @@ footer p{
 <!-- ============================= -->
 
 <footer>
+
   <div class="container">
 
-    <strong>CIVIL LINE GANESH PUJA SAMITI</strong>
+    <strong>
+      CIVIL LINE GANESH PUJA SAMITI
+    </strong>
 
     <div style="margin-top:28px;">
 
-      <div style="color:var(--red); font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:18px;">
+      <div style="
+        color:var(--red);
+        font-size:13px;
+        font-weight:800;
+        letter-spacing:2px;
+        text-transform:uppercase;
+        margin-bottom:18px;">
         Media Partners
       </div>
 
-      <div style="display:flex; justify-content:center; align-items:flex-start; gap:35px; flex-wrap:wrap;">
+      <div style="
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        gap:35px;
+        flex-wrap:wrap;">
 
         <div style="width:220px; text-align:center;">
+
           <a
             href="https://www.instagram.com/devesh_deoghar_vlogs/"
             target="_blank"
             rel="noopener noreferrer">
+
             <img
               src="assets/devesh-media.jpg"
               alt="Devesh Deoghar Vlogs"
-              style="width:180px; height:180px; object-fit:cover; border-radius:16px; display:block; margin:0 auto 12px;">
+              style="
+                width:180px;
+                height:180px;
+                object-fit:cover;
+                border-radius:16px;
+                display:block;
+                margin:0 auto 12px;">
+
           </a>
 
           <strong style="display:block;">
@@ -1480,17 +1519,27 @@ footer p{
           <span style="font-size:13px;">
             @devesh_deoghar_vlogs
           </span>
+
         </div>
 
         <div style="width:220px; text-align:center;">
+
           <a
             href="https://www.instagram.com/exposure_notes/"
             target="_blank"
             rel="noopener noreferrer">
+
             <img
               src="assets/exposure-notes.jpg"
               alt="Exposure Notes"
-              style="width:180px; height:180px; object-fit:cover; border-radius:16px; display:block; margin:0 auto 12px;">
+              style="
+                width:180px;
+                height:180px;
+                object-fit:cover;
+                border-radius:16px;
+                display:block;
+                margin:0 auto 12px;">
+
           </a>
 
           <strong style="display:block;">
@@ -1500,79 +1549,89 @@ footer p{
           <span style="font-size:13px;">
             @exposure_notes
           </span>
+
         </div>
 
       </div>
+
     </div>
 
     <style>
-@keyframes developerGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 rgba(240,180,41,0);
-  }
+      @keyframes developerGlow {
 
-  50% {
-    box-shadow: 0 0 14px rgba(240,180,41,0.25);
-  }
-}
-</style>
-    
-<div style="text-align:center; margin:30px 0 10px;">
-  <a
-    href="developer.html"
-    style="
-      display:inline-block;
-      color:#f0b429;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:20px;
-      padding:12px 24px;
-      border:1px solid #f0b429;
-      border-radius:10px;
-      transition:all 0.3s ease;
-      animation:developerGlow 2.5s ease-in-out infinite;
-    "
-    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 18px rgba(240,180,41,0.35)'"
-    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
-  >
-    About the Developer
-  </a>
-</div>
+        0%,100% {
+          box-shadow:0 0 0 rgba(240,180,41,0);
+        }
 
-<p style="margin-top:40px;">
-  
-</p>
-    
-    <p style="margin-top:40px;">
-      
-    </p>
+        50% {
+          box-shadow:0 0 14px rgba(240,180,41,0.25);
+        }
+
+      }
+    </style>
+
+    <div style="text-align:center; margin:30px 0 10px;">
+
+      <a
+        href="developer.html"
+        style="
+          display:inline-block;
+          color:#f0b429;
+          text-decoration:none;
+          font-weight:bold;
+          font-size:20px;
+          padding:12px 24px;
+          border:1px solid #f0b429;
+          border-radius:10px;
+          transition:all 0.3s ease;
+          animation:developerGlow 2.5s ease-in-out infinite;
+        "
+        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 18px rgba(240,180,41,0.35)'"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+      >
+        About the Developer
+      </a>
+
+    </div>
+
+    <p style="margin-top:40px;"></p>
+
+    <p style="margin-top:40px;"></p>
 
     <p>
       © 2026 Civil Line Ganesh Puja Samiti. All rights reserved.
     </p>
 
-   <div style="
-  text-align:center;
-  margin-top:18px;
-  pointer-events:none;
-">
-  <script
-    src="https://www.stats4u.net/s4u.js"
-    data-id="6462883806"
-    data-style="961"
-    async>
-  </script>
-</div>
+    <div style="
+      text-align:center;
+      margin-top:18px;
+      pointer-events:none;
+    ">
+
+      <script
+        src="https://www.stats4u.net/s4u.js"
+        data-id="6462883806"
+        data-style="961"
+        async>
+      </script>
+
+    </div>
+
   </div>
+
 </footer>
+
 <script>
 
 /* ============================= */
 /* MOBILE MENU */
 /* ============================= */
 
-const menuButton = document.querySelector('.menu');
-const primaryNavigation = document.querySelector('#primary-navigation');
+const menuButton =
+  document.querySelector('.menu');
+
+const primaryNavigation =
+  document.querySelector('#primary-navigation');
 
 function closeMenu(){
 
@@ -1633,120 +1692,125 @@ window.addEventListener('resize',()=>{
 
 });
 
-
-/* ============================= */
-/* COMMITTEE NAME LOOP */
-/* ============================= */
-
-
 </script>
 
 <!-- HOME PAGE NOTIFICATION POPUP -->
+
 <style>
-  .site-notification-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(3px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:9999;
+
+.site-notification-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(3px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
+}
+
+.site-notification{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  background:#fffaf0;
+  border:2px solid #d62828;
+  border-radius:20px;
+  padding:30px 25px 25px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  animation:notificationPop .35s ease-out;
+}
+
+.site-notification h2{
+  margin:0 0 12px;
+  color:#8e1424;
+  font-size:25px;
+}
+
+.site-notification p{
+  margin:8px 0;
+  color:#444;
+  line-height:1.6;
+  font-size:16px;
+}
+
+.notification-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#555;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.notification-close:hover{
+  background:#f3e5d0;
+}
+
+.notification-button{
+  display:inline-block;
+  margin-top:18px;
+  padding:11px 24px;
+  background:#d62828;
+  color:white;
+  text-decoration:none;
+  border-radius:9px;
+  font-weight:700;
+  cursor:pointer;
+  border:0;
+  font-size:15px;
+}
+
+.notification-button.secondary{
+  margin-top:10px;
+  background:#fff;
+  color:#8e1424;
+  border:1px solid #d62828;
+}
+
+@keyframes notificationPop{
+
+  from{
+    opacity:0;
+    transform:scale(.9);
   }
 
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+
+}
+
+@media(max-width:500px){
+
   .site-notification{
-    position:relative;
-    width:100%;
-    max-width:430px;
-    background:#fffaf0;
-    border:2px solid #d62828;
-    border-radius:20px;
-    padding:30px 25px 25px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
-    animation:notificationPop .35s ease-out;
+    padding:28px 20px 22px;
   }
 
   .site-notification h2{
-    margin:0 0 12px;
-    color:#8e1424;
-    font-size:25px;
+    font-size:22px;
   }
 
   .site-notification p{
-    margin:8px 0;
-    color:#444;
-    line-height:1.6;
-    font-size:16px;
-  }
-
-  .notification-close{
-    position:absolute;
-    top:10px;
-    right:12px;
-    width:36px;
-    height:36px;
-    border:0;
-    border-radius:50%;
-    background:transparent;
-    color:#555;
-    font-size:25px;
-    cursor:pointer;
-  }
-
-  .notification-close:hover{
-    background:#f3e5d0;
-  }
-
-  .notification-button{
-    display:inline-block;
-    margin-top:18px;
-    padding:11px 24px;
-    background:#d62828;
-    color:white;
-    text-decoration:none;
-    border-radius:9px;
-    font-weight:700;
-    cursor:pointer;
-    border:0;
     font-size:15px;
   }
 
-  .notification-button.secondary{
-    margin-top:10px;
-    background:#fff;
-    color:#8e1424;
-    border:1px solid #d62828;
-  }
+}
 
-  @keyframes notificationPop{
-    from{
-      opacity:0;
-      transform:scale(.9);
-    }
-    to{
-      opacity:1;
-      transform:scale(1);
-    }
-  }
-
-  @media(max-width:500px){
-    .site-notification{
-      padding:28px 20px 22px;
-    }
-
-    .site-notification h2{
-      font-size:22px;
-    }
-
-    .site-notification p{
-      font-size:15px;
-    }
-  }
 </style>
 
-<div class="site-notification-overlay" id="site-notification-overlay">
+<div
+  class="site-notification-overlay"
+  id="site-notification-overlay">
+
   <div class="site-notification">
 
     <button
@@ -1756,7 +1820,9 @@ window.addEventListener('resize',()=>{
       ×
     </button>
 
-    <h2>🙏 Ganesh Puja 2026</h2>
+    <h2>
+      🙏 Ganesh Puja 2026
+    </h2>
 
     <p>
       Ganesh Puja 2026 has successfully concluded.
@@ -1767,8 +1833,15 @@ window.addEventListener('resize',()=>{
     </p>
 
     <p>
-      <strong>Relive the memories!</strong><br>
+
+      <strong>
+        Relive the memories!
+      </strong>
+      <br>
+
       Watch the celebration captured by Devesh Vlogs.
+
+    </p>
 
     <a
       href="https://youtu.be/dyV1NW8xjq4"
@@ -1787,30 +1860,54 @@ window.addEventListener('resize',()=>{
     </button>
 
   </div>
+
 </div>
 
 <script>
-  const notificationOverlay =
-    document.getElementById("site-notification-overlay");
 
-  const notificationClose =
-    document.getElementById("notification-close");
+const notificationOverlay =
+  document.getElementById(
+    "site-notification-overlay"
+  );
 
-  const notificationOk =
-    document.getElementById("notification-ok");
+const notificationClose =
+  document.getElementById(
+    "notification-close"
+  );
 
-  function closeNotification() {
-    notificationOverlay.style.display = "none";
-  }
+const notificationOk =
+  document.getElementById(
+    "notification-ok"
+  );
 
-  notificationClose.addEventListener("click", closeNotification);
-  notificationOk.addEventListener("click", closeNotification);
+function closeNotification(){
 
-  notificationOverlay.addEventListener("click", function(event) {
-    if (event.target === notificationOverlay) {
+  notificationOverlay.style.display =
+    "none";
+
+}
+
+notificationClose.addEventListener(
+  "click",
+  closeNotification
+);
+
+notificationOk.addEventListener(
+  "click",
+  closeNotification
+);
+
+notificationOverlay.addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === notificationOverlay){
       closeNotification();
     }
-  });
+
+  }
+);
+
 </script>
 
 <!-- ============================= -->
@@ -1819,13 +1916,14 @@ window.addEventListener('resize',()=>{
 
 <script>
 
-  const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = false;
 
-  if (MAINTENANCE_MODE) {
+if(MAINTENANCE_MODE){
 
-    window.location.href = "maintenance.html";
+  window.location.href =
+    "maintenance.html";
 
-  }
+}
 
 </script>
 
