@@ -1927,5 +1927,429 @@ if(MAINTENANCE_MODE){
 
 </script>
 
+
+
+
+<!-- ============================= -->
+<!-- NEXT GANPATI COUNTDOWN -->
+<!-- PASTE THIS ENTIRE BLOCK AT THE BOTTOM -->
+<!-- ============================= -->
+
+<style>
+
+#next-ganpati-countdown{
+  padding:70px 0;
+  background:
+    radial-gradient(circle at 15% 30%,rgba(214,168,63,.18),transparent 28%),
+    radial-gradient(circle at 85% 70%,rgba(197,31,50,.10),transparent 30%),
+    linear-gradient(135deg,#fffaf0,#fff1d0);
+  position:relative;
+  overflow:hidden;
+}
+
+#next-ganpati-countdown .countdown-container{
+  width:min(1000px,92%);
+  margin:auto;
+  text-align:center;
+}
+
+#next-ganpati-countdown .countdown-kicker{
+  color:#c51f32;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+#next-ganpati-countdown .countdown-title{
+  color:#8e1424;
+  font-size:clamp(32px,5vw,52px);
+  line-height:1.1;
+  margin:0 0 12px;
+}
+
+#next-ganpati-countdown .countdown-text{
+  max-width:650px;
+  margin:0 auto;
+  color:#684c46;
+  font-size:16px;
+  line-height:1.7;
+}
+
+#next-ganpati-countdown .countdown-box{
+  margin:35px auto 0;
+  padding:25px;
+  max-width:760px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(214,168,63,.45);
+  border-radius:24px;
+  box-shadow:0 18px 45px rgba(80,30,10,.10);
+}
+
+#next-ganpati-countdown .countdown-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+#next-ganpati-countdown .countdown-unit{
+  background:#fffaf0;
+  border:1px solid rgba(142,20,36,.12);
+  border-radius:18px;
+  padding:20px 10px;
+}
+
+#next-ganpati-countdown .countdown-number{
+  display:block;
+  color:#8e1424;
+  font-size:clamp(30px,5vw,48px);
+  font-weight:900;
+  line-height:1;
+}
+
+#next-ganpati-countdown .countdown-label{
+  display:block;
+  margin-top:9px;
+  color:#72504b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+#next-ganpati-countdown .countdown-date{
+  margin-top:20px;
+  color:#a77a1f;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+@media(max-width:600px){
+
+  #next-ganpati-countdown{
+    padding:55px 0;
+  }
+
+  #next-ganpati-countdown .countdown-box{
+    padding:18px;
+    border-radius:20px;
+  }
+
+  #next-ganpati-countdown .countdown-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  #next-ganpati-countdown .countdown-unit{
+    padding:18px 8px;
+  }
+
+}
+
+</style>
+
+<script>
+
+(function(){
+
+  /* Prevent duplicate countdown if script is accidentally pasted twice */
+  if(document.getElementById("next-ganpati-countdown")){
+    return;
+  }
+
+  /* ============================= */
+  /* CREATE COUNTDOWN */
+  /* ============================= */
+
+  const countdownSection =
+    document.createElement("section");
+
+  countdownSection.id =
+    "next-ganpati-countdown";
+
+  countdownSection.innerHTML = `
+
+    <div class="countdown-container">
+
+      <div class="countdown-kicker">
+        The Wait Begins Again
+      </div>
+
+      <h2 class="countdown-title">
+        Until We Welcome Bappa Again
+      </h2>
+
+      <p class="countdown-text">
+        The celebration may be over, but the memories remain.
+        The countdown to welcoming Bappa back to Civil Line has already begun.
+      </p>
+
+      <div class="countdown-box">
+
+        <div class="countdown-grid">
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-days">
+              0
+            </span>
+            <span class="countdown-label">
+              Days
+            </span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-hours">
+              0
+            </span>
+            <span class="countdown-label">
+              Hours
+            </span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-minutes">
+              0
+            </span>
+            <span class="countdown-label">
+              Minutes
+            </span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-seconds">
+              0
+            </span>
+            <span class="countdown-label">
+              Seconds
+            </span>
+          </div>
+
+        </div>
+
+        <div class="countdown-date" id="countdown-date">
+          Counting down to the next Ganesh Chaturthi
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+  /* ============================= */
+  /* INSERT BEFORE 2026 GANPATI */
+  /* ============================= */
+
+  const ganpatiSection =
+    document.querySelector(".murti-highlight");
+
+  if(ganpatiSection){
+
+    ganpatiSection.parentNode.insertBefore(
+      countdownSection,
+      ganpatiSection
+    );
+
+  }else{
+
+    /* Fallback: place after hero */
+    const heroSection =
+      document.querySelector(".hero");
+
+    if(heroSection){
+
+      heroSection.parentNode.insertBefore(
+        countdownSection,
+        heroSection.nextSibling
+      );
+
+    }else{
+
+      document.body.insertBefore(
+        countdownSection,
+        document.body.firstChild
+      );
+
+    }
+
+  }
+
+  /* ============================= */
+  /* FIND NEXT GANESH CHATURTHI */
+  /* ============================= */
+
+  function getNextGaneshChaturthi(){
+
+    /*
+      Ganesh Chaturthi dates.
+      Add future dates here when required.
+
+      2026 = 14 September
+      2027 = 4 September
+      2028 = 23 August
+      2029 = 12 September
+      2030 = 2 September
+    */
+
+    const dates = {
+      2026:"2026-09-14T00:00:00+05:30",
+      2027:"2027-09-04T00:00:00+05:30",
+      2028:"2028-08-23T00:00:00+05:30",
+      2029:"2029-09-12T00:00:00+05:30",
+      2030:"2030-09-02T00:00:00+05:30"
+    };
+
+    const now =
+      new Date();
+
+    const years =
+      Object.keys(dates)
+        .map(Number)
+        .sort((a,b)=>a-b);
+
+    for(const year of years){
+
+      const target =
+        new Date(dates[year]);
+
+      if(target > now){
+        return target;
+      }
+
+    }
+
+    /*
+      Fallback for years after 2030.
+      Keeps the countdown working instead of stopping.
+    */
+
+    return new Date(
+      "2031-08-23T00:00:00+05:30"
+    );
+
+  }
+
+  const targetDate =
+    getNextGaneshChaturthi();
+
+  /* ============================= */
+  /* FORMAT TARGET DATE */
+  /* ============================= */
+
+  const dateDisplay =
+    targetDate.toLocaleDateString(
+      "en-IN",
+      {
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+  document.getElementById(
+    "countdown-date"
+  ).textContent =
+    "Next Ganesh Chaturthi • " + dateDisplay;
+
+  /* ============================= */
+  /* UPDATE COUNTDOWN */
+  /* ============================= */
+
+  function updateCountdown(){
+
+    const now =
+      new Date();
+
+    let difference =
+      targetDate.getTime() - now.getTime();
+
+    if(difference <= 0){
+
+      document.getElementById(
+        "countdown-days"
+      ).textContent = "0";
+
+      document.getElementById(
+        "countdown-hours"
+      ).textContent = "0";
+
+      document.getElementById(
+        "countdown-minutes"
+      ).textContent = "0";
+
+      document.getElementById(
+        "countdown-seconds"
+      ).textContent = "0";
+
+      document.getElementById(
+        "countdown-date"
+      ).textContent =
+        "Bappa has arrived.";
+
+      return;
+
+    }
+
+    const totalSeconds =
+      Math.floor(difference / 1000);
+
+    const days =
+      Math.floor(
+        totalSeconds / 86400
+      );
+
+    const hours =
+      Math.floor(
+        (totalSeconds % 86400) / 3600
+      );
+
+    const minutes =
+      Math.floor(
+        (totalSeconds % 3600) / 60
+      );
+
+    const seconds =
+      totalSeconds % 60;
+
+    document.getElementById(
+      "countdown-days"
+    ).textContent =
+      days;
+
+    document.getElementById(
+      "countdown-hours"
+    ).textContent =
+      String(hours).padStart(2,"0");
+
+    document.getElementById(
+      "countdown-minutes"
+    ).textContent =
+      String(minutes).padStart(2,"0");
+
+    document.getElementById(
+      "countdown-seconds"
+    ).textContent =
+      String(seconds).padStart(2,"0");
+
+  }
+
+  updateCountdown();
+
+  setInterval(
+    updateCountdown,
+    1000
+  );
+
+})();
+
+</script>
+
+<!-- ============================= -->
+<!-- END NEXT GANPATI COUNTDOWN -->
+<!-- ============================= -->
+
+
+  
 </body>
 </html>
