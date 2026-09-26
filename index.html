@@ -2346,11 +2346,14 @@ if(MAINTENANCE_MODE){
 <!-- END NEXT GANPATI COUNTDOWN -->
 <!-- ============================= -->
 
+
+
 <!-- =========================================
      ADMIN ACCESS
      ========================================= -->
 
 <style>
+
 /* =========================================
    ADMIN ACCESS BUTTON
 ========================================= */
@@ -2379,7 +2382,7 @@ if(MAINTENANCE_MODE){
     border: 1.5px solid #f4b400;
     border-radius: 10px;
 
-    background: rgba(255, 180, 0, 0.06);
+    background: rgba(244, 180, 0, 0.06);
 
     color: #f4b400;
 
@@ -2391,21 +2394,22 @@ if(MAINTENANCE_MODE){
 
     text-decoration: none;
 
-    box-shadow:
-        0 0 0 rgba(244, 180, 0, 0),
-        inset 0 0 0 rgba(244, 180, 0, 0);
+    overflow: hidden;
 
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         color 0.25s ease,
         box-shadow 0.25s ease;
-    
+
+    /* Continuous glow */
     animation: adminGlow 2.8s ease-in-out infinite;
 }
 
 
-/* Small lock icon */
+/* =========================================
+   LOCK ICON
+========================================= */
 
 .footer-admin-access a::before {
     content: "🔐";
@@ -2413,10 +2417,15 @@ if(MAINTENANCE_MODE){
     font-size: 14px;
 
     filter: saturate(0.85);
+
+    /* Same pulsing effect as Query icon */
+    animation: adminIcon 2.8s ease-in-out infinite;
 }
 
 
-/* Soft professional pulse */
+/* =========================================
+   CONTINUOUS BUTTON GLOW
+========================================= */
 
 @keyframes adminGlow {
 
@@ -2429,34 +2438,32 @@ if(MAINTENANCE_MODE){
 
     50% {
         box-shadow:
-            0 0 18px rgba(244, 180, 0, 0.18),
-            inset 0 0 12px rgba(244, 180, 0, 0.035);
+            0 0 20px rgba(244, 180, 0, 0.28),
+            inset 0 0 12px rgba(244, 180, 0, 0.05);
     }
 }
 
 
-/* Hover */
+/* =========================================
+   ICON PULSE
+========================================= */
 
-.footer-admin-access a:hover {
-    color: #1f0d09;
+@keyframes adminIcon {
 
-    background: #f4b400;
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 25px rgba(244, 180, 0, 0.28);
+    50% {
+        transform: scale(1.12);
+    }
 }
 
 
-/* Press */
-
-.footer-admin-access a:active {
-    transform: scale(0.96);
-}
-
-
-/* Small shine passing across the button */
+/* =========================================
+   MOVING LIGHT SWEEP
+========================================= */
 
 .footer-admin-access a::after {
     content: "";
@@ -2464,7 +2471,7 @@ if(MAINTENANCE_MODE){
     position: absolute;
 
     top: 0;
-    left: -100%;
+    left: -120%;
 
     width: 55%;
     height: 100%;
@@ -2472,13 +2479,13 @@ if(MAINTENANCE_MODE){
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.16),
+        rgba(255, 255, 255, 0.22),
         transparent
     );
 
     transform: skewX(-20deg);
 
-    animation: adminShine 4.5s ease-in-out infinite;
+    animation: adminShine 4s ease-in-out infinite;
 
     pointer-events: none;
 }
@@ -2486,21 +2493,46 @@ if(MAINTENANCE_MODE){
 @keyframes adminShine {
 
     0%,
-    65% {
-        left: -100%;
+    60% {
+        left: -120%;
     }
 
-    80% {
-        left: 130%;
-    }
-
+    78%,
     100% {
-        left: 130%;
+        left: 135%;
     }
 }
 
 
-/* Mobile */
+/* =========================================
+   HOVER
+========================================= */
+
+.footer-admin-access a:hover {
+
+    color: #1f0d09;
+
+    background: #f4b400;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 28px rgba(244, 180, 0, 0.35);
+}
+
+
+/* =========================================
+   PRESS
+========================================= */
+
+.footer-admin-access a:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 500px) {
 
@@ -2545,9 +2577,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
+//////////////////////////////////////////////////////////////
+HAVE A QUERY BUTTON 
+//////////////////////////////////////////////////////////////
 
 <style>
 .footer-query-access {
