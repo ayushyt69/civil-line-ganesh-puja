@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Console | Civil Line Ganesh Puja Samiti</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #d62828;
+    --dark-red: #a91818;
+    --cream: #fffaf0;
+    --text: #292929;
+    --muted: #777;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at top, rgba(214,40,40,.08), transparent 45%),
+        linear-gradient(135deg, #fffdf8, #fff7e8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.console-page {
+    width: min(560px, 100%);
+    text-align: center;
+}
+
+.logo {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--white);
+    border: 2px solid rgba(214,40,40,.18);
+
+    box-shadow: 0 8px 25px rgba(100,50,0,.08);
+
+    font-size: 31px;
+}
+
+.tagline {
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #8f1717;
+    font-size: clamp(32px, 7vw, 48px);
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 430px;
+    margin: 0 auto 30px;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.admin-button {
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        var(--red),
+        var(--dark-red)
+    );
+
+    color: white;
+
+    padding: 15px 27px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(183,28,28,.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.admin-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(183,28,28,.28);
+}
+
+.admin-button:active {
+    transform: scale(.96);
+}
+
+.admin-button span {
+    margin-right: 7px;
+}
+
+.note {
+    margin-top: 25px;
+    color: #999;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   ACCESS DENIED SCREEN
+========================================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(35, 18, 10, .52);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    z-index: 100;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   DENIED CARD
+========================================= */
+
+.denied-card {
+    width: min(430px, 100%);
+
+    background: var(--cream);
+
+    border-radius: 20px;
+
+    padding: 38px 30px 32px;
+
+    text-align: center;
+
+    border: 1px solid rgba(214,40,40,.15);
+
+    box-shadow:
+        0 30px 80px rgba(80,35,0,.28);
+
+    transform: translateY(35px) scale(.92);
+
+    opacity: 0;
+
+    transition:
+        transform .45s cubic-bezier(.22,1,.36,1),
+        opacity .35s ease;
+}
+
+.overlay.active .denied-card {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+
+/* =========================================
+   LOCK ANIMATION
+========================================= */
+
+.denied-icon {
+    position: relative;
+
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0f0;
+
+    border: 1px solid rgba(214,40,40,.18);
+
+    color: var(--red);
+
+    font-size: 25px;
+
+    transform: scale(.5);
+    opacity: 0;
+}
+
+.overlay.active .denied-icon {
+    animation:
+        lockAppear .55s cubic-bezier(.22,1,.36,1) .15s forwards,
+        lockPulse 1.8s ease .75s infinite;
+}
+
+@keyframes lockAppear {
+    0% {
+        transform: scale(.5) rotate(-12deg);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.12) rotate(3deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes lockPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(214,40,40,0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(214,40,40,.08);
+    }
+}
+
+
+/* =========================================
+   DENIED TEXT ANIMATION
+========================================= */
+
+.denied-label,
+.denied-card h2,
+.denied-card p,
+.return-button {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.overlay.active .denied-label {
+    animation: textReveal .45s ease .35s forwards;
+}
+
+.overlay.active .denied-card h2 {
+    animation: textReveal .45s ease .43s forwards;
+}
+
+.overlay.active .denied-card p {
+    animation: textReveal .45s ease .51s forwards;
+}
+
+.overlay.active .return-button {
+    animation: textReveal .45s ease .59s forwards;
+}
+
+@keyframes textReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.denied-label {
+    color: var(--red);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.denied-card h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #8f1717;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.denied-card p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 340px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   RETURN BUTTON
+========================================= */
+
+.return-button {
+    margin-top: 24px;
+
+    padding: 11px 22px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(214,40,40,.22);
+
+    background: white;
+
+    color: var(--red);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.return-button:hover {
+    background: #fff3f3;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 68px;
+        height: 68px;
+        font-size: 27px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .denied-card {
+        padding: 32px 22px 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="console-page">
+
+    <div class="logo">
+        🕉️
+    </div>
+
+    <div class="tagline">
+        Civil Line Ganesh Puja Samiti
+    </div>
+
+    <h1>
+        Admin Console
+    </h1>
+
+    <p class="subtitle">
+        Website administration and management area.
+        Access is restricted to the website developer.
+    </p>
+
+    <button class="admin-button" id="enterAdmin">
+        <span>🔐</span>
+        Enter Admin Console
+    </button>
+
+    <div class="note">
+        Developer access only
+    </div>
+
+</main>
+
+
+<!-- ACCESS DENIED -->
+
+<div class="overlay" id="accessOverlay">
+
+    <div class="denied-card">
+
+        <div class="denied-icon">
+            🔒
+        </div>
+
+        <div class="denied-label">
+            Restricted Area
+        </div>
+
+        <h2>
+            Access Denied
+        </h2>
+
+        <p>
+            This administrative area is restricted to the
+            website developer. You do not have permission
+            to access it.
+        </p>
+
+        <button class="return-button" id="returnButton">
+            Return to Website
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const enterAdmin =
+    document.getElementById("enterAdmin");
+
+const accessOverlay =
+    document.getElementById("accessOverlay");
+
+const returnButton =
+    document.getElementById("returnButton");
+
+
+enterAdmin.addEventListener("click", function () {
+
+    /*
+     * Small button press effect before
+     * showing the restricted screen.
+     */
+
+    enterAdmin.disabled = true;
+
+    setTimeout(function () {
+
+        accessOverlay.classList.add("active");
+
+        enterAdmin.disabled = false;
+
+    }, 180);
+
+});
+
+
+returnButton.addEventListener("click", function () {
+
+    accessOverlay.classList.remove("active");
+
+});
+
+
+/* Clicking outside the card also closes it */
+
+accessOverlay.addEventListener("click", function (event) {
+
+    if (event.target === accessOverlay) {
+
+        accessOverlay.classList.remove("active");
+
+    }
+
+});
+
+
+/* ESC key closes the message */
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+
+        accessOverlay.classList.remove("active");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
