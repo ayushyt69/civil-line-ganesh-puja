@@ -1,2574 +1,1535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
-<meta name="hosting-provider" content="Netlify">
-<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=142e81bf-10a7-40d4-8fcf-268e34aa27b8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Civil Line Ganesh Puja Samiti — a family united by faith, devotion and togetherness in Deoghar.">
-<title>Civil Line Ganesh Puja Samiti</title>
-
-<style>
-:root{
-  --maroon:#8e1424;
-  --red:#c51f32;
-  --gold:#d6a83f;
-  --cream:#fff8e9;
-  --ink:#241714;
-  --white:#fff;
-  --green:#355d32
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
-}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:84px
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  line-height:1.6
-}
-
-a{
-  text-decoration:none;
-  color:inherit
-}
-
-.container{
-  width:min(1120px,92%);
-  margin:auto
-}
-
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:20;
-  background:rgba(255,248,233,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(142,20,36,.15)
-}
-
-.nav{
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  position:relative
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:800;
-  color:var(--maroon)
-}
-
-.logo-img{
-  width:50px;
-  height:50px;
-  object-fit:contain;
-  border-radius:50%;
-  mix-blend-mode:multiply
-}
-
-.brand small{
-  display:block;
-  color:#72504b;
-  font-size:10px;
-  letter-spacing:1px
-}
-
-nav{
-  display:flex;
-  gap:20px;
-  font-size:14px;
-  font-weight:700
-}
-
-nav a:hover{
-  color:var(--red)
-}
-
-.menu{
-  display:none;
-  border:0;
-  background:none;
-  font-size:28px;
-  color:var(--maroon)
-}
-
-.hero{
-  min-height:100vh;
-  padding:125px 0 65px;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(circle at 80% 25%,rgba(214,168,63,.20),transparent 28%),
-    radial-gradient(circle at 15% 80%,rgba(197,31,50,.10),transparent 30%),
-    linear-gradient(135deg,#fffaf0,#fff1d0);
-  overflow:hidden;
-  position:relative
-}
-
-.hero:before,
-.hero:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(214,168,63,.35);
-  border-radius:50%
-}
-
-.hero:before{
-  width:520px;
-  height:520px;
-  right:-180px;
-  top:90px
-}
-
-.hero:after{
-  width:300px;
-  height:300px;
-  left:-130px;
-  bottom:-100px
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-  position:relative;
-  z-index:1
-}
-
-.kicker{
-  color:var(--red);
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:13px
-}
-
-h1{
-  font-size:clamp(40px,6vw,72px);
-  line-height:1.02;
-  margin:15px 0;
-  color:var(--maroon)
-}
-
-.hero p{
-  font-size:18px;
-  max-width:620px;
-  color:#684c46
-}
-
-.buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:28px
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 21px;
-  border-radius:999px;
-  font-weight:800;
-  border:2px solid var(--maroon)
-}
-
-.btn.primary{
-  background:var(--maroon);
-  color:#fff
-}
-
-.btn.secondary{
-  color:var(--maroon);
-  background:#fff
-}
-
-.hero-message{
-  margin:20px 0 25px;
-  padding:18px 20px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(214,168,63,.35);
-  border-left:4px solid var(--gold);
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(80,30,10,.07);
-}
-
-.hero-message p{
-  margin:0;
-  color:#6f6255;
-  font-size:15px;
-  line-height:1.7;
-}
-
-.hero-photo{
-  width:min(470px,90vw);
-  margin:auto;
-  border-radius:30px;
-  padding:10px;
-  background:#fff;
-  box-shadow:0 25px 60px rgba(79,25,15,.18);
-  border:2px solid rgba(214,168,63,.55)
-}
-
-.hero-photo img{
-  display:block;
-  width:100%;
-  border-radius:22px
-}
-
-section{
-  padding:82px 0
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom:38px
-}
-
-.section-head .kicker{
-  margin-bottom:8px
-}
-
-h2{
-  font-size:clamp(30px,4vw,46px);
-  color:var(--maroon);
-  line-height:1.1
-}
-
-/* ============================= */
-/* COMMITTEE NAME HIGHLIGHT */
-/* ============================= */
-
-.photo-highlight{
-  background:#fff8e9
-}
-
-.banner-card{
-  max-width:1100px;
-  margin:auto;
-  padding:10px;
-  background:#fff;
-  border:1px solid rgba(214,168,63,.4);
-  border-radius:24px;
-  box-shadow:0 14px 35px rgba(80,30,10,.08);
-  overflow:hidden
-}
-
-.highlight-slideshow{
-  width:100%;
-  overflow:hidden;
-  border-radius:17px;
-  background:#fffaf0;
-}
-
-.highlight-slideshow img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-@media (max-width:700px){
-  .highlight-slideshow{
-    height:240px;
-  }
-}
-
-.committee-highlight-inner{
-  width:100%;
-  text-align:center;
-  padding:35px 20px
-}
-
-.committee-highlight-label{
-  color:var(--red);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:15px
-}
-
-.committee-name{
-  color:var(--maroon);
-  font-size:clamp(28px,5vw,48px);
-  font-weight:900;
-  line-height:1.1;
-  min-height:60px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transform:scale(.75) translateY(20px)
-}
-
-.committee-name.show{
-  animation:committeePop 2.8s ease-in-out forwards
-}
-
-@keyframes committeePop{
-  0%{
-    opacity:0;
-    transform:scale(.75) translateY(20px)
-  }
-
-  15%{
-    opacity:1;
-    transform:scale(1.08) translateY(0)
-  }
-
-  25%{
-    opacity:1;
-    transform:scale(1) translateY(0)
-  }
-
-  75%{
-    opacity:1;
-    transform:scale(1) translateY(0)
-  }
-
-  100%{
-    opacity:0;
-    transform:scale(.92) translateY(-15px)
-  }
-}
-
-.committee-highlight-line{
-  width:70px;
-  height:3px;
-  margin:18px auto 0;
-  background:var(--gold);
-  border-radius:999px
-}
-
-/* ============================= */
-/* ABOUT */
-/* ============================= */
-
-.about{
-  background:#fff8e9
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:45px;
-  align-items:center
-}
-
-.about-copy{
-  font-size:17px;
-  color:#604943
-}
-
-.about-box{
-  min-height:330px;
-  border-radius:28px;
-  background:linear-gradient(145deg,var(--maroon),#55101a);
-  color:#fff;
-  padding:40px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center
-}
-
-.about-box h3{
-  font-size:32px;
-  margin-bottom:12px
-}
-
-/* ============================= */
-/* COMMITTEE */
-/* ============================= */
-
-.committee{
-  background:#fff
-}
-
-.committee-toggle{
-  max-width:760px;
-  margin:auto;
-  border:1px solid rgba(142,20,36,.14);
-  border-radius:22px;
-  background:var(--cream);
-  box-shadow:0 10px 28px rgba(80,30,10,.06);
-  overflow:hidden
-}
-
-.committee-toggle summary{
-  list-style:none;
-  cursor:pointer;
-  padding:24px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  color:var(--maroon);
-  font-size:20px;
-  font-weight:800
-}
-
-.committee-toggle summary::-webkit-details-marker{
-  display:none
-}
-
-.committee-toggle summary:after{
-  content:'+';
-  font-size:30px;
-  line-height:1;
-  color:var(--gold)
-}
-
-.committee-toggle[open] summary:after{
-  content:'−'
-}
-
-.committee-toggle summary:hover{
-  background:#fff5df
-}
-
-.member-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  padding:0 22px 24px
-}
-
-.member{
-  background:#fff;
-  border:1px solid rgba(142,20,36,.10);
-  border-radius:14px;
-  padding:16px;
-  text-align:center
-}
-
-.member-avatar{
-  width:78px;
-  height:78px;
-  border-radius:50%;
-  margin:0 auto 12px;
-  background:linear-gradient(145deg,#f4ddb0,#fff);
-  border:2px solid var(--gold);
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-}
-
-.member-avatar img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-
-.member h3{
-  color:var(--maroon);
-  font-size:16px
-}
-
-.member p{
-  font-size:12px;
-  color:#72504b;
-  margin-top:2px
-}
-
-/* ============================= */
-/* GALLERY */
-/* ============================= */
-
-.gallery{
-  background:#fff8e9
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px
-}
-
-.gallery-item{
-  aspect-ratio:1;
-  border-radius:18px;
-  background:linear-gradient(145deg,#f2dca9,#fff);
-  display:grid;
-  place-items:center;
-  color:#9a6f21;
-  font-weight:700;
-  border:1px solid rgba(214,168,63,.35);
-  text-align:center;
-  padding:10px
-}
-
-/* ============================= */
-/* DONATION */
-/* ============================= */
-
-.donation{
-  background:linear-gradient(135deg,#8e1424,#54101a);
-  color:#fff
-}
-
-.donation h2,
-.donation .kicker{
-  color:#fff
-}
-
-.donation .grid{
-  display:grid;
-  grid-template-columns:1fr 1.15fr;
-  gap:22px;
-  max-width:800px;
-  margin:auto
-}
-
-.donation .card{
-  background:rgba(255,255,255,.10);
-  color:#fff;
-  border-color:rgba(255,255,255,.18);
-  border-radius:22px;
-  padding:28px
-}
-
-.donation .card h3{
-  color:#ffd978;
-  margin:10px 0
-}
-
-.icon{
-  font-size:34px;
-  color:var(--gold)
-}
-
-.qr-wrap{
-  text-align:center
-}
-
-.qr{
-  width:min(280px,100%);
-  margin:12px auto 0;
-  background:#fff;
-  padding:10px;
-  border-radius:14px
-}
-
-.qr img{
-  display:block;
-  width:100%;
-  border-radius:8px
-}
-
-.qr-caption{
-  font-size:13px;
-  opacity:.85;
-  margin-top:10px
-}
-
-/* ============================= */
-/* LOCATION + FOOTER */
-/* ============================= */
-
-.contact{
-  background:#fff
-}
-
-/* IMPORTANT: no "card" class here */
-.location-card{
-  max-width:650px;
-  margin:auto;
-  text-align:center;
-  padding:0;
-  background:transparent;
-  border:none;
-  box-shadow:none;
-}
-
-.location-card .icon{
-  margin-bottom:8px
-}
-
-.location-card h3{
-  color:var(--maroon);
-  font-size:22px
-}
-
-.location-card p{
-  margin-top:8px;
-  color:#624b46
-}
-
-footer{
-  background:#2c1715;
-  color:#fff;
-  padding:35px 0;
-  text-align:center
-}
-
-footer p{
-  opacity:.75;
-  font-size:13px;
-  margin-top:5px
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
-
-@media(max-width:900px){
-
-  nav{
-    gap:12px
-  }
-
-  .event-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .member-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-
-  .gallery-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-}
-
-@media(max-width:700px){
-
-  nav{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    flex-direction:column;
-    gap:0;
-    background:rgba(255,248,233,.98);
-    border:1px solid rgba(142,20,36,.15);
-    border-top:0;
-    box-shadow:0 12px 24px rgba(79,25,15,.12)
-  }
-
-  nav.open{
-    display:flex
-  }
-
-  nav a{
-    padding:14px 20px;
-    border-top:1px solid rgba(142,20,36,.10)
-  }
-
-  .menu{
-    display:grid;
-    place-items:center;
-    min-width:44px;
-    min-height:44px;
-    cursor:pointer
-  }
-
-  .hero-grid,
-  .about-grid,
-  .donation .grid{
-    grid-template-columns:1fr
-  }
-
-  .hero-photo{
-    order:1;
-  }
-
-  .hero-grid > div:first-child{
-    order:2;
-  }
-
-  .hero{
-    text-align:center;
-    padding-top:110px
-  }
-
-  .hero p{
-    margin:auto
-  }
-
-  .buttons{
-    justify-content:center
-  }
-
-  .event-grid,
-  .member-grid{
-    grid-template-columns:1fr 1fr
-  }
-
-  section{
-    padding:68px 0
-  }
-
-  .brand div:last-child{
-    font-size:13px
-  }
-
-  .brand small{
-    font-size:8px
-  }
-
-  .logo-img{
-    width:44px;
-    height:44px
-  }
-}
-
-@media(max-width:470px){
-
-  .event-grid,
-  .member-grid{
-    grid-template-columns:1fr
-  }
-
-  .hero-photo{
-    width:min(360px,92vw)
-  }
-
-  .committee-highlight{
-    min-height:230px
-  }
-
-  .committee-name{
-    font-size:30px
-  }
-}
-
-/* Reduce desktop-site spacing on touch-screen phones */
-@media (hover: none) and (pointer: coarse) and (min-width: 701px) {
-  .hero {
-    min-height: auto !important;
-    padding-top: 70px !important;
-    padding-bottom: 70px !important;
-  }
-}
-
-.donation-ganesh-wrap{
-  display:none;
-}
-
-@media (min-width:701px){
-  .donation-ganesh-wrap{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:20px;
-  }
-
-  .donation-ganesh{
-    width:400px;
-    height:400px;
-    object-fit:contain;
-    animation:donationGaneshFloat 3.5s ease-in-out infinite;
-  }
-}
-
-@keyframes donationGaneshFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-6px);
-  }
-}
-
-/* ============================= */
-/* 2026 HIGHLIGHTS CARD */
-/* ============================= */
-
-.events-section#events .event-grid{
-  display:grid;
-  grid-template-columns:minmax(0,760px);
-  justify-content:center;
-}
-
-.events-section#events .event-card{
-  position:relative;
-  width:100%;
-  padding:40px;
-  text-align:center;
-  border-radius:24px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.96),
-    rgba(255,248,233,.96)
-  );
-  border:1px solid rgba(214,168,63,.35);
-  box-shadow:0 18px 45px rgba(80,30,10,.10);
-  overflow:hidden;
-  transition:transform .35s ease, box-shadow .35s ease;
-}
-
-.events-section#events .event-card:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:linear-gradient(
-    90deg,
-    #8e1424,
-    #d6a83f,
-    #8e1424
-  );
-}
-
-.events-section#events .event-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 25px 55px rgba(80,30,10,.16);
-}
-
-.events-section#events .event-top{
-  margin-bottom:28px;
-}
-
-.events-section#events .event-date{
-  color:#a77a1f;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  margin-bottom:14px;
-}
-
-.events-section#events .event-card h3{
-  color:var(--maroon);
-  font-size:clamp(28px,5vw,42px);
-  margin-bottom:14px;
-}
-
-.events-section#events .event-card p{
-  max-width:560px;
-  margin:0 auto;
-  color:#6f6255;
-  line-height:1.7;
-  font-size:15px;
-}
-
-.events-section#events .event-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:48px;
-  padding:12px 24px;
-  border-radius:999px;
-  background:linear-gradient(
-    135deg,
-    #8e1424,
-    #b51f35
-  );
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.04em;
-  box-shadow:0 10px 25px rgba(142,20,36,.22);
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-
-.events-section#events .event-link:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 32px rgba(142,20,36,.30);
-}
-
-@media(max-width:700px){
-
-  .events-section#events .event-card{
-    padding:30px 20px;
-  }
-
-  .events-section#events .event-card h3{
-    font-size:30px;
-  }
-
-  .events-section#events .event-link{
-    width:100%;
-  }
-
-}
-
-/* Latest Updates Ribbon */
-
-.latest-update-ribbon{
-  flex:1;
-  min-width:0;
-  overflow:hidden;
-}
-
-</style>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8ec">
+  <meta name="description" content="Civil Line Ganesh Puja Samiti — a family united by faith, devotion and togetherness in Deoghar.">
+  <title>Civil Line Ganesh Puja Samiti</title>
+
+  <style>
+    :root {
+      --saffron: #e87819;
+      --saffron-dark: #b9510c;
+      --maroon: #861f2b;
+      --red: #b72c36;
+      --gold: #d9a63a;
+      --cream: #fff8ec;
+      --paper: #fffdf8;
+      --ink: #35241e;
+      --muted: #79675d;
+      --line: #f0dfc5;
+      --green: #386747;
+      --shadow: 0 12px 34px rgba(105, 55, 18, .09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    button,
+    a,
+    summary {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 248, .97);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 18px rgba(85, 45, 12, .04);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--maroon);
+      font-weight: 900;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 53px;
+      height: 53px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      letter-spacing: .5px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--saffron-dark);
+    }
+
+    .nav-links .nav-donate {
+      background: var(--maroon);
+      color: white;
+      padding: 9px 17px;
+      border-radius: 30px;
+    }
+
+    .nav-links .nav-donate:hover {
+      background: var(--saffron-dark);
+      color: white;
+    }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--maroon);
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 75px 0 78px;
+      background:
+        radial-gradient(ellipse at 80% 25%, rgba(255, 202, 105, .25), transparent 35%),
+        linear-gradient(135deg, #fff9ed, #fff0d3);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      color: rgba(190, 117, 28, .16);
+      font-size: 90px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      right: 5%;
+      top: 4%;
+    }
+
+    .hero::after {
+      left: 3%;
+      bottom: 0;
+      font-size: 65px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 55px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      color: var(--saffron-dark);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 15px 0 18px;
+      color: var(--maroon);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(39px, 5.3vw, 65px);
+      letter-spacing: -1.5px;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      color: #6e5144;
+      font-size: 17px;
+    }
+
+    .hero-blessing {
+      margin-top: 22px;
+      padding: 13px 17px;
+      background: rgba(255, 255, 255, .75);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      color: #775b43;
+      font-size: 14px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 21px;
+      min-height: 46px;
+      border: 2px solid var(--maroon);
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(134, 31, 43, .16);
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--maroon);
+    }
+
+    .btn-primary:hover {
+      background: var(--saffron-dark);
+      border-color: var(--saffron-dark);
+    }
+
+    .btn-secondary {
+      color: var(--maroon);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: #fff3df;
+    }
+
+    .hero-image-wrap {
+      width: min(440px, 100%);
+      margin: 0 auto;
+      padding: 11px;
+      background: white;
+      border: 1px solid #edcf9b;
+      border-radius: 48% 48% 24px 24px;
+      box-shadow: 0 20px 45px rgba(116, 62, 20, .14);
+    }
+
+    .hero-image-wrap img {
+      display: block;
+      width: 100%;
+      max-height: 490px;
+      object-fit: contain;
+      border-radius: 48% 48% 17px 17px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-cream {
+      background: var(--cream);
+    }
+
+    .section-warm {
+      background: #fff2df;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 9px;
+    }
+
+    h2 {
+      color: var(--maroon);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 4vw, 43px);
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 14px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 45px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .photo-card {
+      padding: 10px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 13px;
+    }
+
+    .murti-image {
+      max-height: 700px;
+      object-fit: contain;
+      background: #fffaf1;
+    }
+
+    .highlights-image {
+      max-height: 650px;
+      object-fit: contain;
+      background: #fffaf1;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .event-label {
+      align-self: flex-start;
+      padding: 5px 11px;
+      border-radius: 20px;
+      background: #fff0d8;
+      color: var(--saffron-dark);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .event-card h3 {
+      margin: 15px 0 10px;
+      color: var(--maroon);
+      font-size: 23px;
+    }
+
+    .event-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .event-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--maroon);
+      font-weight: 900;
+    }
+
+    .event-link:hover {
+      color: var(--saffron-dark);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .blessing-card {
+      padding: 28px;
+      border-radius: 18px;
+    }
+
+    .about-copy {
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy p + p {
+      margin-top: 16px;
+    }
+
+    .blessing-card {
+      background: #fff0d6;
+      border: 1px solid #f0d39c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .blessing-symbol {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .blessing-card h3 {
+      color: var(--maroon);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .blessing-card p {
+      color: #765b43;
+      font-size: 14px;
+    }
+
+    /* The members grid remains closed until the visitor opens it. */
+    .committee-panel {
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 1px solid #e9d4b5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .committee-toggle {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 23px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: #fff5e5;
+      color: var(--maroon);
+      font-weight: 900;
+      transition: background .2s ease;
+    }
+
+    .committee-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .committee-toggle:hover {
+      background: #ffebce;
+    }
+
+    .toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .toggle-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #efd8b1;
+      font-size: 21px;
+    }
+
+    .toggle-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    .toggle-arrow {
+      color: var(--saffron-dark);
+      font-size: 22px;
+      transition: transform .25s ease;
+    }
+
+    .committee-panel[open] .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+      padding: 24px;
+      animation: expandIn .3s ease both;
+    }
+
+    @keyframes expandIn {
+      from {
+        opacity: 0;
+        transform: translateY(-7px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .member {
+      text-align: center;
+      padding: 18px 12px;
+      border: 1px solid #f0e3d0;
+      border-radius: 15px;
+      background: #fffdf8;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-3px);
+      border-color: #e3bd7a;
+    }
+
+    .member-avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 50%;
+      background: #fff0d8;
+      border: 3px solid #f0d7a8;
+      color: var(--maroon);
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member h3 {
+      color: var(--maroon);
+      font-size: 15px;
+    }
+
+    .member p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .gallery-callout {
+      text-align: center;
+      padding: 34px 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-callout p {
+      color: var(--muted);
+      margin: 10px auto 22px;
+      max-width: 600px;
+    }
+
+    .donation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .donation-card {
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: white;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .donation-symbol {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: #fff0d8;
+      color: var(--maroon);
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .donation-card h3 {
+      color: var(--maroon);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .donation-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .donation-ganesh {
+      width: 145px;
+      height: 145px;
+      object-fit: contain;
+      margin-top: 15px;
+    }
+
+    .qr-image {
+      display: block;
+      width: min(260px, 100%);
+      height: auto;
+      margin: 18px auto;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 7px;
+      background: white;
+    }
+
+    .qr-caption {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .donation-card .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .receipt-link {
+      margin-top: 12px !important;
+    }
+
+    .location-card {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 30px;
+      text-align: center;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .location-icon {
+      font-size: 36px;
+      margin-bottom: 7px;
+    }
+
+    .location-card h3 {
+      color: var(--maroon);
+      font-size: 23px;
+    }
+
+    .location-card p {
+      color: var(--muted);
+      margin: 7px 0 20px;
+    }
+
+    .media-partners {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 220px));
+      justify-content: center;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .media-partner {
+      text-align: center;
+    }
+
+    .media-partner img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 17px;
+      border: 3px solid #f2d8a9;
+      background: white;
+      transition: transform .2s ease;
+    }
+
+    .media-partner a:hover img {
+      transform: translateY(-4px) rotate(-1deg);
+    }
+
+    .media-partner strong {
+      display: block;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .media-partner span {
+      color: #ead6bd;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 42px 0 22px;
+      background: #68202a;
+      color: white;
+      text-align: center;
+    }
+
+    .footer-title {
+      color: #ffdfa0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+
+    .footer-caption {
+      margin-top: 8px;
+      color: #f0d8cc;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin: 23px 0;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #ffdfa0;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .developer-link {
+      display: inline-block;
+      margin: 8px 0 20px;
+      padding: 9px 17px;
+      border: 1px solid rgba(255, 223, 160, .65);
+      border-radius: 30px;
+      color: #ffdfa0;
+      font-weight: 800;
+      font-size: 13px;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .developer-link:hover {
+      background: rgba(255, 255, 255, .09);
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, .16);
+      margin-top: 22px;
+      padding-top: 18px;
+      color: #e9d1c5;
+      font-size: 12px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .member-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        min-height: 70px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .brand small {
+        font-size: 9px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 25px 7%;
+        overflow-y: auto;
+        background: var(--paper);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        font-size: 16px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links .nav-donate {
+        text-align: center;
+        margin-top: 14px;
+        border: 0;
+      }
+
+      .hero {
+        padding: 48px 0 55px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .hero-copy {
+        margin: 0 auto;
+        font-size: 15px;
+      }
+
+      .hero-blessing {
+        text-align: left;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .hero-image-wrap {
+        width: min(350px, 88%);
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .about-grid,
+      .donation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .member {
+        padding: 15px 8px;
+      }
+
+      .member-avatar {
+        width: 78px;
+        height: 78px;
+      }
+
+      .member h3 {
+        font-size: 13px;
+      }
+
+      .committee-toggle {
+        padding: 16px;
+      }
+
+      .toggle-subtitle {
+        max-width: 210px;
+      }
+
+      .media-partners {
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .media-partner img {
+        width: 125px;
+        height: 125px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .member-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .member-avatar {
+        width: 68px;
+        height: 68px;
+      }
+
+      .btn {
+        padding: 11px 15px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Civil Line Ganesh Puja Samiti home">
+        <img src="assets/IMG_20260916_020908.png" alt="Samiti logo">
+        <span>
+          <span class="brand-name">CIVIL LINE</span>
+          <small>GANESH PUJA SAMITI</small>
+        </span>
+      </a>
 
-<header>
-  <div class="container nav">
+      <button class="menu-button" id="menuButton" type="button"
+        aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="primaryNavigation">☰</button>
 
-    <a class="brand" href="#home">
-      <img class="logo-img" src="assets/IMG_20260916_020908.png" alt="Civil Line Ganesh Puja Samiti logo">
-
-      <div>
-        <div>CIVIL LINE</div>
-        <small>GANESH PUJA SAMITI</small>
-      </div>
-    </a>
-    
-    <nav id="primary-navigation">
-      <a href="#events">Events</a>
-      <a href="#highlights">Photos</a>
-      <a href="#about">About</a>
-      <a href="#committee">Committee</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#donate">Donate</a>
-      <a href="#contact">Location</a>
-    </nav>
-
-    <button
-      class="menu"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-controls="primary-navigation"
-      aria-expanded="false">
-      ☰
-    </button>
-
-  </div>
-</header>
-
-<main>
-
-<!-- ============================= -->
-<!-- HERO -->
-<!-- ============================= -->
-
-<section class="hero">
-
-  <div class="container hero-grid">
-
-    <div>
-
-      <div class="kicker">
-        Ganpati Bappa Morya
-      </div>
-
-      <h1>
-        Civil Line<br>
-        Ganesh Puja Samiti
-      </h1>
-
-      <div class="buttons">
-
-        <a class="btn primary" href="#events">
-          View Puja Events
-        </a>
-
-        <a class="btn secondary" href="#donate">
-          Support the Puja
-        </a>
-
-      </div>
-
+      <nav class="nav-links" id="primaryNavigation" aria-label="Main navigation">
+        <a href="#events">Puja Highlights</a>
+        <a href="#about">About Us</a>
+        <a href="#committee">Our Family</a>
+        <a href="#gallery">Memories</a>
+        <a href="#contact">Location</a>
+        <a class="nav-donate" href="#donate">Support the Puja</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="hero-photo">
-
-      <img
-        src="assets/ganesh-hero.jpg"
-        alt="Ganesh Puja Samiti Ganesh Ji emblem">
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- COMMITTEE HIGHLIGHT -->
-<!-- ============================= -->
-
-<section class="murti-highlight">
-
-  <div class="container">
-
-    <div class="section-head">
-      <div class="kicker">2026 Ganpati</div>
-      <h2>Our 2026 Ganpati</h2>
-    </div>
-
-    <div class="banner-card">
-
-      <img
-        src="assets/gallery/1789394104976.jpg"
-        alt="2026 Ganpati Murti"
-        style="width:100%; height:auto; display:block; border-radius:17px;"
-      >
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="photo-highlight" id="highlights">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Highlights
-      </div>
-
-    </div>
-
-    <div class="banner-card">
-
-      <div class="highlight-slideshow">
-
-        <img
-          id="highlight-slide"
-          src="assets/FULLMEMBERSIMAGEFRONT.JPG"
-          alt="Civil Line Ganesh Puja Samiti"
-        >
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- 2026 HIGHLIGHTS -->
-<!-- ============================= -->
-
-<section class="events-section" id="events">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        2026 Highlights
-      </div>
-
-      <h2>
-        Relive the Celebration
-      </h2>
-
-    </div>
-
-    <div class="event-grid">
-
-      <article class="event-card">
-
-        <div class="event-top">
-
-          <div class="event-date">
-            14–16 September 2026
-          </div>
-
-          <h3>
-            Ganesh Puja 2026
-          </h3>
-
-          <p>
-            Explore the events, videos and memories
-            from our 2026 Ganesh Puja celebration.
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">॥ गणपति बप्पा मोरया ॥</div>
+          <h1>Civil Line<br>Ganesh Puja Samiti</h1>
+          <p class="hero-copy">
+            A family united by faith, devotion and togetherness.
+            Celebrating the blessings of Lord Ganesha with our community
+            in Civil Line, Deoghar.
           </p>
 
+          <div class="hero-blessing">
+            May Lord Ganesha bring wisdom, happiness, prosperity and unity
+            to every home.
+          </div>
+
+          <div class="button-row">
+            <a class="btn btn-primary" href="#events">Explore Puja Highlights</a>
+            <a class="btn btn-secondary" href="#donate">Contribute to the Puja</a>
+          </div>
         </div>
 
-        <a
-          class="event-link"
-          href="memory-vault.html">
-
-          View 2026 Highlights →
-
-        </a>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- ABOUT -->
-<!-- ============================= -->
-
-<section class="about" id="about">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Our Samiti
+        <div class="hero-image-wrap reveal">
+          <img src="assets/ganesh-hero.jpg"
+            alt="Ganesh Ji, the inspiration behind our celebration">
+        </div>
       </div>
+    </section>
 
-      <h2>
-        Faith • Unity • Celebration
-      </h2>
+    <section class="section" id="murti">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Ganpati</div>
+          <h2>Ganesh Puja 2026</h2>
+          <div class="ornament">✦</div>
+          <p class="section-description">
+            A glimpse of the divine presence that brought our community together.
+          </p>
+        </div>
 
-    </div>
-
-    <div class="about-grid">
-
-      <div class="about-copy">
-
-        <p>
-          We are not just a committee; we are a family, united by faith, devotion, and the spirit of togetherness.
-        </p>
-
-        <br>
-
-        <p>
-          Civil Line Ganesh Puja Samiti brings our community together to celebrate Ganesh Puja with devotion, joy and harmony.
-        </p>
-
+        <div class="photo-card reveal">
+          <img class="murti-image"
+            src="assets/gallery/1789394104976.jpg"
+            alt="Ganpati Murti from the 2026 celebration">
+        </div>
       </div>
+    </section>
 
-      <div class="about-box">
+    <section class="section section-cream" id="highlights">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Together as One Family</div>
+          <h2>Our Samiti in Pictures</h2>
+          <div class="ornament">✦</div>
+        </div>
 
-        <h3>
-          Ganpati Bappa Morya
-        </h3>
-
-        <p>
-          May Lord Ganesha bless our family and community with wisdom, prosperity, happiness and unity.
-        </p>
-
+        <div class="photo-card reveal">
+          <img class="highlights-image"
+            src="assets/FULLMEMBERSIMAGEFRONT.JPG"
+            alt="Members of Civil Line Ganesh Puja Samiti together">
+        </div>
       </div>
+    </section>
 
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- COMMITTEE -->
-<!-- ============================= -->
-
-<section class="committee" id="committee">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Our Family
-      </div>
-
-      <h2>
-        Committee Members
-      </h2>
-
-    </div>
-
-    <details class="committee-toggle">
-
-      <summary>
-        View Committee Members
-      </summary>
-
-      <div class="member-grid">
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_015021.jpg" alt="Devjeet Kumar">
-          </div>
-          <h3>Devjeet Kumar</h3>
-          <p>President</p>
+    <section class="section" id="events">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Celebration & Togetherness</div>
+          <h2>Relive the Celebration</h2>
+          <div class="ornament">✦</div>
+          <p class="section-description">
+            Revisit the events, videos and memories from our Ganesh Puja.
+          </p>
         </div>
 
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014829.jpg" alt="Premjeet Kumar">
-          </div>
-          <h3>Premjeet Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/ayush-khaware.jpg" alt="Ayush Khaware">
-          </div>
-          <h3>Ayush Khaware</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_015313.jpg" alt="Ankit Kumar">
-          </div>
-          <h3>Ankit Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014847.jpg" alt="Shivam Barnwal">
-          </div>
-          <h3>Shivam Barnwal</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014725.jpg" alt="Shankar Kumar">
-          </div>
-          <h3>Shankar Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014743.jpg" alt="Sachin Dubey">
-          </div>
-          <h3>Sachin Dubey</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">NA</div>
-          <h3>Shubham Dubey</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014705.jpg" alt="Shashank Kumar">
-          </div>
-          <h3>Shashank Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014814.jpg" alt="Devesh Gautam">
-          </div>
-          <h3>Devesh Gautam</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">NA</div>
-          <h3>Madhav</h3>
-          <p>Committee Member</p>
-        </div>
-
-      </div>
-
-    </details>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- GALLERY -->
-<!-- ============================= -->
-
-<section class="gallery" id="gallery">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Memories
-      </div>
-
-      <h2>
-        2026 Ganesh Puja — Event Gallery
-      </h2>
-
-      <p style="margin-top:10px; color:#666;">
-        View all the memorable moments from our 2026 Ganesh Puja celebrations.
-      </p>
-
-    </div>
-
-    <div style="text-align:center; margin-top:30px;">
-
-      <a
-        href="gallery.html"
-        class="btn primary">
-        View All Photos
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- DONATION -->
-<!-- ============================= -->
-
-<section class="donation" id="donate">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Support the Celebration
-      </div>
-
-      <h2>
-        Make a Contribution
-      </h2>
-
-    </div>
-
-    <div class="donation grid">
-
-      <div class="card">
-
-        <div class="icon">
-          ₹
-        </div>
-
-        <h3>
-          Support the Puja
-        </h3>
-
-        <p>
-          Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.
-        </p>
-
-        <div class="donation-ganesh-wrap">
-
-          <img
-            src="assets/1000413549.png"
-            alt="Ganesh Ji"
-            class="donation-ganesh"
-          >
-
-        </div>
-
-      </div>
-
-      <div class="card qr-wrap">
-
-        <div class="icon">
-          ▣
-        </div>
-
-        <h3>
-          Scan & Pay with PhonePe
-        </h3>
-
-        <div class="qr">
-
-          <img
-            src="assets/phonepe-qr.jpg"
-            alt="PhonePe donation QR code for Premjeet Kumar">
-
-        </div>
-
-        <div class="qr-caption">
-          QR payment account: Premjeet Kumar
-          <a
-  href="upi://pay?pa=8252823417@ibl&pn=Premjeet%20Kumar&cu=INR"
-  style="
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:90%;
-    max-width:505px;
-    margin:18px auto 12px;
-    padding:16px 22px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#6f2cff,#a855f7);
-    color:#fff;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:800;
-    text-align:center;
-    box-shadow:0 10px 28px rgba(111,44,255,.28);
-  "
->
-  💳 Pay Directly with UPI
-</a>
-        </div>
-
-        <div id="receipt-form-status" style="margin-top:18px;"></div>
-
-        <script>
-          const receiptFormStatus =
-            document.getElementById("receipt-form-status");
-
-          receiptFormStatus.innerHTML = `
-            <a
-              href="https://forms.gle/WmNCGMae4dqCSe358"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn primary"
-              style="width:100%;">
-              Already Paid? Get your receipt from here!
+        <div class="event-grid">
+          <article class="event-card reveal">
+            <span class="event-label">2026 Celebration</span>
+            <h3>Ganesh Puja Highlights</h3>
+            <p>
+              Explore the special moments, videos and memories from our
+              2026 Ganesh Puja celebration.
+            </p>
+            <a class="event-link" href="memory-vault.html">
+              Open the Memory Vault →
             </a>
-          `;
-        </script>
+          </article>
 
+          <article class="event-card reveal">
+            <span class="event-label">Photo Collection</span>
+            <h3>Our Event Gallery</h3>
+            <p>
+              Browse photographs that capture the devotion, decorations
+              and happiness of our community.
+            </p>
+            <a class="event-link" href="gallery.html">
+              View the Photo Gallery →
+            </a>
+          </article>
+
+          <article class="event-card reveal">
+            <span class="event-label">For the Community</span>
+            <h3>Receipt & Queries</h3>
+            <p>
+              Access the contribution receipt form or send a query using
+              the Samiti's existing forms.
+            </p>
+            <a class="event-link"
+              href="https://forms.gle/WmNCGMae4dqCSe358"
+              target="_blank" rel="noopener noreferrer">
+              Contribution Receipt Form →
+            </a>
+            <a class="event-link"
+              href="https://forms.gle/UyRnfsXVWzjKB2ji7"
+              target="_blank" rel="noopener noreferrer">
+              Submit a Query →
+            </a>
+          </article>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section class="section section-warm" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Samiti</div>
+          <h2>Faith • Unity • Celebration</h2>
+          <div class="ornament">✦</div>
+        </div>
 
-  </div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              We are not just a committee; we are a family, united by faith,
+              devotion, and the spirit of togetherness.
+            </p>
+            <p>
+              Civil Line Ganesh Puja Samiti brings our community together
+              to celebrate Ganesh Puja with devotion, joy and harmony.
+              Every celebration is made special by the people who contribute
+              their time, effort and blessings.
+            </p>
+          </div>
 
-</section>
-
-<!-- ============================= -->
-<!-- LOCATION -->
-<!-- ============================= -->
-
-<section class="contact" id="contact">
-
-  <div class="container">
-
-    <div class="section-head">
-
-      <div class="kicker">
-        Find Us
+          <div class="blessing-card reveal">
+            <div class="blessing-symbol" aria-hidden="true">🙏</div>
+            <h3>Ganpati Bappa Morya!</h3>
+            <p>
+              May Lord Ganesha bless our family and community with wisdom,
+              prosperity, happiness and unity.
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h2>
-        Our Location
-      </h2>
+    <section class="section" id="committee">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">The People Behind the Celebration</div>
+          <h2>Our Samiti Family</h2>
+          <div class="ornament">✦</div>
+          <p class="section-description">
+            Our celebration is made possible by the people who stand together
+            as one family.
+          </p>
+        </div>
 
-    </div>
+        <details class="committee-panel reveal">
+          <summary class="committee-toggle">
+            <span class="toggle-left">
+              <span class="toggle-icon" aria-hidden="true">👨‍👩‍👦</span>
+              <span>
+                Meet Our Samiti Members
+                <span class="toggle-subtitle">
+                  Open to see the members and their photos
+                </span>
+              </span>
+            </span>
+            <span class="toggle-arrow" aria-hidden="true">⌄</span>
+          </summary>
 
-    <div class="location-card">
+          <div class="member-grid">
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_015021.jpg"
+                  alt="Devjeet Kumar" loading="lazy">
+              </div>
+              <h3>Devjeet Kumar</h3>
+              <p>President</p>
+            </article>
 
-      <h3>
-        Civil Line, Nandan Pahad Road
-      </h3>
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014829.jpg"
+                  alt="Premjeet Kumar" loading="lazy">
+              </div>
+              <h3>Premjeet Kumar</h3>
+              <p>Committee Member</p>
+            </article>
 
-      <p>
-        Deoghar
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/ayush-khaware.jpg"
+                  alt="Ayush Khaware" loading="lazy">
+              </div>
+              <h3>Ayush Khaware</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_015313.jpg"
+                  alt="Ankit Kumar" loading="lazy">
+              </div>
+              <h3>Ankit Kumar</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014847.jpg"
+                  alt="Shivam Barnwal" loading="lazy">
+              </div>
+              <h3>Shivam Barnwal</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014725.jpg"
+                  alt="Shankar Kumar" loading="lazy">
+              </div>
+              <h3>Shankar Kumar</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014743.jpg"
+                  alt="Sachin Dubey" loading="lazy">
+              </div>
+              <h3>Sachin Dubey</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">SD</div>
+              <h3>Shubham Dubey</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014705.jpg"
+                  alt="Shashank Kumar" loading="lazy">
+              </div>
+              <h3>Shashank Kumar</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">
+                <img src="assets/committee-members/IMG_20260916_014814.jpg"
+                  alt="Devesh Gautam" loading="lazy">
+              </div>
+              <h3>Devesh Gautam</h3>
+              <p>Committee Member</p>
+            </article>
+
+            <article class="member">
+              <div class="member-avatar">M</div>
+              <h3>Madhav</h3>
+              <p>Committee Member</p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="gallery">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Moments to Remember</div>
+          <h2>Our Celebration, Our Memories</h2>
+          <div class="ornament">✦</div>
+        </div>
+
+        <div class="gallery-callout reveal">
+          <h3>Every picture tells a story.</h3>
+          <p>
+            Visit the full gallery to revisit the moments and memories
+            of our Ganesh Puja celebration.
+          </p>
+          <a href="gallery.html" class="btn btn-primary">View All Photos</a>
+          <a href="memory-vault.html" class="btn btn-secondary">Open Memory Vault</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="donate">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Your Support Matters</div>
+          <h2>Support the Puja</h2>
+          <div class="ornament">✦</div>
+          <p class="section-description">
+            Every contribution helps us organize the celebration and
+            community activities.
+          </p>
+        </div>
+
+        <div class="donation-grid">
+          <article class="donation-card reveal">
+            <div class="donation-symbol" aria-hidden="true">₹</div>
+            <h3>A Contribution from the Heart</h3>
+            <p>
+              Your contribution supports the organization of Ganesh Puja,
+              bhajan, cultural programs and community activities.
+            </p>
+            <img class="donation-ganesh"
+              src="assets/1000413549.png"
+              alt="Ganesh Ji" loading="lazy">
+          </article>
+
+          <article class="donation-card reveal">
+            <div class="donation-symbol" aria-hidden="true">▦</div>
+            <h3>Scan & Pay with PhonePe</h3>
+            <img class="qr-image"
+              src="assets/phonepe-qr.jpg"
+              alt="PhonePe donation QR code for Premjeet Kumar"
+              loading="lazy">
+            <p class="qr-caption">QR payment account: Premjeet Kumar</p>
+
+            <a class="btn btn-primary"
+              href="upi://pay?pa=8252823417@ibl&amp;pn=Premjeet%20Kumar&amp;cu=INR">
+              Pay Directly with UPI
+            </a>
+
+            <a class="btn btn-secondary receipt-link"
+              href="https://forms.gle/WmNCGMae4dqCSe358"
+              target="_blank" rel="noopener noreferrer">
+              Already Paid? Get Your Receipt
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-warm" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Come Visit Us</div>
+          <h2>Our Location</h2>
+          <div class="ornament">✦</div>
+        </div>
+
+        <div class="location-card reveal">
+          <div class="location-icon" aria-hidden="true">📍</div>
+          <h3>Civil Line, Nandan Pahad Road</h3>
+          <p>Deoghar, Jharkhand</p>
+          <a class="btn btn-primary"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Civil+Line+Nandan+Pahad+Road+Deoghar"
+            target="_blank" rel="noopener noreferrer">
+            Open Location in Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-title">CIVIL LINE GANESH PUJA SAMITI</div>
+      <p class="footer-caption">
+        A family united by faith, devotion and togetherness.
       </p>
 
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
-
-<footer>
-
-  <div class="container">
-
-    <strong>
-      CIVIL LINE GANESH PUJA SAMITI
-    </strong>
-
-    <div style="margin-top:28px;">
-
-      <div style="
-        color:var(--red);
-        font-size:13px;
-        font-weight:800;
-        letter-spacing:2px;
-        text-transform:uppercase;
-        margin-bottom:18px;">
-        Media Partners
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="memory-vault.html">Memory Vault</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="#committee">Our Family</a>
+        <a href="#donate">Donate</a>
+        <a href="https://forms.gle/UyRnfsXVWzjKB2ji7"
+          target="_blank" rel="noopener noreferrer">Submit a Query</a>
       </div>
 
-      <div style="
-        display:flex;
-        justify-content:center;
-        align-items:flex-start;
-        gap:35px;
-        flex-wrap:wrap;">
+      <div class="eyebrow" style="color:#ffdfa0;">Media Partners</div>
 
-        <div style="width:220px; text-align:center;">
-
-          <a
-            href="https://www.instagram.com/devesh_deoghar_vlogs/"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-              src="assets/devesh-media.jpg"
-              alt="Devesh Deoghar Vlogs"
-              style="
-                width:180px;
-                height:180px;
-                object-fit:cover;
-                border-radius:16px;
-                display:block;
-                margin:0 auto 12px;">
-
+      <div class="media-partners">
+        <div class="media-partner">
+          <a href="https://www.instagram.com/devesh_deoghar_vlogs/"
+            target="_blank" rel="noopener noreferrer">
+            <img src="assets/devesh-media.jpg"
+              alt="Devesh Deoghar Vlogs" loading="lazy">
           </a>
-
-          <strong style="display:block;">
-            Devesh Deoghar Vlogs
-          </strong>
-
-          <span style="font-size:13px;">
-            @devesh_deoghar_vlogs
-          </span>
-
+          <strong>Devesh Deoghar Vlogs</strong>
+          <span>@devesh_deoghar_vlogs</span>
         </div>
 
-        <div style="width:220px; text-align:center;">
-
-          <a
-            href="https://www.instagram.com/exposure_notes/"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-              src="assets/exposure-notes.jpg"
-              alt="Exposure Notes"
-              style="
-                width:180px;
-                height:180px;
-                object-fit:cover;
-                border-radius:16px;
-                display:block;
-                margin:0 auto 12px;">
-
+        <div class="media-partner">
+          <a href="https://www.instagram.com/exposure_notes/"
+            target="_blank" rel="noopener noreferrer">
+            <img src="assets/exposure-notes.jpg"
+              alt="Exposure Notes" loading="lazy">
           </a>
-
-          <strong style="display:block;">
-            Exposure Notes
-          </strong>
-
-          <span style="font-size:13px;">
-            @exposure_notes
-          </span>
-
+          <strong>Exposure Notes</strong>
+          <span>@exposure_notes</span>
         </div>
-
       </div>
 
-    </div>
+      <a class="developer-link" href="developer.html">About the Developer</a>
 
-    <style>
-      @keyframes developerGlow {
-
-        0%,100% {
-          box-shadow:0 0 0 rgba(240,180,41,0);
-        }
-
-        50% {
-          box-shadow:0 0 14px rgba(240,180,41,0.25);
-        }
-
-      }
-    </style>
-
-    <div style="text-align:center; margin:30px 0 10px;">
-
-      <a
-        href="developer.html"
-        style="
-          display:inline-block;
-          color:#f0b429;
-          text-decoration:none;
-          font-weight:bold;
-          font-size:20px;
-          padding:12px 24px;
-          border:1px solid #f0b429;
-          border-radius:10px;
-          transition:all 0.3s ease;
-          animation:developerGlow 2.5s ease-in-out infinite;
-        "
-        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 18px rgba(240,180,41,0.35)'"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
-      >
-        About the Developer
-      </a>
-
-    </div>
-
-    <p style="margin-top:40px;"></p>
-
-    <p style="margin-top:40px;"></p>
-
-    <p>
-      © 2026 Civil Line Ganesh Puja Samiti. All rights reserved.
-    </p>
-
-    <div style="
-      text-align:center;
-      margin-top:18px;
-      pointer-events:none;
-    ">
-
-      <script
-        src="https://www.stats4u.net/s4u.js"
-        data-id="6462883806"
-        data-style="961"
-        async>
-      </script>
-
-    </div>
-
-  </div>
-
-</footer>
-
-<script>
-
-/* ============================= */
-/* MOBILE MENU */
-/* ============================= */
-
-const menuButton =
-  document.querySelector('.menu');
-
-const primaryNavigation =
-  document.querySelector('#primary-navigation');
-
-function closeMenu(){
-
-  primaryNavigation.classList.remove('open');
-
-  menuButton.setAttribute(
-    'aria-expanded',
-    'false'
-  );
-
-  menuButton.setAttribute(
-    'aria-label',
-    'Open navigation menu'
-  );
-
-}
-
-menuButton.addEventListener('click',()=>{
-
-  const isOpen =
-    primaryNavigation.classList.toggle('open');
-
-  menuButton.setAttribute(
-    'aria-expanded',
-    String(isOpen)
-  );
-
-  menuButton.setAttribute(
-    'aria-label',
-    isOpen
-      ? 'Close navigation menu'
-      : 'Open navigation menu'
-  );
-
-});
-
-primaryNavigation.addEventListener('click',event=>{
-
-  if(event.target.closest('a')){
-    closeMenu();
-  }
-
-});
-
-document.addEventListener('keydown',event=>{
-
-  if(event.key === 'Escape'){
-    closeMenu();
-  }
-
-});
-
-window.addEventListener('resize',()=>{
-
-  if(window.innerWidth > 700){
-    closeMenu();
-  }
-
-});
-
-</script>
-
-
-<!-- ============================= -->
-<!-- MAINTENANCE MODE -->
-<!-- ============================= -->
-
-<script>
-
-const MAINTENANCE_MODE = false;
-
-if(MAINTENANCE_MODE){
-
-  window.location.href =
-    "maintenance.html";
-
-}
-
-</script>
-
-
-
-
-<!-- ============================= -->
-<!-- NEXT GANPATI COUNTDOWN -->
-<!-- PASTE THIS ENTIRE BLOCK AT THE BOTTOM -->
-<!-- ============================= -->
-
-<style>
-
-#next-ganpati-countdown{
-  padding:70px 0;
-  background:
-    radial-gradient(circle at 15% 30%,rgba(214,168,63,.18),transparent 28%),
-    radial-gradient(circle at 85% 70%,rgba(197,31,50,.10),transparent 30%),
-    linear-gradient(135deg,#fffaf0,#fff1d0);
-  position:relative;
-  overflow:hidden;
-}
-
-#next-ganpati-countdown .countdown-container{
-  width:min(1000px,92%);
-  margin:auto;
-  text-align:center;
-}
-
-#next-ganpati-countdown .countdown-kicker{
-  color:#c51f32;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:13px;
-  margin-bottom:10px;
-}
-
-#next-ganpati-countdown .countdown-title{
-  color:#8e1424;
-  font-size:clamp(32px,5vw,52px);
-  line-height:1.1;
-  margin:0 0 12px;
-}
-
-#next-ganpati-countdown .countdown-text{
-  max-width:650px;
-  margin:0 auto;
-  color:#684c46;
-  font-size:16px;
-  line-height:1.7;
-}
-
-#next-ganpati-countdown .countdown-box{
-  margin:35px auto 0;
-  padding:25px;
-  max-width:760px;
-  background:rgba(255,255,255,.82);
-  border:1px solid rgba(214,168,63,.45);
-  border-radius:24px;
-  box-shadow:0 18px 45px rgba(80,30,10,.10);
-}
-
-#next-ganpati-countdown .countdown-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-
-#next-ganpati-countdown .countdown-unit{
-  background:#fffaf0;
-  border:1px solid rgba(142,20,36,.12);
-  border-radius:18px;
-  padding:20px 10px;
-}
-
-#next-ganpati-countdown .countdown-number{
-  display:block;
-  color:#8e1424;
-  font-size:clamp(30px,5vw,48px);
-  font-weight:900;
-  line-height:1;
-}
-
-#next-ganpati-countdown .countdown-label{
-  display:block;
-  margin-top:9px;
-  color:#72504b;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-
-#next-ganpati-countdown .countdown-date{
-  margin-top:20px;
-  color:#a77a1f;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-@media(max-width:600px){
-
-  #next-ganpati-countdown{
-    padding:55px 0;
-  }
-
-  #next-ganpati-countdown .countdown-box{
-    padding:18px;
-    border-radius:20px;
-  }
-
-  #next-ganpati-countdown .countdown-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  #next-ganpati-countdown .countdown-unit{
-    padding:18px 8px;
-  }
-
-}
-
-</style>
-
-<script>
-
-(function(){
-
-  /* Prevent duplicate countdown if script is accidentally pasted twice */
-  if(document.getElementById("next-ganpati-countdown")){
-    return;
-  }
-
-  /* ============================= */
-  /* CREATE COUNTDOWN */
-  /* ============================= */
-
-  const countdownSection =
-    document.createElement("section");
-
-  countdownSection.id =
-    "next-ganpati-countdown";
-
-  countdownSection.innerHTML = `
-
-    <div class="countdown-container">
-
-      <div class="countdown-kicker">
-        The Wait Begins Again
+      <div class="copyright">
+        © 2026 Civil Line Ganesh Puja Samiti. All rights reserved.
       </div>
-
-      <h2 class="countdown-title">
-        Until We Welcome Bappa Again
-      </h2>
-
-      <p class="countdown-text">
-        The celebration may be over, but the memories remain.
-        The countdown to welcoming Bappa back to Civil Line has already begun.
-      </p>
-
-      <div class="countdown-box">
-
-        <div class="countdown-grid">
-
-          <div class="countdown-unit">
-            <span class="countdown-number" id="countdown-days">
-              0
-            </span>
-            <span class="countdown-label">
-              Days
-            </span>
-          </div>
-
-          <div class="countdown-unit">
-            <span class="countdown-number" id="countdown-hours">
-              0
-            </span>
-            <span class="countdown-label">
-              Hours
-            </span>
-          </div>
-
-          <div class="countdown-unit">
-            <span class="countdown-number" id="countdown-minutes">
-              0
-            </span>
-            <span class="countdown-label">
-              Minutes
-            </span>
-          </div>
-
-          <div class="countdown-unit">
-            <span class="countdown-number" id="countdown-seconds">
-              0
-            </span>
-            <span class="countdown-label">
-              Seconds
-            </span>
-          </div>
-
-        </div>
-
-        <div class="countdown-date" id="countdown-date">
-          Counting down to the next Ganesh Chaturthi
-        </div>
-
-      </div>
-
     </div>
+  </footer>
 
-  `;
+  <script>
+    // Mobile navigation
+    const menuButton = document.getElementById("menuButton");
+    const primaryNavigation = document.getElementById("primaryNavigation");
 
-  /* ============================= */
-  /* INSERT BEFORE 2026 GANPATI */
-  /* ============================= */
+    function closeMenu() {
+      primaryNavigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
+      menuButton.textContent = "☰";
+      document.body.classList.remove("menu-open");
+    }
 
-  const ganpatiSection =
-    document.querySelector(".murti-highlight");
+    menuButton.addEventListener("click", () => {
+      const isOpen = primaryNavigation.classList.toggle("open");
 
-  if(ganpatiSection){
-
-    ganpatiSection.parentNode.insertBefore(
-      countdownSection,
-      ganpatiSection
-    );
-
-  }else{
-
-    /* Fallback: place after hero */
-    const heroSection =
-      document.querySelector(".hero");
-
-    if(heroSection){
-
-      heroSection.parentNode.insertBefore(
-        countdownSection,
-        heroSection.nextSibling
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
       );
-
-    }else{
-
-      document.body.insertBefore(
-        countdownSection,
-        document.body.firstChild
-      );
-
-    }
-
-  }
-
-  /* ============================= */
-  /* FIND NEXT GANESH CHATURTHI */
-  /* ============================= */
-
-  function getNextGaneshChaturthi(){
-
-    /*
-      Ganesh Chaturthi dates.
-      Add future dates here when required.
-
-      2026 = 14 September
-      2027 = 4 September
-      2028 = 23 August
-      2029 = 12 September
-      2030 = 2 September
-    */
-
-    const dates = {
-      2026:"2026-09-14T00:00:00+05:30",
-      2027:"2027-09-04T00:00:00+05:30",
-      2028:"2028-08-23T00:00:00+05:30",
-      2029:"2029-09-12T00:00:00+05:30",
-      2030:"2030-09-02T00:00:00+05:30"
-    };
-
-    const now =
-      new Date();
-
-    const years =
-      Object.keys(dates)
-        .map(Number)
-        .sort((a,b)=>a-b);
-
-    for(const year of years){
-
-      const target =
-        new Date(dates[year]);
-
-      if(target > now){
-        return target;
-      }
-
-    }
-
-    /*
-      Fallback for years after 2030.
-      Keeps the countdown working instead of stopping.
-    */
-
-    return new Date(
-      "2031-08-23T00:00:00+05:30"
-    );
-
-  }
-
-  const targetDate =
-    getNextGaneshChaturthi();
-
-  /* ============================= */
-  /* FORMAT TARGET DATE */
-  /* ============================= */
-
-  const dateDisplay =
-    targetDate.toLocaleDateString(
-      "en-IN",
-      {
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-      }
-    );
-
-  document.getElementById(
-    "countdown-date"
-  ).textContent =
-    "Next Ganesh Chaturthi • " + dateDisplay;
-
-  /* ============================= */
-  /* UPDATE COUNTDOWN */
-  /* ============================= */
-
-  function updateCountdown(){
-
-    const now =
-      new Date();
-
-    let difference =
-      targetDate.getTime() - now.getTime();
-
-    if(difference <= 0){
-
-      document.getElementById(
-        "countdown-days"
-      ).textContent = "0";
-
-      document.getElementById(
-        "countdown-hours"
-      ).textContent = "0";
-
-      document.getElementById(
-        "countdown-minutes"
-      ).textContent = "0";
-
-      document.getElementById(
-        "countdown-seconds"
-      ).textContent = "0";
-
-      document.getElementById(
-        "countdown-date"
-      ).textContent =
-        "Bappa has arrived.";
-
-      return;
-
-    }
-
-    const totalSeconds =
-      Math.floor(difference / 1000);
-
-    const days =
-      Math.floor(
-        totalSeconds / 86400
-      );
-
-    const hours =
-      Math.floor(
-        (totalSeconds % 86400) / 3600
-      );
-
-    const minutes =
-      Math.floor(
-        (totalSeconds % 3600) / 60
-      );
-
-    const seconds =
-      totalSeconds % 60;
-
-    document.getElementById(
-      "countdown-days"
-    ).textContent =
-      days;
-
-    document.getElementById(
-      "countdown-hours"
-    ).textContent =
-      String(hours).padStart(2,"0");
-
-    document.getElementById(
-      "countdown-minutes"
-    ).textContent =
-      String(minutes).padStart(2,"0");
-
-    document.getElementById(
-      "countdown-seconds"
-    ).textContent =
-      String(seconds).padStart(2,"0");
-
-  }
-
-  updateCountdown();
-
-  setInterval(
-    updateCountdown,
-    1000
-  );
-
-})();
-
-</script>
-
-<!-- ============================= -->
-<!-- END NEXT GANPATI COUNTDOWN -->
-<!-- ============================= -->
-
-
-
-<!-- =========================================
-     ADMIN ACCESS
-     ========================================= -->
-
-<style>
-
-/* =========================================
-   ADMIN ACCESS BUTTON
-========================================= */
-
-.footer-admin-access {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 32px;
-    padding-bottom: 12px;
-}
-
-.footer-admin-access a {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-
-    min-width: 145px;
-    padding: 13px 24px;
-
-    border: 1.5px solid #f4b400;
-    border-radius: 10px;
-
-    background: rgba(244, 180, 0, 0.06);
-
-    color: #f4b400;
-
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: 0.6px;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
-
-    /* Continuous glow */
-    animation: adminGlow 2.8s ease-in-out infinite;
-}
-
-
-/* =========================================
-   LOCK ICON
-========================================= */
-
-.footer-admin-access a::before {
-    content: "🔐";
-
-    font-size: 14px;
-
-    filter: saturate(0.85);
-
-    /* Same pulsing effect as Query icon */
-    animation: adminIcon 2.8s ease-in-out infinite;
-}
-
-
-/* =========================================
-   CONTINUOUS BUTTON GLOW
-========================================= */
-
-@keyframes adminGlow {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 rgba(244, 180, 0, 0),
-            inset 0 0 0 rgba(244, 180, 0, 0);
-    }
-
-    50% {
-        box-shadow:
-            0 0 20px rgba(244, 180, 0, 0.28),
-            inset 0 0 12px rgba(244, 180, 0, 0.05);
-    }
-}
-
-
-/* =========================================
-   ICON PULSE
-========================================= */
-
-@keyframes adminIcon {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-}
-
-
-/* =========================================
-   MOVING LIGHT SWEEP
-========================================= */
-
-.footer-admin-access a::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 55%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.22),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    animation: adminShine 4s ease-in-out infinite;
-
-    pointer-events: none;
-}
-
-@keyframes adminShine {
-
-    0%,
-    60% {
-        left: -120%;
-    }
-
-    78%,
-    100% {
-        left: 135%;
-    }
-}
-
-
-/* =========================================
-   HOVER
-========================================= */
-
-.footer-admin-access a:hover {
-
-    color: #1f0d09;
-
-    background: #f4b400;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 28px rgba(244, 180, 0, 0.35);
-}
-
-
-/* =========================================
-   PRESS
-========================================= */
-
-.footer-admin-access a:active {
-    transform: scale(0.95);
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 500px) {
-
-    .footer-admin-access {
-        margin-top: 30px;
-        padding-bottom: 14px;
-    }
-
-    .footer-admin-access a {
-        min-width: 140px;
-        padding: 12px 22px;
-        font-size: 12px;
-    }
-}
-</style>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const footer = document.querySelector("footer");
-
-    if (!footer) return;
-
-    const adminAccess = document.createElement("div");
-
-    adminAccess.className = "footer-admin-access";
-
-    adminAccess.innerHTML = `
-        <a href="admin/index.html" aria-label="Admin Console">
-            Admin Console
-        </a>
-    `;
-
-    footer.appendChild(adminAccess);
-
-});
-</script>
-
-
-
-
-
-
-<!--=========================================
-   QUERY BUTTON
-========================================= -->
-
-<style>
-.footer-query-access {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 24px;
-    margin-bottom: 4px;
-}
-
-.footer-query-access a {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    min-width: 165px;
-    padding: 13px 24px;
-
-    border: 1.5px solid #f4b400;
-    border-radius: 10px;
-
-    background: rgba(244, 180, 0, 0.06);
-    color: #f4b400;
-
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-
-    overflow: hidden;
-
-    /* Continuous glow */
-    animation: queryGlow 2.8s ease-in-out infinite;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-/* Chat icon */
-.footer-query-access a::before {
-    content: "💬";
-    font-size: 15px;
-    animation: queryIcon 2.8s ease-in-out infinite;
-}
-
-/* Moving light sweep */
-.footer-query-access a::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 55%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.22),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-    animation: queryShine 4s ease-in-out infinite;
-
-    pointer-events: none;
-}
-
-/* Button glow */
-@keyframes queryGlow {
-    0%, 100% {
-        box-shadow:
-            0 0 0 rgba(244, 180, 0, 0),
-            inset 0 0 0 rgba(244, 180, 0, 0);
-    }
-
-    50% {
-        box-shadow:
-            0 0 20px rgba(244, 180, 0, 0.28),
-            inset 0 0 12px rgba(244, 180, 0, 0.05);
-    }
-}
-
-/* Small icon movement */
-@keyframes queryIcon {
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-}
-
-/* Light sweep */
-@keyframes queryShine {
-    0%, 60% {
-        left: -120%;
-    }
-
-    78%, 100% {
-        left: 135%;
-    }
-}
-
-/* Hover */
-.footer-query-access a:hover {
-    color: #1f0d09;
-    background: #f4b400;
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 28px rgba(244, 180, 0, 0.35);
-}
-
-/* Press */
-.footer-query-access a:active {
-    transform: scale(0.95);
-}
-
-/* Mobile */
-@media (max-width: 500px) {
-
-    .footer-query-access {
-        margin-top: 24px;
-    }
-
-    .footer-query-access a {
-        min-width: 160px;
-        padding: 13px 22px;
-        font-size: 12px;
-    }
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-
-    const adminAccess = footer.querySelector(".footer-admin-access");
-
-    const queryAccess = document.createElement("div");
-    queryAccess.className = "footer-query-access";
-
-    queryAccess.innerHTML = `
-        <a
-            href="https://forms.gle/UyRnfsXVWzjKB2ji7"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Have a Query"
-        >
-            Have a Query?
-        </a>
-    `;
-
-    /* Put Query button directly above Admin Console */
-    if (adminAccess) {
-        footer.insertBefore(queryAccess, adminAccess);
+      menuButton.textContent = isOpen ? "×" : "☰";
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    primaryNavigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720) closeMenu();
+    });
+
+    // Subtle reveal animation; the page remains visible if unsupported.
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealItems.forEach(item => observer.observe(item));
     } else {
-        footer.appendChild(queryAccess);
+      revealItems.forEach(item => item.classList.add("visible"));
     }
 
-});
-</script>
+    // Keep the committee grid optional and synchronize its accessible label.
+    const committeePanel = document.querySelector(".committee-panel");
+    const committeeSubtitle = document.querySelector(".toggle-subtitle");
 
-
-
-
-
-
-
+    committeePanel.addEventListener("toggle", () => {
+      committeeSubtitle.textContent = committeePanel.open
+        ? "Tap to close the member grid"
+        : "Open to see the members and their photos";
+    });
+  </script>
 </body>
 </html>
-
-
