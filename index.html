@@ -2159,49 +2159,7 @@ if(MAINTENANCE_MODE){
 
 
 
-<!--=========================================
-   QUERY BUTTON
-========================================= -->
-
 <style>
-.footer-query-access {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 24px auto 0;
-}
-
-.footer-query-access a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-width: 170px;
-    padding: 12px 24px;
-    border: 1px solid #f4b400;
-    border-radius: 8px;
-    background: #f4b400;
-    color: #21140a;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.footer-query-access a:hover {
-    background: transparent;
-    color: #f4b400;
-    transform: translateY(-2px);
-}
-
-.footer-query-access a:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 4px;
-}
-
 .footer-copyright {
     width: 100%;
     margin: 16px 0 0;
@@ -2213,43 +2171,21 @@ if(MAINTENANCE_MODE){
 }
 
 @media (max-width: 500px) {
-    .footer-query-access { margin-top: 22px; }
-    .footer-query-access a { min-width: 160px; padding: 12px 20px; font-size: 12px; }
     .footer-copyright { font-size: 11px; }
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
     const footer = document.querySelector("footer");
     if (!footer) return;
-
-    const queryAccess = document.createElement("div");
-    queryAccess.className = "footer-query-access";
-
-    queryAccess.innerHTML = `
-        <a
-            href="https://forms.gle/UyRnfsXVWzjKB2ji7"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Submit a Query"
-        >
-            Submit a Query
-            <span aria-hidden="true">↗</span>
-        </a>
-    `;
-
-    footer.appendChild(queryAccess);
 
     const copyright = document.createElement("p");
     copyright.className = "footer-copyright";
     copyright.textContent = "© 2026 Civil Line Ganesh Puja Samiti. All rights reserved.";
     footer.appendChild(copyright);
-
 });
 </script>
-
 
 
 
