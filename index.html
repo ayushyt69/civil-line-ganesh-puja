@@ -1408,67 +1408,47 @@ section{
   <div class="container">
 
     <div class="section-head">
+      <div class="kicker">Support the Celebration</div>
+      <h2>Make a Contribution</h2>
+    </div>
 
-      <div class="kicker">
-        Support the Celebration
+    <div class="contribution-layout">
+
+      <div class="contribution-copy">
+        <div class="icon">₹</div>
+        <h3>Support the Puja</h3>
+        <p>Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.</p>
       </div>
 
-      <h2>
-        Make a Contribution
-      </h2>
+      <div class="contribution-motion" aria-hidden="true">
+        <div class="contribution-orbit">
+          <span class="orbit-coin coin-one">₹</span>
+          <span class="orbit-coin coin-two">₹</span>
+          <span class="orbit-coin coin-three">✦</span>
+          <span class="orbit-center">₹</span>
+        </div>
+        <span class="motion-caption">Every contribution matters</span>
+      </div>
+
+      <div class="contribution-payment">
+        <h3>Scan & Pay with PhonePe</h3>
+        <div class="qr">
+          <img src="assets/phonepe-qr.jpg" alt="PhonePe donation QR code for Premjeet Kumar">
+        </div>
+        <div class="qr-caption">QR payment account: Premjeet Kumar</div>
+        <a class="upi-pay-button" href="upi://pay?pa=8252823417@ibl&pn=Premjeet%20Kumar&cu=INR">
+          💳 Pay Directly with UPI
+        </a>
+      </div>
 
     </div>
 
-
-
-    <div class="donation grid">
-
-      <div class="card">
-
-        <div class="icon">
-          ₹
-        </div>
-
-        <h3>
-          Support the Puja
-        </h3>
-
-        <p>
-          Your contribution supports the organization of Ganesh Puja, bhajan, cultural programs and community activities.
-        </p>
-
+    <div class="maintenance-ribbon" role="status" aria-live="polite">
+      <div class="maintenance-ribbon-heading">
+        <strong>Online Chanda Receipt and Form Currently Unavailable</strong>
+        <span>Under Maintenance</span>
       </div>
-
-      <div class="card qr-wrap">
-
-        <h3>Scan & Pay with PhonePe</h3>
-
-        <div class="qr-payment-layout">
-          <div class="qr-payment-code">
-            <div class="qr">
-              <img
-                src="assets/phonepe-qr.jpg"
-                alt="PhonePe donation QR code for Premjeet Kumar">
-            </div>
-            <div class="qr-caption">QR payment account: Premjeet Kumar</div>
-          </div>
-
-          <div class="qr-payment-actions">
-            <a class="upi-pay-button"
-              href="upi://pay?pa=8252823417@ibl&pn=Premjeet%20Kumar&cu=INR">
-              💳 Pay Directly with UPI
-            </a>
-
-            <div class="chanda-maintenance-notice" role="status" aria-live="polite">
-              <h3>Online Chanda Receipt and Form Currently Unavailable</h3>
-              <div class="notice-status">Under Maintenance</div>
-              <p>The online Chanda receipt and submission form are currently unavailable while they are under maintenance.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
+      <p>The online Chanda receipt and submission form are currently unavailable while they are under maintenance.</p>
     </div>
 
   </div>
@@ -2191,126 +2171,242 @@ if(MAINTENANCE_MODE){
     .footer-copyright { font-size: 11px; }
 }
 
-/* DONATION SECTION — compact desktop composition */
+/* CONTRIBUTION SECTION — open, balanced layout */
 .donation{
-  padding:46px 0;
+  padding:54px 0 58px;
+  background:linear-gradient(135deg,#8e1424,#54101a);
+  color:#fff;
 }
 .donation .section-head{
-  margin-bottom:22px;
+  margin:0 auto 34px;
   text-align:center;
 }
-.donation .grid{
-  width:min(1120px,100%);
-  max-width:1120px;
-  grid-template-columns:minmax(260px,.78fr) minmax(0,1.5fr);
-  align-items:stretch;
-  gap:24px;
-}
-.donation .grid > .card:first-child{
-  align-self:stretch;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:32px;
-}
-.donation .grid > .card:first-child p{
-  max-width:390px;
-  line-height:1.7;
-}
-.donation .qr-wrap{
-  padding:24px;
-}
-.donation .qr-wrap > h3{
-  margin:0 0 18px;
-}
-.qr-payment-layout{
-  display:grid;
-  grid-template-columns:minmax(180px,.8fr) minmax(250px,1.2fr);
-  align-items:center;
-  gap:22px;
-}
-.qr-payment-code{
-  min-width:0;
-  text-align:center;
-}
-.donation .qr{
-  width:min(220px,100%);
-  margin:0 auto;
-}
-.donation .qr-caption{
-  margin-top:8px;
-  line-height:1.4;
-}
-.qr-payment-actions{
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:14px;
-}
-.upi-pay-button{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  padding:14px 18px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#6f2cff,#a855f7);
+.donation .section-head .kicker,
+.donation .section-head h2{
   color:#fff;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:800;
-  text-align:center;
-  box-shadow:0 8px 22px rgba(111,44,255,.25);
-  transition:transform .2s ease,box-shadow .2s ease;
 }
-.upi-pay-button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 26px rgba(111,44,255,.32);
+.contribution-layout{
+  width:min(1120px,100%);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(150px,.62fr) minmax(280px,1fr);
+  align-items:center;
+  gap:34px;
 }
-.qr-payment-actions .chanda-maintenance-notice{
-  width:100%;
-  max-width:none;
+.contribution-copy{
+  padding:12px 0;
+  color:#fff;
+}
+.contribution-copy .icon{
+  font-size:38px;
+  line-height:1;
+  color:var(--gold);
+}
+.contribution-copy h3{
+  margin:14px 0 12px;
+  color:#ffd978;
+  font-size:25px;
+}
+.contribution-copy p{
+  max-width:360px;
   margin:0;
-  padding:16px 18px;
+  color:rgba(255,255,255,.9);
+  font-size:16px;
+  line-height:1.8;
 }
-.qr-payment-actions .chanda-maintenance-notice h3{
+.contribution-motion{
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+}
+.contribution-orbit{
+  position:relative;
+  width:148px;
+  height:148px;
+  border:1px dashed rgba(255,217,120,.45);
+  border-radius:50%;
+  animation:contributionRotate 24s linear infinite;
+}
+.orbit-center,
+.orbit-coin{
+  position:absolute;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  font-weight:800;
+}
+.orbit-center{
+  width:66px;
+  height:66px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#6d1520;
+  background:linear-gradient(145deg,#ffe7a0,#dcae3c);
+  font-size:30px;
+  box-shadow:0 5px 16px rgba(0,0,0,.16);
+  animation:contributionPulse 3s ease-in-out infinite;
+}
+.orbit-coin{
+  width:34px;
+  height:34px;
+  color:#ffd978;
+  background:rgba(255,217,120,.13);
+  border:1px solid rgba(255,217,120,.48);
   font-size:17px;
 }
-.qr-payment-actions .chanda-maintenance-notice p{
+.coin-one{top:-10px;left:56px}
+.coin-two{right:-9px;bottom:26px}
+.coin-three{left:-9px;bottom:26px}
+.motion-caption{
+  color:rgba(255,232,181,.78);
+  font-size:11px;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  text-align:center;
+}
+@keyframes contributionRotate{
+  to{transform:rotate(360deg)}
+}
+@keyframes contributionPulse{
+  0%,100%{scale:1}
+  50%{scale:1.08}
+}
+.contribution-payment{
+  text-align:center;
+  padding:0;
+  background:none;
+  border:0;
+  box-shadow:none;
+}
+.contribution-payment h3{
+  margin:0 0 14px;
+  color:#ffd978;
+  font-size:19px;
+}
+.contribution-payment .qr{
+  width:min(230px,100%);
+  margin:0 auto;
+  background:#fff;
+  padding:8px;
+  border-radius:12px;
+}
+.contribution-payment .qr img{
+  display:block;
+  width:100%;
+  border-radius:7px;
+}
+.contribution-payment .qr-caption{
+  margin:8px 0 14px;
+  color:rgba(255,255,255,.82);
+  font-size:12px;
+}
+.contribution-payment .upi-pay-button{
+  width:min(250px,100%);
+  margin:0 auto;
+  padding:13px 18px;
+  border-radius:50px;
+  background:linear-gradient(110deg,#6f2cff,#a855f7);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+  text-align:center;
+  transition:transform .2s ease,filter .2s ease;
+}
+.contribution-payment .upi-pay-button:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+}
+.maintenance-ribbon{
+  position:relative;
+  overflow:hidden;
+  width:min(920px,100%);
+  margin:38px auto 0;
+  padding:15px 24px;
+  text-align:center;
+  color:#fff4d6;
+  background:rgba(65,12,22,.38);
+  border:1px solid rgba(255,217,120,.5);
+  border-radius:12px;
+  animation:ribbonEnter .7s ease both;
+}
+.maintenance-ribbon::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-35%;
+  width:24%;
+  background:linear-gradient(90deg,transparent,rgba(255,217,120,.12),transparent);
+  transform:skewX(-22deg);
+  animation:ribbonSweep 6s ease-in-out infinite;
+  pointer-events:none;
+}
+.maintenance-ribbon-heading{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  color:#ffd978;
+  font-size:16px;
+}
+.maintenance-ribbon-heading span{
+  padding-left:10px;
+  border-left:1px solid rgba(255,217,120,.55);
+  color:#fff0c9;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.maintenance-ribbon p{
+  position:relative;
+  margin:6px 0 0;
+  color:rgba(255,255,255,.88);
   font-size:13px;
+  line-height:1.55;
+}
+@keyframes ribbonEnter{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes ribbonSweep{
+  0%,15%{left:-35%}
+  65%,100%{left:120%}
 }
 @media(max-width:900px){
-  .donation .grid{
-    grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);
+  .contribution-layout{
+    grid-template-columns:minmax(0,1fr) minmax(240px,.9fr);
+    gap:26px;
   }
-  .qr-payment-layout{
-    grid-template-columns:1fr;
-  }
-  .donation .qr{
-    width:min(210px,100%);
-  }
+  .contribution-motion{display:none}
 }
 @media(max-width:700px){
-  .donation{
-    padding:48px 0;
-  }
-  .donation .grid{
+  .donation{padding:46px 0}
+  .donation .section-head{margin-bottom:26px}
+  .contribution-layout{
     grid-template-columns:1fr;
-    gap:16px;
+    gap:30px;
   }
-  .donation .grid > .card:first-child{
-    padding:24px;
+  .contribution-copy{text-align:center}
+  .contribution-copy p{margin:0 auto}
+  .contribution-payment .qr{width:min(230px,76vw)}
+  .maintenance-ribbon{margin-top:30px;padding:15px 16px}
+  .maintenance-ribbon-heading{font-size:14px}
+  .maintenance-ribbon-heading span{
+    padding-left:0;
+    border-left:0;
   }
-  .donation .qr-wrap{
-    padding:22px 18px;
-  }
-  .qr-payment-layout{
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  .qr-payment-actions .chanda-maintenance-notice{
-    padding:16px;
+}
+@media(prefers-reduced-motion:reduce){
+  .contribution-orbit,.orbit-center,.maintenance-ribbon,.maintenance-ribbon::before{
+    animation:none!important;
   }
 }
 
