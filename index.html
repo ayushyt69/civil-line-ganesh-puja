@@ -120,6 +120,10 @@ nav a:hover{
   background:transparent;
   overflow:visible;
 }
+.hero-picture{
+  display:block;
+  width:100%;
+}
 .hero-banner{
   display:block;
   width:100%;
@@ -156,10 +160,10 @@ nav a:hover{
 @media(max-width:700px){
   .hero{
     margin-top:74px;
-    padding-bottom:30px;
+    padding-bottom:0;
   }
   .hero .buttons{
-    bottom:-20px;
+    bottom:22px;
     gap:10px;
     padding:0 10px;
   }
@@ -1032,10 +1036,15 @@ section{
 
 <section class="hero" id="home">
 
-  <img
-    class="hero-banner"
-    src="assets/file_00000000e82c820885be0523b2518f0a.png"
-    alt="Ganesh Puja Samiti banner">
+  <picture class="hero-picture">
+    <source
+      media="(max-width: 700px)"
+      srcset="assets/IMG-20261111-WA3326.jpg">
+    <img
+      class="hero-banner"
+      src="assets/file_00000000e82c820885be0523b2518f0a.png"
+      alt="Ganesh Puja Samiti banner">
+  </picture>
 
   <div class="buttons">
 
