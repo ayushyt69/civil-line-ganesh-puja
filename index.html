@@ -164,7 +164,8 @@ nav a:hover{
   z-index:1;
 }
 .hero-copy{
-  max-width:720px;
+  width:100%;
+  max-width:900px;
   padding:30px 0;
 }
 .hero .kicker{
@@ -196,6 +197,10 @@ nav a:hover{
   background:linear-gradient(90deg,transparent,#e6b84e);
 }
 .hero-subtitle:after{background:linear-gradient(90deg,#e6b84e,transparent)}
+.hero .buttons{
+  width:100%;
+  justify-content:center;
+}
 .hero-mantra{
   margin-top:26px;
   color:rgba(255,231,190,.82);
@@ -741,9 +746,8 @@ footer p{
   }
 
   .hero{
-    min-height:690px;
-    min-height:min(760px,92svh);
-    padding:112px 0 58px;
+    min-height:0;
+    padding:112px 0 28px;
     text-align:center;
   }
 
@@ -760,7 +764,7 @@ footer p{
   }
 
   .hero-copy{
-    padding:170px 0 18px;
+    padding:135px 0 0;
     margin:auto;
   }
 
@@ -780,6 +784,7 @@ footer p{
 
   .hero .buttons{
     justify-content:center;
+    margin-top:24px;
   }
 
   .about-grid,
