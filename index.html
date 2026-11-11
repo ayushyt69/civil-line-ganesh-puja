@@ -1601,41 +1601,66 @@ footer p{
     </div>
 
     <style>
-      @keyframes developerGlow {
-
+      @keyframes locationCardGlow {
         0%,100% {
-          box-shadow:0 0 0 rgba(240,180,41,0);
+          box-shadow:0 12px 32px rgba(0,0,0,.28),0 0 0 rgba(255,190,55,0);
+          border-color:rgba(255,190,55,.62);
         }
-
         50% {
-          box-shadow:0 0 14px rgba(240,180,41,0.25);
+          box-shadow:0 12px 32px rgba(0,0,0,.28),0 0 24px 5px rgba(255,190,55,.24);
+          border-color:rgba(255,190,55,.98);
         }
-
+      }
+      .footer-location-card {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:22px;
+        width:min(100%,700px);
+        margin:30px auto 10px;
+        padding:22px 26px;
+        text-align:left;
+        color:#fff8e9;
+        background:linear-gradient(110deg,rgba(24,10,8,.98),rgba(48,20,10,.94));
+        border:1px solid rgba(255,190,55,.62);
+        border-radius:24px;
+        animation:locationCardGlow 3s ease-in-out infinite;
+      }
+      .footer-location-copy{display:flex;align-items:center;gap:18px;min-width:0}
+      .footer-location-pin{width:58px;height:58px;flex:0 0 58px}
+      .footer-location-title{margin:0 0 5px;color:#fff8e9;font-size:clamp(20px,3vw,25px);font-weight:800}
+      .footer-location-address{margin:0;color:#f5dfb4;font-size:15px;line-height:1.55}
+      .footer-location-temple{width:94px;height:94px;flex:0 0 94px;opacity:.78}
+      @media(max-width:480px){
+        .footer-location-card{padding:18px 16px;border-radius:19px;gap:10px}
+        .footer-location-copy{gap:12px}
+        .footer-location-pin{width:44px;height:44px;flex-basis:44px}
+        .footer-location-temple{width:66px;height:66px;flex-basis:66px}
+        .footer-location-address{font-size:13px}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .footer-location-card{animation:none}
       }
     </style>
 
-    <div style="text-align:center; margin:30px 0 10px;">
-
-      <a
-        href="developer.html"
-        style="
-          display:inline-block;
-          color:#f0b429;
-          text-decoration:none;
-          font-weight:bold;
-          font-size:20px;
-          padding:12px 24px;
-          border:1px solid #f0b429;
-          border-radius:10px;
-          transition:all 0.3s ease;
-          animation:developerGlow 2.5s ease-in-out infinite;
-        "
-        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 18px rgba(240,180,41,0.35)'"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
-      >
-        About the Developer
-      </a>
-
+    <div class="footer-location-card" id="contact" aria-label="Our location: Civil Line, Nandan Pahar, Deoghar, Jharkhand">
+      <div class="footer-location-copy">
+        <svg class="footer-location-pin" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 3C18.8 3 8 13.8 8 27c0 17.2 24 34 24 34s24-16.8 24-34C56 13.8 45.2 3 32 3Z" fill="#ef4438"/>
+          <circle cx="32" cy="27" r="9" fill="#35140f"/>
+          <ellipse cx="32" cy="62" rx="19" ry="3" fill="none" stroke="#d99b32" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3 class="footer-location-title">Our Location</h3>
+          <p class="footer-location-address">Civil Line, Nandan Pahar<br>Deoghar, Jharkhand</p>
+        </div>
+      </div>
+      <svg class="footer-location-temple" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <g stroke="#d99b32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 87h74M20 82h60M25 82V55h50v27M20 55h60L50 39 20 55ZM31 55v27M69 55v27M42 82V65a8 8 0 0 1 16 0v17M50 39V8M45 15l5-7 5 7M43 25h14M39 34h22M35 44h30"/>
+          <path d="M31 48c4-7 10-11 19-11s15 4 19 11M38 31c2-8 6-12 12-15 6 3 10 7 12 15"/>
+        </g>
+      </svg>
     </div>
 
     <p style="margin-top:40px;"></p>
