@@ -1517,6 +1517,15 @@ footer p{
       CIVIL LINE GANESH PUJA SAMITI
     </strong>
 
+    <style>
+      .media-partners-list{display:flex;justify-content:center;align-items:center;gap:30px;flex-wrap:wrap}
+      .media-partner-card{width:180px;text-align:center}
+      .media-partner-link{display:inline-flex;border-radius:50%;outline-offset:5px}
+      .media-partner-logo{display:block;width:116px;height:116px;object-fit:cover;border-radius:50%;border:2px solid rgba(255,190,55,.72);box-shadow:0 7px 22px rgba(0,0,0,.28);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+      .media-partners-list:hover .media-partner-logo,.media-partners-list:focus-within .media-partner-logo{transform:translateY(-7px);border-color:#ffd978;box-shadow:0 14px 30px rgba(0,0,0,.32),0 0 18px rgba(255,190,55,.22)}
+      @media(prefers-reduced-motion:reduce){.media-partner-logo{transition:none}.media-partners-list:hover .media-partner-logo,.media-partners-list:focus-within .media-partner-logo{transform:none}}
+    </style>
+
     <div style="margin-top:28px;">
 
       <div style="
@@ -1529,16 +1538,12 @@ footer p{
         Media Partners
       </div>
 
-      <div style="
-        display:flex;
-        justify-content:center;
-        align-items:flex-start;
-        gap:35px;
-        flex-wrap:wrap;">
+      <div class="media-partners-list">
 
-        <div style="width:220px; text-align:center;">
+        <div class="media-partner-card">
 
           <a
+            class="media-partner-link"
             href="https://www.instagram.com/devesh_deoghar_vlogs/"
             target="_blank"
             rel="noopener noreferrer">
@@ -1546,13 +1551,7 @@ footer p{
             <img
               src="assets/devesh-media.jpg"
               alt="Devesh Deoghar Vlogs"
-              style="
-                width:180px;
-                height:180px;
-                object-fit:cover;
-                border-radius:16px;
-                display:block;
-                margin:0 auto 12px;">
+              class="media-partner-logo">
 
           </a>
 
@@ -1566,9 +1565,10 @@ footer p{
 
         </div>
 
-        <div style="width:220px; text-align:center;">
+        <div class="media-partner-card">
 
           <a
+            class="media-partner-link"
             href="https://www.instagram.com/exposure_notes/"
             target="_blank"
             rel="noopener noreferrer">
@@ -1576,13 +1576,7 @@ footer p{
             <img
               src="assets/exposure-notes.jpg"
               alt="Exposure Notes"
-              style="
-                width:180px;
-                height:180px;
-                object-fit:cover;
-                border-radius:16px;
-                display:block;
-                margin:0 auto 12px;">
+              class="media-partner-logo">
 
           </a>
 
