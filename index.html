@@ -918,195 +918,51 @@ footer p{
 
 
 
-/* CHANDA FORM MAINTENANCE NOTICE */
-.chanda-notice-overlay{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px;
-  background:rgba(35,19,18,.48);
-  -webkit-backdrop-filter:blur(9px);
-  backdrop-filter:blur(9px);
-  animation:chandaOverlayIn .35s ease both;
-}
-.chanda-notice-overlay[hidden]{
-  display:none;
-}
-.chanda-notice{
-  position:relative;
-  width:min(100%,440px);
-  padding:34px 30px 28px;
-  overflow:hidden;
+
+/* CHANDA RECEIPT FORM MAINTENANCE NOTICE */
+.chanda-maintenance-notice{
+  max-width:800px;
+  margin:0 auto 30px;
+  padding:20px 24px;
   text-align:center;
-  color:#3b2522;
-  background:rgba(255,250,240,.84);
-  border:1px solid rgba(255,255,255,.72);
-  border-radius:25px;
-  box-shadow:0 28px 90px rgba(25,10,8,.28),inset 0 1px 0 rgba(255,255,255,.8);
-  -webkit-backdrop-filter:blur(22px);
-  backdrop-filter:blur(22px);
-  animation:chandaNoticeIn .45s cubic-bezier(.2,.8,.2,1) both;
+  color:#fff8e9;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,217,120,.42);
+  border-left:4px solid #ffd978;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(25,5,8,.12);
 }
-.chanda-notice:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:linear-gradient(90deg,#8e1424,#d6a83f,#8e1424);
+.chanda-maintenance-notice h3{
+  margin:0 0 8px;
+  color:#ffd978;
+  font-size:clamp(18px,3vw,22px);
+  line-height:1.3;
 }
-.chanda-notice-mark{
-  width:58px;
-  height:58px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 19px;
-  color:#8e1424;
-  font-size:27px;
-  font-weight:800;
-  border:1px solid rgba(214,168,63,.55);
-  border-radius:18px;
-  background:rgba(214,168,63,.13);
-}
-.chanda-notice-label{
-  margin-bottom:9px;
-  color:#a77a1f;
+.chanda-maintenance-notice .notice-status{
+  display:inline-block;
+  margin:4px 0 9px;
+  padding:5px 12px;
+  color:#fff;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;
   font-size:11px;
   font-weight:800;
-  letter-spacing:2px;
+  letter-spacing:1px;
   text-transform:uppercase;
 }
-.chanda-notice h2{
+.chanda-maintenance-notice p{
   margin:0;
-  color:#8e1424;
-  font-size:clamp(25px,6vw,32px);
-  line-height:1.15;
-}
-.chanda-notice-status{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin:17px 0 13px;
-  padding:7px 13px;
-  color:#8e1424;
-  font-size:12px;
-  font-weight:800;
-  border:1px solid rgba(142,20,36,.17);
-  border-radius:999px;
-  background:rgba(142,20,36,.06);
-}
-.chanda-notice-status:before{
-  content:"";
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#c51f32;
-  box-shadow:0 0 0 4px rgba(197,31,50,.10);
-}
-.chanda-notice p{
-  margin:0 auto;
-  max-width:340px;
-  color:#6f6255;
+  color:rgba(255,255,255,.88);
   font-size:14px;
-  line-height:1.75;
-}
-.chanda-notice-close{
-  width:100%;
-  min-height:47px;
-  margin-top:24px;
-  border:0;
-  border-radius:999px;
-  color:#fff;
-  background:linear-gradient(135deg,#8e1424,#b51f35);
-  font:700 14px Arial,Helvetica,sans-serif;
-  cursor:pointer;
-  box-shadow:0 9px 22px rgba(142,20,36,.2);
-  transition:transform .2s ease,box-shadow .2s ease;
-}
-.chanda-notice-close:hover{
-  transform:translateY(-2px);
-  box-shadow:0 13px 27px rgba(142,20,36,.27);
-}
-.chanda-notice-close:focus-visible{
-  outline:3px solid rgba(214,168,63,.8);
-  outline-offset:3px;
-}
-@keyframes chandaOverlayIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-@keyframes chandaNoticeIn{
-  from{opacity:0;transform:translateY(16px) scale(.97)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-@media(max-width:480px){
-  .chanda-notice{padding:30px 22px 23px;border-radius:22px}
-}
-@media(prefers-reduced-motion:reduce){
-  .chanda-notice-overlay,.chanda-notice{animation:none}
-  .chanda-notice-close{transition:none}
+  line-height:1.65;
 }
 </style>
   
 <body>
 
 
-<!-- CHANDA RECEIPT FORM NOTICE -->
-<div
-  class="chanda-notice-overlay"
-  id="chanda-notice-overlay"
-  role="presentation">
-  <section
-    class="chanda-notice"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="chanda-notice-title"
-    aria-describedby="chanda-notice-description"
-    tabindex="-1">
-    <div class="chanda-notice-mark" aria-hidden="true">!</div>
-    <div class="chanda-notice-label">Important Notice</div>
-    <h2 id="chanda-notice-title">Chanda Receipt Form Closed</h2>
-    <div class="chanda-notice-status">Under Maintenance</div>
-    <p id="chanda-notice-description">
-      The Chanda receipt form is temporarily closed while we carry out maintenance.
-      Online receipt submissions are currently unavailable. Please check back later.
-    </p>
-    <button class="chanda-notice-close" id="chanda-notice-close" type="button">
-      Close
-    </button>
-  </section>
-</div>
-<script>
-(function(){
-  const overlay = document.getElementById("chanda-notice-overlay");
-  const dialog = overlay && overlay.querySelector(".chanda-notice");
-  const closeButton = document.getElementById("chanda-notice-close");
-  if(!overlay || !dialog || !closeButton) return;
 
-  const closeNotice = function(){
-    overlay.hidden = true;
-    document.body.style.overflow = "";
-  };
-
-  document.body.style.overflow = "hidden";
-  closeButton.addEventListener("click", closeNotice);
-
-  overlay.addEventListener("click", function(event){
-    if(event.target === overlay) closeNotice();
-  });
-
-  document.addEventListener("keydown", function(event){
-    if(event.key === "Escape" && !overlay.hidden) closeNotice();
-  });
-
-  dialog.focus();
-})();
-</script>
-<!-- END CHANDA RECEIPT FORM NOTICE -->
 
 
 
@@ -1537,6 +1393,12 @@ footer p{
 
     </div>
 
+    <div class="chanda-maintenance-notice" role="status" aria-live="polite">
+      <h3>Online Chanda Receipt and Form Currently Unavailable</h3>
+      <div class="notice-status">Under Maintenance</div>
+      <p>The online Chanda receipt and submission form are currently unavailable while they are under maintenance.</p>
+    </div>
+
     <div class="donation grid">
 
       <div class="card">
@@ -1609,23 +1471,7 @@ footer p{
 </a>
         </div>
 
-        <div id="receipt-form-status" style="margin-top:18px;"></div>
 
-        <script>
-          const receiptFormStatus =
-            document.getElementById("receipt-form-status");
-
-          receiptFormStatus.innerHTML = `
-            <a
-              href="https://forms.gle/WmNCGMae4dqCSe358"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn primary"
-              style="width:100%;">
-              Already Paid? Get your receipt from here!
-            </a>
-          `;
-        </script>
 
       </div>
 
