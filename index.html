@@ -2410,6 +2410,58 @@ if(MAINTENANCE_MODE){
   }
 }
 
+
+/* CONTRIBUTION COPY CARD + ANIMATED SECTION HEADING */
+.donation .section-head .kicker{
+  position:relative;
+  display:inline-block;
+  padding-bottom:12px;
+  letter-spacing:2.6px;
+}
+.donation .section-head .kicker::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:58px;
+  height:3px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#ffd978,#fff0bd);
+  transform:translateX(-50%);
+  transform-origin:center;
+  animation:donationHeadingUnderline 3.2s ease-in-out infinite;
+}
+.donation .section-head h2{
+  margin-top:10px;
+  text-shadow:0 2px 14px rgba(0,0,0,.12);
+}
+.contribution-copy{
+  padding:28px 26px;
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+  border:1px solid rgba(255,217,120,.3);
+  box-shadow:0 12px 28px rgba(42,5,12,.12);
+}
+.contribution-copy .icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:rgba(255,217,120,.13);
+  border:1px solid rgba(255,217,120,.3);
+}
+.contribution-copy h3{
+  margin-top:18px;
+}
+@keyframes donationHeadingUnderline{
+  0%,100%{width:42px;opacity:.72}
+  50%{width:92px;opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .donation .section-head .kicker::after{animation:none;width:58px}
+}
+
 </style>
 
 <script>
