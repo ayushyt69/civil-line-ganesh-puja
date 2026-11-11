@@ -1441,55 +1441,31 @@ section{
 
       <div class="card qr-wrap">
 
-        <div class="icon">
-          ▣
-        </div>
+        <h3>Scan & Pay with PhonePe</h3>
 
-        <h3>
-          Scan & Pay with PhonePe
-        </h3>
+        <div class="qr-payment-layout">
+          <div class="qr-payment-code">
+            <div class="qr">
+              <img
+                src="assets/phonepe-qr.jpg"
+                alt="PhonePe donation QR code for Premjeet Kumar">
+            </div>
+            <div class="qr-caption">QR payment account: Premjeet Kumar</div>
+          </div>
 
-        <div class="qr">
-
-          <img
-            src="assets/phonepe-qr.jpg"
-            alt="PhonePe donation QR code for Premjeet Kumar">
-
-        </div>
-
-        <div class="qr-caption">
-          QR payment account: Premjeet Kumar
-          <a
-  href="upi://pay?pa=8252823417@ibl&pn=Premjeet%20Kumar&cu=INR"
-  style="
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:90%;
-    max-width:505px;
-    margin:18px auto 12px;
-    padding:16px 22px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#6f2cff,#a855f7);
-    color:#fff;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:800;
-    text-align:center;
-    box-shadow:0 10px 28px rgba(111,44,255,.28);
-  "
->
-  💳 Pay Directly with UPI
-</a>
-        </div>
+          <div class="qr-payment-actions">
+            <a class="upi-pay-button"
+              href="upi://pay?pa=8252823417@ibl&pn=Premjeet%20Kumar&cu=INR">
+              💳 Pay Directly with UPI
+            </a>
 
             <div class="chanda-maintenance-notice" role="status" aria-live="polite">
-      <h3>Online Chanda Receipt and Form Currently Unavailable</h3>
-      <div class="notice-status">Under Maintenance</div>
-      <p>The online Chanda receipt and submission form are currently unavailable while they are under maintenance.</p>
-    </div>
-
-
+              <h3>Online Chanda Receipt and Form Currently Unavailable</h3>
+              <div class="notice-status">Under Maintenance</div>
+              <p>The online Chanda receipt and submission form are currently unavailable while they are under maintenance.</p>
+            </div>
+          </div>
+        </div>
 
       </div>
 
@@ -2214,6 +2190,130 @@ if(MAINTENANCE_MODE){
 @media (max-width: 500px) {
     .footer-copyright { font-size: 11px; }
 }
+
+/* DONATION SECTION — compact desktop composition */
+.donation{
+  padding:46px 0;
+}
+.donation .section-head{
+  margin-bottom:22px;
+  text-align:center;
+}
+.donation .grid{
+  width:min(1120px,100%);
+  max-width:1120px;
+  grid-template-columns:minmax(260px,.78fr) minmax(0,1.5fr);
+  align-items:stretch;
+  gap:24px;
+}
+.donation .grid > .card:first-child{
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:32px;
+}
+.donation .grid > .card:first-child p{
+  max-width:390px;
+  line-height:1.7;
+}
+.donation .qr-wrap{
+  padding:24px;
+}
+.donation .qr-wrap > h3{
+  margin:0 0 18px;
+}
+.qr-payment-layout{
+  display:grid;
+  grid-template-columns:minmax(180px,.8fr) minmax(250px,1.2fr);
+  align-items:center;
+  gap:22px;
+}
+.qr-payment-code{
+  min-width:0;
+  text-align:center;
+}
+.donation .qr{
+  width:min(220px,100%);
+  margin:0 auto;
+}
+.donation .qr-caption{
+  margin-top:8px;
+  line-height:1.4;
+}
+.qr-payment-actions{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:14px;
+}
+.upi-pay-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding:14px 18px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#6f2cff,#a855f7);
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  text-align:center;
+  box-shadow:0 8px 22px rgba(111,44,255,.25);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.upi-pay-button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(111,44,255,.32);
+}
+.qr-payment-actions .chanda-maintenance-notice{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:16px 18px;
+}
+.qr-payment-actions .chanda-maintenance-notice h3{
+  font-size:17px;
+}
+.qr-payment-actions .chanda-maintenance-notice p{
+  font-size:13px;
+}
+@media(max-width:900px){
+  .donation .grid{
+    grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);
+  }
+  .qr-payment-layout{
+    grid-template-columns:1fr;
+  }
+  .donation .qr{
+    width:min(210px,100%);
+  }
+}
+@media(max-width:700px){
+  .donation{
+    padding:48px 0;
+  }
+  .donation .grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .donation .grid > .card:first-child{
+    padding:24px;
+  }
+  .donation .qr-wrap{
+    padding:22px 18px;
+  }
+  .qr-payment-layout{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .qr-payment-actions .chanda-maintenance-notice{
+    padding:16px;
+  }
+}
+
 </style>
 
 <script>
