@@ -535,6 +535,38 @@ h2{
   margin-top:2px
 }
 
+/* GROUP 2026 HIGHLIGHTS + EVENT GALLERY AS ONE VISUAL SECTION */
+.highlights-gallery-group{
+  width:min(1240px,calc(100% - 48px));
+  margin:56px auto;
+  padding:18px 34px;
+  background:linear-gradient(145deg,#fffaf0,#fff4df);
+  border:1px solid rgba(214,168,63,.42);
+  border-radius:30px;
+  box-shadow:0 18px 48px rgba(80,30,10,.09);
+  overflow:hidden;
+}
+.highlights-gallery-group > .events-section,
+.highlights-gallery-group > .gallery{
+  background:transparent;
+  padding:52px 0;
+}
+.highlights-gallery-group > .gallery{
+  border-top:1px solid rgba(142,20,36,.13);
+}
+@media(max-width:700px){
+  .highlights-gallery-group{
+    width:calc(100% - 24px);
+    margin:32px auto;
+    padding:8px 16px;
+    border-radius:22px;
+  }
+  .highlights-gallery-group > .events-section,
+  .highlights-gallery-group > .gallery{
+    padding:34px 0;
+  }
+}
+
 /* ============================= */
 /* GALLERY */
 /* ============================= */
@@ -1150,6 +1182,8 @@ section{
 <!-- 2026 HIGHLIGHTS -->
 <!-- ============================= -->
 
+<div class="highlights-gallery-group">
+
 <section class="events-section" id="events">
 
   <div class="container">
@@ -1240,6 +1274,8 @@ section{
   </div>
 
 </section>
+
+</div>
 
 
 
