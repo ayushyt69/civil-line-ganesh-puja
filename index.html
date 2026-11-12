@@ -2823,6 +2823,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+<style>
+/* POLISHED MOBILE TAP AND FOCUS STATES */
+/* Remove the browser's default blue tap flash on touch devices. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Avoid a mouse/touch focus box, but retain a clear keyboard focus indicator. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+summary:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+</style>
+
 </body>
 </html>
 
