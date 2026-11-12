@@ -1132,6 +1132,23 @@ section{
         <small>GANESH PUJA SAMITI</small>
       </div>
     </a>
+
+    <div class="puja-updates-widget" id="puja-updates-widget">
+    <section class="puja-updates-panel" id="puja-updates-panel" aria-labelledby="puja-updates-title" hidden>
+      <button class="puja-updates-close" id="puja-updates-close" type="button" aria-label="Close Puja updates">×</button>
+      <span class="puja-updates-eyebrow"><span aria-hidden="true">✦</span> COMMUNITY UPDATES</span>
+      <h2 id="puja-updates-title">Ganesh Puja Updates</h2>
+      <p>Stay connected with announcements, event dates and celebration updates for the upcoming Ganesh Puja.</p>
+      <div class="puja-updates-note"><span aria-hidden="true">🪔</span><span>New updates will be shared here. Stay tuned!</span></div>
+    </section>
+    <button class="puja-updates-trigger" id="puja-updates-trigger" type="button" aria-expanded="false" aria-controls="puja-updates-panel">
+      <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
+      <span class="puja-updates-trigger-label">Puja Updates</span>
+      <span class="puja-updates-spark" aria-hidden="true">✦</span>
+    </button>
+  </div>
+
+    
     
     <nav id="primary-navigation">
       <a href="#events">Events</a>
@@ -2716,6 +2733,51 @@ if(MAINTENANCE_MODE){
   .puja-updates-trigger { transition:none; }
 }
 
+
+/* Puja Updates launcher — centered in the header ribbon */
+.puja-updates-widget{
+  position:relative;
+  right:auto;
+  bottom:auto;
+  z-index:25;
+  display:flex;
+  flex:0 0 auto;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+  margin:0 auto;
+}
+.puja-updates-trigger{
+  min-height:42px;
+  gap:8px;
+  padding:5px 13px 5px 6px;
+  font-size:11px;
+}
+.puja-updates-icon{
+  width:30px;
+  height:30px;
+  font-size:18px;
+}
+.puja-updates-panel{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  z-index:30;
+  transform:translateX(-50%);
+}
+@keyframes puja-panel-in{
+  from{opacity:0;transform:translate(-50%,8px) scale(.98)}
+  to{opacity:1;transform:translate(-50%,0) scale(1)}
+}
+@media(max-width:700px){
+  .nav{gap:10px}
+  .puja-updates-widget{margin:0 auto}
+  .puja-updates-trigger{min-height:40px;gap:6px;padding:4px 10px 4px 5px}
+  .puja-updates-icon{width:28px;height:28px;font-size:17px}
+  .puja-updates-trigger-label{font-size:10px}
+  .puja-updates-panel{width:min(310px,calc(100vw - 28px))}
+}
+
 </style>
 
 <script>
@@ -2735,25 +2797,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <div class="puja-updates-widget" id="puja-updates-widget">
-    <section class="puja-updates-panel" id="puja-updates-panel" aria-labelledby="puja-updates-title" hidden>
-      <button class="puja-updates-close" id="puja-updates-close" type="button" aria-label="Close Puja updates">×</button>
-      <span class="puja-updates-eyebrow"><span aria-hidden="true">✦</span> COMMUNITY UPDATES</span>
-      <h2 id="puja-updates-title">Ganesh Puja Updates</h2>
-      <p>Stay connected with announcements, event dates and celebration updates for the upcoming Ganesh Puja.</p>
-      <div class="puja-updates-note"><span aria-hidden="true">🪔</span><span>New updates will be shared here. Stay tuned!</span></div>
-    </section>
-    <button class="puja-updates-trigger" id="puja-updates-trigger" type="button" aria-expanded="false" aria-controls="puja-updates-panel">
-      <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
-      <span class="puja-updates-trigger-label">Puja Updates</span>
-      <span class="puja-updates-spark" aria-hidden="true">✦</span>
-    </button>
-  </div>
-
+  
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Floating Ganesh Puja updates panel
+  // Header Ganesh Puja updates panel
   const pujaTrigger = document.getElementById("puja-updates-trigger");
   const pujaPanel = document.getElementById("puja-updates-panel");
   const pujaClose = document.getElementById("puja-updates-close");
