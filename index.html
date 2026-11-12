@@ -307,8 +307,22 @@ h2{
 }
 
 @media (max-width:700px){
-  .highlight-slideshow{
-    height:240px;
+  /* Let the image define the card height on phones.
+     The old fixed 240px frame left an empty strip below shorter images. */
+  .photo-highlight .banner-card{
+    padding:8px;
+  }
+
+  .photo-highlight .highlight-slideshow{
+    height:auto;
+    line-height:0;
+  }
+
+  .photo-highlight .highlight-slideshow img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
   }
 }
 
