@@ -1072,78 +1072,47 @@ section{
 }
 
 
-/* Devotional ribbons: use the natural section gaps as subtle visual pauses */
-.devotional-ribbon{
+/* Minimal ornamental dividers between major sections */
+.ornamental-divider{
   position:relative;
-  isolation:isolate;
+  width:min(300px,58%);
+  height:22px;
+  margin:7px auto;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;
-  width:min(1040px,calc(100% - 48px));
-  min-height:54px;
-  margin:12px auto;
-  padding:12px 24px;
-  overflow:hidden;
-  border:1px solid rgba(183,133,38,.48);
-  border-radius:999px;
-  background:linear-gradient(100deg,#fff4d9 0%,#fffaf0 35%,#f7e5bd 50%,#fffaf0 65%,#fff1d1 100%);
-  background-size:220% 100%;
-  box-shadow:0 6px 20px rgba(92,45,18,.07);
-  color:#781b25;
-  text-align:center;
-  font-weight:800;
-  font-size:clamp(14px,1.7vw,18px);
-  letter-spacing:.2px;
-  animation:devotionalRibbonFlow 8s ease-in-out infinite;
+  pointer-events:none;
 }
-.devotional-ribbon::before{
+.ornamental-divider::before{
   content:"";
   position:absolute;
-  z-index:-1;
-  inset:0;
-  background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.72) 48%,transparent 68%);
-  transform:translateX(-100%);
-  animation:devotionalRibbonSweep 6s ease-in-out infinite;
+  left:0;
+  right:0;
+  top:50%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(183,133,38,.62) 18%,rgba(183,133,38,.62) 42%,transparent 49%,transparent 51%,rgba(183,133,38,.62) 58%,rgba(183,133,38,.62) 82%,transparent);
 }
-.ribbon-ornament{
-  flex:0 0 auto;
-  color:#bd8a2e;
-  font-size:20px;
-  line-height:1;
-  animation:devotionalOrnament 3.5s ease-in-out infinite;
-}
-@keyframes devotionalRibbonFlow{
-  0%,100%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-}
-@keyframes devotionalRibbonSweep{
-  0%,35%{transform:translateX(-100%)}
-  75%,100%{transform:translateX(100%)}
-}
-@keyframes devotionalOrnament{
-  0%,100%{opacity:.65;transform:scale(.9)}
-  50%{opacity:1;transform:scale(1.12)}
+.ornamental-divider::after{
+  content:"";
+  position:relative;
+  width:9px;
+  height:9px;
+  border:1px solid #bd8a2e;
+  background:var(--cream);
+  transform:rotate(45deg);
+  box-shadow:0 0 0 4px var(--cream);
 }
 @media(max-width:700px){
-  .devotional-ribbon{
-    width:calc(100% - 28px);
-    min-height:48px;
-    gap:10px;
-    margin:8px auto;
-    padding:10px 13px;
-    border-radius:16px;
-    font-size:13px;
-    line-height:1.55;
+  .ornamental-divider{
+    width:min(220px,58%);
+    height:18px;
+    margin:5px auto;
   }
-  .ribbon-ornament{font-size:16px}
-}
-@media(prefers-reduced-motion:reduce){
-  .devotional-ribbon,.devotional-ribbon::before,.ribbon-ornament{
-    animation:none;
+  .ornamental-divider::after{
+    width:8px;
+    height:8px;
   }
 }
-
 </style>
   
 <body>
@@ -1245,11 +1214,7 @@ section{
 
 </section>
 
-<div class="devotional-ribbon" role="note" aria-label="Ganesh mantra">
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-  <span>ॐ गं गणपतये नमः</span>
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-</div>
+<div class="ornamental-divider" aria-hidden="true"></div>
 
 <section class="photo-highlight" id="highlights">
 
@@ -1382,11 +1347,7 @@ section{
 
 
 
-<div class="devotional-ribbon" role="note" aria-label="Ganesh prayer">
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-  <span>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</span>
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-</div>
+<div class="ornamental-divider" aria-hidden="true"></div>
 
 <!-- ============================= -->
 <!-- ABOUT -->
@@ -1446,11 +1407,7 @@ section{
 
 
 
-<div class="devotional-ribbon" role="note" aria-label="Ganesh devotional chant">
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-  <span>गणपति बाप्पा मोरया • मंगलमूर्ति मोरया</span>
-  <span class="ribbon-ornament" aria-hidden="true">✧</span>
-</div>
+<div class="ornamental-divider" aria-hidden="true"></div>
 
 <!-- ============================= -->
 <!-- COMMITTEE -->
