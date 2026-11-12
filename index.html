@@ -2841,19 +2841,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const pujaTrigger = document.getElementById("puja-updates-trigger");
   const pujaPanel = document.getElementById("puja-updates-panel");
   const pujaClose = document.getElementById("puja-updates-close");
+  const pujaWidget = document.getElementById("puja-updates-widget");
 
-  function setPujaPanel(open) {
+  function setPujaPanel(open, restoreFocus = true) {
     if (!pujaTrigger || !pujaPanel) return;
     pujaPanel.hidden = !open;
     pujaTrigger.setAttribute("aria-expanded", String(open));
     if (open) pujaClose?.focus();
-    else pujaTrigger.focus();
+    else if (restoreFocus) pujaTrigger.focus();
   }
 
   pujaTrigger?.addEventListener("click", () => {
     setPujaPanel(pujaPanel.hidden);
   });
   pujaClose?.addEventListener("click", () => setPujaPanel(false));
+
+  // Close when the visitor taps anywhere outside the updates widget.
+  document.addEventListener("pointerdown", event => {
+    if (pujaPanel && !pujaPanel.hidden && pujaWidget && !pujaWidget.contains(event.target)) {
+      setPujaPanel(false, false);
+    }
+  });
+
+  // Close as soon as the page starts scrolling; do not steal focus or jump back to the header.
+  window.addEventListener("scroll", () => {
+    if (pujaPanel && !pujaPanel.hidden) setPujaPanel(false, false);
+  }, { passive: true });
+
   document.addEventListener("keydown", event => {
     if (event.key === "Escape" && pujaPanel && !pujaPanel.hidden) setPujaPanel(false);
   });
