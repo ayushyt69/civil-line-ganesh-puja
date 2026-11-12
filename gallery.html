@@ -135,6 +135,23 @@
       border-radius: 8px;
       font-weight: bold;
     }
+
+    /* POLISHED MOBILE TAP AND FOCUS STATES */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus:not(:focus-visible),
+    button:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #d6a63e;
+      outline-offset: 3px;
+    }
+
   </style>
 </head>
 
