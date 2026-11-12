@@ -2698,6 +2698,27 @@ if(MAINTENANCE_MODE){
   background:#d62828;
   box-shadow:0 1px 3px rgba(70,15,15,.25);
   pointer-events:none;
+  animation:puja-notification-pulse 1.8s ease-out infinite;
+}
+.puja-updates-notification-dot::after {
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border:1.5px solid rgba(214,40,40,.75);
+  border-radius:50%;
+  animation:puja-notification-ring 1.8s ease-out infinite;
+}
+@keyframes puja-notification-pulse {
+  0%,100% { box-shadow:0 1px 3px rgba(70,15,15,.25),0 0 0 0 rgba(214,40,40,.2); }
+  50% { box-shadow:0 1px 3px rgba(70,15,15,.25),0 0 0 3px rgba(214,40,40,.12); }
+}
+@keyframes puja-notification-ring {
+  0% { transform:scale(.75); opacity:.8; }
+  75%,100% { transform:scale(1.9); opacity:0; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .puja-updates-notification-dot,
+  .puja-updates-notification-dot::after { animation:none; }
 }
 .puja-updates-icon {
   display:grid; place-items:center; width:38px; height:38px; border-radius:50%;
