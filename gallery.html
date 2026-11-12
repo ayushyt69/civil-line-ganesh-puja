@@ -62,6 +62,68 @@
       margin: 40px 0;
     }
 
+    .lightbox-photo-wrap {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      max-width:90vw;
+      max-height:94vh;
+    }
+
+    #lightbox-image {
+      display:block;
+      max-width:90vw;
+      max-height:calc(88vh - 58px);
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      border-radius:12px;
+    }
+
+    #lightbox-download {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:9px 17px;
+      border:1px solid rgba(255,239,190,.8);
+      border-radius:999px;
+      background:linear-gradient(135deg,#f4d27b,#d6a63e);
+      color:#542f0b;
+      box-shadow:0 3px 14px rgba(0,0,0,.28);
+      font:600 13px Arial,sans-serif;
+      letter-spacing:.2px;
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    #lightbox-download:hover {
+      transform:translateY(-2px);
+      box-shadow:0 5px 18px rgba(214,166,62,.35);
+    }
+
+    #lightbox-download:active {
+      transform:scale(.97);
+    }
+
+    #lightbox-download svg {
+      width:16px;
+      height:16px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    @media (max-width:600px) {
+      .lightbox-photo-wrap { gap:10px; }
+      #lightbox-image { max-width:86vw; max-height:calc(82vh - 58px); }
+      #lightbox-download { padding:8px 15px; font-size:12px; }
+    }
+
     .back-button {
       display: block;
       width: fit-content;
@@ -143,17 +205,19 @@
     ‹
   </button>
 
-  <img
-    id="lightbox-image"
-    src=""
-    alt="Expanded Ganesh Puja event photo"
-    style="
-      max-width:90%;
-      max-height:90%;
-      object-fit:contain;
-      border-radius:12px;
-    "
-  >
+  <div class="lightbox-photo-wrap">
+    <img
+      id="lightbox-image"
+      src=""
+      alt="Expanded Ganesh Puja event photo"
+    >
+    <button id="lightbox-download" type="button" aria-label="Download this photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/>
+      </svg>
+      <span>Download Photo</span>
+    </button>
+  </div>
 
   <button
     id="lightbox-next"
@@ -192,6 +256,7 @@ const lightboxImage = document.getElementById("lightbox-image");
 const lightboxClose = document.getElementById("lightbox-close");
 const lightboxPrev = document.getElementById("lightbox-prev");
 const lightboxNext = document.getElementById("lightbox-next");
+const lightboxDownload = document.getElementById("lightbox-download");
 
 let currentPhotoIndex = 0;
 let galleryImages = [];
@@ -239,6 +304,42 @@ lightboxClose.addEventListener("click", closeLightbox);
 lightboxPrev.addEventListener("click", showPreviousPhoto);
 
 lightboxNext.addEventListener("click", showNextPhoto);
+
+lightboxDownload.addEventListener("click", async function() {
+  const imageUrl = lightboxImage.src;
+  if (!imageUrl) return;
+
+  const originalLabel = lightboxDownload.innerHTML;
+  lightboxDownload.disabled = true;
+  lightboxDownload.querySelector("span").textContent = "Preparing...";
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) throw new Error("Download failed");
+    const blob = await response.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    const sourceName = galleryImages[currentPhotoIndex]?.src.split("/").pop().split("?")[0];
+    link.href = objectUrl;
+    link.download = sourceName || "ganesh-puja-photo.jpg";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
+  } catch (error) {
+    const fallback = document.createElement("a");
+    fallback.href = imageUrl;
+    fallback.target = "_blank";
+    fallback.rel = "noopener";
+    fallback.download = "ganesh-puja-photo";
+    document.body.appendChild(fallback);
+    fallback.click();
+    fallback.remove();
+  } finally {
+    lightboxDownload.disabled = false;
+    lightboxDownload.innerHTML = originalLabel;
+  }
+});
 
 lightbox.addEventListener("click", function(event) {
   if (event.target === lightbox) {
