@@ -1137,7 +1137,7 @@ section{
     <section class="puja-updates-panel" id="puja-updates-panel" aria-label="Puja updates panel" hidden>
       <button class="puja-updates-close" id="puja-updates-close" type="button" aria-label="Close Puja updates">×</button>
       <span class="puja-updates-eyebrow"><span aria-hidden="true">✦</span> COMMUNITY UPDATES</span>
-      <div class="puja-updates-note"><span aria-hidden="true">🪔</span><span>New updates will be shared here. Stay tuned!</span></div>
+      <div class="puja-updates-note puja-maintenance-notice"><span aria-hidden="true">⚠</span><span><strong>Online Receipt Facility Under Maintenance</strong><span class="puja-maintenance-copy">The online Chanda receipt and submission facility is temporarily unavailable. Donation details remain available in the Donation section. The online receipt facility will be restored once maintenance is complete.</span></span></div>
     </section>
     <button class="puja-updates-trigger" id="puja-updates-trigger" type="button" aria-expanded="false" aria-controls="puja-updates-panel">
       <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
@@ -2719,6 +2719,10 @@ if(MAINTENANCE_MODE){
   background:#fff8e9; font-size:11px; font-weight:700; line-height:1.45;
 }
 .puja-updates-note span:first-child { font-size:17px; }
+.puja-maintenance-notice { align-items:flex-start; }
+.puja-maintenance-notice > span:first-child { color:#b7791f; line-height:1.2; }
+.puja-maintenance-notice strong { display:block; margin-bottom:5px; color:#805313; font-size:11px; }
+.puja-maintenance-copy { display:block; font-weight:500; }
 @keyframes puja-panel-in { from { opacity:0; transform:translateY(8px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
 @media (max-width:600px) {
   .puja-updates-widget { right:14px; bottom:16px; gap:10px; }
