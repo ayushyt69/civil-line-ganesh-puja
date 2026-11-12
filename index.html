@@ -2652,6 +2652,70 @@ if(MAINTENANCE_MODE){
   .donation .section-head .kicker::after{animation:none;width:58px}
 }
 
+
+
+/* Floating Ganesh Puja updates launcher */
+/* Floating Ganesh Puja updates launcher */
+.puja-updates-widget {
+  position:fixed; right:22px; bottom:22px; z-index:1050;
+  display:flex; flex-direction:column; align-items:flex-end; gap:12px;
+  font-family:"Manrope",sans-serif;
+}
+.puja-updates-trigger {
+  position:relative; display:inline-flex; align-items:center; gap:10px;
+  min-height:54px; padding:7px 17px 7px 8px;
+  border:1px solid rgba(255,239,190,.95); border-radius:999px;
+  color:#59390e; background:linear-gradient(135deg,#fff0bc 0%,#e8bd59 55%,#d5a13a 100%);
+  box-shadow:0 8px 26px rgba(85,55,12,.24), inset 0 1px 0 rgba(255,255,255,.75);
+  font:800 12px "Manrope",sans-serif; letter-spacing:.015em; cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.puja-updates-trigger:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(85,55,12,.3); }
+.puja-updates-icon {
+  display:grid; place-items:center; width:38px; height:38px; border-radius:50%;
+  color:#fff7df; background:linear-gradient(145deg,#8e5420,#5b3214);
+  border:1px solid rgba(255,238,188,.75); font-size:22px; line-height:1;
+  box-shadow:0 2px 8px rgba(64,35,8,.22);
+}
+.puja-updates-trigger-label { white-space:nowrap; }
+.puja-updates-spark { margin-left:1px; font-size:12px; color:#fff9e7; }
+.puja-updates-panel {
+  position:relative; width:min(330px,calc(100vw - 36px)); box-sizing:border-box;
+  padding:23px 22px 20px; border:1px solid #e8d19a; border-radius:18px;
+  color:#4b3030; background:linear-gradient(155deg,#fffdf7,#fff7e7);
+  box-shadow:0 18px 55px rgba(20,35,52,.22);
+  animation:puja-panel-in .2s ease both;
+}
+.puja-updates-panel[hidden] { display:none !important; }
+.puja-updates-close {
+  position:absolute; top:10px; right:12px; display:grid; place-items:center;
+  width:30px; height:30px; border:0; border-radius:50%;
+  color:#6b5632; background:#f4ead4; font-size:22px; line-height:1; cursor:pointer;
+}
+.puja-updates-eyebrow {
+  display:block; margin:0 32px 9px 0; color:#a77a1f;
+  font-size:9px; font-weight:800; letter-spacing:.16em;
+}
+.puja-updates-panel h2 { margin:0 28px 8px 0; color:#8e1424; font-size:19px; line-height:1.25; }
+.puja-updates-panel p { margin:0; color:#725b55; font-size:13px; line-height:1.65; }
+.puja-updates-note {
+  display:flex; align-items:center; gap:9px; margin-top:16px; padding:11px 12px;
+  border:1px solid #f0dfb9; border-radius:11px; color:#75511b;
+  background:#fff8e9; font-size:11px; font-weight:700; line-height:1.45;
+}
+.puja-updates-note span:first-child { font-size:17px; }
+@keyframes puja-panel-in { from { opacity:0; transform:translateY(8px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+@media (max-width:600px) {
+  .puja-updates-widget { right:14px; bottom:16px; gap:10px; }
+  .puja-updates-trigger { min-height:49px; gap:8px; padding:6px 14px 6px 6px; }
+  .puja-updates-icon { width:35px; height:35px; font-size:20px; }
+  .puja-updates-panel { padding:21px 18px 17px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .puja-updates-panel { animation:none; }
+  .puja-updates-trigger { transition:none; }
+}
+
 </style>
 
 <script>
@@ -2670,6 +2734,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+  <div class="puja-updates-widget" id="puja-updates-widget">
+    <section class="puja-updates-panel" id="puja-updates-panel" aria-labelledby="puja-updates-title" hidden>
+      <button class="puja-updates-close" id="puja-updates-close" type="button" aria-label="Close Puja updates">×</button>
+      <span class="puja-updates-eyebrow"><span aria-hidden="true">✦</span> COMMUNITY UPDATES</span>
+      <h2 id="puja-updates-title">Ganesh Puja Updates</h2>
+      <p>Stay connected with announcements, event dates and celebration updates for the upcoming Ganesh Puja.</p>
+      <div class="puja-updates-note"><span aria-hidden="true">🪔</span><span>New updates will be shared here. Stay tuned!</span></div>
+    </section>
+    <button class="puja-updates-trigger" id="puja-updates-trigger" type="button" aria-expanded="false" aria-controls="puja-updates-panel">
+      <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
+      <span class="puja-updates-trigger-label">Puja Updates</span>
+      <span class="puja-updates-spark" aria-hidden="true">✦</span>
+    </button>
+  </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Floating Ganesh Puja updates panel
+  const pujaTrigger = document.getElementById("puja-updates-trigger");
+  const pujaPanel = document.getElementById("puja-updates-panel");
+  const pujaClose = document.getElementById("puja-updates-close");
+
+  function setPujaPanel(open) {
+    if (!pujaTrigger || !pujaPanel) return;
+    pujaPanel.hidden = !open;
+    pujaTrigger.setAttribute("aria-expanded", String(open));
+    if (open) pujaClose?.focus();
+    else pujaTrigger.focus();
+  }
+
+  pujaTrigger?.addEventListener("click", () => {
+    setPujaPanel(pujaPanel.hidden);
+  });
+  pujaClose?.addEventListener("click", () => setPujaPanel(false));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && pujaPanel && !pujaPanel.hidden) setPujaPanel(false);
+  });
+
+});
+</script>
 
 </body>
 </html>
