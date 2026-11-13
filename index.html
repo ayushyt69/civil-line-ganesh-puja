@@ -1138,6 +1138,10 @@ section{
       <button class="puja-updates-close" id="puja-updates-close" type="button" aria-label="Close Puja updates">×</button>
       <span class="puja-updates-eyebrow"><span aria-hidden="true">✦</span> COMMUNITY UPDATES</span>
       <div class="puja-updates-note puja-maintenance-notice"><span aria-hidden="true">⚠</span><span><strong>Online Receipt Facility Under Maintenance</strong><span class="puja-maintenance-copy">The online Chanda receipt and submission facility is temporarily unavailable. Donation details remain available in the Donation section. The online receipt facility will be restored once maintenance is complete.</span></span></div>
+      <div class="puja-updates-feed" id="puja-updates-feed" hidden>
+        <h3>RECENT WEBSITE UPDATES</h3>
+        <ul id="puja-updates-list" aria-live="polite"></ul>
+      </div>
     </section>
     <button class="puja-updates-trigger" id="puja-updates-trigger" type="button" aria-expanded="false" aria-controls="puja-updates-panel">
       <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
@@ -2755,6 +2759,11 @@ if(MAINTENANCE_MODE){
 .puja-maintenance-notice > span:first-child { color:#b7791f; line-height:1.2; }
 .puja-maintenance-notice strong { display:block; margin-bottom:5px; color:#805313; font-size:11px; }
 .puja-maintenance-copy { display:block; font-weight:500; }
+.puja-updates-feed { margin-top:17px; padding-top:14px; border-top:1px solid #eadfc8; }
+.puja-updates-feed h3 { margin:0 0 9px; color:#a77a1f; font-size:9px; font-weight:800; letter-spacing:.13em; }
+.puja-updates-feed ul { display:grid; gap:9px; margin:0; padding:0; list-style:none; }
+.puja-updates-feed li { display:grid; gap:2px; padding-left:11px; border-left:2px solid #d6a63e; color:#604b3e; font-size:11px; font-weight:700; line-height:1.4; }
+.puja-updates-feed time { color:#9a8873; font-size:9px; font-weight:600; }
 @keyframes puja-panel-in { from { opacity:0; transform:translateY(8px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
 @media (max-width:600px) {
   .puja-updates-widget { right:14px; bottom:16px; gap:10px; }
@@ -2835,6 +2844,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // Load short, visitor-facing updates generated from meaningful GitHub changes.
+  const updatesFeed = document.getElementById("puja-updates-feed");
+  const updatesList = document.getElementById("puja-updates-list");
+  if (updatesFeed && updatesList) {
+    fetch(new URL("data/puja-updates.json", document.baseURI), { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error("Updates feed unavailable");
+        return response.json();
+      })
+      .then(items => {
+        if (!Array.isArray(items) || !items.length) return;
+        items.slice(0, 8).forEach(item => {
+          if (!item || typeof item.message !== "string" || typeof item.date !== "string") return;
+          const entry = document.createElement("li");
+          const message = document.createElement("span");
+          message.textContent = item.message;
+          const date = document.createElement("time");
+          const parsedDate = new Date(item.date);
+          date.textContent = Number.isNaN(parsedDate.getTime())
+            ? ""
+            : parsedDate.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+          entry.append(message, date);
+          updatesList.appendChild(entry);
+        });
+        if (updatesList.children.length) updatesFeed.hidden = false;
+      })
+      .catch(() => {
+        // Keep the existing notice visible if the updates feed cannot be loaded.
+      });
+  }
+
   // Header Ganesh Puja updates panel
   const pujaTrigger = document.getElementById("puja-updates-trigger");
   const pujaPanel = document.getElementById("puja-updates-panel");
