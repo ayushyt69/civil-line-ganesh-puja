@@ -1,0 +1,50 @@
+name: Publish Puja Website Updates
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "gallery.html"
+      - "memory-vault.html"
+      - "maintenance.html"
+      - "assets/**"
+      - "scripts/generate_puja_updates.py"
+      - ".github/workflows/puja-updates.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  publish-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate visitor-facing updates
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: python scripts/generate_puja_updates.py
+
+      - name: Publish updates feed
+        run: |
+          if git diff --quiet -- data/puja-updates.json; then
+            echo "No visitor-facing changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/puja-updates.json
+          git commit -m "Publish Puja website update"
+          git pull --rebase origin main
+          git push origin HEAD:main
