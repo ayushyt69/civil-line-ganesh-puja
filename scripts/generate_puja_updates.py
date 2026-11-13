@@ -8,6 +8,7 @@ from zoneinfo import ZoneInfo
 import json
 import os
 import subprocess
+import difflib
 
 ROOT = Path(__file__).resolve().parents[1]
 FEED = ROOT / "data" / "puja-updates.json"
@@ -97,12 +98,15 @@ def make_messages(before, after, changes):
         old = public_signature(read_at(before, "index.html"))
         new = public_signature(read_at(after, "index.html"))
         if old != new:
-            delta = (new + " " + old).lower()
-            if any(word in delta for word in ("donation", "donate", "chanda", "upi", "contribution")):
+            changed_words = " ".join(
+                line[2:] for line in difflib.ndiff(old.split(), new.split())
+                if line.startswith(("+ ", "- "))
+            ).lower()
+            if any(word in changed_words for word in ("donation", "donate", "chanda", "upi", "contribution")):
                 message = "Donation information updated."
-            elif any(word in delta for word in ("committee", "member", "president")):
+            elif any(word in changed_words for word in ("committee", "member", "president")):
                 message = "Committee information updated."
-            elif any(word in delta for word in ("event", "puja", "aarti", "schedule", "ganesh")):
+            elif any(word in changed_words for word in ("event", "puja", "aarti", "schedule", "ganesh")):
                 message = "Puja information updated."
             else:
                 message = "Website content updated."
