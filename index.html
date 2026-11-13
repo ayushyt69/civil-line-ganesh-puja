@@ -2938,6 +2938,229 @@ summary:focus-visible,
 }
 </style>
 
+
+<!-- CIVIL LINE — COMPACT CUSTOMER RATING -->
+<style>
+.civil-line-rating-launcher{
+  position:fixed;left:18px;bottom:20px;z-index:1040;
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px 9px 11px;border:1px solid rgba(255,232,180,.48);
+  border-radius:999px;color:#fff8e9;
+  background:rgba(72,25,30,.66);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 7px 24px rgba(45,13,17,.16);
+  font:700 11px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.02em;
+  cursor:pointer;transition:background .2s ease,border-color .2s ease;
+}
+.civil-line-rating-launcher:hover{background:rgba(72,25,30,.82);border-color:rgba(255,232,180,.75)}
+.civil-line-rating-launcher .rating-launcher-star{color:#f0ca75;font-size:17px;line-height:1}
+.civil-line-rating-nudge{
+  position:fixed;left:18px;bottom:76px;z-index:1041;width:min(260px,calc(100vw - 36px));
+  padding:13px 38px 13px 15px;border:1px solid rgba(255,232,180,.48);
+  border-radius:15px;color:#fff8e9;background:rgba(72,25,30,.72);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 12px 32px rgba(45,13,17,.2);
+  font-family:Arial,Helvetica,sans-serif;animation:clRatingFloatIn .28s ease both;
+}
+.civil-line-rating-nudge[hidden],.civil-line-rating-modal[hidden]{display:none!important}
+.civil-line-rating-nudge strong{display:block;font-size:12px;color:#ffe3a1;margin-bottom:3px}
+.civil-line-rating-nudge span{display:block;font-size:11px;line-height:1.45;color:rgba(255,248,233,.86)}
+.civil-line-rating-nudge button{
+  position:absolute;right:8px;top:7px;width:24px;height:24px;border:0;border-radius:50%;
+  color:#fff8e9;background:rgba(255,255,255,.12);font-size:17px;cursor:pointer
+}
+.civil-line-rating-modal{
+  position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:18px;
+  background:rgba(28,12,14,.42);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+.civil-line-rating-card{
+  position:relative;width:min(360px,100%);padding:23px 21px 19px;
+  border:1px solid rgba(255,232,180,.58);border-radius:20px;
+  color:#fff8e9;background:rgba(91,31,39,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 22px 65px rgba(24,7,10,.3);animation:clRatingFloatIn .22s ease both;
+}
+.civil-line-rating-card .rating-eyebrow{
+  color:#f0ca75;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase
+}
+.civil-line-rating-card h2{margin:7px 30px 5px 0;color:#fff3d4;font-size:22px;line-height:1.2}
+.civil-line-rating-card p{margin:0;color:rgba(255,248,233,.8);font-size:12px;line-height:1.55}
+.civil-line-rating-close{
+  position:absolute;top:12px;right:12px;width:30px;height:30px;border:0;border-radius:50%;
+  color:#fff8e9;background:rgba(255,255,255,.12);font-size:21px;cursor:pointer
+}
+.civil-line-rating-stars{display:flex;justify-content:center;gap:7px;margin:17px 0 13px}
+.civil-line-rating-stars button{
+  width:39px;height:39px;border:1px solid rgba(255,232,180,.28);border-radius:11px;
+  color:rgba(255,248,233,.42);background:rgba(255,255,255,.07);
+  font-size:25px;line-height:1;cursor:pointer;transition:color .15s ease,background .15s ease
+}
+.civil-line-rating-stars button.selected{color:#ffd36e;background:rgba(255,211,110,.13);border-color:rgba(255,211,110,.52)}
+.civil-line-rating-selected{min-height:16px;text-align:center;color:#f4d99c;font-size:10px}
+.civil-line-rating-card textarea{
+  display:block;width:100%;min-height:72px;resize:vertical;margin:12px 0 13px;padding:10px 11px;
+  border:1px solid rgba(255,232,180,.25);border-radius:11px;outline:none;
+  color:#fff8e9;background:rgba(255,255,255,.09);font:12px/1.5 Arial,Helvetica,sans-serif
+}
+.civil-line-rating-card textarea::placeholder{color:rgba(255,248,233,.55)}
+.civil-line-rating-submit{
+  width:100%;min-height:41px;border:1px solid rgba(255,232,180,.55);border-radius:999px;
+  color:#54202a;background:linear-gradient(110deg,#ffe5a2,#d8ad59);
+  font-size:12px;font-weight:800;cursor:pointer
+}
+.civil-line-rating-submit:disabled{opacity:.6;cursor:wait}
+.civil-line-rating-status{min-height:17px;margin-top:9px!important;text-align:center;font-size:10px!important;color:#ffe3a1!important}
+.civil-line-rating-honey{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@keyframes clRatingFloatIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+  .civil-line-rating-launcher{left:12px;bottom:14px;padding:8px 11px}
+  .civil-line-rating-nudge{left:12px;bottom:67px}
+  .civil-line-rating-card{padding:21px 17px 17px}
+}
+@media(prefers-reduced-motion:reduce){
+  .civil-line-rating-nudge,.civil-line-rating-card{animation:none}
+  .civil-line-rating-launcher,.civil-line-rating-stars button{transition:none}
+}
+</style>
+
+<div class="civil-line-rating-widget" id="civil-line-rating-widget">
+  <button class="civil-line-rating-launcher" id="civil-line-rating-launcher" type="button" aria-haspopup="dialog" aria-expanded="false">
+    <span class="rating-launcher-star" aria-hidden="true">☆</span>
+    <span>Rate this website</span>
+  </button>
+  <div class="civil-line-rating-nudge" id="civil-line-rating-nudge" hidden>
+    <button type="button" id="civil-line-rating-nudge-close" aria-label="Dismiss rating prompt">×</button>
+    <strong>A quick rating?</strong>
+    <span>Your feedback helps our Puja Samiti improve this website.</span>
+  </div>
+</div>
+
+<div class="civil-line-rating-modal" id="civil-line-rating-modal" role="dialog" aria-modal="true" aria-labelledby="civil-line-rating-title" hidden>
+  <div class="civil-line-rating-card">
+    <button class="civil-line-rating-close" id="civil-line-rating-close" type="button" aria-label="Close rating form">×</button>
+    <span class="rating-eyebrow">CIVIL LINE GANESH PUJA SAMITI</span>
+    <h2 id="civil-line-rating-title">How was your experience?</h2>
+    <p>A small rating is enough. A message is optional.</p>
+    <form id="civil-line-rating-form" action="https://script.google.com/macros/s/AKfycbx-8nWZxWp9sNuMFphZvLa2pF6n6qRVVWeSRumZRLg1eh1VcYDO6JISGUHIrTs_Tfu_/exec" method="POST" target="civil-line-rating-response">
+      <input type="hidden" name="rating" id="civil-line-rating-value" value="">
+      <input type="hidden" name="site" value="civil-line-puja">
+      <label class="civil-line-rating-honey" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="civil-line-rating-stars" role="group" aria-label="Choose a rating from one to five stars">
+        <button type="button" data-rating="1" aria-label="1 star">★</button>
+        <button type="button" data-rating="2" aria-label="2 stars">★</button>
+        <button type="button" data-rating="3" aria-label="3 stars">★</button>
+        <button type="button" data-rating="4" aria-label="4 stars">★</button>
+        <button type="button" data-rating="5" aria-label="5 stars">★</button>
+      </div>
+      <div class="civil-line-rating-selected" id="civil-line-rating-selected">Select a star rating</div>
+      <textarea name="review" maxlength="500" placeholder="Any suggestion? (optional)"></textarea>
+      <button class="civil-line-rating-submit" id="civil-line-rating-submit" type="submit">Submit rating</button>
+      <p class="civil-line-rating-status" id="civil-line-rating-status" aria-live="polite"></p>
+    </form>
+    <iframe name="civil-line-rating-response" id="civil-line-rating-response" title="Rating submission response" style="display:none"></iframe>
+  </div>
+</div>
+
+<script>
+(function(){
+  const launcher=document.getElementById("civil-line-rating-launcher");
+  const nudge=document.getElementById("civil-line-rating-nudge");
+  const nudgeClose=document.getElementById("civil-line-rating-nudge-close");
+  const modal=document.getElementById("civil-line-rating-modal");
+  const closeButton=document.getElementById("civil-line-rating-close");
+  const form=document.getElementById("civil-line-rating-form");
+  const ratingInput=document.getElementById("civil-line-rating-value");
+  const selectedLabel=document.getElementById("civil-line-rating-selected");
+  const status=document.getElementById("civil-line-rating-status");
+  const submit=document.getElementById("civil-line-rating-submit");
+  const stars=[...document.querySelectorAll(".civil-line-rating-stars button")];
+  const iframe=document.getElementById("civil-line-rating-response");
+  let submitted=false;
+
+  function openForm(){
+    nudge.hidden=true;
+    modal.hidden=false;
+    launcher.setAttribute("aria-expanded","true");
+    closeButton.focus();
+  }
+  function closeForm(){
+    modal.hidden=true;
+    launcher.setAttribute("aria-expanded","false");
+    launcher.focus();
+  }
+  function showNudge(){
+    if(sessionStorage.getItem("civilLineRatingDismissed")!=="1" && modal.hidden){
+      nudge.hidden=false;
+      sessionStorage.setItem("civilLineRatingPromptShown","1");
+    }
+  }
+  launcher.addEventListener("click",openForm);
+  closeButton.addEventListener("click",closeForm);
+  nudgeClose.addEventListener("click",function(){
+    nudge.hidden=true;
+    sessionStorage.setItem("civilLineRatingDismissed","1");
+  });
+  modal.addEventListener("click",function(event){
+    if(event.target===modal) closeForm();
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape" && !modal.hidden) closeForm();
+  });
+
+  stars.forEach(button=>{
+    button.addEventListener("click",function(){
+      const value=Number(button.dataset.rating);
+      ratingInput.value=String(value);
+      stars.forEach(star=>{
+        const active=Number(star.dataset.rating)<=value;
+        star.classList.toggle("selected",active);
+        star.setAttribute("aria-pressed",String(Number(star.dataset.rating)===value));
+      });
+      selectedLabel.textContent=value+" out of 5 selected";
+      status.textContent="";
+    });
+  });
+
+  form.addEventListener("submit",function(event){
+    if(!ratingInput.value){
+      event.preventDefault();
+      status.textContent="Please select a star rating first.";
+      return;
+    }
+    if(submitted){
+      event.preventDefault();
+      return;
+    }
+    submitted=true;
+    submit.disabled=true;
+    submit.textContent="Submitting…";
+    status.textContent="Sending your feedback…";
+    sessionStorage.setItem("civilLineRatingDismissed","1");
+  });
+
+  iframe.addEventListener("load",function(){
+    if(!submitted) return;
+    status.textContent="Thank you. Your feedback has been sent.";
+    submit.textContent="Submitted";
+    setTimeout(closeForm,1800);
+  });
+
+  if(sessionStorage.getItem("civilLineRatingPromptShown")!=="1" &&
+     sessionStorage.getItem("civilLineRatingDismissed")!=="1"){
+    let prompted=false;
+    const trigger=()=>{if(prompted)return;prompted=true;showNudge();};
+    const timer=setTimeout(trigger,35000);
+    window.addEventListener("scroll",function(){
+      const scrollable=document.documentElement.scrollHeight-window.innerHeight;
+      if(scrollable>0 && window.scrollY/scrollable>=0.45){
+        clearTimeout(timer);
+        trigger();
+      }
+    },{passive:true});
+  }
+})();
+</script>
+
 </body>
 </html>
 
