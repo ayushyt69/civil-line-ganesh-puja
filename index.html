@@ -3184,6 +3184,15 @@ summary:focus-visible,
 (function(){
   const popup=document.getElementById('chhathWishPopup');
   if(!popup)return;
+
+  // Automatically stop showing this temporary greeting after Chhath Puja.
+  // Expiry: 17 November 2026, 12:00 AM Indian Standard Time.
+  const expiry=new Date('2026-11-17T00:00:00+05:30');
+  if(Date.now()>=expiry.getTime()){
+    popup.remove();
+    return;
+  }
+
   function closePopup(){popup.remove();}
   popup.addEventListener('click',closePopup);
   popup.querySelector('.chhath-wish-close').addEventListener('click',closePopup);
