@@ -1112,6 +1112,17 @@ section{
     margin:5px auto;
   }
 }
+
+/* CHHATH PUJA WISH POPUP */
+.chhath-wish-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(25,12,10,.62);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);animation:chhathOverlayIn .35s ease both}
+.chhath-wish-panel{position:relative;display:flex;align-items:center;justify-content:center;width:min(920px,94vw);max-height:90vh;padding:10px;border-radius:20px;background:rgba(255,248,233,.96);border:1px solid rgba(214,168,63,.75);box-shadow:0 24px 80px rgba(0,0,0,.38);animation:chhathPanelIn .45s cubic-bezier(.2,.8,.2,1) both}
+.chhath-wish-image{display:block;max-width:100%;max-height:calc(90vh - 20px);width:auto;height:auto;object-fit:contain;border-radius:12px}
+.chhath-wish-close{position:absolute;top:-13px;right:-13px;z-index:2;width:40px;height:40px;border:2px solid #fff;border-radius:50%;background:#8e1424;color:#fff;font-size:25px;line-height:1;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.28)}
+@keyframes chhathOverlayIn{from{opacity:0}to{opacity:1}}
+@keyframes chhathPanelIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:600px){.chhath-wish-overlay{padding:12px}.chhath-wish-panel{width:96vw;max-height:86vh;padding:7px;border-radius:15px}.chhath-wish-image{max-height:calc(86vh - 14px);border-radius:9px}.chhath-wish-close{top:-10px;right:-7px;width:36px;height:36px}}
+@media(prefers-reduced-motion:reduce){.chhath-wish-overlay,.chhath-wish-panel{animation:none}}
+
 </style>
   
 <body>
@@ -1186,10 +1197,10 @@ section{
   <picture class="hero-picture">
     <source
       media="(max-width: 700px)"
-      srcset="assets/chhath-puja-wishes-2024-wishes-messages-photos-1-2024-11-c3981653c439932d62721c6e602a2edb.jpg">
+      srcset="assets/IMG-20261111-WA3326.jpg">
     <img
       class="hero-banner"
-      src="assets/chhath-puja-wishes-2024-wishes-messages-photos-1-2024-11-c3981653c439932d62721c6e602a2edb.jpg"
+      src="assets/file_00000000e82c820885be0523b2518f0a.png"
       alt="Ganesh Puja Samiti banner">
   </picture>
 
@@ -3158,6 +3169,27 @@ summary:focus-visible,
       }
     },{passive:true});
   }
+})();
+</script>
+
+
+<!-- CHHATH PUJA GREETING POPUP -->
+<div class="chhath-wish-overlay" id="chhathWishPopup" role="dialog" aria-modal="true" aria-label="Chhath Puja greetings">
+  <div class="chhath-wish-panel">
+    <button class="chhath-wish-close" type="button" aria-label="Close greeting">×</button>
+    <img class="chhath-wish-image" src="assets/chhath-puja-wishes-2024-wishes-messages-photos-1-2024-11-c3981653c439932d62721c6e602a2edb.jpg" alt="Chhath Puja greetings from Civil Line Ganesh Puja Samiti">
+  </div>
+</div>
+<script>
+(function(){
+  const popup=document.getElementById('chhathWishPopup');
+  if(!popup)return;
+  function closePopup(){popup.remove();}
+  popup.addEventListener('click',closePopup);
+  popup.querySelector('.chhath-wish-close').addEventListener('click',closePopup);
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape' && document.getElementById('chhathWishPopup')) closePopup();
+  });
 })();
 </script>
 
