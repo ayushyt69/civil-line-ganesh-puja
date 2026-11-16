@@ -2752,6 +2752,27 @@ if(MAINTENANCE_MODE){
   box-shadow:0 2px 8px rgba(64,35,8,.22);
 }
 .puja-updates-trigger-label { white-space:nowrap; }
+
+.puja-updates-trigger::after{
+  content:"";
+  position:absolute;
+  top:1px;
+  right:2px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#e32636;
+  border:2px solid #fff8e9;
+  box-shadow:0 0 0 0 rgba(227,38,54,.55);
+  animation:puja-updates-dot-pulse 1.6s ease-out infinite;
+}
+@keyframes puja-updates-dot-pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,38,54,.55)}
+  70%{box-shadow:0 0 0 7px rgba(227,38,54,0)}
+  100%{box-shadow:0 0 0 0 rgba(227,38,54,0)}
+}
+@media(prefers-reduced-motion:reduce){.puja-updates-trigger::after{animation:none}}
+
 .puja-updates-spark { margin-left:1px; font-size:12px; color:#fff9e7; }
 .puja-updates-panel {
   position:relative; width:min(330px,calc(100vw - 36px)); box-sizing:border-box;
@@ -3192,60 +3213,7 @@ summary:focus-visible,
 </script>
 
 
-<style id="puja-updates-interaction-fix">
-/* Keep the Puja Updates launcher visible and reachable on desktop and mobile. */
-.puja-updates-widget{
-  position:fixed !important;
-  right:18px !important;
-  bottom:18px !important;
-  left:auto !important;
-  top:auto !important;
-  z-index:1100 !important;
-  display:flex !important;
-  align-items:flex-end !important;
-}
-.puja-updates-trigger{
-  position:relative !important;
-  display:inline-flex !important;
-  visibility:visible !important;
-  opacity:1 !important;
-  pointer-events:auto !important;
-}
-.puja-updates-trigger::after{
-  content:"";
-  position:absolute;
-  top:1px;
-  right:2px;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:#e32636;
-  border:2px solid #fff8e9;
-  box-shadow:0 0 0 0 rgba(227,38,54,.65);
-  animation:puja-updates-dot-pulse 1.6s ease-out infinite;
-}
-@keyframes puja-updates-dot-pulse{
-  0%{box-shadow:0 0 0 0 rgba(227,38,54,.65)}
-  70%{box-shadow:0 0 0 7px rgba(227,38,54,0)}
-  100%{box-shadow:0 0 0 0 rgba(227,38,54,0)}
-}
-.puja-updates-panel{
-  position:absolute !important;
-  right:0 !important;
-  bottom:calc(100% + 12px) !important;
-  left:auto !important;
-  top:auto !important;
-  transform:none !important;
-  z-index:1101 !important;
-}
-@media(max-width:600px){
-  .puja-updates-widget{right:14px !important;bottom:14px !important}
-  .puja-updates-panel{width:min(310px,calc(100vw - 28px)) !important}
-}
-@media(prefers-reduced-motion:reduce){
-  .puja-updates-trigger::after{animation:none}
-}
-</style>
+
 <script id="puja-updates-interaction-fix">
 (function(){
   function initialisePujaUpdates(){
@@ -3286,74 +3254,7 @@ summary:focus-visible,
 </script>
 
 
-<style id="mobile-header-menu-repair">
-/* Restore a predictable mobile header and keep the hamburger reachable. */
-@media (max-width:700px){
-  header{z-index:1300}
-  header .nav{
-    display:flex;
-    flex-wrap:nowrap;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    min-height:68px;
-  }
-  header .brand{
-    flex:1 1 auto;
-    min-width:0;
-    gap:8px;
-  }
-  header .menu{
-    display:grid !important;
-    flex:0 0 44px;
-    place-items:center;
-    width:44px;
-    min-width:44px;
-    height:44px;
-    min-height:44px;
-    margin-left:auto;
-    position:relative;
-    z-index:1302;
-    border:1px solid rgba(142,20,36,.22);
-    border-radius:12px;
-    background:#fff;
-    color:var(--maroon);
-    font-size:27px;
-    line-height:1;
-    cursor:pointer;
-    -webkit-appearance:none;
-    appearance:none;
-  }
-  header #primary-navigation{
-    display:none;
-    position:absolute;
-    top:calc(100% + 1px);
-    left:0;
-    right:0;
-    z-index:1301;
-    flex-direction:column;
-    gap:0;
-    max-height:calc(100vh - 130px);
-    overflow-y:auto;
-    border:1px solid rgba(142,20,36,.18);
-    border-top:0;
-    border-radius:0 0 16px 16px;
-    background:rgba(255,248,233,.99);
-    box-shadow:0 14px 28px rgba(79,25,15,.16);
-  }
-  header #primary-navigation.open{display:flex !important}
-  header #primary-navigation a{
-    display:block;
-    min-height:46px;
-    padding:12px 18px;
-    border-top:1px solid rgba(142,20,36,.10);
-  }
-}
-@media (min-width:701px){
-  header .menu{display:none !important}
-  header #primary-navigation{display:flex !important}
-}
-</style>
+
 
 </body>
 </html>
