@@ -3191,6 +3191,100 @@ summary:focus-visible,
 })();
 </script>
 
+
+<style id="puja-updates-interaction-fix">
+/* Keep the Puja Updates launcher visible and reachable on desktop and mobile. */
+.puja-updates-widget{
+  position:fixed !important;
+  right:18px !important;
+  bottom:18px !important;
+  left:auto !important;
+  top:auto !important;
+  z-index:1100 !important;
+  display:flex !important;
+  align-items:flex-end !important;
+}
+.puja-updates-trigger{
+  position:relative !important;
+  display:inline-flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+.puja-updates-trigger::after{
+  content:"";
+  position:absolute;
+  top:1px;
+  right:2px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#e32636;
+  border:2px solid #fff8e9;
+  box-shadow:0 0 0 0 rgba(227,38,54,.65);
+  animation:puja-updates-dot-pulse 1.6s ease-out infinite;
+}
+@keyframes puja-updates-dot-pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,38,54,.65)}
+  70%{box-shadow:0 0 0 7px rgba(227,38,54,0)}
+  100%{box-shadow:0 0 0 0 rgba(227,38,54,0)}
+}
+.puja-updates-panel{
+  position:absolute !important;
+  right:0 !important;
+  bottom:calc(100% + 12px) !important;
+  left:auto !important;
+  top:auto !important;
+  transform:none !important;
+  z-index:1101 !important;
+}
+@media(max-width:600px){
+  .puja-updates-widget{right:14px !important;bottom:14px !important}
+  .puja-updates-panel{width:min(310px,calc(100vw - 28px)) !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .puja-updates-trigger::after{animation:none}
+}
+</style>
+<script id="puja-updates-interaction-fix">
+(function(){
+  function initialisePujaUpdates(){
+    const widget=document.getElementById("puja-updates-widget");
+    const trigger=document.getElementById("puja-updates-trigger");
+    const panel=document.getElementById("puja-updates-panel");
+    const close=document.getElementById("puja-updates-close");
+    if(!widget||!trigger||!panel||!close||trigger.dataset.pujaBound==="1")return;
+    trigger.dataset.pujaBound="1";
+
+    function setOpen(open){
+      panel.hidden=!open;
+      trigger.setAttribute("aria-expanded",String(open));
+    }
+    trigger.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      setOpen(panel.hidden);
+    });
+    close.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      setOpen(false);
+    });
+    document.addEventListener("click",function(event){
+      if(!widget.contains(event.target))setOpen(false);
+    });
+    document.addEventListener("keydown",function(event){
+      if(event.key==="Escape")setOpen(false);
+    });
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initialisePujaUpdates,{once:true});
+  }else{
+    initialisePujaUpdates();
+  }
+})();
+</script>
+
 </body>
 </html>
 
