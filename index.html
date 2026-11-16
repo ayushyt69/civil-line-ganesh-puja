@@ -1127,18 +1127,12 @@ section{
 /* Compact continuously scrolling announcements ribbon */
 .latest-updates-ribbon{
   position:fixed;top:0;left:0;right:0;z-index:40;
-  height:42px;display:flex;align-items:center;gap:12px;
-  padding:0 16px;color:#6d281b;
+  height:42px;display:flex;align-items:center;gap:0;
+  padding:0;color:#6d281b;
   background:linear-gradient(100deg,#fff3d4 0%,#fffaf0 48%,#f9e5b8 100%);
   border-bottom:1px solid rgba(190,139,44,.72);
   box-shadow:0 3px 12px rgba(70,30,10,.10);
   font-family:Arial,Helvetica,sans-serif;
-}
-.latest-ribbon-icon{
-  flex:0 0 auto;display:grid;place-items:center;
-  width:27px;height:27px;border-radius:50%;
-  color:#fff;background:linear-gradient(145deg,#a9162b,#7d1021);
-  box-shadow:0 2px 8px rgba(142,20,36,.2);font-size:14px;
 }
 .latest-ribbon-viewport{flex:1;min-width:0;overflow:hidden}
 .latest-ribbon-track{
@@ -1160,8 +1154,7 @@ header{top:42px}
 .hero{margin-top:116px}
 html{scroll-padding-top:126px}
 @media(max-width:700px){
-  .latest-updates-ribbon{height:36px;gap:8px;padding:0 9px}
-  .latest-ribbon-icon{width:23px;height:23px;font-size:12px}
+  .latest-updates-ribbon{height:36px;gap:0;padding:0}
   .latest-ribbon-content{gap:15px;padding-right:15px;font-size:11px}
   header{top:36px}
   .hero{margin-top:110px}
@@ -1178,7 +1171,6 @@ html{scroll-padding-top:126px}
 
 
 <div class="latest-updates-ribbon" role="region" aria-label="Latest website announcements">
-  <span class="latest-ribbon-icon" aria-hidden="true">📢</span>
   <div class="latest-ribbon-viewport">
     <div class="latest-ribbon-track" id="latest-ribbon-track">
       <div class="latest-ribbon-content" id="latest-ribbon-content">
