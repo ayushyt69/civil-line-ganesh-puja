@@ -1154,14 +1154,6 @@ section{
 .latest-ribbon-item{display:inline-flex;align-items:center;gap:8px}
 .latest-ribbon-symbol{color:#b7791f;font-size:15px}
 .latest-ribbon-separator{color:#c99a36;font-size:12px}
-.latest-ribbon-toggle{
-  flex:0 0 auto;width:29px;height:29px;display:grid;place-items:center;
-  border:1px solid rgba(142,20,36,.22);border-radius:50%;
-  color:#8e1424;background:rgba(255,255,255,.75);
-  font-size:13px;font-weight:800;cursor:pointer;
-}
-.latest-ribbon-toggle:hover{background:#fff;border-color:#b88938}
-.latest-updates-ribbon.is-paused .latest-ribbon-track{animation-play-state:paused}
 @keyframes latestRibbonScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* The fixed header and hero start below the ribbon on every screen size. */
 header{top:42px}
@@ -1171,16 +1163,9 @@ html{scroll-padding-top:126px}
   .latest-updates-ribbon{height:36px;gap:8px;padding:0 9px}
   .latest-ribbon-icon{width:23px;height:23px;font-size:12px}
   .latest-ribbon-content{gap:15px;padding-right:15px;font-size:11px}
-  .latest-ribbon-toggle{width:25px;height:25px;font-size:11px}
   header{top:36px}
   .hero{margin-top:110px}
   html{scroll-padding-top:120px}
-}
-@media(prefers-reduced-motion:reduce){
-  .latest-ribbon-track{animation:none}
-  .latest-ribbon-viewport{overflow-x:auto;scrollbar-width:none}
-  .latest-ribbon-viewport::-webkit-scrollbar{display:none}
-  .latest-ribbon-toggle{display:none}
 }
 
 </style>
@@ -1206,7 +1191,6 @@ html{scroll-padding-top:126px}
       </div>
     </div>
   </div>
-  <button class="latest-ribbon-toggle" id="latest-ribbon-toggle" type="button" aria-label="Pause announcements" aria-pressed="false">Ⅱ</button>
 </div>
 
 <header>
@@ -1235,7 +1219,6 @@ html{scroll-padding-top:126px}
       <span class="puja-updates-icon" aria-hidden="true">ॐ</span>
       <span class="puja-updates-trigger-label">Puja Updates</span>
       <span class="puja-updates-spark" aria-hidden="true">✦</span>
-      <span class="puja-updates-notification-dot" aria-label="New update available"></span>
     </button>
   </div>
 
@@ -3283,8 +3266,7 @@ summary:focus-visible,
 (function(){
   const ribbon=document.querySelector(".latest-updates-ribbon");
   const content=document.getElementById("latest-ribbon-content");
-  const toggle=document.getElementById("latest-ribbon-toggle");
-  if(!ribbon||!content||!toggle)return;
+  if(!ribbon||!content)return;
 
   function makeLoop(){
     const oldCopy=document.getElementById("latest-ribbon-content-copy");
@@ -3318,12 +3300,6 @@ summary:focus-visible,
     .catch(()=>{})
     .finally(makeLoop);
 
-  toggle.addEventListener("click",()=>{
-    const paused=ribbon.classList.toggle("is-paused");
-    toggle.setAttribute("aria-pressed",String(paused));
-    toggle.setAttribute("aria-label",paused?"Resume announcements":"Pause announcements");
-    toggle.textContent=paused?"▶":"Ⅱ";
-  });
 })();
 </script>
 
