@@ -3285,6 +3285,76 @@ summary:focus-visible,
 })();
 </script>
 
+
+<style id="mobile-header-menu-repair">
+/* Restore a predictable mobile header and keep the hamburger reachable. */
+@media (max-width:700px){
+  header{z-index:1300}
+  header .nav{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    min-height:68px;
+  }
+  header .brand{
+    flex:1 1 auto;
+    min-width:0;
+    gap:8px;
+  }
+  header .menu{
+    display:grid !important;
+    flex:0 0 44px;
+    place-items:center;
+    width:44px;
+    min-width:44px;
+    height:44px;
+    min-height:44px;
+    margin-left:auto;
+    position:relative;
+    z-index:1302;
+    border:1px solid rgba(142,20,36,.22);
+    border-radius:12px;
+    background:#fff;
+    color:var(--maroon);
+    font-size:27px;
+    line-height:1;
+    cursor:pointer;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  header #primary-navigation{
+    display:none;
+    position:absolute;
+    top:calc(100% + 1px);
+    left:0;
+    right:0;
+    z-index:1301;
+    flex-direction:column;
+    gap:0;
+    max-height:calc(100vh - 130px);
+    overflow-y:auto;
+    border:1px solid rgba(142,20,36,.18);
+    border-top:0;
+    border-radius:0 0 16px 16px;
+    background:rgba(255,248,233,.99);
+    box-shadow:0 14px 28px rgba(79,25,15,.16);
+  }
+  header #primary-navigation.open{display:flex !important}
+  header #primary-navigation a{
+    display:block;
+    min-height:46px;
+    padding:12px 18px;
+    border-top:1px solid rgba(142,20,36,.10);
+  }
+}
+@media (min-width:701px){
+  header .menu{display:none !important}
+  header #primary-navigation{display:flex !important}
+}
+</style>
+
 </body>
 </html>
 
