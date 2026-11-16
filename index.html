@@ -1134,27 +1134,27 @@ section{
   box-shadow:0 3px 12px rgba(70,30,10,.10);
   font-family:Arial,Helvetica,sans-serif;
 }
-.latest-ribbon-viewport{flex:1;min-width:0;overflow:hidden}
+.latest-ribbon-viewport{flex:1 1 auto;min-width:0;width:100%;overflow:hidden}
 .latest-ribbon-track{
-  display:flex;width:max-content;min-width:max-content;
-  will-change:transform;
+  display:flex;flex:0 0 auto;width:max-content;min-width:max-content;
+  align-items:center;will-change:transform;transform:translate3d(0,0,0);
 }
 .latest-ribbon-content{
-  display:flex;flex:0 0 auto;align-items:center;gap:22px;
-  padding-right:22px;white-space:nowrap;
+  display:flex;flex:0 0 auto;align-items:center;gap:14px;
+  padding-right:14px;white-space:nowrap;
   font-size:13px;font-weight:700;letter-spacing:.01em;
 }
-.latest-ribbon-item{display:inline-flex;align-items:center;gap:8px}
+.latest-ribbon-item{display:inline-flex;flex:0 0 auto;align-items:center;white-space:nowrap}
 .latest-ribbon-symbol{color:#b7791f;font-size:15px}
-.latest-ribbon-separator{color:#c99a36;font-size:12px}
-@keyframes latestRibbonScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.latest-ribbon-separator{display:inline-flex;flex:0 0 auto;align-items:center;color:#c99a36;font-size:12px}
+@keyframes latestRibbonScroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 /* The fixed header and hero start below the ribbon on every screen size. */
 header{top:42px}
 .hero{margin-top:116px}
 html{scroll-padding-top:126px}
 @media(max-width:700px){
   .latest-updates-ribbon{height:36px;gap:0;padding:0}
-  .latest-ribbon-content{gap:15px;padding-right:15px;font-size:11px}
+  .latest-ribbon-content{gap:10px;padding-right:10px;font-size:11px}
   header{top:36px}
   .hero{margin-top:110px}
   html{scroll-padding-top:120px}
@@ -3167,47 +3167,76 @@ summary:focus-visible,
   const content=document.getElementById("latest-ribbon-content");
   if(!ribbon||!viewport||!track||!content)return;
 
-  // Use one shared time origin so a refresh resumes at the same point in
-  // the loop instead of restarting the announcement from the beginning.
-  const PIXELS_PER_SECOND=42;
+  const PIXELS_PER_SECOND=38;
   const LOOP_EPOCH=Date.UTC(2026,0,1);
   let motion=null;
   let resizeTimer=null;
 
-  function startMotion(){
-    const distance=content.getBoundingClientRect().width;
-    if(!distance)return;
-    if(motion)motion.cancel();
-
-    const duration=(distance/PIXELS_PER_SECOND)*1000;
-    const elapsed=Math.max(0,Date.now()-LOOP_EPOCH);
-    const phase=elapsed%duration;
-
-    motion=track.animate(
-      [{transform:"translateX(0)"},{transform:"translateX(-"+distance+"px)"}],
-      {duration:duration,iterations:Infinity,easing:"linear"}
-    );
-    motion.currentTime=phase;
+  // Keep exactly two identical message groups side by side. The second group
+  // replaces the first at the loop boundary, so there is no visible reset.
+  let copy=document.getElementById("latest-ribbon-content-copy");
+  if(!copy){
+    copy=content.cloneNode(true);
+    copy.id="latest-ribbon-content-copy";
+    copy.setAttribute("aria-hidden","true");
+    content.after(copy);
   }
 
-  // The two fixed messages are duplicated once to make the loop seamless.
-  const oldCopy=document.getElementById("latest-ribbon-content-copy");
-  if(oldCopy)oldCopy.remove();
-  const copy=content.cloneNode(true);
-  copy.id="latest-ribbon-content-copy";
-  copy.setAttribute("aria-hidden","true");
-  content.after(copy);
+  function startMotion(){
+    const distance=content.getBoundingClientRect().width;
+    if(!distance||!Number.isFinite(distance))return;
 
-  startMotion();
+    const duration=(distance/PIXELS_PER_SECOND)*1000;
+    const phase=Date.now()>=LOOP_EPOCH?(Date.now()-LOOP_EPOCH)%duration:0;
 
-  // Re-measure after layout changes while preserving the shared time phase.
-  window.addEventListener("resize",function(){
+    if(motion){motion.cancel();motion=null;}
+    track.style.animation="none";
+
+    // Web Animations API is preferred; CSS animation is the fallback for
+    // browsers where Element.animate is unavailable or fails.
+    try{
+      if(typeof track.animate==="function"){
+        motion=track.animate(
+          [{transform:"translate3d(0,0,0)"},{transform:"translate3d(-"+distance+"px,0,0)"}],
+          {duration:duration,iterations:Infinity,easing:"linear"}
+        );
+        motion.currentTime=phase;
+        return;
+      }
+    }catch(error){
+      if(motion){try{motion.cancel();}catch(_){}motion=null;}
+    }
+
+    track.style.animation="latestRibbonScroll "+duration+"ms linear infinite";
+    track.style.animationDelay="-"+phase+"ms";
+  }
+
+  function scheduleMotion(){
     clearTimeout(resizeTimer);
-    resizeTimer=setTimeout(startMotion,150);
-  },{passive:true});
+    resizeTimer=setTimeout(startMotion,100);
+  }
 
+  // Wait for layout/fonts before measuring; this avoids zero or stale widths
+  // on mobile browsers during their first paint.
+  function initialise(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(startMotion);
+    });
+  }
+  if(document.fonts&&document.fonts.ready){
+    document.fonts.ready.then(initialise).catch(initialise);
+  }else{
+    initialise();
+  }
+  window.addEventListener("load",initialise,{once:true});
+  window.addEventListener("resize",scheduleMotion,{passive:true});
+  if(typeof ResizeObserver==="function"){
+    const observer=new ResizeObserver(scheduleMotion);
+    observer.observe(viewport);
+    observer.observe(content);
+  }
   document.addEventListener("visibilitychange",function(){
-    if(document.visibilityState==="visible")startMotion();
+    if(document.visibilityState==="visible")initialise();
   });
 })();
 </script>
