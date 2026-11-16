@@ -1173,13 +1173,9 @@ html{scroll-padding-top:126px}
   <div class="latest-ribbon-viewport">
     <div class="latest-ribbon-track" id="latest-ribbon-track">
       <div class="latest-ribbon-content" id="latest-ribbon-content">
-        <span class="latest-ribbon-item"><span class="latest-ribbon-symbol">⚠</span> Online receipt facility under maintenance</span>
-        <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
-        <span class="latest-ribbon-item">Puja information and website updates</span>
-        <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
         <span class="latest-ribbon-item">Welcome to Civil Line Ganesh Puja Samiti</span>
         <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
-        <span class="latest-ribbon-item">This website is created, developed and managed by Ashu</span>
+        <span class="latest-ribbon-item">This website is created by Ashu</span>
         <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
       </div>
     </div>
@@ -3150,68 +3146,47 @@ summary:focus-visible,
   const content=document.getElementById("latest-ribbon-content");
   if(!ribbon||!viewport||!track||!content)return;
 
-  // Keep the text moving at a fixed pixel speed, regardless of how many
-  // announcements are present or how wide the visitor's screen is.
+  // Use one shared time origin so a refresh resumes at the same point in
+  // the loop instead of restarting the announcement from the beginning.
   const PIXELS_PER_SECOND=42;
+  const LOOP_EPOCH=Date.UTC(2026,0,1);
   let motion=null;
   let resizeTimer=null;
 
-  function makeLoop(){
-    const oldCopy=document.getElementById("latest-ribbon-content-copy");
-    if(oldCopy)oldCopy.remove();
-    const copy=content.cloneNode(true);
-    copy.id="latest-ribbon-content-copy";
-    copy.setAttribute("aria-hidden","true");
-    content.after(copy);
-    startMotion();
-  }
-
   function startMotion(){
-    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-      if(motion)motion.cancel();
-      track.style.transform="translateX(0)";
-      return;
-    }
     const distance=content.getBoundingClientRect().width;
     if(!distance)return;
     if(motion)motion.cancel();
+
     const duration=(distance/PIXELS_PER_SECOND)*1000;
+    const elapsed=Math.max(0,Date.now()-LOOP_EPOCH);
+    const phase=elapsed%duration;
+
     motion=track.animate(
       [{transform:"translateX(0)"},{transform:"translateX(-"+distance+"px)"}],
       {duration:duration,iterations:Infinity,easing:"linear"}
     );
+    motion.currentTime=phase;
   }
 
-  fetch(new URL("data/puja-updates.json",document.baseURI),{cache:"no-store"})
-    .then(response=>{
-      if(!response.ok)throw new Error("Updates feed unavailable");
-      return response.json();
-    })
-    .then(items=>{
-      if(Array.isArray(items)){
-        items.slice(0,8).forEach(item=>{
-          if(!item||typeof item.message!=="string")return;
-          const separator=document.createElement("span");
-          separator.className="latest-ribbon-separator";
-          separator.setAttribute("aria-hidden","true");
-          separator.textContent="✦";
-          const entry=document.createElement("span");
-          entry.className="latest-ribbon-item";
-          entry.textContent=item.message;
-          content.append(separator,entry);
-        });
-      }
-    })
-    .catch(()=>{})
-    .finally(makeLoop);
+  // The two fixed messages are duplicated once to make the loop seamless.
+  const oldCopy=document.getElementById("latest-ribbon-content-copy");
+  if(oldCopy)oldCopy.remove();
+  const copy=content.cloneNode(true);
+  copy.id="latest-ribbon-content-copy";
+  copy.setAttribute("aria-hidden","true");
+  content.after(copy);
 
-  // Recalculate only when the available layout changes, not during scrolling.
+  startMotion();
+
+  // Re-measure after layout changes while preserving the shared time phase.
   window.addEventListener("resize",function(){
     clearTimeout(resizeTimer);
     resizeTimer=setTimeout(startMotion,150);
   },{passive:true});
+
   document.addEventListener("visibilitychange",function(){
-    if(document.visibilityState==="visible"&&motion&&motion.playState==="paused")motion.play();
+    if(document.visibilityState==="visible")startMotion();
   });
 })();
 </script>
