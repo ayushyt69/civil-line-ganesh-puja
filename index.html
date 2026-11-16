@@ -1137,7 +1137,6 @@ section{
 .latest-ribbon-viewport{flex:1;min-width:0;overflow:hidden}
 .latest-ribbon-track{
   display:flex;width:max-content;min-width:max-content;
-  animation:latestRibbonScroll 38s linear infinite;
   will-change:transform;
 }
 .latest-ribbon-content{
@@ -3254,8 +3253,16 @@ summary:focus-visible,
 <script>
 (function(){
   const ribbon=document.querySelector(".latest-updates-ribbon");
+  const viewport=ribbon?.querySelector(".latest-ribbon-viewport");
+  const track=document.getElementById("latest-ribbon-track");
   const content=document.getElementById("latest-ribbon-content");
-  if(!ribbon||!content)return;
+  if(!ribbon||!viewport||!track||!content)return;
+
+  // Keep the text moving at a fixed pixel speed, regardless of how many
+  // announcements are present or how wide the visitor's screen is.
+  const PIXELS_PER_SECOND=42;
+  let motion=null;
+  let resizeTimer=null;
 
   function makeLoop(){
     const oldCopy=document.getElementById("latest-ribbon-content-copy");
@@ -3264,6 +3271,23 @@ summary:focus-visible,
     copy.id="latest-ribbon-content-copy";
     copy.setAttribute("aria-hidden","true");
     content.after(copy);
+    startMotion();
+  }
+
+  function startMotion(){
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      if(motion)motion.cancel();
+      track.style.transform="translateX(0)";
+      return;
+    }
+    const distance=content.getBoundingClientRect().width;
+    if(!distance)return;
+    if(motion)motion.cancel();
+    const duration=(distance/PIXELS_PER_SECOND)*1000;
+    motion=track.animate(
+      [{transform:"translateX(0)"},{transform:"translateX(-"+distance+"px)"}],
+      {duration:duration,iterations:Infinity,easing:"linear"}
+    );
   }
 
   fetch(new URL("data/puja-updates.json",document.baseURI),{cache:"no-store"})
@@ -3289,6 +3313,14 @@ summary:focus-visible,
     .catch(()=>{})
     .finally(makeLoop);
 
+  // Recalculate only when the available layout changes, not during scrolling.
+  window.addEventListener("resize",function(){
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(startMotion,150);
+  },{passive:true});
+  document.addEventListener("visibilitychange",function(){
+    if(document.visibilityState==="visible"&&motion&&motion.playState==="paused")motion.play();
+  });
 })();
 </script>
 
