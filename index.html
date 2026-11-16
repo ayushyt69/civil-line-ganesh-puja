@@ -1123,6 +1123,66 @@ section{
 @media(max-width:600px){.chhath-wish-overlay{padding:12px}.chhath-wish-panel{width:96vw;max-height:86vh;padding:7px;border-radius:15px}.chhath-wish-image{max-height:calc(86vh - 14px);border-radius:9px}.chhath-wish-close{top:-10px;right:-7px;width:36px;height:36px}}
 @media(prefers-reduced-motion:reduce){.chhath-wish-overlay,.chhath-wish-panel{animation:none}}
 
+
+/* Compact continuously scrolling announcements ribbon */
+.latest-updates-ribbon{
+  position:fixed;top:0;left:0;right:0;z-index:40;
+  height:42px;display:flex;align-items:center;gap:12px;
+  padding:0 16px;color:#6d281b;
+  background:linear-gradient(100deg,#fff3d4 0%,#fffaf0 48%,#f9e5b8 100%);
+  border-bottom:1px solid rgba(190,139,44,.72);
+  box-shadow:0 3px 12px rgba(70,30,10,.10);
+  font-family:Arial,Helvetica,sans-serif;
+}
+.latest-ribbon-icon{
+  flex:0 0 auto;display:grid;place-items:center;
+  width:27px;height:27px;border-radius:50%;
+  color:#fff;background:linear-gradient(145deg,#a9162b,#7d1021);
+  box-shadow:0 2px 8px rgba(142,20,36,.2);font-size:14px;
+}
+.latest-ribbon-viewport{flex:1;min-width:0;overflow:hidden}
+.latest-ribbon-track{
+  display:flex;width:max-content;min-width:max-content;
+  animation:latestRibbonScroll 38s linear infinite;
+  will-change:transform;
+}
+.latest-ribbon-content{
+  display:flex;flex:0 0 auto;align-items:center;gap:22px;
+  padding-right:22px;white-space:nowrap;
+  font-size:13px;font-weight:700;letter-spacing:.01em;
+}
+.latest-ribbon-item{display:inline-flex;align-items:center;gap:8px}
+.latest-ribbon-symbol{color:#b7791f;font-size:15px}
+.latest-ribbon-separator{color:#c99a36;font-size:12px}
+.latest-ribbon-toggle{
+  flex:0 0 auto;width:29px;height:29px;display:grid;place-items:center;
+  border:1px solid rgba(142,20,36,.22);border-radius:50%;
+  color:#8e1424;background:rgba(255,255,255,.75);
+  font-size:13px;font-weight:800;cursor:pointer;
+}
+.latest-ribbon-toggle:hover{background:#fff;border-color:#b88938}
+.latest-updates-ribbon.is-paused .latest-ribbon-track{animation-play-state:paused}
+@keyframes latestRibbonScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* The fixed header and hero start below the ribbon on every screen size. */
+header{top:42px}
+.hero{margin-top:116px}
+html{scroll-padding-top:126px}
+@media(max-width:700px){
+  .latest-updates-ribbon{height:36px;gap:8px;padding:0 9px}
+  .latest-ribbon-icon{width:23px;height:23px;font-size:12px}
+  .latest-ribbon-content{gap:15px;padding-right:15px;font-size:11px}
+  .latest-ribbon-toggle{width:25px;height:25px;font-size:11px}
+  header{top:36px}
+  .hero{margin-top:110px}
+  html{scroll-padding-top:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  .latest-ribbon-track{animation:none}
+  .latest-ribbon-viewport{overflow-x:auto;scrollbar-width:none}
+  .latest-ribbon-viewport::-webkit-scrollbar{display:none}
+  .latest-ribbon-toggle{display:none}
+}
+
 </style>
   
 <body>
@@ -1131,6 +1191,23 @@ section{
 
 
 
+
+<div class="latest-updates-ribbon" role="region" aria-label="Latest website announcements">
+  <span class="latest-ribbon-icon" aria-hidden="true">📢</span>
+  <div class="latest-ribbon-viewport">
+    <div class="latest-ribbon-track" id="latest-ribbon-track">
+      <div class="latest-ribbon-content" id="latest-ribbon-content">
+        <span class="latest-ribbon-item"><span class="latest-ribbon-symbol">⚠</span> Online receipt facility under maintenance</span>
+        <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
+        <span class="latest-ribbon-item">Puja information and website updates</span>
+        <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
+        <span class="latest-ribbon-item">Welcome to Civil Line Ganesh Puja Samiti</span>
+        <span class="latest-ribbon-separator" aria-hidden="true">✦</span>
+      </div>
+    </div>
+  </div>
+  <button class="latest-ribbon-toggle" id="latest-ribbon-toggle" type="button" aria-label="Pause announcements" aria-pressed="false">Ⅱ</button>
+</div>
 
 <header>
   <div class="container nav">
@@ -3198,6 +3275,54 @@ summary:focus-visible,
   popup.querySelector('.chhath-wish-close').addEventListener('click',closePopup);
   document.addEventListener('keydown',function(event){
     if(event.key==='Escape' && document.getElementById('chhathWishPopup')) closePopup();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const ribbon=document.querySelector(".latest-updates-ribbon");
+  const content=document.getElementById("latest-ribbon-content");
+  const toggle=document.getElementById("latest-ribbon-toggle");
+  if(!ribbon||!content||!toggle)return;
+
+  function makeLoop(){
+    const oldCopy=document.getElementById("latest-ribbon-content-copy");
+    if(oldCopy)oldCopy.remove();
+    const copy=content.cloneNode(true);
+    copy.id="latest-ribbon-content-copy";
+    copy.setAttribute("aria-hidden","true");
+    content.after(copy);
+  }
+
+  fetch(new URL("data/puja-updates.json",document.baseURI),{cache:"no-store"})
+    .then(response=>{
+      if(!response.ok)throw new Error("Updates feed unavailable");
+      return response.json();
+    })
+    .then(items=>{
+      if(Array.isArray(items)){
+        items.slice(0,8).forEach(item=>{
+          if(!item||typeof item.message!=="string")return;
+          const separator=document.createElement("span");
+          separator.className="latest-ribbon-separator";
+          separator.setAttribute("aria-hidden","true");
+          separator.textContent="✦";
+          const entry=document.createElement("span");
+          entry.className="latest-ribbon-item";
+          entry.textContent=item.message;
+          content.append(separator,entry);
+        });
+      }
+    })
+    .catch(()=>{})
+    .finally(makeLoop);
+
+  toggle.addEventListener("click",()=>{
+    const paused=ribbon.classList.toggle("is-paused");
+    toggle.setAttribute("aria-pressed",String(paused));
+    toggle.setAttribute("aria-label",paused?"Resume announcements":"Pause announcements");
+    toggle.textContent=paused?"▶":"Ⅱ";
   });
 })();
 </script>
