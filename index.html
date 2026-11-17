@@ -3130,31 +3130,23 @@ summary:focus-visible,
 </script>
 
 
-<!-- CHHATH PUJA GREETING POPUP -->
-<div class="chhath-wish-overlay" id="chhathWishPopup" role="dialog" aria-modal="true" aria-label="Chhath Puja greetings">
+<!-- TEMPORARY FESTIVAL GREETING POPUP -->
+<div class="chhath-wish-overlay" id="festivalWishPopup" role="dialog" aria-modal="true" aria-label="Festival greetings">
   <div class="chhath-wish-panel">
     <button class="chhath-wish-close" type="button" aria-label="Close greeting">×</button>
-    <img class="chhath-wish-image" src="assets/chhath-puja-wishes-2024-wishes-messages-photos-1-2024-11-c3981653c439932d62721c6e602a2edb.jpg" alt="Chhath Puja greetings from Civil Line Ganesh Puja Samiti">
+    <img class="chhath-wish-image" src="assets/IMG-20260904-WA0076.jpg" alt="Festival greetings from Civil Line Ganesh Puja Samiti">
   </div>
 </div>
 <script>
 (function(){
-  const popup=document.getElementById('chhathWishPopup');
+  const popup=document.getElementById('festivalWishPopup');
   if(!popup)return;
-
-  // Automatically stop showing this temporary greeting after Chhath Puja.
-  // Expiry: 17 November 2026, 12:00 AM Indian Standard Time.
-  const expiry=new Date('2026-11-17T00:00:00+05:30');
-  if(Date.now()>=expiry.getTime()){
-    popup.remove();
-    return;
-  }
 
   function closePopup(){popup.remove();}
   popup.addEventListener('click',closePopup);
   popup.querySelector('.chhath-wish-close').addEventListener('click',closePopup);
   document.addEventListener('keydown',function(event){
-    if(event.key==='Escape' && document.getElementById('chhathWishPopup')) closePopup();
+    if(event.key==='Escape' && document.getElementById('festivalWishPopup')) closePopup();
   });
 })();
 </script>
