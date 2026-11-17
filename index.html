@@ -3258,6 +3258,29 @@ summary:focus-visible,
 
 
 
+<!-- DEV UTHANI EKADASHI WISH POPUP -->
+<div class="chhath-wish-overlay" id="chhath-wish-overlay" role="dialog" aria-modal="true" aria-label="Dev Uthani Ekadashi greeting">
+  <div class="chhath-wish-panel">
+    <button class="chhath-wish-close" id="chhath-wish-close" type="button" aria-label="Close greeting">×</button>
+    <img class="chhath-wish-image" src="https://plain-apac-prod-public.komododecks.com/202611/17/7KDWudjZFYT6l6elv8ZI/image.jpg" alt="Civil Line Ganesh Puja Samiti wishes everyone a Happy Dev Uthani Ekadashi">
+  </div>
+</div>
+<script>
+(function(){
+  const overlay=document.getElementById("chhath-wish-overlay");
+  const close=document.getElementById("chhath-wish-close");
+  if(!overlay||!close)return;
+  function dismiss(){overlay.remove();}
+  close.addEventListener("click",dismiss);
+  overlay.addEventListener("click",function(event){
+    if(event.target===overlay)dismiss();
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape"&&document.body.contains(overlay))dismiss();
+  });
+})();
+</script>
+
 </body>
 </html>
 
