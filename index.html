@@ -435,8 +435,11 @@ h2{
 .about-box{
   min-height:330px;
   border-radius:28px;
-  background:linear-gradient(145deg,var(--maroon),#55101a);
-  color:#fff;
+  background:linear-gradient(145deg,#fffdf7,#f8edda);
+  border:1px solid rgba(214,168,63,.38);
+  border-left:4px solid var(--gold);
+  box-shadow:0 12px 30px rgba(80,30,10,.07);
+  color:#604943;
   padding:40px;
   display:flex;
   flex-direction:column;
@@ -444,6 +447,7 @@ h2{
 }
 
 .about-box h3{
+  color:var(--maroon);
   font-size:32px;
   margin-bottom:12px
 }
@@ -1765,22 +1769,17 @@ html{scroll-padding-top:126px}
             class="media-partner-link"
             href="https://www.instagram.com/devesh_deoghar_vlogs/"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+            style="display:inline-flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:inherit;">
 
             <img
               src="assets/devesh-media.jpg"
               alt="Devesh Deoghar Vlogs"
               class="media-partner-logo">
 
+            <strong>Devesh Deoghar Vlogs</strong>
+            <span style="font-size:13px;">@devesh_deoghar_vlogs</span>
           </a>
-
-          <strong style="display:block;">
-            Devesh Deoghar Vlogs
-          </strong>
-
-          <span style="font-size:13px;">
-            @devesh_deoghar_vlogs
-          </span>
 
         </div>
 
@@ -1790,22 +1789,17 @@ html{scroll-padding-top:126px}
             class="media-partner-link"
             href="https://www.instagram.com/exposure_notes/"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+            style="display:inline-flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:inherit;">
 
             <img
               src="assets/exposure-notes.jpg"
               alt="Exposure Notes"
               class="media-partner-logo">
 
+            <strong>Exposure Notes</strong>
+            <span style="font-size:13px;">@exposure_notes</span>
           </a>
-
-          <strong style="display:block;">
-            Exposure Notes
-          </strong>
-
-          <span style="font-size:13px;">
-            @exposure_notes
-          </span>
 
         </div>
 
@@ -3338,6 +3332,7 @@ summary:focus-visible,
 <script id="viewer-image-protection-script">
 (function(){
   document.addEventListener("click",function(event){
+    if(event.target && event.target.closest && event.target.closest(".media-partner-link")) return;
     if(event.target && event.target.closest && event.target.closest("img")){
       event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
     }
