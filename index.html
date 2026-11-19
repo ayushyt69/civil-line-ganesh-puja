@@ -3262,9 +3262,22 @@ summary:focus-visible,
   if(!showcase||!photo||!name||!role)return;
 
   const members=[{"name":"Devjeet Kumar","role":"President","image":"assets/committee-members/IMG_20260916_015021.jpg","alt":"Devjeet Kumar","initials":null},{"name":"Premjeet Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014829.jpg","alt":"Premjeet Kumar","initials":null},{"name":"Ayush Khaware","role":"Committee Member","image":null,"alt":"Ayush Khaware","initials":"NA"},{"name":"Ankit Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_015313.jpg","alt":"Ankit Kumar","initials":null},{"name":"Shivam Barnwal","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014847.jpg","alt":"Shivam Barnwal","initials":null},{"name":"Shankar Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014725.jpg","alt":"Shankar Kumar","initials":null},{"name":"Sachin Dubey","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014743.jpg","alt":"Sachin Dubey","initials":null},{"name":"Shubham Dubey","role":"Committee Member","image":null,"alt":"Shubham Dubey","initials":"NA"},{"name":"Shashank Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014705.jpg","alt":"Shashank Kumar","initials":null},{"name":"Devesh Gautam","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014814.jpg","alt":"Devesh Gautam","initials":null},{"name":"Madhav","role":"Committee Member","image":null,"alt":"Madhav","initials":"NA"}];
+
   let current=0;
   let timer=null;
   const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Load each photo once, then reuse the same image element on every rotation.
+  const initialPhoto=photo.querySelector("img");
+  const preloadedImages=members.map((member,index)=>{
+    if(!member.image)return null;
+    if(index===0&&initialPhoto)return initialPhoto;
+    const img=new Image();
+    img.alt=member.alt;
+    img.decoding="async";
+    img.src=member.image;
+    return img;
+  });
 
   function displayMember(index){
     const member=members[index];
@@ -3274,10 +3287,7 @@ summary:focus-visible,
 
     window.setTimeout(function(){
       if(member.image){
-        const img=document.createElement("img");
-        img.src=member.image;
-        img.alt=member.alt;
-        photo.replaceChildren(img);
+        photo.replaceChildren(preloadedImages[index]);
       }else{
         photo.textContent=member.initials;
       }
@@ -3296,15 +3306,27 @@ summary:focus-visible,
       timer=setInterval(function(){
         current=(current+1)%members.length;
         displayMember(current);
-      },1500);
+      },2500);
     }
+  }
+
+  function waitForPhotos(){
+    const pending=preloadedImages.filter(Boolean).map(img=>{
+      if(typeof img.decode==="function")return img.decode().catch(()=>{});
+      if(img.complete)return Promise.resolve();
+      return new Promise(resolve=>{
+        img.addEventListener("load",resolve,{once:true});
+        img.addEventListener("error",resolve,{once:true});
+      });
+    });
+    Promise.all(pending).then(start);
   }
 
   document.addEventListener("visibilitychange",function(){
     if(document.visibilityState==="visible")start();
     else stop();
   });
-  start();
+  waitForPhotos();
 })();
 </script>
 
