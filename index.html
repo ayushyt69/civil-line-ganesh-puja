@@ -543,6 +543,145 @@ h2{
   margin-top:2px
 }
 
+
+/* AUTOMATIC COMMITTEE MEMBER SHOWCASE */
+.committee-showcase{
+  position:relative;
+  isolation:isolate;
+  width:min(520px,100%);
+  min-height:340px;
+  margin:0 auto;
+  padding:34px 22px 25px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  border:1px solid rgba(214,168,63,.42);
+  border-radius:28px;
+  background:radial-gradient(circle at 50% 28%,#fffdf7 0%,#fff8e9 62%,#f8ecd5 100%);
+  box-shadow:0 16px 42px rgba(80,30,10,.09);
+}
+.committee-profile-orbit{
+  position:absolute;
+  z-index:-1;
+  top:30px;
+  left:50%;
+  width:190px;
+  height:190px;
+  transform:translateX(-50%);
+  border:1px solid rgba(214,168,63,.25);
+  border-radius:50%;
+}
+.committee-profile-orbit:before,
+.committee-profile-orbit:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px dashed rgba(184,137,56,.30);
+  border-radius:50%;
+}
+.committee-profile-orbit:after{
+  inset:-10px;
+  border-style:solid;
+  border-color:rgba(142,20,36,.09);
+}
+.committee-profile-photo{
+  width:142px;
+  height:142px;
+  margin:0 auto 18px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:5px solid #fffaf0;
+  outline:3px solid var(--gold);
+  border-radius:50%;
+  background:linear-gradient(145deg,#f4ddb0,#fff);
+  box-shadow:0 10px 28px rgba(80,30,10,.18);
+  color:var(--maroon);
+  font-size:38px;
+  font-weight:800;
+  transition:opacity .35s ease,transform .35s ease;
+}
+.committee-profile-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.committee-profile-photo.is-changing{
+  opacity:0;
+  transform:scale(.88);
+}
+.committee-profile-name,
+.committee-profile-role{
+  transition:opacity .35s ease,transform .35s ease;
+}
+.committee-profile-name{
+  min-height:36px;
+  color:var(--maroon);
+  font-size:clamp(23px,4vw,30px);
+  line-height:1.2;
+}
+.committee-profile-role{
+  min-height:24px;
+  margin-top:5px;
+  color:#85621f;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.committee-profile-name.is-changing,
+.committee-profile-role.is-changing{
+  opacity:0;
+  transform:translateY(7px);
+}
+.committee-profile-progress{
+  width:100%;
+  margin-top:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  color:#8a6a38;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+.committee-profile-dots{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.committee-profile-dots span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#e7d2a7;
+  transition:transform .25s ease,background .25s ease;
+}
+.committee-profile-dots span.active{
+  transform:scale(1.45);
+  background:var(--maroon);
+}
+@media(max-width:600px){
+  .committee-showcase{
+    min-height:315px;
+    padding:28px 16px 22px;
+    border-radius:22px;
+  }
+  .committee-profile-photo{width:126px;height:126px}
+  .committee-profile-orbit{top:25px;width:170px;height:170px}
+}
+@media(prefers-reduced-motion:reduce){
+  .committee-profile-photo,
+  .committee-profile-name,
+  .committee-profile-role,
+  .committee-profile-dots span{transition:none}
+}
+
 /* GROUP 2026 HIGHLIGHTS + EVENT GALLERY AS ONE VISUAL SECTION */
 .highlights-gallery-group{
   width:min(1240px,calc(100% - 48px));
@@ -1555,117 +1694,27 @@ html{scroll-padding-top:126px}
 <!-- ============================= -->
 
 <section class="committee" id="committee">
-
   <div class="container">
-
     <div class="section-head">
-
-      <div class="kicker">
-        Our Family
-      </div>
-
-      <h2>
-        Committee Members
-      </h2>
-
+      <div class="kicker">Our Family</div>
+      <h2>Committee Members</h2>
     </div>
 
-    <details class="committee-toggle">
-
-      <summary>
-        View Committee Members
-      </summary>
-
-      <div class="member-grid">
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_015021.jpg" alt="Devjeet Kumar">
-          </div>
-          <h3>Devjeet Kumar</h3>
-          <p>President</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014829.jpg" alt="Premjeet Kumar">
-          </div>
-          <h3>Premjeet Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">NA</div>
-          <h3>Ayush Khaware</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_015313.jpg" alt="Ankit Kumar">
-          </div>
-          <h3>Ankit Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014847.jpg" alt="Shivam Barnwal">
-          </div>
-          <h3>Shivam Barnwal</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014725.jpg" alt="Shankar Kumar">
-          </div>
-          <h3>Shankar Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014743.jpg" alt="Sachin Dubey">
-          </div>
-          <h3>Sachin Dubey</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">NA</div>
-          <h3>Shubham Dubey</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014705.jpg" alt="Shashank Kumar">
-          </div>
-          <h3>Shashank Kumar</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">
-            <img src="assets/committee-members/IMG_20260916_014814.jpg" alt="Devesh Gautam">
-          </div>
-          <h3>Devesh Gautam</h3>
-          <p>Committee Member</p>
-        </div>
-
-        <div class="member">
-          <div class="member-avatar">NA</div>
-          <h3>Madhav</h3>
-          <p>Committee Member</p>
-        </div>
-
+    <div class="committee-showcase" id="committee-showcase" aria-live="polite" aria-atomic="true">
+      <div class="committee-profile-orbit" aria-hidden="true"></div>
+      <div class="committee-profile-photo" id="committee-profile-photo">
+        <img src="assets/committee-members/IMG_20260916_015021.jpg" alt="Devjeet Kumar">
       </div>
-
-    </details>
-
+      <h3 class="committee-profile-name" id="committee-profile-name">Devjeet Kumar</h3>
+      <p class="committee-profile-role" id="committee-profile-role">President</p>
+      <div class="committee-profile-progress" aria-hidden="true">
+        <span id="committee-profile-count">01 / 11</span>
+        <div class="committee-profile-dots" id="committee-profile-dots">
+          <span class="active"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span>
+        </div>
+      </div>
+    </div>
   </div>
-
 </section>
 
 <!-- ============================= -->
@@ -3259,6 +3308,66 @@ summary:focus-visible,
 
 
 
+
+
+<script id="committee-auto-rotation">
+(function(){
+  const showcase=document.getElementById("committee-showcase");
+  const photo=document.getElementById("committee-profile-photo");
+  const name=document.getElementById("committee-profile-name");
+  const role=document.getElementById("committee-profile-role");
+  const count=document.getElementById("committee-profile-count");
+  const dots=[...document.querySelectorAll("#committee-profile-dots span")];
+  if(!showcase||!photo||!name||!role||!count||!dots.length)return;
+
+  const members=[{"name":"Devjeet Kumar","role":"President","image":"assets/committee-members/IMG_20260916_015021.jpg","alt":"Devjeet Kumar","initials":null},{"name":"Premjeet Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014829.jpg","alt":"Premjeet Kumar","initials":null},{"name":"Ayush Khaware","role":"Committee Member","image":null,"alt":"Ayush Khaware","initials":"NA"},{"name":"Ankit Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_015313.jpg","alt":"Ankit Kumar","initials":null},{"name":"Shivam Barnwal","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014847.jpg","alt":"Shivam Barnwal","initials":null},{"name":"Shankar Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014725.jpg","alt":"Shankar Kumar","initials":null},{"name":"Sachin Dubey","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014743.jpg","alt":"Sachin Dubey","initials":null},{"name":"Shubham Dubey","role":"Committee Member","image":null,"alt":"Shubham Dubey","initials":"NA"},{"name":"Shashank Kumar","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014705.jpg","alt":"Shashank Kumar","initials":null},{"name":"Devesh Gautam","role":"Committee Member","image":"assets/committee-members/IMG_20260916_014814.jpg","alt":"Devesh Gautam","initials":null},{"name":"Madhav","role":"Committee Member","image":null,"alt":"Madhav","initials":"NA"}];
+  let current=0;
+  let timer=null;
+  const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function displayMember(index){
+    const member=members[index];
+    photo.classList.add("is-changing");
+    name.classList.add("is-changing");
+    role.classList.add("is-changing");
+
+    window.setTimeout(function(){
+      if(member.image){
+        const img=document.createElement("img");
+        img.src=member.image;
+        img.alt=member.alt;
+        photo.replaceChildren(img);
+      }else{
+        photo.textContent=member.initials;
+      }
+      name.textContent=member.name;
+      role.textContent=member.role;
+      count.textContent=String(index+1).padStart(2,"0")+" / "+String(members.length).padStart(2,"0");
+      dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
+      photo.classList.remove("is-changing");
+      name.classList.remove("is-changing");
+      role.classList.remove("is-changing");
+    },reducedMotion.matches?0:260);
+  }
+
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){
+    stop();
+    if(document.visibilityState==="visible"){
+      timer=setInterval(function(){
+        current=(current+1)%members.length;
+        displayMember(current);
+      },3800);
+    }
+  }
+
+  document.addEventListener("visibilitychange",function(){
+    if(document.visibilityState==="visible")start();
+    else stop();
+  });
+  start();
+})();
+</script>
 
 </body>
 </html>
