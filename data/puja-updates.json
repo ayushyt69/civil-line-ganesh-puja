@@ -1,5 +1,9 @@
 [
   {
+    "message": "Committee information updated.",
+    "date": "2026-11-20T03:18+05:30"
+  },
+  {
     "message": "Puja information updated.",
     "date": "2026-11-18T03:23+05:30"
   },
@@ -42,9 +46,5 @@
   {
     "message": "Website content updated.",
     "date": "2026-11-16T14:31+05:30"
-  },
-  {
-    "message": "Puja information updated.",
-    "date": "2026-11-16T14:27+05:30"
   }
 ]
