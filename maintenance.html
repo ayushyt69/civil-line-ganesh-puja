@@ -676,29 +676,7 @@
   </div>
 
 
-<style id="viewer-image-protection">
-  img { -webkit-user-drag:none; user-drag:none; -webkit-touch-callout:none; user-select:none; }
-  #lightbox-download { display:none !important; }
-</style>
-<script id="viewer-image-protection-script">
-(function(){
-  document.addEventListener("click",function(event){
-    if(event.target && event.target.closest && event.target.closest("img")){
-      event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
-    }
-  },true);
-  document.addEventListener("contextmenu",function(event){
-    if(event.target && event.target.closest && event.target.closest("img")){
-      event.preventDefault(); event.stopPropagation();
-    }
-  },true);
-  document.addEventListener("dragstart",function(event){
-    if(event.target && event.target.closest && event.target.closest("img")){
-      event.preventDefault(); event.stopPropagation();
-    }
-  },true);
-})();
-</script>
+
 
 </body>
 </html>
